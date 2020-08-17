@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>David Albert  | Regex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="blavad.github.io/css/blog.css" />
+    </head>
+<body>
+
+    
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="blavad.github.io/blavad.github.io">All</a>
+            <a class="navbar-item" href="blavad.github.io/blavad.github.io/categories/work/">Work</a>
+            <a class="navbar-item" href="blavad.github.io/blavad.github.io/categories/travel/">Travel</a>
+            <a class="navbar-item" href="blavad.github.io/blavad.github.io/about">About</a>
+        </div>
+    </nav>
+    
+
+
+    
+    <section class="hero is-info is-medium">
+        <div class="hero-body" style="background-image: url(blavad.github.io/img/bg-blog.jpg);">
+            <div class="container has-text-centered">
+                <br>
+                <h1 class="title is-size-1">
+                    
+                        Regex
+                    
+                </h1>
+                
+            </div>
+        </div>
+    </section>
+
+
+<div class="container">
+    <div class="section">
+    
+
+<div class="columns">
+    <div class="column is-9">
+        <div class="tile is-child box">
+            <div class="content">
+                <h1 id="regex">REGEX</h1>
+<p>Created By: David ALBERT
+Last Edited: Jul 13, 2020 11:14 AM
+Tags: linux, python</p>
+<h1 id="expressions-régulières">Expressions régulières</h1>
+<h2 id="carectères-spéciaux">Carectères spéciaux</h2>
+<p><code>.</code> : match any single character</p>
+<p><code>^</code> : match the start of the string</p>
+<p><code>$</code> : match the end of the string or just before the newline at the end of the
+string</p>
+<p><code>*</code> : match 0 or more repetitions of the preceding RE → <code>ab*</code> will match ‘a’, ‘ab’, or ‘a’ followed by any number of ‘b’s.</p>
+<p><code>+</code> : match 1 or more repetitions of the preceding RE</p>
+<p><code>?</code> : match 0 or 1 repetitions of the preceding RE → <code>ab?</code> will match either ‘a’ or ‘ab’.</p>
+<p><code>{m}</code> : match exactly <em>m</em> repetitions of the preceding RE</p>
+<p><code>{m,n}</code> : match from <em>m</em> to <em>n</em> repetitions of the preceding RE</p>
+<p><code>\</code> : escapes special characters (permitting you to match characters like <code>'*'</code>, <code>'?'</code> )</p>
+<p><code>[]</code> : used to indicate a set of characters</p>
+<ul>
+<li><code>[amk]</code> will match <code>'a'</code>, <code>'m'</code>, or <code>'k'</code></li>
+<li><code>[a-z]</code></li>
+<li><code>[0-5][0-9]</code> will match all the two-digits numbers from <code>00</code> to <code>59</code></li>
+<li><code>[0-9A-Fa-f]</code> will match any hexadecimal digit</li>
+<li>If <code>-</code> is escaped (e.g. <code>[a\-z]</code>), it will match a literal <code>'-'</code></li>
+<li>Special characters lose their special meaning inside sets</li>
+<li><code>^</code> has no special meaning if it’s not the first character in
+the set → means &ldquo;all except&rdquo; <code>[^5]</code> signifie &ldquo;tout sauf 5&rdquo;</li>
+</ul>
+<p><code>|</code> :  <code>A|B</code> match either <em>A</em> or <em>B</em>.</p>
+<p><code>(...)</code> : match whatever regular expression is inside the parentheses, and indicates the
+start and end of a group</p>
+<h2 id="usage-en-python-re">Usage en python <em>re</em></h2>
+<p>URL Doc Officielle : <a href="https://docs.python.org/3/library/re.html">https://docs.python.org/3/library/re.html</a></p>
+<p><code>(?...)</code> : extension notation (a <code>'?'</code> following a <code>'('</code> is not meaningful otherwise). The first character after the &lsquo;?&rsquo; determines what the meaning and further syntax of the construct is.</p>
+<p><code>\b</code> and <code>\B</code> : match empty string when it is (resp. it is not) at the beginning or end of a word</p>
+<p><code>\d</code> and <code>\D</code> : match any decimal → <code>[0-9]</code> en ASCII (resp. any not decimal → <code>[^0-9]</code>)</p>
+<p><code>\s</code> and <code>\S</code> : Same for whitespace (including <code>[ \t\r\n\f\v]</code>)</p>
+<p><code>\w</code> and <code>\W</code> : Same for alphanumerics (<code>[a-zA-Z0-9_]</code>)</p>
+<h3 id="-usage-général">→ Usage général</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> re
+
+<span style="color:#75715e"># Cas 1 : Cree un objet regex avec le pattern et l&#39;utilise</span>
+<span style="color:#75715e"># -&gt; plus efficace si on utilise beaucoup de fois (evite d&#39;instancier tt le temps)</span>
+prog <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(pattern)
+result <span style="color:#f92672">=</span> prog<span style="color:#f92672">.</span>match(string)
+
+<span style="color:#75715e"># Cas 2 : utilise les fonctionnalités pratiques de &#39;re&#39;</span>
+result <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>match(pattern, string)
+</code></pre></div><h3 id="-rematch-vs-research">→ <em>re.match() vs re.search()</em></h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 1) Match : Check a match only at/from the beginning of the string</span>
+<span style="color:#75715e"># 2) Search : Check a match anywhere in the string</span>
+
+re<span style="color:#f92672">.</span>match(<span style="color:#e6db74">&#34;c&#34;</span>, <span style="color:#e6db74">&#34;abcdef&#34;</span>)    <span style="color:#75715e"># No match</span>
+re<span style="color:#f92672">.</span>search(<span style="color:#e6db74">&#34;c&#34;</span>, <span style="color:#e6db74">&#34;abcdef&#34;</span>)   <span style="color:#75715e"># Match</span>
+
+re<span style="color:#f92672">.</span>match(<span style="color:#e6db74">&#34;c&#34;</span>, <span style="color:#e6db74">&#34;abcdef&#34;</span>)    <span style="color:#75715e"># No match</span>
+re<span style="color:#f92672">.</span>search(<span style="color:#e6db74">&#34;^c&#34;</span>, <span style="color:#e6db74">&#34;abcdef&#34;</span>)  <span style="color:#75715e"># No match</span>
+re<span style="color:#f92672">.</span>search(<span style="color:#e6db74">&#34;^a&#34;</span>, <span style="color:#e6db74">&#34;abcdef&#34;</span>)  <span style="color:#75715e"># Match</span>
+</code></pre></div><h3 id="-resplit">→ re.split()</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">re<span style="color:#f92672">.</span>split(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;\W+&#39;</span>, <span style="color:#e6db74">&#39;David, Thierry, Jean-Yves, Albert&#39;</span>)
+<span style="color:#75715e"># Out : [&#39;David&#39;, &#39;Thierry&#39;, &#39;Jean&#39;, &#39;Yves&#39;, &#39;Albert&#39;]</span>
+
+re<span style="color:#f92672">.</span>split(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;,\W+&#39;</span>, <span style="color:#e6db74">&#39;David, Thierry, Jean-Yves, Albert&#39;</span>)
+<span style="color:#75715e"># Out : [&#39;David&#39;, &#39;Thierry&#39;, &#39;Jean-Yves&#39;, &#39;Albert&#39;]</span>
+</code></pre></div><h3 id="-matchgroup">→ match.group()</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Cas 1 : Sans specifier de nom</span>
+m <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>match(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;(\w+) (\w+) (\w+)&#34;</span>, <span style="color:#e6db74">&#34;Isaac Newton physicist, the best&#34;</span>)
+m<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">0</span>) <span style="color:#75715e"># or m[0] The entire match</span>
+<span style="color:#75715e"># Out : &#39;Isaac Newton physicist&#39;</span>
+m<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>)       <span style="color:#75715e"># The first parenthesized subgroup.</span>
+<span style="color:#75715e"># Out : &#39;Isaac&#39;</span>
+m<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">2</span>)       <span style="color:#75715e"># The second parenthesized subgroup.</span>
+<span style="color:#75715e"># Out : &#39;Newton&#39;</span>
+m<span style="color:#f92672">.</span>group(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>)    <span style="color:#75715e"># Multiple arguments give us a tuple.</span>
+<span style="color:#75715e"># Out : (&#39;Isaac&#39;, &#39;physicist&#39;)</span>
+m<span style="color:#f92672">.</span>groups()
+<span style="color:#75715e">#Out : (&#39;Isaac&#39;, &#39;Newton&#39;, &#39;physicist&#39;)</span>
+m <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>match(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;(\w+) (\w+) (\w+)&#34;</span>, <span style="color:#e6db74">&#34;Isaac Newton, the best physicist&#34;</span>)
+m<span style="color:#f92672">.</span>groups(<span style="color:#e6db74">&#39;0&#39;</span>) <span style="color:#75715e"># Set default value if not find (default set None)</span>
+<span style="color:#75715e"># Out : (&#39;Isaac&#39;, &#39;Newton&#39;, &#39;0&#39;)</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Cas 2 : En specifiant les noms</span>
+
+m <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>match(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;(?P&lt;first_name&gt;\w+) (?P&lt;last_name&gt;\w+)&#34;</span>, <span style="color:#e6db74">&#34;Isaac Newton&#34;</span>)
+m<span style="color:#f92672">.</span>group(<span style="color:#e6db74">&#39;first_name&#39;</span>)
+<span style="color:#75715e"># Out : &#39;Isaac&#39;</span>
+m<span style="color:#f92672">.</span>group(<span style="color:#e6db74">&#39;last_name&#39;</span>)
+<span style="color:#75715e"># Out : &#39;Reynolds&#39;</span>
+
+m <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>match(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;(?P&lt;first_name&gt;\w+) (?P&lt;last_name&gt;\w+)&#34;</span>, <span style="color:#e6db74">&#34;Malcolm Reynolds&#34;</span>)
+m<span style="color:#f92672">.</span>groupdict()
+<span style="color:#75715e"># Out : {&#39;first_name&#39;: &#39;Malcolm&#39;, &#39;last_name&#39;: &#39;Reynolds&#39;}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Cas 2 : En specifier les noms (?P&lt;nom_var&gt;..regex..)</span>
+
+m <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>match(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;(?P&lt;first_name&gt;\w+) (?P&lt;last_name&gt;\w+)&#34;</span>, <span style="color:#e6db74">&#34;Isaac Newton&#34;</span>)
+m<span style="color:#f92672">.</span>group(<span style="color:#e6db74">&#39;first_name&#39;</span>)
+<span style="color:#75715e"># Out : &#39;Isaac&#39;</span>
+m<span style="color:#f92672">.</span>group(<span style="color:#e6db74">&#39;last_name&#39;</span>)
+<span style="color:#75715e"># Out : &#39;Newton&#39;</span>
+
+m <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>match(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;(?P&lt;first_name&gt;\w+) (?P&lt;last_name&gt;\w+)&#34;</span>, <span style="color:#e6db74">&#34;Isaac Newton&#34;</span>)
+m<span style="color:#f92672">.</span>groupdict()
+<span style="color:#75715e"># Out : {&#39;first_name&#39;: &#39;Isaac&#39;, &#39;last_name&#39;: &#39;Newton&#39;}</span>
+</code></pre></div>
+            </div>
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Categories</h1>
+        <div class="tags">
+        
+            <span class="tag"><a href="blavad.github.io/categories/test">test</a></span>
+        
+            <span class="tag"><a href="blavad.github.io/categories/work">work</a></span>
+        
+        </div>          
+    </div>
+</div><br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Recent posts</h1>
+        
+            <h1><a href="blavad.github.io/blavad.github.io/2020/salut2/">Salut2</a></h1>
+            <time class="has-text-grey-light is-size-7">17 August 2020</time>
+        
+            <h1><a href="blavad.github.io/blavad.github.io/2020/salut/">Salut</a></h1>
+            <time class="has-text-grey-light is-size-7">17 August 2020</time>
+        
+            <h1><a href="blavad.github.io/blavad.github.io/2020/native_python/">Fonctions natives python</a></h1>
+            <time class="has-text-grey-light is-size-7">16 August 2020</time>
+        
+            <h1><a href="blavad.github.io/blavad.github.io/2020/regex/">Regex</a></h1>
+            <time class="has-text-grey-light is-size-7">16 August 2020</time>
+        
+            <h1><a href="blavad.github.io/blavad.github.io/2020/first-post/">First Post</a></h1>
+            <time class="has-text-grey-light is-size-7">16 August 2020</time>
+        
+    </div>
+</div>
+    <br>
+                
+  
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="blavad.github.io/blavad.github.io/2020/native_python/">Fonctions natives python</a></h1>
+            <time class="has-text-grey-light is-size-7">16 August 2020</time>
+      
+    </div>
+</div>
+
+    
+<br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Archives</h1>
+        
+            <a href="blavad.github.io/archives/2020">2020</a> (5)<br>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+<footer class="footer has-background-grey-darker has-text-white">
+    <div class="content has-text-centered">
+        <p>
+            <span class="icon is-large"><a href="blavad.github.io" class="mysocial" rel="me"><i class="fab fa-linkedin fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://github.com/" class="mysocial" rel="me"><i class="fab fa-github fa-3x"></i></a></span>&nbsp;&nbsp;
+            <span class="icon is-large"><a href="https://www.youtube.com/" class="mysocial" rel="me"><i class="fab fa-youtube fa-3x"></i></a></span>&nbsp;&nbsp;
+            <br><br>
+            Copyright &copy; David Albert 2020 - Theme by <a href="https://jeffprod.com" class="mysocial">JeffProd.com</a>
+            - <a class="mysocial" href="blavad.github.io/about">About</a>
+        </p>
+    </div>
+</footer>
+
+
+
+<script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+</body>
+</html>
