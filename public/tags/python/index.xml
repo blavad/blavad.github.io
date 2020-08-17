@@ -1,0 +1,32 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on David Albert</title>
+    <link>https://blavad.github.io/tags/python/</link>
+    <description>Recent content in python on David Albert</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Aug 2020 20:56:15 +0200</lastBuildDate>
+    
+        <atom:link href="https://blavad.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fonctions natives python</title>
+      <link>https://blavad.github.io/2020/native_python/</link>
+      <pubDate>Sun, 16 Aug 2020 20:56:15 +0200</pubDate>
+      
+      <guid>https://blavad.github.io/2020/native_python/</guid>
+      <description>No summary found.</description>
+    </item>
+    
+    <item>
+      <title>Regex</title>
+      <link>https://blavad.github.io/2020/regex/</link>
+      <pubDate>Sun, 16 Aug 2020 18:18:02 +0200</pubDate>
+      
+      <guid>https://blavad.github.io/2020/regex/</guid>
+      <description>Quick tuto Regex.</description>
+    </item>
+    
+  </channel>
+</rss>
