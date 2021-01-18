@@ -1,0 +1,8 @@
+{
+    "lang": {
+        "type": "lang",
+        "default": "fr",
+        "icon": "flag-icon flag-icon-",
+        "available": ["fr", "us"]
+    }
+}

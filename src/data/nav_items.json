@@ -1,0 +1,145 @@
+{
+    "us": [{
+            "id": 0,
+            "name": "Overview",
+            "icon": "fas fa-user-alt",
+            "path": "/"
+        },
+        {
+            "id": 1,
+            "name": "Projects",
+            "icon": "fas fa-folder",
+            "path": "/projects",
+            "sub_items": [{
+                    "locked": false,
+                    "name": "MARL Library",
+                    "icon": "",
+                    "path": "/marl"
+                },
+                {
+                    "locked": false,
+                    "name": "Draw a car",
+                    "icon": "",
+                    "path": "https://georgezjchen.github.io/draw-a-car-build/"
+
+                },
+                {
+                    "locked": true,
+                    "name": "INS'Arcade",
+                    "icon": "",
+                    "path": "http://recalbox.local/"
+
+                },
+                {
+                    "locked": false,
+                    "name": "See more ...",
+                    "icon": "",
+                    "path": "/projects"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Bidule",
+            "icon": "fas fa-robot",
+            "path": "/"
+        },
+        {
+            "id": 2,
+            "name": "CV",
+            "icon": "fas fa-address-book",
+            "path": "/cv",
+            "sub_items": [{
+                    "locked": false,
+                    "name": "Classic",
+                    "icon": "",
+                    "path": "/documents/pdf/CV_david_albert.pdf"
+                },
+                {
+                    "locked": false,
+                    "name": "Slides",
+                    "icon": "",
+                    "path": "/documents/pdf/pres_david_albert.pdf"
+
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Travels",
+            "icon": "fas fa-globe-americas",
+            "path": "/travels"
+        }
+    ],
+    "fr": [{
+            "id": 0,
+            "name": "Profil",
+            "icon": "fas fa-user-alt",
+            "path": "/"
+        },
+        {
+            "id": 1,
+            "name": "Projets",
+            "icon": "fas fa-folder",
+            "path": "/projects",
+            "sub_items": [{
+                    "locked": false,
+                    "name": "Librairie MARL",
+                    "icon": "",
+                    "path": "/marl"
+                },
+                {
+                    "locked": false,
+                    "name": "Draw a car",
+                    "icon": "",
+                    "path": "https://georgezjchen.github.io/draw-a-car-build/"
+
+                },
+                {
+                    "locked": true,
+                    "name": "INS'Arcade",
+                    "icon": "",
+                    "path": "http://recalbox.local/"
+
+                },
+                {
+                    "locked": false,
+                    "name": "Voir plus ...",
+                    "icon": "",
+                    "path": "/projects"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Bidule",
+            "icon": "fas fa-robot",
+            "path": "/"
+        },
+        {
+            "id": 2,
+            "name": "CV",
+            "icon": "fas fa-address-book",
+            "path": "/cv",
+            "sub_items": [{
+                    "locked": false,
+                    "name": "Traditionnel",
+                    "icon": "",
+                    "path": "/documents/pdf/CV_david_albert.pdf"
+                },
+                {
+                    "locked": false,
+                    "name": "Présentation",
+                    "icon": "",
+                    "path": "/documents/pdf/pres_david_albert.pdf"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Voyages",
+            "icon": "fas fa-globe-americas",
+            "path": "/travels"
+        }
+    ]
+}

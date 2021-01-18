@@ -1,0 +1,89 @@
+[{
+        "name": "Data Science",
+        "value": 3,
+        "sub_skills": [{
+                "name": "Machine/Deep Learning",
+                "value": 3
+            },
+            {
+                "name": "Reinforcement Learning",
+                "value": 3
+            },
+            {
+                "name": "Data Analysis",
+                "value": 2
+            },
+            {
+                "name": "SQL/NoSQL",
+                "value": 1
+            },
+            {
+                "name": "PyTorch, TensorFlow",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "name": "Computing",
+        "value": 3,
+        "sub_skills": [{
+                "name": "Python",
+                "value": 3
+            },
+            {
+                "name": "C/C++",
+                "value": 2
+            },
+            {
+                "name": "Java",
+                "value": 1
+            },
+            {
+                "name": "Bash",
+                "value": 1
+            },
+            {
+                "name": "Theoric Knowledge",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "name": "Web",
+        "value": 2,
+        "sub_skills": [{
+                "name": "HTML",
+                "value": 2
+            },
+            {
+                "name": "CSS/SCSS",
+                "value": 1
+            },
+            {
+                "name": "Vue.js",
+                "value": 1
+            },
+            {
+                "name": "Flask API (Python)",
+                "value": 2
+            }
+        ]
+    },
+    {
+        "name": "Other",
+        "value": 2,
+        "sub_skills": [{
+                "name": "Electronics",
+                "value": 1
+            },
+            {
+                "name": "CAO / 3D printing",
+                "value": 1
+            },
+            {
+                "name": "Linux / Windows",
+                "value": 2
+            }
+        ]
+    }
+]

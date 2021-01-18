@@ -1,0 +1,26 @@
+{
+    "ai": {
+        "fullname": "Artificial Intelligence",
+        "brief": "Artificial Intelligence",
+        "color": "rgb(0, 112, 22)",
+        "tmp": "#fbacac"
+    },
+    "diy": {
+        "fullname": "DIY",
+        "brief": "Do It Yourself = manually made.",
+        "color": "#0e76a8",
+        "tmp": "#dedfdd"
+    },
+    "computing": {
+        "fullname": "Computing",
+        "brief": "Softwares and video games.",
+        "color": "rgba(75, 75, 75)",
+        "tmp": "#d4acfb"
+    },
+    "web": {
+        "fullname": "Web",
+        "brief": "Websites and web applications.",
+        "color": "rgb(139, 0, 0)",
+        "tmp": "#a2b1fb"
+    }
+}
