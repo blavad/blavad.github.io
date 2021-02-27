@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-
+  
   <!-- Section Projects -->
   <ProjectSection :projects="projects[lang]" />
 
