@@ -147,8 +147,8 @@ export default {
     color: #211F1F;
 }
 
-.logo-strava {
-    color: #e06118;
+.logo-docker {
+    color: #2496ed;
 }
 
 .logo-link {

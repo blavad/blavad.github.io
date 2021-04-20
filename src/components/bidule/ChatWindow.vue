@@ -44,11 +44,11 @@ export default {
       vm.discution.push({ msg: msg, fromBidule: false });
 
       axios
-        // .get("https://yesno.wtf/api")
-        .post("http://localhost:5005/webhooks/rest/webhook", { "message": msg })
+        .get("https://yesno.wtf/api")
+        // .post("http://localhost:5005/webhooks/rest/webhook", { "message": msg })
         .then(function (response) {
-          alert(msg);
-          alert(response);
+          // alert(msg);
+          // alert(response);
           vm.discution.push({
             msg: _.capitalize(response.data.answer),
             fromBidule: true,
@@ -85,12 +85,12 @@ $BACK_COLOR: #b1b1b1;
   /* -moz-border-radius: 5rem; */
   /* -webkit-border-radius: 5rem; */
   // overflow-y: scroll;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 #userInput {
   background-color: $BACK_COLOR;
-  padding: 1.3rem;
+  padding: 0.7rem;
 }
 
 button {
