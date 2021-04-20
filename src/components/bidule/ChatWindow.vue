@@ -1,12 +1,20 @@
 
 <template>
-  <div id="chat-window" class="container-fluid">
-    <header class="chat-header p-2">
-      <h4>Bidule Assistant</h4>
-    </header>
-    <p>Hi, I am Bidule. I am David's assistant. How can I help you ?</p>
-    <p>{{ answer }}</p>
-    <input v-model="question" />
+  <div id="chat-window" class="container bg-light">
+    <Message
+      v-for="d in discution"
+      :key="d.msg"
+      :fromBidule="d.fromBidule"
+      :msg="d.msg"
+    />
+  </div>
+  <div id="userInput" class="container-fluid fixed-bottom">
+    <form v-on:submit.prevent="sendMessage(question)">
+      <input id="msg-input" v-model="question" />
+      <button id="msg-button">
+        Send <i class="fas fa-arrow-right"></i>
+      </button>
+    </form>
   </div>
 </template>
 
@@ -14,76 +22,80 @@
 <script>
 import _ from "lodash";
 import axios from "axios";
+import Message from "@/components/bidule/Message.vue";
 
 export default {
   name: "ChatWindow",
   props: {},
+  components: {
+    Message,
+  },
   data() {
     return {
+      discution: [{ msg: "Hello, I am Bidule !", fromBidule: true }],
       question: "",
       answer:
         "Je ne peux pas vous donner une réponse avant que vous ne posiez une question !",
     };
   },
-
-  watch: {
-    // à chaque fois que la question change, cette fonction s'exécutera
-    question: function () {
-      this.answer = "J'attends que vous arrêtiez de taper...";
-      this.debouncedGetAnswer();
-    },
-  },
-  created: function () {
-    // _.debounce est une fonction fournie par lodash pour limiter la fréquence
-    // d'exécution d'une opération particulièrement coûteuse.
-    // Dans ce cas, nous voulons limiter la fréquence d'accès à
-    // yesno.wtf/api, en attendant que l'utilisateur ait complètement
-    // fini de taper avant de faire la requête ajax. Pour en savoir
-    //  plus sur la fonction `_.debounce` (et sa cousine
-    // `_.throttle`), visitez : https://lodash.com/docs#debounce
-    this.debouncedGetAnswer = _.debounce(this.getAnswer, 500);
-  },
   methods: {
-    getAnswer: function () {
-      if (this.question.indexOf("?") === -1) {
-        this.answer =
-          "Les questions contiennent généralement un point d'interrogation. ;-)";
-        return;
-      }
-      this.answer = "Je réfléchis...";
+    sendMessage: function (msg) {
       var vm = this;
-      // const axios = require('axios');
+      vm.discution.push({ msg: msg, fromBidule: false });
+
       axios
         .get("https://yesno.wtf/api")
+        // .post("http://localhost:5005/webhooks/rest/webhook", { "message": msg })
         .then(function (response) {
-          vm.answer = _.capitalize(response.data.answer);
+          // alert(msg);
+          // alert(response);
+          vm.discution.push({
+            msg: _.capitalize(response.data.answer),
+            fromBidule: true,
+          });
+        })
+        .then(function () {
+          window.scrollTo(
+            0,
+            document.getElementById("chat-window").scrollHeight
+          );
         })
         .catch(function (error) {
           vm.answer = "Erreur ! Impossible d'accéder à l'API." + error;
+        });
+      this.question = "";
+    },
+    addEnterKeyPress: function () {
+      document
+        .querySelector("#msg-input")
+        .addEventListener("keyup", (event) => {
+          if (event.key !== "Enter") return; // Use `.key` instead.
+          document.querySelector("#msg-button").click(); // Things you want to do.
+          event.preventDefault(); // No need to `return false;`.
         });
     },
   },
 };
 </script>
 
-<style scoped>
-.chat-header {
-  text-align: center;
-  font-weight: bolder;
-  background-color: black;
-}
+<style scoped lang="scss">
+$BACK_COLOR: #b1b1b1;
 
-.caht-window {
+#chat-window {
   /* -moz-border-radius: 5rem; */
   /* -webkit-border-radius: 5rem; */
-  border-radius: 1rem;
-  /* position: fixed; */
-  /* bottom: 0px; */
-  /* right: 50px; */
-  background-color: rgb(197, 203, 206);
-  color: rgb(19, 126, 180);
-  height: 400px;
-  width: 350px;
-  overflow-y: scroll;
+  // overflow-y: scroll;
+  margin-bottom: 80px;
+}
+
+#userInput {
+  background-color: $BACK_COLOR;
+  padding: 0.7rem;
+}
+
+button {
+  margin: 1rem;
+  background-color: darken($BACK_COLOR, 20%);
+  color: white;
 }
 </style>

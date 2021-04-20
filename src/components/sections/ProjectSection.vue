@@ -2,10 +2,10 @@
   <!-- Projects -->
   <div id="projects" class="container mb-4">
     <!-- <SectionTitle /> -->
-    <div class="row">
-      <SectionTitle :title="(lang=='us')?'Projects':'Projets'" link="/projects" />
-    </div>
-
+      <SectionTitle
+        :title="lang == 'us' ? 'Projects' : 'Projets'"
+        link="/projects"
+      />
     <!--Carousel Wrapper-->
     <div id="multi-projects" class="carousel slide" data-ride="carousel">
       <!--Indicators-->
@@ -149,7 +149,6 @@
 </template>
 
 <script>
-
 import { mapState } from "vuex";
 import ProjectCard from "@/components/basic/ProjectCard.vue";
 import SectionTitle from "@/components/basic/SectionTitle.vue";
@@ -303,4 +302,5 @@ export default {
     margin-bottom: 30px;
   }
 }
+
 </style>

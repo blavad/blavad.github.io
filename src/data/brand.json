@@ -31,14 +31,14 @@
             "color": "#00000",
             "text": "blavad",
             "url": "https://github.com/blavad",
-            "fa_icon": "fa fa-github"
+            "fa_icon": "fab fa-github"
         },
         {
-            "name": "Strava",
+            "name": "Docker",
             "color": "#00000",
-            "text": "David Albert",
-            "url": "https://www.strava.com/athletes/69260520",
-            "fa_icon": "fab fa-strava"
+            "text": "blavad",
+            "url": "https://hub.docker.com/u/blavad",
+            "fa_icon": "fab fa-docker"
         }
     ]
 }

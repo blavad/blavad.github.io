@@ -42,7 +42,7 @@
             "id": 5,
             "name": "Bidule",
             "icon": "fas fa-robot",
-            "path": "/"
+            "path": "/bidule"
         },
         {
             "id": 2,
@@ -114,7 +114,7 @@
             "id": 5,
             "name": "Bidule",
             "icon": "fas fa-robot",
-            "path": "/"
+            "path": "/bidule"
         },
         {
             "id": 2,

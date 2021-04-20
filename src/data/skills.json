@@ -24,7 +24,7 @@
         ]
     },
     {
-        "name": "Computing",
+        "name": "Programming",
         "value": 3,
         "sub_skills": [{
                 "name": "Python",
@@ -35,16 +35,18 @@
                 "value": 2
             },
             {
-                "name": "Java",
-                "value": 1
-            },
-            {
-                "name": "Bash",
-                "value": 1
+                "name": "Git/Docker",
+                "value": 2
             },
             {
                 "name": "Theoric Knowledge",
-                "value": 2
+                "value": 2,
+                "info": "Algorithmic, pseudo-code, UML, etc"
+            },
+            {
+                "name": "Other",
+                "value": 1,
+                "info": "Java, Bash, LaTex"
             }
         ]
     },
@@ -81,7 +83,7 @@
                 "value": 1
             },
             {
-                "name": "Linux / Windows",
+                "name": "Linux Administration",
                 "value": 2
             }
         ]
