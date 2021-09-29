@@ -37,9 +37,7 @@ jobs:
     # Create a fresh git repo in wwwroot
     - name: Init new repo in dist and commit generated files
       run: |
-        ls 
-        cd public
-        ls
+        cd dist
         git init
         git add -A
         git config --local user.email "action@github.com"
@@ -58,4 +56,4 @@ jobs:
         # Determines if force push is used
         force: true
         # Directory to change to before pushing.
-        directory: ./public
+        directory: ./dist
