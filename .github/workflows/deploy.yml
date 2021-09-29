@@ -38,13 +38,14 @@ jobs:
     - name: Init new repo in dist and commit generated files
       run: |
         cd public
+        ls
         git init
         git add -A
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git commit -m 'deploy'
     # force push the contents of the wwwroot folder to the master branch
-    - name: Force push to master
+    - name: Force push to gh-pages
       uses: ad-m/github-push-action@v0.5.0
       with:
         # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
