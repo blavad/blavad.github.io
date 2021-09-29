@@ -15,8 +15,8 @@
     "social_media": [{
             "name": "Mail",
             "color": "#00000",
-            "text": "david.albert@insa-rouen.fr",
-            "url": "mailto:david.albert@insa-rouen.fr",
+            "text": "david.albert@insa-lyon.fr",
+            "url": "mailto:david.albert@insa-lyon.fr",
             "fa_icon": "fas fa-envelope"
         },
         {

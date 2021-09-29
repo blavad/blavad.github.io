@@ -36,7 +36,7 @@
       <li>
         <a
           v-if="github"
-          :href="'https://github.com/blavad/' + github"
+          :href="github"
           class="logo logo-github"
           ><i class="fab fa-github"></i
         ></a>
@@ -81,7 +81,7 @@
             <div class="float-right">
               <a
                 v-if="github"
-                :href="'https://github.com/blavad/' + github"
+                :href="github"
                 class="logo logo-github d-inline"
               >
                 <i class="fab fa-github fa-2x"></i>

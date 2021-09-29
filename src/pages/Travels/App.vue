@@ -14,7 +14,7 @@
   <div class="container-fluid travelBox">
     <div class="row">
       <div class="col-6 col-lg-4 travelInfo">
-        <div><strong>Localisation:</strong>&nbsp;<span id="loc"></span></div>
+        <div><strong>Location:</strong>&nbsp;<span id="loc"></span></div>
         <div>
           <strong>Num roadtrips:</strong>&nbsp;<span id="roadtrips"></span>
         </div>

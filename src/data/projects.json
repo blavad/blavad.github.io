@@ -1,5 +1,17 @@
 {
     "fr": [{
+            "short_title": "SDM'Studio",
+            "long_title": "Sequential Decision Making Studio",
+            "img": "img-sdms-h.png",
+            "img2": "img-sdms.png",
+            "brief": "Bibliothèque logiciel pour la résolution des jeux stochastiques.",
+            "description": "Bibliothèque logiciel contenant un ensemble d'outils et d'algorithmes pour la résolution des jeux stochastiques.",
+            "github": "https://github.com/SDMStudio/sdms",
+            "page": "https://sdmstudio.github.io",
+            "labels": ["ai"],
+            "public": false
+        },
+        {
             "short_title": "INS'Arcade",
             "long_title": "Borne de jeu d'arcade",
             "img": "img-sm-insarcade.png",
@@ -7,7 +19,7 @@
             "brief": "Borne de jeu d'arcade créée de toute pièce avec du matériel de récupération.",
             "description": "Borne de jeu d'arcade créée de toute pièce avec uniquement du matériel de récupération (coût total < 100€).La borne a été mise à disposition gratuitement des étudiants de l 'INSA de Rouen pendant un an. Cinq jeux y étaient disponibles. Ensuite, elle a été reconfigurée pour offrir une plus grande diversité de jeux grâce à l'OS <a href='https://www.recalbox.com/'>Recalbox</a>.",
             "pdf": "/documents/pdf/projects/proj-TIPNE.pdf",
-            "github": "Insarcade",
+            "github": "https://github.com/blavad/Insarcade",
             "page": "/projects/insarcade",
             "labels": ["computing", "diy"],
             "public": false
@@ -20,7 +32,7 @@
             "brief": "Librairie d'apprentissage par renforcement pour systèmes multi-agents.",
             "description": "Librairie d'apprentissage par renforcement pour systèmes multi-agents. La librairie est écrite en python et comprend différents algorithmes d 'apprentissage par renforcement. L’objectif de cette librairie python est de fournir la possibilité à l’utilisateur de déclarer et d’entraînersimplement un ensemble d’agents évoluant de manière simultanée dans un environnement.",
             "pdf": "/documents/pdf/projects/rapport-pfe.pdf",
-            "github": "marl",
+            "github": "https://github.com/blavad/marl",
             "page": "/marl",
             "labels": ["ai"],
             "public": false
@@ -33,7 +45,7 @@
             "brief": "Logiciel permettant de générer des images réalistes de voitures à partir d'un dessin et d'une couleur.",
             "description": "Logiciel permettant de générer des images réalistes de voitures à partir d'un dessin et d'une couleur. Pour se faire, nous utilisons une méthode récente pour le transfert de style nommée <a href='https://phillipi.github.io/pix2pix/'><em>pix2pix</em></a>. Cette méthode utilise un réseau de neurones génératif(GAN) qui a appris à modifier de façon adéquate le style d 'une image.",
             "pdf": "/documents/pdf/projects/stage-UnivDundee.pdf",
-            "github": "edge2car",
+            "github": "https://github.com/blavad/edge2car",
             "page": "https://georgezjchen.github.io/draw-a-car-build/",
             "labels": ["ai", "computing"],
             "public": false
@@ -46,7 +58,7 @@
             "brief": "Apprentissage par renforcement pour le jeu Flappy Bird. Développement d'une version deux joueurs.",
             "description": "Développement d'une version deux joueurs de Flappy Bird (voir <a href='https://github.com/blavad/flappy-bird-env'>flappy-bird-2p</a>) et expérimentation de l'algorithme d'apprentissage par renforcement DQN pour faire jouer une IA avec un humain. Ce projet a été réalisé dans le cadre d'un stage chez <a href='https://www.pollen-robotics.com/'> Pollen Robotics </a>.",
             "pdf": "/documents/pdf/projects/stage-PollenRobotics.pdf",
-            "github": "DQN-tensorflow",
+            "github": "https://github.com/blavad/DQN-tensorflow",
             "page": "https://github.com/blavad/DQN-tensorflow",
             "labels": ["ai"],
             "public": false
@@ -59,7 +71,7 @@
             "brief": "Réseau social pour les amoureux de bières. Permet de partager des avis sur les bières.",
             "description": "Réseau social pour les amoureux de bières. L'idée de ce réseau social est de permettre à différentes personnes de partager leur avis sur les bières qu'ils ont goûté. [DEPRECATED]",
             "pdf": "/documents/pdf/projects/proj-weRbeer.pdf",
-            "github": "weRbeer",
+            "github": "https://github.com/blavad/weRbeer",
             "page": "https://github.com/blavad/weRbeer",
             "labels": ["web"],
             "public": false
@@ -72,7 +84,7 @@
             "brief": "Logiciel de création et entraînement de modèles par réseaux de neurones artificiels.",
             "description": "Logiciel développé en C++ ayant pour but de créer et entraîner simplemenet des architectures de réseau de neurones pour des tâches de classification.",
             "pdf": "/documents/pdf/projects/proj-cpp.pdf",
-            "github": "NeuralNetworks-manager",
+            "github": "https://github.com/blavad/NeuralNetworks-manager",
             "page": "https://github.com/blavad/NeuralNetworks-manager",
             "labels": ["ai", "computing"],
             "public": false
@@ -87,7 +99,7 @@
             "description": "Jeu vidéo développé en Java qui s'inspire du jeu mobile <a href='https://play.google.com/store/apps/details?id=com.maxgames.ageofwar1&hl=fr'>Age of War</a>. Le jeu est une amélioration de la version initiale dans laquelle plusieurs joueurs peuvent jouer en réseau.",
             "page": "https://github.com/blavad/AgeOfWar",
             "pdf": "/documents/pdf/projects/proj-SpaceOfWar.pdf",
-            "github": "AgeOfWar",
+            "github": "https://github.com/blavad/AgeOfWar",
             "labels": ["computing", "web"],
             "public": false
         },
@@ -99,7 +111,7 @@
             "brief": "Algorithmes de résolution d'un problème de navigation en robotique.",
             "description": "Simulation d'un robot évoluant dans une pièce. L'objectif du robot est de rejoindre un maximum de points d'intérêts (pastilles vertes). <hr > Deux algorithmes de résolution du problème ont été expérimentées. <ol><li >Algorithme génétique </li> <li >Algorithme du Q - learning </li> </ol> ",
             "pdf": "/documents/pdf/projects/proj-Qlearning_Genetic.pdf",
-            "github": "RobotSimulator",
+            "github": "https://github.com/blavad/RobotSimulator",
             "page": "https://github.com/blavad/RobotSimulator",
             "labels": ["ai"],
             "public": false
@@ -112,7 +124,7 @@
             "brief": "Reproduction du jeu de société <a href='https://www.trictrac.net/jeu-de-societe/tac-tik'> Tac-Tik </a> en bois et impression 3D.",
             "description": "Reproduction du jeu de société <a href='https://www.trictrac.net/jeu-de-societe/tac-tik'> Tac-Tik </a> en bois et impression 3D.",
             "pdf": "",
-            "github": "",
+            "github": "https://github.com/blavad/",
             "page": "",
             "labels": ["diy"],
             "public": false
@@ -121,6 +133,17 @@
     ],
 
     "us": [{
+            "short_title": "SDM'Studio",
+            "long_title": "Sequential Decision Making Studio",
+            "img": "img-sdms-h.png",
+            "img2": "img-sdms.png",
+            "brief": "Solver and library for solving stochastic games.",
+            "description": "SDMS (Sequential Decision Making Studio) is a software library containing a set of tools and algorithms for solving sequential decision making problems. The platform is based on algorithmic choices, resulting from a detailed analysis of the limitations of current methods.",
+            "github": "https://github.com/SDMStudio/sdms",
+            "page": "https://sdmstudio.github.io",
+            "labels": ["ai"],
+            "public": false
+        }, {
             "short_title": "INS'Arcade",
             "long_title": "Arcade Cabinet",
             "img": "img-sm-insarcade.png",
@@ -128,7 +151,7 @@
             "brief": "Arcade cabinet entirely made of reused materiels.",
             "description": "Arcade cabinet entirely made of reused materiels (total cost < 100€). For a year, the cabinet was freely available to students of INSA de Rouen. Five games were initially implemented (Bomberman, Pong, HighRisers, SpaceFighter and Deminor). Two years later, I decided to reconfigure the cabinet to provide thousands games thanks to the <a href='https://www.recalbox.com/'>Recalbox</a> Operating System.",
             "pdf": "/documents/pdf/projects/proj-TIPNE.pdf",
-            "github": "Insarcade",
+            "github": "https://github.com/blavad/Insarcade",
             "page": "/projects/insarcade",
             "labels": ["computing", "diy"],
             "public": false
@@ -141,7 +164,7 @@
             "brief": "Reinforcement learning API for multi-agents systems.",
             "description": "Reinforcement learning API for multi-agents systems. The library is coded in python and contains both single and multi agents reinforcement learning algortihms. The purpose of the library is to provide users the possibility to initiate and train simultaneously the policy of several agents progessing in an environment.",
             "pdf": "/documents/pdf/projects/rapport-pfe.pdf",
-            "github": "marl",
+            "github": "https://github.com/blavad/marl",
             "page": "/marl",
             "labels": ["ai"],
             "public": false
@@ -154,7 +177,7 @@
             "brief": "Realistic image of cars generator from a drawing and a color.",
             "description": "Software that allow the user to generate realistic images of cars from a simple edge drawing and a color. To achieve this result, we use a new method of style transfert called <a href='https://phillipi.github.io/pix2pix/'><em>pix2pix</em></a>. This method is based on new knowledge in deep learning, especially the active research field of generative model, to learn a function able to change the style of an image.",
             "pdf": "/documents/pdf/projects/stage-UnivDundee.pdf",
-            "github": "edge2car",
+            "github": "https://github.com/blavad/edge2car",
             "page": "https://georgezjchen.github.io/draw-a-car-build/",
             "labels": ["ai", "computing"],
             "public": false
@@ -167,7 +190,7 @@
             "brief": "Deep Q-learning for the game flappy bird. Development of a 2-players version.",
             "description": "Development of a two players version of the video game Flappy Bird (see <a href='https://github.com/blavad/flappy-bird-env'>flappy-bird-2p</a>) and experimentations of the learning algorithm DQN in order that an AI and a human play together. This project was done during an internship at <a href='https://www.pollen-robotics.com/'> Pollen Robotics </a>.",
             "pdf": "/documents/pdf/projects/stage-PollenRobotics.pdf",
-            "github": "DQN-tensorflow",
+            "github": "https://github.com/blavad/DQN-tensorflow",
             "page": "https://github.com/blavad/DQN-tensorflow",
             "labels": ["ai"],
             "public": false
@@ -180,7 +203,7 @@
             "brief": "Social network for beer lovers. Allow users to share their opinion about beers.",
             "description": "Social network for beer lovers. The idea behind this social network was that friends can share their opinion (both good or bad) about the beers they tried. [DEPRECATED]",
             "pdf": "/documents/pdf/projects/proj-weRbeer.pdf",
-            "github": "weRbeer",
+            "github": "https://github.com/blavad/weRbeer",
             "page": "https://github.com/blavad/weRbeer",
             "labels": ["web"],
             "public": false
@@ -193,7 +216,7 @@
             "brief": "Graphical user interface for neural networks creation and training.",
             "description": "Software developped in C++ that provide a graphical user interface to easily create and train neural networks architectures for a specific classification task.",
             "pdf": "/documents/pdf/projects/proj-cpp.pdf",
-            "github": "NeuralNetworks-manager",
+            "github": "https://github.com/blavad/NeuralNetworks-manager",
             "page": "https://github.com/blavad/NeuralNetworks-manager",
             "labels": ["ai", "computing"],
             "public": false
@@ -208,7 +231,7 @@
             "description": "Video game developped in Java that was inspired by the game for smartphone <a href='https://play.google.com/store/apps/details?id=com.maxgames.ageofwar1&hl=fr'>Age of War</a>. We expand the initial game by increasing the number of players from two to five (all playing online).",
             "page": "https://github.com/blavad/AgeOfWar",
             "pdf": "/documents/pdf/projects/proj-SpaceOfWar.pdf",
-            "github": "AgeOfWar",
+            "github": "https://github.com/blavad/AgeOfWar",
             "labels": ["computing", "web"],
             "public": false
         },
@@ -220,7 +243,7 @@
             "brief": "Algorithms for navigation problems in robotics.",
             "description": "Simulation of a robot evolving in a room. The goal for the robot is to go throw a maximum number of interesting location (the green dot). <hr > Two solving algorithms was tested on this task. <ol><li >Genertic algorithm </li> <li >Q-learning algorithm</li> </ol> ",
             "pdf": "/documents/pdf/projects/proj-Qlearning_Genetic.pdf",
-            "github": "RobotSimulator",
+            "github": "https://github.com/blavad/RobotSimulator",
             "page": "https://github.com/blavad/RobotSimulator",
             "labels": ["ai"],
             "public": false
@@ -233,7 +256,7 @@
             "brief": "Reproduction of the board game <a href='https://www.trictrac.net/jeu-de-societe/tac-tik'> Tac-Tik </a>.",
             "description": "Reproduction of the board game <a href='https://www.trictrac.net/jeu-de-societe/tac-tik'> Tac-Tik </a> with wood and 3D printing.",
             "pdf": "",
-            "github": "",
+            "github": "https://github.com/blavad/",
             "page": "",
             "labels": ["diy"],
             "public": false
