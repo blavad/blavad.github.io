@@ -22,7 +22,7 @@ jobs:
     - name: Generate static vuejs files 
       uses: actions/setup-node@v1
       with:
-        node-version: '12.x'
+        node-version: '10.x'
     - run: npm install
     - run: npm run build
 
@@ -37,6 +37,7 @@ jobs:
     # Create a fresh git repo in wwwroot
     - name: Init new repo in dist and commit generated files
       run: |
+        ls 
         cd public
         ls
         git init
