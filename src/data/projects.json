@@ -72,7 +72,7 @@
             "description": "Réseau social pour les amoureux de bières. L'idée de ce réseau social est de permettre à différentes personnes de partager leur avis sur les bières qu'ils ont goûté. [DEPRECATED]",
             "pdf": "/documents/pdf/projects/proj-weRbeer.pdf",
             "github": "https://github.com/blavad/weRbeer",
-            "page": "https://github.com/blavad/weRbeer",
+            "page": "https://werbeer.herokuapp.com",
             "labels": ["web"],
             "public": false
         },
@@ -204,7 +204,7 @@
             "description": "Social network for beer lovers. The idea behind this social network was that friends can share their opinion (both good or bad) about the beers they tried. [DEPRECATED]",
             "pdf": "/documents/pdf/projects/proj-weRbeer.pdf",
             "github": "https://github.com/blavad/weRbeer",
-            "page": "https://github.com/blavad/weRbeer",
+            "page": "https://werbeer.herokuapp.com",
             "labels": ["web"],
             "public": false
         },
