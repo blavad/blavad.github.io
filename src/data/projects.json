@@ -43,7 +43,7 @@
             "img": "img-sm-weRbeer.png",
             "img2": "img-weRbeer-v.png",
             "brief": "Réseau social pour les amoureux de bières. Permet de partager des avis sur les bières.",
-            "description": "Réseau social pour les amoureux de bières. L'idée de ce réseau social est de permettre à différentes personnes de partager leur avis sur les bières qu'ils ont goûté. [DEPRECATED]",
+            "description": "Réseau social pour les amoureux de bières. L'idée de ce réseau social est de permettre à différentes personnes de partager leur avis sur les bières qu'ils ont goûté.",
             "pdf": "/documents/pdf/projects/proj-weRbeer.pdf",
             "github": "https://github.com/blavad/weRbeer",
             "page": "https://werbeer.herokuapp.com",
