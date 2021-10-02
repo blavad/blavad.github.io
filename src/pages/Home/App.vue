@@ -17,6 +17,9 @@
       </div>
     </div>
   </div>
+
+  <!-- Section Projects -->
+  <ResearchSection :publications="publications[lang]" />
   
   <!-- Section Projects -->
   <ProjectSection :projects="projects[lang]" />
@@ -36,10 +39,12 @@ import { mapState } from "vuex";
 import ContactSection from "@/components/sections/ContactSection.vue";
 import SkillSection from "@/components/sections/SkillSection.vue";
 import ProjectSection from "@/components/sections/ProjectSection.vue";
+import ResearchSection from "@/components/sections/ResearchSection.vue";
 import NavBar from "@/components/nav/NavBar.vue";
 import SocialBar from "@/components/SocialBar.vue";
 
 import brand from "@/data/brand.json";
+import publications from "@/data/publications.json";
 import projects from "@/data/projects.json";
 import skills from "@/data/skills.json";
 
@@ -51,12 +56,14 @@ export default {
     SocialBar,
     SkillSection,
     ProjectSection,
+    ResearchSection,
   },
   data() {
     return {
       brand: brand,
       skills: skills,
       projects: projects,
+      publications: publications,
     };
   },
   computed: {
