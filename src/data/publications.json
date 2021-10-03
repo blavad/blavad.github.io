@@ -1,0 +1,27 @@
+{
+    "fr": [{
+        "short_title": "SDM'Studio",
+        "long_title": "Sequential Decision Making Studio",
+        "img": "img-sdms-h.png",
+        "img2": "img-sdms.png",
+        "brief": "Bibliothèque logiciel pour la résolution des jeux stochastiques.",
+        "description": "Bibliothèque logiciel contenant un ensemble d'outils et d'algorithmes pour la résolution des jeux stochastiques.",
+        "github": "https://github.com/SDMStudio/sdms",
+        "page": "https://sdmstudio.github.io",
+        "labels": ["ai"],
+        "public": false
+    }],
+
+    "us": [{
+        "short_title": "SDM'Studio",
+        "long_title": "Sequential Decision Making Studio",
+        "img": "img-sdms-h.png",
+        "img2": "img-sdms.png",
+        "brief": "Solver and library for solving stochastic games.",
+        "description": "SDMS (Sequential Decision Making Studio) is a software library containing a set of tools and algorithms for solving sequential decision making problems. The platform is based on algorithmic choices, resulting from a detailed analysis of the limitations of current methods.",
+        "github": "https://github.com/SDMStudio/sdms",
+        "page": "https://sdmstudio.github.io",
+        "labels": ["ai"],
+        "public": false
+    }]
+}
