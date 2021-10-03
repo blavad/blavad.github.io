@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      discution: [{ msg: "Hello, I am Bidule !", fromBidule: true }],
+      discution: [],
       question: "",
       answer:
         "Je ne peux pas vous donner une réponse avant que vous ne posiez une question !",
@@ -44,13 +44,12 @@ export default {
       vm.discution.push({ msg: msg, fromBidule: false });
 
       axios
-        .get("https://yesno.wtf/api")
-        // .post("http://localhost:5005/webhooks/rest/webhook", { "message": msg })
+        // .get("https://yesno.wtf/api")
+        .post("https://bidulebot.herokuapp.com/webhooks/rest/webhook", { "message": msg , "sender": "unknown"})
         .then(function (response) {
           // alert(msg);
-          // alert(response);
           vm.discution.push({
-            msg: _.capitalize(response.data.answer),
+            msg: _.capitalize(response.data[0].text),
             fromBidule: true,
           });
         })
