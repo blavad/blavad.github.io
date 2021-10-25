@@ -1,5 +1,6 @@
 {
-    "fr": [{
+    "fr": [
+        {
             "short_title": "SDM'Studio",
             "long_title": "Sequential Decision Making Studio",
             "img": "img-sdms-h.png",
@@ -8,7 +9,9 @@
             "description": "Bibliothèque logiciel contenant un ensemble d'outils et d'algorithmes pour la résolution des jeux stochastiques.",
             "github": "https://github.com/SDMStudio/sdms",
             "page": "https://sdmstudio.github.io",
-            "labels": ["ai"],
+            "labels": [
+                "ai"
+            ],
             "public": false
         },
         {
@@ -21,7 +24,10 @@
             "pdf": "/documents/pdf/projects/stage-UnivDundee.pdf",
             "github": "https://github.com/blavad/edge2car",
             "page": "https://georgezjchen.github.io/draw-a-car-build/",
-            "labels": ["ai", "computing"],
+            "labels": [
+                "ai",
+                "computing"
+            ],
             "public": false
         },
         {
@@ -34,7 +40,9 @@
             "pdf": "/documents/pdf/projects/rapport-pfe.pdf",
             "github": "https://github.com/blavad/marl",
             "page": "/marl",
-            "labels": ["ai"],
+            "labels": [
+                "ai"
+            ],
             "public": false
         },
         {
@@ -47,7 +55,9 @@
             "pdf": "/documents/pdf/projects/proj-weRbeer.pdf",
             "github": "https://github.com/blavad/weRbeer",
             "page": "https://werbeer.herokuapp.com",
-            "labels": ["web"],
+            "labels": [
+                "web"
+            ],
             "public": false
         },
         {
@@ -60,7 +70,9 @@
             "pdf": "/documents/pdf/projects/stage-PollenRobotics.pdf",
             "github": "https://github.com/blavad/DQN-tensorflow",
             "page": "https://github.com/blavad/DQN-tensorflow",
-            "labels": ["ai"],
+            "labels": [
+                "ai"
+            ],
             "public": false
         },
         {
@@ -73,7 +85,23 @@
             "pdf": "/documents/pdf/projects/proj-TIPNE.pdf",
             "github": "https://github.com/blavad/Insarcade",
             "page": "/projects/insarcade",
-            "labels": ["computing", "diy"],
+            "labels": [
+                "computing",
+                "diy"
+            ],
+            "public": false
+        },
+        {
+            "short_title": "Ernest",
+            "long_title": "Ernest : Aménagement d'un van",
+            "img": "ernest-h2.jpg",
+            "img2": "ernest-v.jpg",
+            "brief": "Aménagement d'un fourgon Renault Master en camping-car (en cours).",
+            "description": "Van aménagé construit à partir d'un fourgon Reanault Master L2H2. <hr><ol><li>Nettoyer le van et traiter les parties rouillées <i style='color:green' class='fas fa-check'></i></li> <li>Modéliser l'aménagement intérieur <i style='color:green' class='fas fa-check'></i></li><li>Poser les ouvertures (fenêtres, lanterneau, prise extérieur) <i style='color:green' class='fas fa-check'></i></li><li>Isoler le van <i class='fas fa-spinner fa-pulse'></i></li><li>Installer le circuit électrique <i style='color:red' class='fas fa-times'></i></li><li>Poser le plancher et les parois <i style='color:red' class='fas fa-times'></i> </li> <li>Faire le circuit d'eau et de gaz <i style='color:red' class='fas fa-times'></i></li><li>Construire les meubles intérieur <i style='color:red' class='fas fa-times'></i></li>  </ol> ",
+            "page": "https://www.david-albert.fr",
+            "labels": [
+                "diy"
+            ],
             "public": false
         },
         {
@@ -86,10 +114,12 @@
             "pdf": "/documents/pdf/projects/proj-cpp.pdf",
             "github": "https://github.com/blavad/NeuralNetworks-manager",
             "page": "https://github.com/blavad/NeuralNetworks-manager",
-            "labels": ["ai", "computing"],
+            "labels": [
+                "ai",
+                "computing"
+            ],
             "public": false
         },
-
         {
             "short_title": "Space of War",
             "long_title": "Space of War",
@@ -100,7 +130,10 @@
             "page": "https://github.com/blavad/AgeOfWar",
             "pdf": "/documents/pdf/projects/proj-SpaceOfWar.pdf",
             "github": "https://github.com/blavad/AgeOfWar",
-            "labels": ["computing", "web"],
+            "labels": [
+                "computing",
+                "web"
+            ],
             "public": false
         },
         {
@@ -113,7 +146,9 @@
             "pdf": "/documents/pdf/projects/proj-Qlearning_Genetic.pdf",
             "github": "https://github.com/blavad/RobotSimulator",
             "page": "https://github.com/blavad/RobotSimulator",
-            "labels": ["ai"],
+            "labels": [
+                "ai"
+            ],
             "public": false
         },
         {
@@ -126,13 +161,14 @@
             "pdf": "",
             "github": "https://github.com/blavad/",
             "page": "",
-            "labels": ["diy"],
+            "labels": [
+                "diy"
+            ],
             "public": false
         }
-
     ],
-
-    "us": [{
+    "us": [
+        {
             "short_title": "SDM'Studio",
             "long_title": "Sequential Decision Making Studio",
             "img": "img-sdms-h.png",
@@ -141,7 +177,9 @@
             "description": "SDMS (Sequential Decision Making Studio) is a software library containing a set of tools and algorithms for solving sequential decision making problems. The platform is based on algorithmic choices, resulting from a detailed analysis of the limitations of current methods.",
             "github": "https://github.com/SDMStudio/sdms",
             "page": "https://sdmstudio.github.io",
-            "labels": ["ai"],
+            "labels": [
+                "ai"
+            ],
             "public": false
         },
         {
@@ -154,7 +192,10 @@
             "pdf": "/documents/pdf/projects/stage-UnivDundee.pdf",
             "github": "https://github.com/blavad/edge2car",
             "page": "https://georgezjchen.github.io/draw-a-car-build/",
-            "labels": ["ai", "computing"],
+            "labels": [
+                "ai",
+                "computing"
+            ],
             "public": false
         },
         {
@@ -167,7 +208,9 @@
             "pdf": "/documents/pdf/projects/rapport-pfe.pdf",
             "github": "https://github.com/blavad/marl",
             "page": "/marl",
-            "labels": ["ai"],
+            "labels": [
+                "ai"
+            ],
             "public": false
         },
         {
@@ -180,7 +223,9 @@
             "pdf": "/documents/pdf/projects/proj-weRbeer.pdf",
             "github": "https://github.com/blavad/weRbeer",
             "page": "https://werbeer.herokuapp.com",
-            "labels": ["web"],
+            "labels": [
+                "web"
+            ],
             "public": false
         },
         {
@@ -193,7 +238,9 @@
             "pdf": "/documents/pdf/projects/stage-PollenRobotics.pdf",
             "github": "https://github.com/blavad/DQN-tensorflow",
             "page": "https://github.com/blavad/DQN-tensorflow",
-            "labels": ["ai"],
+            "labels": [
+                "ai"
+            ],
             "public": false
         },
         {
@@ -206,7 +253,23 @@
             "pdf": "/documents/pdf/projects/proj-TIPNE.pdf",
             "github": "https://github.com/blavad/Insarcade",
             "page": "/projects/insarcade",
-            "labels": ["computing", "diy"],
+            "labels": [
+                "computing",
+                "diy"
+            ],
+            "public": false
+        },
+        {
+            "short_title": "Ernest",
+            "long_title": "Ernest",
+            "img": "ernest-h2.jpg",
+            "img2": "ernest-v.jpg",
+            "brief": "Conversion of a Renault Master into a livable van (in progress).",
+            "description": "Livable van built from a Reanault Master L2H2 van. <hr><ol><li>Clean the van and treat any rusty parts. <i style='color:green' class='fas fa-check'></i></li> <li>Modeling the interior design <i style='color: green' class='fas fa-check'></i></li><li>Installing the openings (windows, skylight, external plug) <i style='color:green' class='fas fa-check'></i></li><li>Insulate the van <i class='fas fa-spinner fa-pulse'></i></li><li>Installing the electrical circuit <i style='color: red' class='fas fa-times'></i></li><li>Laying the floor and walls <i style='color:red' class='fas fa-times'></i> </li> <li>Making the water and gas circuit <i style='color:red' class='fas fa-times'></i></li><li>Building the interior furniture <i style='color:red' class='fas fa-times'></i></li> </ol>",
+            "page": "https://www.david-albert.fr",
+            "labels": [
+                "diy"
+            ],
             "public": false
         },
         {
@@ -219,10 +282,12 @@
             "pdf": "/documents/pdf/projects/proj-cpp.pdf",
             "github": "https://github.com/blavad/NeuralNetworks-manager",
             "page": "https://github.com/blavad/NeuralNetworks-manager",
-            "labels": ["ai", "computing"],
+            "labels": [
+                "ai",
+                "computing"
+            ],
             "public": false
         },
-
         {
             "short_title": "Space of War",
             "long_title": "Space of War",
@@ -233,7 +298,10 @@
             "page": "https://github.com/blavad/AgeOfWar",
             "pdf": "/documents/pdf/projects/proj-SpaceOfWar.pdf",
             "github": "https://github.com/blavad/AgeOfWar",
-            "labels": ["computing", "web"],
+            "labels": [
+                "computing",
+                "web"
+            ],
             "public": false
         },
         {
@@ -246,7 +314,9 @@
             "pdf": "/documents/pdf/projects/proj-Qlearning_Genetic.pdf",
             "github": "https://github.com/blavad/RobotSimulator",
             "page": "https://github.com/blavad/RobotSimulator",
-            "labels": ["ai"],
+            "labels": [
+                "ai"
+            ],
             "public": false
         },
         {
@@ -259,7 +329,9 @@
             "pdf": "",
             "github": "https://github.com/blavad/",
             "page": "",
-            "labels": ["diy"],
+            "labels": [
+                "diy"
+            ],
             "public": false
         }
     ]
