@@ -1,25 +1,32 @@
 module.exports = {
     publicPath: '/',
     pages: {
-        index: {
+        "index": {
             entry: 'src/pages/Home/main.js',
             title: 'Home - David Albert',
         },
-        research: {
+        "research": {
             entry: 'src/pages/Research/main.js',
             title: 'Research - David Albert',
         },
-        projects: {
+        // -----------------
+        // --- PROJECTS
+        // -----------------
+        "projects": {
             entry: 'src/pages/Projects/main.js',
             title: 'Projects - David Albert',
         },
-
-        bidule: {
+        "projects/ernest": {
+            entry: 'src/pages/Projects/Ernest/main.js',
+            title: 'Ernest - David Albert',
+        },
+        // -----------------
+        "bidule": {
             entry: 'src/pages/Bidule/main.js',
             title: 'Bidule - David Albert',
         },
 
-        travels: {
+        "travels": {
             entry: 'src/pages/Travels/main.js',
             title: 'Travels - David Albert',
         },
