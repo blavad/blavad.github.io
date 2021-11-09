@@ -50,10 +50,10 @@ export default {
 </script>
 
 <style lang="scss">
-.publi {
-  opacity: 76%;
-  // border-radius: 4px;
-}
+// .publi {
+//   opacity: 76%;
+//   // border-radius: 4px;
+// }
 
 .publi-title {
   display: inline;
