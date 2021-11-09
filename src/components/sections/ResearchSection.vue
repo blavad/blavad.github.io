@@ -1,24 +1,35 @@
 <template>
   <!-- Projects -->
-  <div id="research" class="container-fluid mb-4 bg-dark text-light">
+  <div id="research" class="container-fluid text-light parallax">
     <!-- <SectionTitle /> -->
     <SectionTitle :title="lang == 'us' ? 'Research Interests' : 'Recherche'" />
-    <p>
-      My main research topic is about the resolution of collaborative multi-agent problems with RL methods.
+    <p id="description">
+      My main research interest is about the resolution of collaborative
+      multi-agent problems with RL methods.
     </p>
-    <h1 class="">Publications en cours:</h1>
-    <ul>
-        <li>SDMS</li>
-        <li>Serialized</li>
-        <li>Hisrarchical</li>
-    </ul>
-  </div>
 
+    <Publication
+      title="SDMS : An open-source library for POSGs"
+      authors="D.Albert & J. Dibangoye"
+      date="2021"
+      url=""
+      abstract="A solver and a library for POSGs."
+    />
+
+    <Publication
+      title="On continuous-state MDPs in extensive-form"
+      authors="J. Arjonilla, D. Albert, J. Dibangoye"
+      date="Delayed"
+      abstract="This paper presents a novel—yet
+more scalable—alternative, namely serial central planning for simultaneous decentralised execution."
+    />
+  </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
 import SectionTitle from "@/components/basic/SectionTitle.vue";
+import Publication from "@/components/Publication.vue";
 
 export default {
   name: "ProjectSection",
@@ -27,6 +38,7 @@ export default {
   },
   components: {
     SectionTitle,
+    Publication,
   },
   computed: {
     ...mapState(["lang"]),
@@ -35,4 +47,16 @@ export default {
 </script>
 
 <style scoped>
+#research {
+  background-image: url("../../assets/images/fractale-blue.png");
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: darken;
+  font-size: 1rem;
+  background-size: cover;
+}
+
+#description {
+  font-weight: bolder;
+  text-align: center;
+}
 </style>

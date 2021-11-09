@@ -200,7 +200,7 @@ export default {
 
 #header {
   font-weight: bolder;
-  background-image: url("../../assets/images/Big-Data.png");
+  background-image: url("../../assets/images/Big-Data2.png");
   // background-image: url("../../assets/images/Big-Data.png");
   background-color: rgba(255, 255, 255, 0.2);
   background-blend-mode: lighten;

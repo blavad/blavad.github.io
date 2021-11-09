@@ -11,9 +11,7 @@
   <div id="userInput" class="container-fluid fixed-bottom">
     <form v-on:submit.prevent="sendMessage(question)">
       <input id="msg-input" v-model="question" />
-      <button id="msg-button">
-        Send <i class="fas fa-arrow-right"></i>
-      </button>
+      <button id="msg-button">Send <i class="fas fa-arrow-right"></i></button>
     </form>
   </div>
 </template>
@@ -32,7 +30,7 @@ export default {
   },
   data() {
     return {
-      discution: [],
+      discution: [{ msg: "Hello, I am Bidule !", fromBidule: true }],
       question: "",
       answer:
         "Je ne peux pas vous donner une réponse avant que vous ne posiez une question !",
@@ -45,7 +43,10 @@ export default {
 
       axios
         // .get("https://yesno.wtf/api")
-        .post("https://bidulebot.herokuapp.com/webhooks/rest/webhook", { "message": msg , "sender": "unknown"})
+        .post("https://bidulebot.herokuapp.com/webhooks/rest/webhook", {
+          message: msg,
+          sender: "unknown",
+        })
         .then(function (response) {
           // alert(msg);
           vm.discution.push({

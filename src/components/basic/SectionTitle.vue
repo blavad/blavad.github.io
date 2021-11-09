@@ -20,7 +20,7 @@ export default {
 
 <style scoped>
 .section-title {
-  text-shadow: 2px 2px 0 rgb(100, 100, 100);
+  text-shadow: 2px 2px 0 rgb(125, 125, 125);
 }
 
 .link:after {    
