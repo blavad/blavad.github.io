@@ -45,8 +45,8 @@ import NavBar from "@/components/nav/NavBar.vue";
 import SocialBar from "@/components/SocialBar.vue";
 
 import brand from "@/data/brand.json";
-import publications from "@/data/publications.json";
 import projects from "@/data/projects.json";
+import publications from "@/data/publications.json";
 import skills from "@/data/skills.json";
 
 export default {
@@ -64,7 +64,7 @@ export default {
       brand: brand,
       skills: skills,
       projects: projects,
-      publications: publications,
+      publications: publications
     };
   },
   computed: {
