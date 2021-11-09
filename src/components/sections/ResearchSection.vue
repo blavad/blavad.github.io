@@ -26,8 +26,8 @@
 
 <script>
 import { mapState } from "vuex";
+import Publication from "@/components/basic/Publication.vue";
 import SectionTitle from "@/components/basic/SectionTitle.vue";
-import Publication from "@/components/Publication.vue";
 
 export default {
   name: "ResearchSection",
@@ -35,8 +35,8 @@ export default {
     publications: Object,
   },
   components: {
-    SectionTitle,
     Publication,
+    SectionTitle
   },
   computed: {
     ...mapState(["lang"]),
@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #research {
   background-image: url("../../assets/images/fractale-blue.png");
   background-color: rgba(0, 0, 0, 0.2);

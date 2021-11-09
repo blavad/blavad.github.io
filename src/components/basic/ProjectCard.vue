@@ -140,7 +140,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .h-200px {
   height: 200px;
 }

@@ -35,7 +35,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { mapState } from "vuex";
 
 import ContactSection from "@/components/sections/ContactSection.vue";
@@ -70,9 +69,6 @@ export default {
   },
   computed: {
     ...mapState(["lang"]),
-  },
-  mounted() {
-      axios.post("https://bidulebot.herokuapp.com/webhooks/rest/webhook", { "message": "Wake Up Bidule !!" , "sender": "unknown"});
   },
   methods: {
     getUrlVars: function () {
