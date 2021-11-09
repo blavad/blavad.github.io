@@ -12,9 +12,9 @@
       </p>
 
       <div class="publication px-4 py-2 bg-light text-dark">
-        <span class="publication-title">Test</span>,
-        <span class="pauthors">David</span>,
-        <span class="pdate">[2021]</span>
+        <div class="publication-title">Test</div>,
+        <div class="pauthors">David</div>,
+        <div class="pdate">[2021]</div>
         <p class="pabstract">blablabla</p>
       </div>
 
@@ -71,4 +71,38 @@ export default {
   background-repeat: no-repeat;
 }
 
+.publication {
+  margin: 2rem 0rem;
+  opacity: 76%;
+  border-radius: 4px;
+}
+
+.publication-title {
+  display: inline;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #0e76a8;
+}
+
+.publication-title a {
+  font-weight: bold;
+  color: #0e76a8;
+}
+
+.pauthors {
+  display: inline;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.pdate {
+  display: inline;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+.pabstract {
+  font-size: 1rem;
+}
 </style>
