@@ -12,13 +12,13 @@
       </p>
 
       <Publication
-        v-for="publi in publications"
-        :key="publi.title"
-        :title="publi.title"
-        :authors="publi.authors"
-        :date="publi.date"
-        :url="publi.url"
-        :abstract="publi.abstract"
+        v-for="p in publications"
+        :key="p.title"
+        :title="p.title"
+        :authors="p.authors"
+        :date="p.date"
+        :url="p.url"
+        :abstract="p.abstract"
       />
     </div>
   </div>
@@ -32,11 +32,11 @@ import SectionTitle from "@/components/basic/SectionTitle.vue";
 export default {
   name: "ResearchSection",
   props: {
-    publications: Object,
+    publications: Array,
   },
   components: {
     Publication,
-    SectionTitle
+    SectionTitle,
   },
   computed: {
     ...mapState(["lang"]),
@@ -44,9 +44,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 #research {
-  // background-image: url("../../assets/images/fractale-blue.png");
+  /* background-image: url("../../assets/images/fractale-blue.png"); */
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: darken;
   font-size: 1rem;
@@ -63,5 +63,4 @@ export default {
   background-position: center;
   background-repeat: no-repeat;
 }
-
 </style>

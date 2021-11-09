@@ -156,7 +156,7 @@ import SectionTitle from "@/components/basic/SectionTitle.vue";
 export default {
   name: "ProjectSection",
   props: {
-    projects: Object,
+    projects: Array,
   },
   components: {
     ProjectCard,
