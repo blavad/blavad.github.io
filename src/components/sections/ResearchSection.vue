@@ -17,16 +17,6 @@
         <div class="pdate">[2021]</div>
         <p class="pabstract">blablabla</p>
       </div>
-<!-- 
-      <Publication
-        v-for="p in publications"
-        :key="p.title"
-        :title="p.title"
-        :authors="p.authors"
-        :date="p.date"
-        :url="p.url"
-        :abstract="p.abstract"
-      /> -->
     </div>
   </div>
 </template>
