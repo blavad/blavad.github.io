@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 #research {
-  background-image: url("../../assets/images/fractale-blue.png");
+  // background-image: url("../../assets/images/fractale-blue.png");
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: darken;
   font-size: 1rem;
