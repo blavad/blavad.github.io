@@ -1,14 +1,13 @@
 <template>
-  <div class="publication card my-4 bg-light text-dark">
-    <div class="card-body">
-      <span v-if="url" class="publication-title">
-        <a :href="url">{{ title }}</a>
-      </span>
-      <span v-else class="publication-title">{{ title }}</span>
-      <span class="authors">, {{ authors }}</span>
-      <span class="date">, {{ date }}</span>
-      <p class="abstract">{{ abstract }}</p>
-    </div>
+  <div class="publication px-4 py-2 bg-light text-dark">
+    <span v-if="url" class="publication-title">
+      <a :href="url">{{ title }}</a>
+    </span>
+    <span v-else class="publication-title">{{ title }}</span
+    >, <span class="pauthors">{{ authors }}</span
+    >,
+    <span class="pdate">[{{ date }}]</span>
+    <p class="pabstract">{{ abstract }}</p>
   </div>
 </template>
 
@@ -26,24 +25,10 @@ export default {
 </script>
 
 <style scoped>
-/* Style the Image Used to Trigger the Modal */
-
-.cposition {
-  font-style: italic;
-  color: #424242;
-}
-
 .publication {
-  margin: 2rem;
+  margin: 2rem 0rem;
   opacity: 76%;
-  max-height: 170px;
-  overflow: hidden;
-  transition-property: max-height;
-  transition-duration: 0.5s;
-}
-
-.publication:hover {
-  max-height: 400px;
+  border-radius: 4px;
 }
 
 .publication-title {
@@ -57,25 +42,18 @@ export default {
   color: #0e76a8;
 }
 
-.authors {
-  font-size: 1.1rem;
+.pauthors {
+  font-size: 1rem;
   font-style: italic;
   font-weight: bolder;
 }
 
-.date {
-  font-size: 1.1rem;
+.pdate {
+  font-size: 1rem;
   font-weight: bolder;
 }
 
-.abstract {
+.pabstract {
   font-size: 1rem;
-}
-
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px) {
-  .modal-content {
-    width: 100%;
-  }
 }
 </style>

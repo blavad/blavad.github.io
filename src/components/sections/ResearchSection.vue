@@ -1,7 +1,7 @@
 <template>
   <!-- Projects -->
-  <div id="research" class="container-fluid text-light parallax p-0">
-    <div class="container text-light parallax">
+  <div id="research" class="parallax p-0">
+    <div class="container text-light">
       <!-- <SectionTitle /> -->
       <SectionTitle
         :title="lang == 'us' ? 'Research Interests' : 'Recherche'"
@@ -12,19 +12,13 @@
       </p>
 
       <Publication
-        title="SDMS : An open-source library for POSGs"
-        authors="D.Albert & J. Dibangoye"
-        date="2021"
-        url=""
-        abstract="A solver and a library for POSGs."
-      />
-
-      <Publication
-        title="On continuous-state MDPs in extensive-form"
-        authors="J. Arjonilla, D. Albert, J. Dibangoye"
-        date="Delayed"
-        abstract="This paper presents a novel—yet
-more scalable—alternative, namely serial central planning for simultaneous decentralised execution."
+        v-for="publi in publications"
+        :key="publi.title"
+        :title="publi.title"
+        :authors="publi.authors"
+        :date="publi.date"
+        :url="publi.url"
+        :abstract="publi.abstract"
       />
     </div>
   </div>
@@ -63,4 +57,11 @@ export default {
   margin: 0 2.5rem;
   font-weight: bolder;
 }
+
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 </style>
