@@ -72,8 +72,7 @@ export default {
     ...mapState(["lang"]),
   },
   mounted() {
-      let result = axios.post("https://bidulebot.herokuapp.com/webhooks/rest/webhook", { "message": "Wake Up Bidule !!" , "sender": "unknown"});
-      console.log(result);
+      axios.post("https://bidulebot.herokuapp.com/webhooks/rest/webhook", { "message": "Wake Up Bidule !!" , "sender": "unknown"});
   },
   methods: {
     getUrlVars: function () {
