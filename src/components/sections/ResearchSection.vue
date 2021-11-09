@@ -50,39 +50,39 @@ export default {
 </script>
 
 <style lang="scss">
-.publi {
-  opacity: 76%;
-  border-radius: 4px;
-}
+// .publi {
+//   opacity: 76%;
+//   border-radius: 4px;
+// }
 
-.publi-title {
+// .publi-title {
+//   display: inline;
+//   font-size: 1.2rem;
+//   font-weight: bold;
+//   color: #0e76a8;
+// }
+
+// .publi-title a {
+//   font-weight: bold;
+//   color: #0e76a8;
+// }
+
+.pauthors {
   display: inline;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #0e76a8;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: bolder;
 }
 
-.publi-title a {
-  font-weight: bold;
-  color: #0e76a8;
+.pdate {
+  display: inline;
+  font-size: 1rem;
+  font-weight: bolder;
 }
 
-// .pauthors {
-//   display: inline;
-//   font-size: 1rem;
-//   font-style: italic;
-//   font-weight: bolder;
-// }
-
-// .pdate {
-//   display: inline;
-//   font-size: 1rem;
-//   font-weight: bolder;
-// }
-
-// .pabstract {
-//   font-size: 1rem;
-// }
+.pabstract {
+  font-size: 1rem;
+}
 
 
 .parallax {
