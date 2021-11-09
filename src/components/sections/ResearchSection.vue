@@ -1,6 +1,6 @@
 <template>
   <!-- Projects -->
-  <div id="research" class="container-fluid text-light parallax">
+  <div id="research" class="container-fluid text-light parallax p-0">
     <div class="container text-light parallax">
       <!-- <SectionTitle /> -->
       <SectionTitle
