@@ -50,27 +50,7 @@ export default {
 </script>
 
 <style lang="scss">
-#research {
-  background-image: url("../../assets/images/fractale-blue.png");
-  background-color: rgba(0, 0, 0, 0.2);
-  background-blend-mode: darken;
-  font-size: 1rem;
-  background-size: cover;
-}
-
-#description {
-  margin: 0 2.5rem;
-  font-weight: bolder;
-}
-
-.parallax {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .publi {
-  margin: 2rem 0rem;
   opacity: 76%;
   border-radius: 4px;
 }
@@ -87,20 +67,40 @@ export default {
   color: #0e76a8;
 }
 
-.pauthors {
-  display: inline;
-  font-size: 1rem;
-  font-style: italic;
+// .pauthors {
+//   display: inline;
+//   font-size: 1rem;
+//   font-style: italic;
+//   font-weight: bolder;
+// }
+
+// .pdate {
+//   display: inline;
+//   font-size: 1rem;
+//   font-weight: bolder;
+// }
+
+// .pabstract {
+//   font-size: 1rem;
+// }
+
+
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#description {
+  margin: 0 2.5rem;
   font-weight: bolder;
 }
 
-.pdate {
-  display: inline;
+#research {
+  background-image: url("../../assets/images/fractale-blue.png");
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: darken;
   font-size: 1rem;
-  font-weight: bolder;
-}
-
-.pabstract {
-  font-size: 1rem;
+  background-size: cover;
 }
 </style>
