@@ -11,7 +11,7 @@
         multi-agent problems with RL methods.
       </p>
 
-      <div class="publi px-4 py-2 bg-light text-dark">
+      <div class="px-4 py-2 bg-light text-dark publi">
         <div class="publi-title">Test</div>,
         <div class="pauthors">David</div>,
         <div class="pdate">[2021]</div>
@@ -50,10 +50,12 @@ export default {
 </script>
 
 <style lang="scss">
-// .publi {
-//   opacity: 76%;
-//   // border-radius: 4px;
-// }
+
+.publi {
+  // opacity: 76%;
+  border-radius: 4px;
+  margin: 1rem 0rem;
+}
 
 .publi-title {
   display: inline;
