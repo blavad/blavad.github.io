@@ -71,35 +71,4 @@ export default {
   background-repeat: no-repeat;
 }
 
-.publication {
-  margin: 2rem 0rem;
-  opacity: 76%;
-  border-radius: 4px;
-}
-
-.publication-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #0e76a8;
-}
-
-.publication-title a {
-  font-weight: bold;
-  color: #0e76a8;
-}
-
-.pauthors {
-  font-size: 1rem;
-  font-style: italic;
-  font-weight: bolder;
-}
-
-.pdate {
-  font-size: 1rem;
-  font-weight: bolder;
-}
-
-.pabstract {
-  font-size: 1rem;
-}
 </style>
