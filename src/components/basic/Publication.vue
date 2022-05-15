@@ -27,7 +27,7 @@ export default {
 <style scoped>
 .publication {
   margin: 1rem 0rem;
-  opacity: 0.76;
+  opacity: 0.85;
   border-radius: 4px;
 }
 

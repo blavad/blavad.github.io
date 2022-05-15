@@ -1,5 +1,18 @@
 {
-    "fr": [
+    "fr": [{
+            "short_title": "Unboared",
+            "long_title": "Unboared - 2.0 Board Games",
+            "img": "img-unboared.png",
+            "img2": "img-unboared-v.jpg",
+            "brief": "Une nouvelle ère pour le jeu de société.",
+            "description": "Unboared est une nouvelle façon de jouer à nos jeux de société favoris avec nos amis. Prenez simplement votre téléphone et votre ordinateur ou télévision et jouez à plus de 100 jeux.",
+            "github": "https://github.com/unboared",
+            "page": "https://unboared.com",
+            "labels": [
+                "web"
+            ],
+            "public": false
+        },
         {
             "short_title": "SDM'Studio",
             "long_title": "Sequential Decision Making Studio",
@@ -167,7 +180,20 @@
             "public": false
         }
     ],
-    "us": [
+    "us": [{
+            "short_title": "Unboared",
+            "long_title": "Unboared - 2.0 Board Games",
+            "img": "img-unboared.png",
+            "img2": "img-unboared-v.jpg",
+            "brief": "A new era of board games.",
+            "description": "Unboared is a new way to play your favorite board games with people you love. Just pick your phone(s), your computer or a TV and play together to +100 games. Come on, test it! ",
+            "github": "https://github.com/unboared",
+            "page": "https://unboared.com",
+            "labels": [
+                "web"
+            ],
+            "public": false
+        },
         {
             "short_title": "SDM'Studio",
             "long_title": "Sequential Decision Making Studio",

@@ -2,29 +2,30 @@
   <NavBar active_item_id="0" />
 
   <!-- Section présentation -->
-  <div id="profil" class="container-fluid text-light parallax">
-    <div class="row text-center text-sm-left">
-      <div class="col-12 col-sm-4 col-lg-4 p-4 text-center">
-        <img
-          class="img-fluid arrondie"
-          src="@/assets/images/photo-dav-md.jpg"
-          alt="Profil David Albert"
-        />
-      </div>
-      <div class="col-12 col-sm-8 col-lg-6 p-4">
-        <h1 class="text-light">{{ brand.name }}</h1>
-        <p v-html="brand.brief[lang]"></p>
+  <div id="profil-section" class="parallax p-0">
+    <div id="profil" class="container text-light">
+      <div class="row text-center text-sm-left">
+        <div class="col-12 col-sm-4 col-lg-4 p-4 text-center">
+          <img
+            class="img-fluid arrondie"
+            src="@/assets/images/photo-dav-md.jpg"
+            alt="Profil David Albert"
+          />
+        </div>
+        <div id="presentation" class="col-12 col-sm-8 col-lg-8 p-4">
+          <h1 id="name-title" class="text-light">{{ brand.name }}</h1>
+          <p v-html="brand.brief[lang]"></p>
+        </div>
       </div>
     </div>
   </div>
-  
+
   <!-- Section Projects -->
   <ProjectSection :projects="projects[lang]" />
 
-
   <!-- Section Projects -->
   <ResearchSection :publications="publications[lang]" />
-  
+
   <!-- Section Skills -->
   <SkillSection :skills="skills" />
 
@@ -64,7 +65,7 @@ export default {
       brand: brand,
       skills: skills,
       projects: projects,
-      publications: publications
+      publications: publications,
     };
   },
   computed: {
@@ -131,46 +132,67 @@ export default {
   border-radius: 5rem;
 }
 
-// Logo 
+// Logo
 
 .logo:hover {
-    color: rgb(180, 180, 180);
-    /* color: rgb(119, 119, 119); */
+  color: rgb(180, 180, 180);
+  /* color: rgb(119, 119, 119); */
 }
 
 .logo-linkedin {
-    color: #0e76a8;
+  color: #0e76a8;
 }
 
 .logo-mail {
-    color: rgb(180, 46, 46);
+  color: rgb(180, 46, 46);
 }
 
 .logo-pdf {
-    color: rgb(180, 46, 46);
+  color: rgb(180, 46, 46);
 }
 
 .logo-github {
-    color: #211F1F;
+  color: #211f1f;
 }
 
 .logo-docker {
-    color: #2496ed;
+  color: #2496ed;
 }
 
 .logo-link {
-    color: #052646;
+  color: #052646;
+}
+#profil-section {
+  background-image: url("../../assets/images/Big-Data2.png");
+  background-size: cover;
+  background-blend-mode: lighten;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 #profil {
-  font-weight: bolder;
-  background-image: url("../../assets/images/Big-Data2.png");
-  background-color: rgba(255, 255, 255, 0.2);
-  background-blend-mode: lighten;
-  font-size: 1rem;
-  background-size: cover;
+  font-size: 1.1rem;
 }
+
 #profil a {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.2rem 0.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+#unboared-link {
+  color:#ff2453;
+}
+
+#sdms-link {
   color: #8cd6f8;
+}
+
+#presentation {
+  // background-color: black;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 </style>

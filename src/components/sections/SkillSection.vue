@@ -1,6 +1,6 @@
   <template>
   <div id="skills" class="container-fluid bg-dark text-light pl-4">
-    <SectionTitle :title="lang == 'us' ? 'Skills' : 'Compétences'" />
+    <SectionTitle :title="lang == 'us' ? 'Technical Skills' : 'Compétences Techniques'" />
     <br />
     <div class="row">
       <div

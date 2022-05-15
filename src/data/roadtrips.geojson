@@ -1,0 +1,74 @@
+{
+    "type": "RoadTripCollection",
+    "roadtrips": [
+        {
+            "type": "Roadtrip",
+            "properties": {
+                "title": "Heisenberg en Italie !",
+                "type": "van",
+                "countries": [
+                    "ITA"
+                ],
+                "description": "",
+                "steps": [
+                    {
+                        "type": "Step",
+                        "properties": {
+                            "title": "Lac de Côme",
+                            "country": "ITA",
+                            "date": "10/01/2020",
+                            "description": "",
+                            "imgs": [
+                                "travels/heisenberg/come1.png",
+                                "travels/heisenberg/come2.png"
+                            ]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [
+                                -151.5129,
+                                63.1016,
+                                0.0
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Roadtrip",
+            "properties": {
+                "title": "Roadtrip Malaisie/Singapore",
+                "type": "backpacker",
+                "countries": [
+                    "MYS",
+                    "SGP"
+                ],
+                "description": "",
+                "steps": [
+                    {
+                        "type": "Step",
+                        "properties": {
+                            "title": "Kuala Lumpur",
+                            "country": "MYS",
+                            "date": "10/01/2020",
+                            "description": "",
+                            "imgs": [
+                                "travels/heisenberg/come1.png",
+                                "travels/heisenberg/come2.png"
+                            ]
+                        },
+                        "geometry": {
+                            "type": "Point",
+                            "coordinates": [
+                                -151.5129,
+                                63.1016,
+                                0.0
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

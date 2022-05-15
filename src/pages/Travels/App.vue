@@ -19,6 +19,7 @@
           <strong>Num roadtrips:</strong>&nbsp;<span id="roadtrips"></span>
         </div>
         <div><strong>Num steps:</strong>&nbsp;<span id="steps"></span></div>
+        <!-- <div><strong>Click:</strong>&nbsp;<span id="log"></span></div> -->
       </div>
     </div>
   </div>
@@ -26,201 +27,6 @@
   <div>
     <span id="log"></span>
   </div>
-
-  <!-- <div class="container-fluid scroll">
-    <div class="row">
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Cote italienne"
-          content="Helo helohelohelheo"
-          img="italier1.jpg"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Roadtrip Italie"
-          content="Helo helohelohelheo"
-          img="italier2.jpg"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-      <div class="col-12 col-lg-6">
-        <ProjectCard
-          title="Hello"
-          content="Helo helohelohelheo"
-          img="dqn-flappy-v.gif"
-          page="blabla"
-          github="boblo"
-          pdf=""
-          labels=""
-          :is_short="false"
-        />
-      </div>
-    </div>
-  </div> -->
-
-  <!-- 
-  <div class="middle">
-    <h1>COMING SOON</h1>
-    <hr />
-  </div>
-
-  <div class="bottomleft">
-    <p style="color: black">Mes voyages (Malaisie, Corée, Maroc, etc)</p>
-  </div> -->
 </template>
 
 <script>
@@ -297,6 +103,8 @@ export default {
         },
       };
 
+      let zoom_thresold = 3;
+
       var nt_travels = 0;
       var nt_steps = 0;
       var list_countries = [];
@@ -321,44 +129,6 @@ export default {
         center: [0, 20], // starting position [lng, lat]
         zoom: 1.5, // starting zoom
       });
-      // var geojson = {
-      //   type: "ContinentCollection",
-      //   features: [
-      //     {
-      //       type: "Continent",
-      //       properties: {
-      //         message: "Europe",
-      //         iconSize: [70, 70],
-      //       },
-      //       geometry: {
-      //         type: "Point",
-      //         coordinates: [15, 50],
-      //       },
-      //     },
-      //     {
-      //       type: "Continent",
-      //       properties: {
-      //         message: "Afrique",
-      //         iconSize: [70, 70],
-      //       },
-      //       geometry: {
-      //         type: "Point",
-      //         coordinates: [20, 10],
-      //       },
-      //     },
-      //     {
-      //       type: "Continent",
-      //       properties: {
-      //         message: "Asie",
-      //         iconSize: [70, 70],
-      //       },
-      //       geometry: {
-      //         type: "Point",
-      //         coordinates: [90, 35],
-      //       },
-      //     },
-      //   ],
-      // };
 
       var hoveredStateId = null;
       var logDisplay = document.getElementById("log");
@@ -377,13 +147,14 @@ export default {
             id: "country-bounds",
             source: "countries",
             "source-layer": "country_boundaries",
+            maxzoom: zoom_thresold,
             type: "fill",
             paint: {
               "fill-color": "#0e76a8",
               "fill-opacity": [
                 "case",
                 ["boolean", ["feature-state", "hover"], false],
-                1,
+                0.8,
                 0.6,
               ],
             },
@@ -400,6 +171,173 @@ export default {
         locationDisplay.textContent = "World";
         roadtripsDisplay.textContent = nt_travels;
         stepsDisplay.textContent = nt_steps;
+
+        // map.loadImage(
+        // "https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
+        // (error, image) => {
+        // if (error) throw error;
+        // map.addImage("custom-marker", image);
+        // Add a GeoJSON source with 2 points
+        //     map.addSource("mypoints", {
+        //       type: "geojson",
+        //       data: {
+        //         type: "FeatureCollection",
+        //         features: [
+        //           {
+        //             // feature for Mapbox DC
+        //             type: "Feature",
+        //             geometry: {
+        //               type: "Point",
+        //               coordinates: [-77.03238901390978, 38.913188059745586],
+        //             },
+        //             properties: {
+        //               title: "Mapbox DC",
+        //             },
+        //           },
+        //           {
+        //             // feature for Mapbox SF
+        //             type: "Feature",
+        //             geometry: {
+        //               type: "Point",
+        //               coordinates: [-122.414, 37.776],
+        //             },
+        //             properties: {
+        //               title: "Mapbox SF",
+        //             },
+        //           },
+        //         ],
+        //       },
+        //     });
+
+        //     // Layer with icons that should always be visible
+        //     map.addLayer({
+        //       id: "layer-mypoints",
+        //       type: "symbol",
+        //       source: "mypoints",
+        //       minzoom: 4, // Set zoom level to whatever suits your needs
+        //       layout: {
+        //         "icon-image": "custom-marker",
+        //         "icon-allow-overlap": true,
+        //         "text-field": ["get", "title"],
+        //         "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+        //         "text-offset": [0, 1.25],
+        //       },
+        //     });
+
+        //     // Layer with just labels that are only visible from a certain zoom level
+        //     map.addLayer({
+        //       id: "layer-mypoints-label",
+        //       type: "symbol",
+        //       source: "mypoints",
+        //       minzoom: 12, // Set zoom level to whatever suits your needs
+        //       layout: {
+        //         "text-field": ["get", "title"],
+        //         "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+        //         "text-offset": [0, 1.25],
+        //       },
+        //     });
+        //   }
+        // );
+        // Add a new source from our GeoJSON data and
+        // set the 'cluster' option to true. GL-JS will
+        // add the point_count property to your source data.
+        map.addSource("steps", {
+          type: "geojson",
+          // Point to GeoJSON data. This example visualizes all M1.0+ steps
+          // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
+          data: "/json/steps.geojson",
+          cluster: true,
+          clusterMaxZoom: 10, // Max zoom to cluster points on
+          clusterRadius: 50, // Radius of each cluster when clustering points (defaults to 50)
+        });
+
+        let size1 = 10,
+          size2 = 30;
+
+        map.addLayer({
+          id: "clusters",
+          type: "circle",
+          source: "steps",
+          minzoom: zoom_thresold,
+          filter: ["has", "point_count"],
+          paint: {
+            // Use step expressions (https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-step)
+            // with three steps to implement three types of circles:
+            //   * Blue, 20px circles when point count is less than 100
+            //   * Yellow, 30px circles when point count is between 100 and 750
+            //   * Pink, 40px circles when point count is greater than or equal to 750
+            "circle-color": [
+              "step",
+              ["get", "point_count"],
+              "#51bbd6",
+              size1,
+              "#f1f075",
+              size2,
+              "#f28cb1",
+            ],
+            "circle-radius": [
+              "step",
+              ["get", "point_count"],
+              20,
+              size1,
+              25,
+              size2,
+              30,
+            ],
+          },
+        });
+
+        map.addLayer({
+          id: "unclustered-point",
+          type: "circle",
+          source: "steps",
+          minzoom: zoom_thresold,
+          filter: ["!", ["has", "point_count"]],
+          paint: {
+            "circle-color": "#11b4da",
+            "circle-radius": 20,
+            "circle-stroke-width": 1,
+            "circle-stroke-color": "#fff",
+          },
+        });
+
+        map.addLayer({
+          id: "cluster-count",
+          type: "symbol",
+          source: "steps",
+          minzoom: zoom_thresold,
+          filter: ["has", "point_count"],
+          layout: {
+            "text-field": "{point_count_abbreviated}",
+            "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+            "text-size": 12,
+          },
+        });
+
+        // inspect a cluster on click
+        map.on("click", "clusters", (e) => {
+          const features = map.queryRenderedFeatures(e.point, {
+            layers: ["clusters"],
+          });
+          const clusterId = features[0].properties.cluster_id;
+          map
+            .getSource("steps")
+            .getClusterExpansionZoom(clusterId, (err, zoom) => {
+              if (err) return;
+
+              map.easeTo({
+                center: features[0].geometry.coordinates,
+                zoom: zoom,
+              });
+            });
+        });
+
+        map.on("mouseenter", "unclustered-point", () => {
+          map.getCanvas().style.cursor = "pointer";
+        });
+        map.on("mouseleave", "unclustered-point", () => {
+          map.getCanvas().style.cursor = "";
+        });
 
         // When the user moves their mouse over the state-fill layer, we'll update the
         // feature state for the feature under the mouse.
@@ -421,7 +359,6 @@ export default {
             hoveredStateId = e.features[0].id;
             let country_code = e.features[0].properties.iso_3166_1_alpha_3;
             locationDisplay.textContent = e.features[0].properties.name_en;
-            // this.log = JSON.stringify(e.features[0], null, 4);
             logDisplay.textContent = JSON.stringify(travels, null, 4);
             roadtripsDisplay.textContent =
               travels[country_code]["roadtrips"].length;
@@ -463,9 +400,14 @@ export default {
           map.getCanvas().style.cursor = "";
 
           locationDisplay.textContent = "World";
-          // logDisplay.textContent = "";
           roadtripsDisplay.textContent = nt_travels;
           stepsDisplay.textContent = nt_steps;
+        });
+
+        map.on("click", "country-bounds", function (e) {
+          if (e.features.length > 0) {
+            map.flyTo({ center: e.lngLat.wrap(), zoom: 4.5 });
+          }
         });
         // add markers to map
         // geojson.features.forEach(function (marker) {

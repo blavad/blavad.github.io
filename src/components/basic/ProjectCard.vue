@@ -173,6 +173,7 @@ export default {
 .project-card {
   text-align: center;
   position: relative;
+  height: 28rem;
   box-shadow: 0 8px 8px rgba(10, 10, 10, 0.15);
 }
 .project-card:before {

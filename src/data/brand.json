@@ -4,19 +4,19 @@
     "main_img": "photo-dav-md",
     "logo_alt": "",
     "brief": {
-        "fr": "Nouvellement diplômé de l'INSA de Rouen en mathématiques appliqués et informatique, je suis actuellement ingénieur de recherche au sein de l'équipe <a href='https://team.inria.fr/chroma/'>INRIA Chroma</a>. Le projet (<a href='https://team.inria.fr/chroma/'>ANR Plasma</a>) sur lequel je travaille vise à développer des algortihmes de planification et d'apprentissage pour la résolution de problèmes de prise de décision séquentielles. <br><br>A cet effet, je travaille de manière étroite avec les chercheurs du laboratoire dans le but de développer un solveur efficace qui utilise les dernières avancées scientifiques en planification multi-agents et apprentissage par renforcement.",
-        "us": "I studied applied mathematics and computer sciences at INSA de Rouen in France. Currently, I work as a research engineer in the <a href='https://team.inria.fr/chroma/'>INRIA Chroma</a> team where I study and implement planning and learning algorithms for sequential decision making problems. <br><br>Our studies are involved in the <a href='https://team.inria.fr/chroma/'>ANR Plasma</a> project and aim to provide an efficient solver that uses advanced researches in multi-agent planning and reinforcement learning."
+        "fr": "<hr/>Entrepreneur, développeur full stack et passionné d'innovation. <br/><br/> Je contribue au développement de projets liés à l'intelligence artificielle <a id='sdms-link' href='https://sdmstudio.github.io//'>SDM'Studio</a> et aux jeux <a id='unboared-link' href='https://unboared.com/'>Unboared</a>.",
+        "us": "<hr/>Entrepreneur, full stack developer and innovation enthusiast. <br/><br/> I contribute to projects in artificial intellifence <a id='sdms-link' href='https://sdmstudio.github.io//'>SDM'Studio</a> and games <a id='unboared-link' href='https://unboared.com/'>Unboared</a>."
     },
     "contact": {
         "adress": "30 rue Jean Broquin",
         "phone": "+33 7 86 60 19 16",
-        "email": "david.albert@insa-rouen.fr"
+        "email": "david.albert@cegetel.net"
     },
     "social_media": [{
             "name": "Mail",
             "color": "#00000",
-            "text": "david.albert@insa-lyon.fr",
-            "url": "mailto:david.albert@insa-lyon.fr",
+            "text": "david.albert@cegetel.net",
+            "url": "mailto:david.albert@cegetel.net",
             "fa_icon": "fas fa-envelope"
         },
         {
