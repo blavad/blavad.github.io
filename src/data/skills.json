@@ -2,7 +2,7 @@
         "name": "Data Science",
         "value": 3,
         "sub_skills": [{
-                "name": "Machine/Deep Learning",
+                "name": "Deep Learning",
                 "value": 2
             },
             {
