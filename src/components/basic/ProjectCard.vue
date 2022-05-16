@@ -171,6 +171,7 @@ export default {
 }
 
 .project-card {
+  overflow: hidden;
   text-align: center;
   position: relative;
   height: 28rem;
