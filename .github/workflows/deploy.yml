@@ -43,25 +43,8 @@ jobs:
 #     cp ./README.md ./wwwroot/README.md
 #     cp ./LICENSE ./wwwroot/LICENSE
 # Create a fresh git repo in wwwroot
-    - name: Init new repo in dist and commit generated files
-      run: |
-        cd dist
-        git init
-        git add -A
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m 'deploy'
-    # force push the contents of the wwwroot folder to the master branch
-    - name: Force push to gh-pages
-      uses: ad-m/github-push-action@v0.5.0
+    - name: deploy to gh-pages
+    - uses: peaceiris/actions-gh-pages@v3
       with:
-        # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        # Repository name to push. Default or empty value represents current github repository (${GITHUB_REPOSITORY})
-        # repository: # optional, default is
-        # Destination branch to push changes
-        branch: gh-pages # optional, default is master
-        # Determines if force push is used
-        force: true
-        # Directory to change to before pushing.
-        directory: ./dist
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./dist
