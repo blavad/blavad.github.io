@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 16
       - name: Install and build
-        run: 'npm --legacy-peer-deps install && npm run build'
+        run: 'npm ci --legacy-peer-deps  && npm run build'
       - name: Move CNAME file in build
         run: |
           mkdir -p dist
