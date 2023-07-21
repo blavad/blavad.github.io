@@ -55,14 +55,18 @@
         "value": 2,
         "sub_skills": [{
                 "name": "HTML",
-                "value": 2
+                "value": 3
             },
             {
                 "name": "CSS/SCSS",
                 "value": 1
             },
             {
-                "name": "Javascript, React, Vue",
+                "name": "Javascript / Typescript",
+                "value": 3
+            },
+            {
+                "name": "React.js",
                 "value": 2
             },
             {

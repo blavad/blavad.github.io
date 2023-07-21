@@ -59,6 +59,20 @@
             "public": false
         },
         {
+            "short_title": "Weekook",
+            "long_title": "Weekook : Générateur de recettes",
+            "img": "weekook/logo.png",
+            "img2": "weekook/logo-v.png",
+            "brief": "Générateur de listes de recettes pour la semaine.",
+            "description": "Optimisez votre temps en générant chaque semaine, une nouvelle liste de recettes aléatoire pour la semaine. Catégorisez vos recettes pour créer des semaines à thèmes et partagez (bientôt) vos recettes avec vos proches.",
+            "github": "https://github.com/blavad/weekook",
+            "page": "https://weekook.david-albert.fr",
+            "labels": [
+                "web"
+            ],
+            "public": false
+        },
+        {
             "short_title": "weRbeer",
             "long_title": "weRbeer",
             "img": "img-sm-weRbeer.png",
@@ -236,6 +250,19 @@
             "page": "/marl",
             "labels": [
                 "ai"
+            ],
+            "public": false
+        },
+        {
+            "short_title": "Weekook",
+            "long_title": "Weekook: Recipe Generator",
+            "img": "weekook/logo.png",
+            "img2": "weekook/logo-v.png",
+            "brief": "Weekly recipe list generator.",
+            "description": "Optimize your time by generating a new random list of recipes for the week. Categorize your recipes to create themed weeks and (soon) share your recipes with friends and family.",            "github": "https://github.com/blavad/weekook",
+            "page": "https://weekook.david-albert.fr",
+            "labels": [
+                "web"
             ],
             "public": false
         },
