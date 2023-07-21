@@ -24,7 +24,7 @@
             "sub_items": [{
                     "name": "Resume",
                     "icon": "fas fa-address-book",
-                    "path": "/documents/pdf/CV_david_albert.pdf"
+                    "path": "/assets/pdf/cv/CV-2023.pdf"
                 },
                 {
                     "id": 5,
@@ -65,7 +65,7 @@
             "sub_items": [{
                     "name": "CV",
                     "icon": "fas fa-address-book",
-                    "path": "/documents/pdf/CV_david_albert.pdf"
+                    "path": "/assets/pdf/cv/CV-2023.pdf"
                 },
                 {
                     "id": 5,
