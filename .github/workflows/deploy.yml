@@ -1,10 +1,10 @@
-name: Deploy to GitHub pages
-
 # Controls when the action will run.
 # In this case, when changes are made to the source branch
-on:
+name: Deploy to GitHub pages
+'on':
   push:
-    branches: [ master ]
+    branches:
+      - main
     
 jobs:
   build-and-deploy:
@@ -14,13 +14,18 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:  
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    - name: Yarn build
-      uses: borales/actions-yarn@v2.3.0
+    - uses: actions/checkout@v3
+    - name: Set Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+
+    - name: Run install (with yarn)
+      uses: borales/actions-yarn@v4
       with:
         cmd: install # will run `yarn install` command
-    - name: Yarn build
-      uses: borales/actions-yarn@v2.3.0
+    - name: Run production build
+      uses: borales/actions-yarn@v4
       with:
         cmd: build # will run `yarn build` command
         
