@@ -124,14 +124,14 @@ import @tailwindcss/aspect-ratio
     --color-error: var(--color-red);
     --color-info: var(--color-blue);
 
-    --gradient-black: linear-gradient(-40deg, var(--color-black), var(--color-white));
-    --gradient-white: linear-gradient(-40deg, var(--color-white), var(--color-black));
-    --gradient-green: linear-gradient(-40deg, #1ac37a, #20b2d6);
-    --gradient-yellow: linear-gradient(-40deg, #d7c32a, #1ac37a);
-    --gradient-blue: linear-gradient(-40deg, #20b2d6, #9a56ff);
-    --gradient-red: linear-gradient(-40deg, #ff567b, #d7c32a);
-    --gradient-purple: linear-gradient(-40deg, #9a56ff, #ff567b);
-    --gradient-mixed: linear-gradient(-40deg, #ff567b, #d7c32a, #1ac37a, #20b2d6, #9a56ff);
+    --color-gradient-black: linear-gradient(-40deg, var(--color-black), var(--color-white));
+    --color-gradient-white: linear-gradient(-40deg, var(--color-white), var(--color-black));
+    --color-gradient-green: linear-gradient(-40deg, #1ac37a, #20b2d6);
+    --color-gradient-yellow: linear-gradient(-40deg, #d7c32a, #1ac37a);
+    --color-gradient-blue: linear-gradient(-40deg, #20b2d6, #9a56ff);
+    --color-gradient-red: linear-gradient(-40deg, #ff567b, #d7c32a);
+    --color-gradient-purple: linear-gradient(-40deg, #9a56ff, #ff567b);
+    --color-gradient-mixed: linear-gradient(-40deg, #ff567b, #d7c32a, #1ac37a, #20b2d6, #9a56ff);
 
 
     --font-sans: 'Inria Sans', 'Inter', system-ui, Helvetica, sans-serif;

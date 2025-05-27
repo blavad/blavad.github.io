@@ -43,7 +43,7 @@
 
 .btn-green {
     .circle {
-        background: var(--gradient-green);
+        background: var(--color-gradient-green);
     }
 
     .label-text {
@@ -57,11 +57,11 @@
 
 .btn-blue {
     .circle {
-        background: var(--gradient-blue);
+        background: var(--color-gradient-blue);
     }
 
     .label-text {
-        background: var(--gradient-blue);
+        background: var(--color-gradient-blue);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
@@ -71,11 +71,11 @@
 
 .btn-yellow {
     .circle {
-        background: var(--gradient-yellow);
+        background: var(--color-gradient-yellow);
     }
 
     .label-text {
-        background: var(--gradient-yellow);
+        background: var(--color-gradient-yellow);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
@@ -84,11 +84,11 @@
 
 .btn-red {
     .circle {
-        background: var(--gradient-red);
+        background: var(--color-gradient-red);
     }
 
     .label-text {
-        background: var(--gradient-red);
+        background: var(--color-gradient-red);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
@@ -99,11 +99,11 @@
 
 .btn-purple {
     .circle {
-        background: var(--gradient-purple);
+        background: var(--color-gradient-purple);
     }
 
     .label-text {
-        background: var(--gradient-purple);
+        background: var(--color-gradient-purple);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
@@ -113,11 +113,11 @@
 
 .btn-black {
     .circle {
-        background: var(--gradient-black);
+        background: var(--color-gradient-black);
     }
 
     .label-text {
-        background: var(--gradient-black);
+        background: var(--color-gradient-black);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
@@ -126,11 +126,11 @@
 
 .btn-white {
     .circle {
-        background: var(--gradient-white);
+        background: var(--color-gradient-white);
     }
 
     .label-text {
-        background: var(--gradient-white);
+        background: var(--color-gradient-white);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
@@ -144,11 +144,11 @@
 
 .btn-mixed {
     .circle {
-        background: var(--gradient-mixed);
+        background: var(--color-gradient-mixed);
     }
 
     .label-text {
-        background: var(--gradient-mixed);
+        background: var(--color-gradient-mixed);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;

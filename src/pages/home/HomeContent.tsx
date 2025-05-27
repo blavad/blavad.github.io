@@ -9,18 +9,8 @@ import { useEffect } from 'react';
 const LINE_HEIGHT = 18;
 const LINE_APPEAR_TIME = 0.1;
 
-export function HomeContent({
-    topicID,
-    fullscreen,
-    animate,
-}: {
-    topicID: string;
-    fullscreen: boolean;
-    animate: any;
-}) {
+export function HomeContent({ topicID, fullscreen }: { topicID: string; fullscreen: boolean }) {
     const currentTopic = (topics as any)[topicID] || topics.default;
-
-    useEffect(() => {}, [topicID]);
 
     return (
         <motion.div
@@ -28,9 +18,16 @@ export function HomeContent({
                 'align-end fixed top-3 left-[50%] z-10 w-sm max-w-sm -translate-x-50 rounded-3xl p-[3px] shadow-xl'
             )}
             style={{
-                background: `var(--gradient-${currentTopic.color})`,
+                background: `var(--color-gradient-${currentTopic.color})`,
             }}
-            animate={animate}
+            animate={{
+                y: fullscreen ? 100 : 0,
+                height: fullscreen ? 100 + currentTopic.description.length * LINE_HEIGHT : 'auto',
+                transition: {
+                    height: { duration: currentTopic.description.length * LINE_APPEAR_TIME },
+                },
+                padding: fullscreen ? '4px' : '3px',
+            }}
         >
             <motion.div
                 className={cn(
@@ -42,7 +39,7 @@ export function HomeContent({
                 <motion.p
                     className={styles.subtitle}
                     animate={{
-                        background: `var(--gradient-${currentTopic.color})`,
+                        background: `var(--color-gradient-${currentTopic.color})`,
                         backgroundClip: 'text',
                         WebkitBackgroundClip: 'text',
                         color: 'transparent',
