@@ -48,16 +48,16 @@ export function Teaching() {
                     {Schools.map((school) => (
                         <li
                             key={school.name}
-                            className={cn('flex justify-center h-16', `w-1/${Schools.length + 1}`)}
+                            className={cn('flex h-16 justify-center', `w-1/${Schools.length + 1}`)}
                         >
-                            <div className="relative flex justify-center group w-fit h-full">
+                            <div className="group relative flex h-full w-fit justify-center">
                                 <img
                                     src={school.logo}
                                     alt={`${school.name} logo`}
-                                    className="cursor-pointer object-contain filter grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition duration-500"
+                                    className="cursor-pointer object-contain opacity-60 grayscale filter transition duration-500 hover:opacity-100 hover:grayscale-0"
                                 />
 
-                                <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-60 bg-black2/75 p-2 bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center text-white text-sm rounded-xl">
+                                <div className="bg-black2/75 bg-opacity-60 absolute -bottom-16 left-1/2 flex w-60 -translate-x-1/2 items-center justify-center rounded-xl p-2 text-sm text-white opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                                     ‍🎓 {school.description}
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ export function Teaching() {
             </section>
             <section id="cours">
                 <h3>Les cours</h3>
-                <div className="grid grid-flow-row grid-cols-2 gap-4 w-full">
+                <div className="grid w-full grid-flow-row grid-cols-2 gap-4">
                     <div className="square square-light-blue">
                         <h4>Mathématiques</h4>
                     </div>

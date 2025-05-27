@@ -5,7 +5,8 @@
         "color": "white",
         "title": "David ALBERT",
         "subtitle": "Go over the screen to discover.",
-        "description": []
+        "description": [],
+        "path": "/"
     },
     "tech": {
         "id": "tech",
@@ -16,10 +17,12 @@
         "citation": "Parce que l’imagination n’a pas de limite.",
         "description": [
             "Vous souhaitez tester une idée de produit high tech ? ",
-            "Automatiser des tâches ? Ou lancer une application web ",
-            "ou mobile ? Je vous conseille  pour la mise en place et ",
-            "je mets en place le MVP qu'il vous faut en  quelques jours."
-        ]
+            "Automatiser des tâches ? Lancer une application web ",
+            "ou mobile ? Je vous conseille  pour la mise en place et",
+            "je mets en place le MVP qu'il vous faut en  quelques",
+            "jours."
+        ],
+        "path": "/technology"
     },
     "games": {
         "id": "games",
@@ -28,7 +31,8 @@
         "title": "Games",
         "subtitle": "Co-fondateur d'Unboared",
         "citation": "Jouons, ensemble.",
-        "description": ["Unboared est une plateforme de jeux local et multijoueurs."]
+        "description": ["Unboared est une plateforme de jeux local", "et multijoueurs."],
+        "path": "/games"
     },
     "teaching": {
         "id": "teaching",
@@ -40,7 +44,8 @@
         "description": [
             "J'aime partager mes connaissances en mathématiques,",
             "en informatique et en intelligence artificielle."
-        ]
+        ],
+        "path": "/teaching"
     },
     "sports": {
         "id": "sports",
@@ -48,7 +53,8 @@
         "color": "purple",
         "title": "Sports",
         "subtitle": "J'aime le sport",
-        "description": []
+        "description": [],
+        "path": "/sports"
     },
     "art": {
         "id": "art",
@@ -56,7 +62,8 @@
         "color": "red",
         "title": "Créativité",
         "subtitle": "Art, design, and creativity",
-        "citation": "La créativité, c’est l’intelligence qui s’amuse."
+        "citation": "La créativité, c’est l’intelligence qui s’amuse.",
+        "path": "/art"
     },
     "music": {
         "id": "music",
@@ -64,7 +71,8 @@
         "color": "red",
         "title": "Musique",
         "subtitle": "Music and sound",
-        "citation": "La musique est le langage universel de l'humanité."
+        "citation": "La musique est le langage universel de l'humanité.",
+        "path": "/music"
     },
     "ecology": {
         "id": "ecology",
@@ -73,6 +81,7 @@
         "title": "Ecologie",
         "subtitle": "Engagé pour le vivant",
         "citation": "Ce qui fait que la Terre est belle, c’est la vie qu’il y a dessus. Protégeons la !!",
-        "description": []
+        "description": [],
+        "path": "/ecology"
     }
 }

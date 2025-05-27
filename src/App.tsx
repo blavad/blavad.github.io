@@ -1,6 +1,6 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Teaching } from './pages/teaching';
 import { Home } from './pages/home';
+import { Teaching } from './pages/teaching';
 
 import './App.css';
 

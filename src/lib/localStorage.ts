@@ -5,8 +5,8 @@
  * @example recoverConfig('controllable') // returns 'true' or 'false'
  */
 export function recoverConfig(configName: string) {
-  const config = localStorage.getItem(`configs/${configName}`);
-  return config;
+    const config = localStorage.getItem(`configs/${configName}`);
+    return config;
 }
 
 /**
@@ -16,5 +16,5 @@ export function recoverConfig(configName: string) {
  * @example saveConfig('controllable', true)
  */
 export function saveConfig(configName: string, value: unknown) {
-  localStorage.setItem(`configs/${configName}`, JSON.stringify(value));
+    localStorage.setItem(`configs/${configName}`, JSON.stringify(value));
 }

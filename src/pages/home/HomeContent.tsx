@@ -4,8 +4,9 @@ import { cn } from '~/lib/utils';
 import topics from '~/data/topics.json';
 
 import styles from './HomeContent.module.css';
+import { useEffect } from 'react';
 
-const LINE_HEIGHT = 15;
+const LINE_HEIGHT = 18;
 const LINE_APPEAR_TIME = 0.1;
 
 export function HomeContent({
@@ -19,6 +20,8 @@ export function HomeContent({
 }) {
     const currentTopic = (topics as any)[topicID] || topics.default;
 
+    useEffect(() => {}, [topicID]);
+
     return (
         <motion.div
             className={cn(
@@ -29,23 +32,27 @@ export function HomeContent({
             }}
             animate={animate}
         >
-            <div className="h-full w-full max-w-sm rounded-3xl bg-white p-2 pr-6 pl-10 text-left">
+            <motion.div
+                className={cn(
+                    'h-full w-full max-w-sm rounded-3xl bg-white/95 pr-6 pl-10 text-left',
+                    fullscreen ? 'py-4' : 'py-2'
+                )}
+            >
                 <h2 className={styles.title}>{topics.default.title}</h2>
-                <p
+                <motion.p
                     className={styles.subtitle}
-                    style={
-                        currentTopic.id !== 'default'
-                            ? {
-                                  background: `var(--gradient-${currentTopic.color})`,
-                                  backgroundClip: 'text',
-                                  WebkitBackgroundClip: 'text',
-                                  color: 'transparent',
-                              }
-                            : {}
-                    }
+                    animate={{
+                        background: `var(--gradient-${currentTopic.color})`,
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        color: 'transparent',
+                        transition: {
+                            duration: 0,
+                        },
+                    }}
                 >
                     {currentTopic?.subtitle}
-                </p>
+                </motion.p>
                 {fullscreen &&
                     currentTopic?.description.map((desc: string, idx: number) => (
                         <motion.p
@@ -60,14 +67,14 @@ export function HomeContent({
                                 y: LINE_HEIGHT * idx,
                                 transition: {
                                     duration: LINE_APPEAR_TIME * idx,
-                                    delay: LINE_APPEAR_TIME * idx,
+                                    delay: 0.2 + LINE_APPEAR_TIME * idx,
                                 },
                             }}
                         >
                             {desc}
                         </motion.p>
                     ))}
-            </div>
+            </motion.div>
         </motion.div>
     );
 }
