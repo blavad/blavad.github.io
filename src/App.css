@@ -1,0 +1,48 @@
+@import "./index.css";
+
+.square {
+    @apply rounded-3xl px-8 py-4 border-4 bg-gray-400 text-white border-gray-600
+}
+
+/* .square:hover {
+    @apply bg-gray-500 cursor-pointer
+} */
+
+.square-light {
+    @apply bg-gray-200 text-black2 border-gray-600
+}
+
+/* .square-light:hover {
+    @apply bg-gray-300 cursor-pointer
+} */
+
+
+.square-blue {
+    @apply bg-blue-400 text-white border-blue-600
+}
+
+/* .square-blue:hover {
+    @apply bg-blue-500 cursor-pointer
+} */
+
+
+.square-light-blue {
+    @apply bg-blue-200 text-black2 border-blue-600
+}
+
+/* .square-light-blue:hover {
+    @apply bg-blue-300 cursor-pointer
+} */
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 2;
+    position: relative;
+    text-transform: uppercase;
+}

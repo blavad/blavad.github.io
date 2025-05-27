@@ -1,0 +1,50 @@
+{
+    "common": {
+        "connectedPlayers": "Connected players"
+    },
+    "screen": {
+        "common": {
+            "orientation": {
+                "message": "Change the screen orientation to continue."
+            }
+        },
+        "home": {
+            "choosePlaylist": "Choose a playlist",
+            "randomPlaylist": "Random playlist",
+            "instructions": "How to play ?"
+        },
+        "instructions": {
+            "instr1": "Look at the screen and listen to the song",
+            "instr2": "Click on the right answer on your phone",
+            "instr3": "The faster you are, the more points you get",
+            "close1": "Click on",
+            "close2": " when you are ready"
+        },
+        "playlistSelection": {
+            "title": "Playlist"
+        },
+        "game": {
+            "question": "Whose song is this ? (%{count}/%{total})",
+            "ready": "Ready ?",
+            "go": "GO"
+        },
+        "endgame": {
+            "title": "Scoreboard",
+            "backToHome": "Unblind Test Menu",
+            "backToPlatform": "Quit Unblind Test"
+        }
+    },
+    "gamepad": {
+        "common": {
+            "waitingPage": {
+                "infos": " is the master of the game.",
+                "help": "Wait or help %{master} to choose the game !"
+            }
+        },
+        "endgame": {
+            "good": "Well Done !",
+            "bad": "Try again !",
+            "mood": "Send your mood"
+        }
+    }
+}

@@ -1,0 +1,1 @@
+export { Teaching } from './teaching';

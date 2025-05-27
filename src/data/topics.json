@@ -1,0 +1,78 @@
+{
+    "default": {
+        "id": "default",
+        "icon": "book",
+        "color": "white",
+        "title": "David ALBERT",
+        "subtitle": "Go over the screen to discover.",
+        "description": []
+    },
+    "tech": {
+        "id": "tech",
+        "icon": "bot",
+        "color": "green",
+        "title": "Technology",
+        "subtitle": "Consultant tech senior",
+        "citation": "Parce que l’imagination n’a pas de limite.",
+        "description": [
+            "Vous souhaitez tester une idée de produit high tech ? ",
+            "Automatiser des tâches ? Ou lancer une application web ",
+            "ou mobile ? Je vous conseille  pour la mise en place et ",
+            "je mets en place le MVP qu'il vous faut en  quelques jours."
+        ]
+    },
+    "games": {
+        "id": "games",
+        "icon": "gamepad",
+        "color": "red",
+        "title": "Games",
+        "subtitle": "Co-fondateur d'Unboared",
+        "citation": "Jouons, ensemble.",
+        "description": ["Unboared est une plateforme de jeux local et multijoueurs."]
+    },
+    "teaching": {
+        "id": "teaching",
+        "icon": "book",
+        "color": "blue",
+        "title": "Teaching",
+        "subtitle": "Teacher and mentor",
+        "citation": "La meilleure façon d’apprendre est de s’amuser.",
+        "description": [
+            "J'aime partager mes connaissances en mathématiques,",
+            "en informatique et en intelligence artificielle."
+        ]
+    },
+    "sports": {
+        "id": "sports",
+        "icon": "trophy",
+        "color": "purple",
+        "title": "Sports",
+        "subtitle": "J'aime le sport",
+        "description": []
+    },
+    "art": {
+        "id": "art",
+        "icon": "palette",
+        "color": "red",
+        "title": "Créativité",
+        "subtitle": "Art, design, and creativity",
+        "citation": "La créativité, c’est l’intelligence qui s’amuse."
+    },
+    "music": {
+        "id": "music",
+        "icon": "music",
+        "color": "red",
+        "title": "Musique",
+        "subtitle": "Music and sound",
+        "citation": "La musique est le langage universel de l'humanité."
+    },
+    "ecology": {
+        "id": "ecology",
+        "icon": "sprout",
+        "color": "yellow",
+        "title": "Ecologie",
+        "subtitle": "Engagé pour le vivant",
+        "citation": "Ce qui fait que la Terre est belle, c’est la vie qu’il y a dessus. Protégeons la !!",
+        "description": []
+    }
+}

@@ -1,0 +1,156 @@
+.home-btn {
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.home-btn:hover {
+    cursor: pointer;
+    transform: translateY(-20px) scale(1.1);
+}
+
+.circle {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--color-white);
+    border: 3px solid var(--color-white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.label-container {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: var(--font-small);
+    text-align: center;
+    background-color: var(--color-white);
+    margin-top: 0.1rem;
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transform: scale(0);
+}
+
+.label-text {
+    font-weight: 700;
+}
+
+
+.btn-green {
+    .circle {
+        background: var(--gradient-green);
+    }
+
+    .label-text {
+        background: -webkit-linear-gradient(-60deg, #1ac37a, #20b2d6);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+
+.btn-blue {
+    .circle {
+        background: var(--gradient-blue);
+    }
+
+    .label-text {
+        background: var(--gradient-blue);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+
+.btn-yellow {
+    .circle {
+        background: var(--gradient-yellow);
+    }
+
+    .label-text {
+        background: var(--gradient-yellow);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+.btn-red {
+    .circle {
+        background: var(--gradient-red);
+    }
+
+    .label-text {
+        background: var(--gradient-red);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+
+
+.btn-purple {
+    .circle {
+        background: var(--gradient-purple);
+    }
+
+    .label-text {
+        background: var(--gradient-purple);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+
+.btn-black {
+    .circle {
+        background: var(--gradient-black);
+    }
+
+    .label-text {
+        background: var(--gradient-black);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+.btn-white {
+    .circle {
+        background: var(--gradient-white);
+    }
+
+    .label-text {
+        background: var(--gradient-white);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+
+
+
+
+
+.btn-mixed {
+    .circle {
+        background: var(--gradient-mixed);
+    }
+
+    .label-text {
+        background: var(--gradient-mixed);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
