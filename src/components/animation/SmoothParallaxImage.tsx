@@ -3,7 +3,7 @@ import { PropsWithChildren, useEffect } from 'react';
 import { cn } from '~/lib/utils';
 
 const BG_WIDTH = 95; // Largeur de l'image de fond
-const BG_HEIGHT = 80; // Hauteur de l'image de fond
+const BG_HEIGHT = 82; // Hauteur de l'image de fond
 
 export function SmoothParallaxImage({
     src,
@@ -45,19 +45,19 @@ export function SmoothParallaxImage({
             }}
             initial={{
                 width: `${BG_WIDTH}vw`,
-                height: `${BG_HEIGHT}vh`,
+                height: `${BG_HEIGHT}dvh`,
                 borderRadius: '1.5rem',
-                // transformStyle: 'preserve-3d',
             }}
             animate={{
                 width: fullscreen ? '100vw' : `${BG_WIDTH}vw`,
-                height: fullscreen ? '100vh' : `${BG_HEIGHT}vh`,
+                height: fullscreen ? '100dvh' : `${BG_HEIGHT}dvh`,
                 borderRadius: fullscreen ? '0' : '1.5rem',
             }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
         >
             <div className="absolute h-full w-full backdrop-blur-xs"></div>
             <motion.img
+                className="absolute h-full w-full object-cover"
                 src={src}
                 alt="Smooth Parallax"
                 style={{

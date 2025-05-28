@@ -69,13 +69,13 @@
 }
 
 
-.btn-yellow {
+.btn-pink {
     .circle {
-        background: var(--color-gradient-yellow);
+        background: var(--color-gradient-pink);
     }
 
     .label-text {
-        background: var(--color-gradient-yellow);
+        background: var(--color-gradient-pink);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;

@@ -29,20 +29,3 @@
 .square-light-blue {
     @apply bg-blue-200 text-black2 border-blue-600
 }
-
-/* .square-light-blue:hover {
-    @apply bg-blue-300 cursor-pointer
-} */
-
-.layout {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 2;
-    position: relative;
-    text-transform: uppercase;
-}

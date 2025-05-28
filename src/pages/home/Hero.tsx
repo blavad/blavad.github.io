@@ -1,14 +1,15 @@
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 import topics from '~/data/topics.json';
 import img from '~/assets/img/camion-3d.jpg';
 import HomeButton from '~/components/ui/buttons/HomeButton';
 import { SmoothParallaxImage } from '~/components/animation/SmoothParallaxImage';
-import { HomeContent } from './HomeContent';
 import useActionOnScroll from '~/hooks/useActionOnScroll';
-import { motion } from 'framer-motion';
 import RotatingIconButton from '~/components/ui/buttons/RotatingIconButton';
 import Navbar from '~/components/navbar/Navbar';
+
+import { HomeContent } from './HomeContent';
 
 function Hero() {
     const [currentTopicID, setCurrentTopicID] = useState('default');
@@ -31,6 +32,8 @@ function Hero() {
                 top: 0,
                 behavior: 'smooth',
             });
+        } else {
+            openTopic(topicID);
         }
     };
 
@@ -56,10 +59,10 @@ function Hero() {
         <motion.div
             className="flex h-full flex-col items-center justify-end"
             initial={{
-                padding: '2rem',
+                paddingBottom: '1rem',
             }}
             animate={{
-                padding: fullscreen ? '0' : '2rem',
+                paddingBottom: fullscreen ? '0' : '1rem',
             }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
         >
@@ -73,7 +76,7 @@ function Hero() {
             >
                 <HomeButton
                     preset="games"
-                    className="absolute top-12 left-75"
+                    className="absolute bottom-[40%] left-[16%]"
                     onHoverStart={openTopic}
                     onHoverEnd={closeTopic}
                     onClick={clickTopic}
@@ -82,7 +85,7 @@ function Hero() {
                 </HomeButton>
                 <HomeButton
                     preset="tech"
-                    className="absolute bottom-40 left-16"
+                    className="absolute bottom-[20%] left-[3%]"
                     onHoverStart={openTopic}
                     onHoverEnd={closeTopic}
                     onClick={clickTopic}
@@ -91,7 +94,7 @@ function Hero() {
                 </HomeButton>
                 <HomeButton
                     preset="teaching"
-                    className="absolute top-26 right-87"
+                    className="absolute right-[21%] bottom-[35%]"
                     onHoverStart={openTopic}
                     onHoverEnd={closeTopic}
                     onClick={clickTopic}
@@ -100,7 +103,7 @@ function Hero() {
                 </HomeButton>
                 <HomeButton
                     preset="sports"
-                    className="absolute right-40 bottom-20"
+                    className="absolute right-[10%] bottom-[15%]"
                     onHoverStart={openTopic}
                     onHoverEnd={closeTopic}
                     onClick={clickTopic}
@@ -109,7 +112,7 @@ function Hero() {
                 </HomeButton>
                 <HomeButton
                     preset="ecology"
-                    className="absolute bottom-0 left-130"
+                    className="absolute bottom-[5%] left-[40%]"
                     onHoverStart={openTopic}
                     onHoverEnd={closeTopic}
                     onClick={clickTopic}

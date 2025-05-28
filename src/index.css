@@ -11,11 +11,10 @@ import @tailwindcss/typography
 import @tailwindcss/aspect-ratio
 */
 
-/* @plugin "daisyui" {
+@plugin "daisyui" {
     themes: light --default, dark --prefersdark, cupcake;
-} */
+}
 
-/*  */
 @custom-variant dark (&:is(.dark *));
 
 
@@ -37,11 +36,11 @@ import @tailwindcss/aspect-ratio
 
     --color-black2: #332F2F;
 
-    --color-red: #ff2453;
-    --color-red-t10: #ff24531a;
-    --color-red-t25: #ff245340;
-    --color-red-t50: #ff245380;
-    --color-red-t75: #ff2453c0;
+    --color-red: #ff567b;
+    --color-red-t10: #ff567b1a;
+    --color-red-t25: #ff567b40;
+    --color-red-t50: #ff567b80;
+    --color-red-t75: #ff567bc0;
     --color-red-0: #ffffff;
     --color-red-50: #ffd5d9;
     --color-red-100: #ffafb9;
@@ -54,11 +53,11 @@ import @tailwindcss/aspect-ratio
     --color-red-800: #420614;
     --color-red-900: #160007;
 
-    --color-yellow: #e9bc0c;
-    --color-yellow-t10: #e9bc0c1a;
-    --color-yellow-t25: #e9bc0c40;
-    --color-yellow-t50: #e9bc0c80;
-    --color-yellow-t75: #e9bc0cc0;
+    --color-yellow: #d7c32a;
+    --color-yellow-t10: #d7c32a1a;
+    --color-yellow-t25: #d7c32a40;
+    --color-yellow-t50: #d7c32a80;
+    --color-yellow-t75: #d7c32ac0;
     --color-yellow-50: #fffed4;
     --color-yellow-100: #fff9ad;
     --color-yellow-200: #fff188;
@@ -71,7 +70,6 @@ import @tailwindcss/aspect-ratio
     --color-yellow-900: #241900;
 
     --color-blue: #20b2d6;
-    /* #779FE4 */
     --color-blue-t10: #20b2d61a;
     --color-blue-t25: #20b2d640;
     --color-blue-t50: #20b2d680;
@@ -87,8 +85,14 @@ import @tailwindcss/aspect-ratio
     --color-blue-800: #112A55;
     --color-blue-900: #040B15;
 
+
+    --color-purple: #9a56ff;
+    --color-purple-t10: #9a56ff1a;
+    --color-purple-t25: #9a56ff40;
+    --color-purple-t50: #9a56ff80;
+    --color-purple-t75: #9a56ffc0;
+
     --color-green: #1ac37a;
-    /* #1bc65f; */
     --color-green-t10: #1ac37a1a;
     --color-green-t25: #1ac37a40;
     --color-green-t50: #1ac37a80;
@@ -123,18 +127,21 @@ import @tailwindcss/aspect-ratio
     --color-success: var(--color-green);
     --color-error: var(--color-red);
     --color-info: var(--color-blue);
+    --color-bg: var(--color-white);
+    --color-text: var(--color-black2);
 
     --color-gradient-black: linear-gradient(-40deg, var(--color-black), var(--color-white));
     --color-gradient-white: linear-gradient(-40deg, var(--color-white), var(--color-black));
-    --color-gradient-green: linear-gradient(-40deg, #1ac37a, #20b2d6);
-    --color-gradient-yellow: linear-gradient(-40deg, #d7c32a, #1ac37a);
-    --color-gradient-blue: linear-gradient(-40deg, #20b2d6, #9a56ff);
-    --color-gradient-red: linear-gradient(-40deg, #ff567b, #d7c32a);
-    --color-gradient-purple: linear-gradient(-40deg, #9a56ff, #ff567b);
-    --color-gradient-mixed: linear-gradient(-40deg, #ff567b, #d7c32a, #1ac37a, #20b2d6, #9a56ff);
+    --color-gradient-blue: linear-gradient(-40deg, var(--color-green), var(--color-blue));
+    --color-gradient-green: linear-gradient(-40deg, var(--color-yellow), var(--color-green));
+    --color-gradient-purple: linear-gradient(-40deg, var(--color-blue), var(--color-purple));
+    --color-gradient-red: linear-gradient(-40deg, var(--color-yellow), var(--color-red));
+    --color-gradient-pink: linear-gradient(-40deg, var(--color-purple), var(--color-red));
+    --color-gradient-mixed: linear-gradient(-40deg, var(--color-red), var(--color-yellow), var(--color-green), var(--color-blue), var(--color-purple));
 
 
     --font-sans: 'Inria Sans', 'Inter', system-ui, Helvetica, sans-serif;
+    --font-inter: 'Inter', 'Inria Sans', system-ui, Helvetica, sans-serif;
     --font-serif: 'EB Garamond', serif;
     --font-mono: "Space Mono", monospace;
 
@@ -160,7 +167,8 @@ import @tailwindcss/aspect-ratio
     --text-textarea: var(--text-lg);
     --text-select: var(--text-lg);
 
-
+    --breakpoint-xs: 32rem;
+    --breakpoint-3xl: 120rem;
 }
 
 
@@ -178,82 +186,28 @@ import @tailwindcss/aspect-ratio
     --border-l: 20px;
     --border-xl: 40px;
     --border-xxl: 64px;
-
-    --responsive-xs: 320px;
-    --responsive-s: 720px;
-    --responsive-m: 1024px;
-    --responsive-l: 1440px;
-    --responsive-xl: 2560px;
-}
-
-@media (max-width: 1440px) {
-    :root {
-        --font-small: 14px;
-        --font-medium: 16px;
-        --font-large: 21px;
-        --font-h1: 34px;
-        --font-h2: 24px;
-    }
-}
-
-@media (max-width: 1024px) {
-    :root {
-        --font-small: 14px;
-        --font-medium: 16px;
-        --font-large: 21px;
-        --font-h1: 34px;
-        --font-h2: 28px;
-    }
-}
-
-@media (max-width: 720px) {
-    :root {
-        --font-small: 14px;
-        --font-medium: 16px;
-        --font-large: 21px;
-        --font-h1: 34px;
-        --font-h2: 28px;
-    }
 }
 
 html {
     scroll-behavior: smooth;
     margin: 0;
     padding: 0;
-    scrollbar-color: var(--color-primary) #00000000;
+    scrollbar-color: var(--color-text) #00000000;
 
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-    line-height: 1.4;
-    font-family: var(--font-family-primary);
-}
-
-* {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: var(--font-sans);
-}
 
 body {
     display: flex;
-    /* background-image: url("./assets/img/bg.png"); */
-    /* background-size: cover; */
-    background-repeat: no-repeat;
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     max-width: 100vw;
-    background-color: var(--color-white);
+    background-color: var(--color-bg);
     justify-content: center;
-    /* place-items: center; */
-    /* align-items: center; */
     text-align: center;
     margin: 0;
     font-family: var(--font-sans);
-    color: var(--color-black2);
+    color: var(--color-text);
     /* padding: 2rem;
     padding-top: 4rem; */
     overflow-x: hidden;
@@ -301,20 +255,22 @@ section>* {
 } */
 
 h1 {
-    @apply text-h1 font-black;
+    @apply text-5xl font-black sm:text-7xl;
     line-height: 1.4;
+    font-family: 'Inter', 'Inria Sans', system-ui, Helvetica, sans-serif;
 }
 
 h2 {
-    @apply text-h2 font-bold;
+    @apply text-3xl font-black sm:text-5xl;
+    font-family: 'Inter', 'Inria Sans', system-ui, Helvetica, sans-serif;
 }
 
 h3 {
-    @apply text-h3 font-light;
+    @apply font-light;
 }
 
 h4 {
-    @apply text-h4 font-light;
+    @apply font-light;
 }
 
 h5 {
@@ -368,4 +324,100 @@ small {
 
 blockquote h2 {
     @apply text-h2 font-light;
+}
+
+
+.bg-gradient-green {
+    background: linear-gradient(var(--color-green-t10), var(--color-bg));
+}
+
+.text-gradient-green {
+    background: var(--color-gradient-green);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.bg-gradient-green-rev {
+    background: linear-gradient(var(--color-bg), var(--color-green-t10));
+}
+
+
+.bg-gradient-blue {
+    background: linear-gradient(var(--color-blue-t10), var(--color-bg));
+}
+
+.bg-gradient-blue-rev {
+    background: linear-gradient(var(--color-bg), var(--color-blue-t10));
+}
+
+.text-gradient-blue {
+    background: var(--color-gradient-blue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.bg-gradient-black {
+    background: linear-gradient(var(--color-bg), var(--color-black));
+}
+
+
+.bg-gradient-white {
+    background: linear-gradient(var(--color-black), var(--color-bg));
+}
+
+.text-gradient-black {
+    background: var(--color-gradient-black);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.bg-gradient-purple {
+    background: linear-gradient(var(--color-purple-t10), var(--color-bg));
+}
+
+.text-gradient-purple {
+    background: var(--color-gradient-purple);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.bg-gradient-purple-rev {
+    background: linear-gradient(var(--color-bg), var(--color-purple-t10));
+}
+
+
+.bg-gradient-red {
+    background: linear-gradient(var(--color-red-t10), var(--color-bg));
+}
+
+.text-gradient-red {
+    background: var(--color-gradient-red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.bg-gradient-red-rev {
+    background: linear-gradient(var(--color-bg), var(--color-red-t10));
+}
+
+
+
+.bg-gradient-pink {
+    background: linear-gradient(var(--color-purple-t10), var(--color-white));
+}
+
+.text-gradient-pink {
+    background: var(--color-gradient-pink);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.bg-gradient-pink-rev {
+    background: linear-gradient(var(--color-bg), var(--color-pink-t10));
 }

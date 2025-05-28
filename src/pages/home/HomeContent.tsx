@@ -4,7 +4,6 @@ import { cn } from '~/lib/utils';
 import topics from '~/data/topics.json';
 
 import styles from './HomeContent.module.css';
-import { useEffect } from 'react';
 
 const LINE_HEIGHT = 18;
 const LINE_APPEAR_TIME = 0.1;
@@ -15,13 +14,13 @@ export function HomeContent({ topicID, fullscreen }: { topicID: string; fullscre
     return (
         <motion.div
             className={cn(
-                'align-end fixed top-3 left-[50%] z-10 w-sm max-w-sm -translate-x-50 rounded-3xl p-[3px] shadow-xl'
+                'align-end xs:w-sm fixed top-8 left-[50%] z-10 w-xs -translate-x-[50%] rounded-3xl p-[3px] shadow-xl'
             )}
             style={{
                 background: `var(--color-gradient-${currentTopic.color})`,
             }}
             animate={{
-                y: fullscreen ? 100 : 0,
+                y: fullscreen ? 50 : 0,
                 height: fullscreen ? 100 + currentTopic.description.length * LINE_HEIGHT : 'auto',
                 transition: {
                     height: { duration: currentTopic.description.length * LINE_APPEAR_TIME },
@@ -31,7 +30,7 @@ export function HomeContent({ topicID, fullscreen }: { topicID: string; fullscre
         >
             <motion.div
                 className={cn(
-                    'h-full w-full max-w-sm rounded-3xl bg-white/95 pr-6 pl-10 text-left',
+                    'h-full w-full max-w-sm rounded-3xl bg-white/95 px-7 text-left',
                     fullscreen ? 'py-4' : 'py-2'
                 )}
             >

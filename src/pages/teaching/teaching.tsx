@@ -1,5 +1,6 @@
 import { cn } from '~/lib/utils';
 import { Shapes } from './shapes';
+import Navbar from '~/components/navbar/Navbar';
 
 const Schools = [
     {
@@ -22,7 +23,7 @@ const Schools = [
     },
 ];
 
-export function Teaching() {
+function Teaching() {
     return (
         <div className="max-w-200">
             <Shapes />
@@ -97,3 +98,5 @@ export function Teaching() {
         </div>
     );
 }
+
+export default Teaching;

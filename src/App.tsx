@@ -1,22 +1,53 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { Home } from './pages/home';
-import { Teaching } from './pages/teaching';
+import Home from './pages/home';
+import Teaching from './pages/teaching';
+import Tech from './pages/tech';
+import LoadingPage from './components/LoadingPage';
 
 import './App.css';
+import PageWrapper from './components/PageWrapper';
+import FadeWrapper from './components/FadeWrapper';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        // element: <Layout />,
+        element: <PageWrapper />,
         children: [
-            { path: '/', element: <Home /> },
-            { path: '/teaching', element: <Teaching /> },
+            {
+                path: '/',
+                element: (
+                    <FadeWrapper>
+                        <Home />
+                    </FadeWrapper>
+                ),
+            },
+            {
+                path: '/tech',
+                element: (
+                    <FadeWrapper>
+                        <Tech />
+                    </FadeWrapper>
+                ),
+            },
+            {
+                path: '/teaching',
+                element: (
+                    <FadeWrapper>
+                        <Teaching />
+                    </FadeWrapper>
+                ),
+            },
         ],
     },
 ]);
 
 function App() {
-    return <RouterProvider router={router} />;
+    return (
+        <>
+            <LoadingPage />
+            <RouterProvider router={router} />;
+        </>
+    );
 }
 
 export default App;

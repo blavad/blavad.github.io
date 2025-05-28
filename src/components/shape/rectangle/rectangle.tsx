@@ -46,12 +46,12 @@ export function BouncingRectangle() {
 }
 
 export function BouncingRectangle2() {
-    const debut = useRef<number>();
-    const tempsPrecedent = useRef<number>();
+    const debut = useRef<number>(0);
+    const tempsPrecedent = useRef<number>(0);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [direction, setDirection] = useState({ dx: 0.1, dy: 0.05 });
 
-    const containerRef = useRef(null);
+    const containerRef = useRef<any>(null);
 
     useEffect(() => {
         const animate = (timestamp: number) => {
