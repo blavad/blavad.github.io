@@ -9,7 +9,7 @@ function LoadingPage() {
             initial={{ top: 0 }}
             animate={{
                 top: loading ? 0 : '-100vh',
-                transition: { duration: 0.4 },
+                transition: { duration: 0.3 },
             }}
             className="fixed top-0 left-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center"
             style={{

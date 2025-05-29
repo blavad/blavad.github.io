@@ -21,12 +21,12 @@ function useNavigate() {
         });
         if (initialLoading || path !== location.pathname) {
             const topicID = path.slice(1, path.length);
-            const color = topics[topicID]?.color || 'green';
+            const color = (topics as any)[topicID]?.color || 'green';
 
-            openLoading(color, 'Chargement en cours...')
+            openLoading(color, `Chargement de ${path}`)
                 .then(() => {
                     navigate(path);
-                    sleep(500)
+                    sleep(600)
                         .then(() => {
                             setLoading(false);
                         })

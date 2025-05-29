@@ -19,6 +19,6 @@ export const useLoading = create<LoadingState>((set) => ({
     setInitialLoading: (initialLoading: boolean) => set({ initialLoading }),
     openLoading: async (color = 'blue', msg = 'Loading ...') => {
         set({ loading: true, loadingColor: color, loadingMessage: msg });
-        await new Promise((resolve) => setTimeout(resolve, 400));
+        await new Promise((resolve) => setTimeout(resolve, 300));
     },
 }));
