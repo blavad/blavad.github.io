@@ -9,5 +9,5 @@
 }
 
 .description {
-    @apply leading-7 text-black/50 dark:text-white/50 text-xs xs:text-sm absolute top-18 text-center;
+    @apply leading-4 text-black/50 dark:text-white/50 text-xs xs:text-sm text-left;
 }

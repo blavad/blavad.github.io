@@ -15,3 +15,7 @@ export function scrollToSection(sectionID: string) {
         el.scrollIntoView({ behavior: 'smooth' });
     }
 }
+
+export function isExternalLink(path: string): boolean {
+    return path.startsWith('http://') || path.startsWith('https://');
+}

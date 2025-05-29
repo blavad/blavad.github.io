@@ -7,7 +7,7 @@ import { scrollToSection } from '~/lib/utils';
 const NavData: Array<{ title: string; path: string }> = [
     { title: 'Créer un MVP', path: '/tech' },
     { title: 'Formations', path: '/teaching' },
-    { title: "Let's talk", path: 'contact' },
+    { title: 'Contact', path: 'contact' },
 ];
 
 function Navbar({ children }: PropsWithChildren<{}>) {

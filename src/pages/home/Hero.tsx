@@ -119,6 +119,9 @@ function Hero() {
                 >
                     {topics['ecology'].title}
                 </HomeButton>
+                <p className="absolute bottom-[2%] left-[50%] w-full -translate-x-1/2 text-base">
+                    + Scroll pour en savoir plus +
+                </p>
             </SmoothParallaxImage>
         </motion.div>
     );

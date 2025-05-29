@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Mail",
+        "color": "#00000",
+        "text": "david.albert@cegetel.net",
+        "url": "mailto:david.albert@cegetel.net",
+        "icon": "send"
+    },
+    {
+        "name": "LinkedIn",
+        "color": "#00000",
+        "text": "david-albert",
+        "url": "https://www.linkedin.com/in/david-albert-a767a4160",
+        "icon": "linkedin"
+    },
+    {
+        "name": "Github",
+        "color": "#00000",
+        "text": "blavad",
+        "url": "https://github.com/blavad",
+        "icon": "github"
+    },
+    {
+        "name": "Docker",
+        "color": "#00000",
+        "text": "blavad",
+        "url": "https://hub.docker.com/u/blavad",
+        "icon": "container"
+    },
+    {
+        "name": "CV",
+        "color": "#00000",
+        "text": "resume",
+        "url": "https://www.david-albert.fr/assets/pdf/cv/CV-2023.pdf",
+        "icon": "file-text"
+    }
+]

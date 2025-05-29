@@ -10,6 +10,7 @@ import { scrollToSection } from '~/lib/utils';
 
 function Home() {
     const navigate = useNavigate();
+
     return (
         <>
             <Hero />
