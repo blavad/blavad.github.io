@@ -5,9 +5,9 @@
 }
 
 .subtitle {
-    @apply leading-7 text-black/50 dark:text-white/50 text-lg;
+    @apply leading-7 text-text/75 text-lg;
 }
 
 .description {
-    @apply leading-4 text-black/50 dark:text-white/50 text-xs xs:text-sm text-left;
+    @apply leading-4 text-text/75 text-xs xs:text-sm text-left;
 }
