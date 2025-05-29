@@ -1,12 +1,12 @@
 import { PropsWithChildren } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import { DynamicIcon } from 'lucide-react/dynamic';
 
 import { Topics } from '~/types/topics';
 import { cn } from '~/lib/utils';
 import topics from '~/data/topics.json';
 
 import './HomeButton.css';
+import BlavadIcon from '../BlavadIcon';
 
 function HomeButton({
     variant = 'tech',
@@ -53,7 +53,7 @@ function HomeButton({
             onClick={onClickButton}
         >
             <div className="circle">
-                <DynamicIcon name={(topics[variant].icon || 'bot') as any} size={36} />
+                <BlavadIcon name={(topics[variant].icon || 'bot') as any} size={36} />
             </div>
             <motion.div className="label-container" animate={controls}>
                 <h3 className="label-text">{children}</h3>

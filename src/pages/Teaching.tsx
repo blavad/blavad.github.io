@@ -1,17 +1,11 @@
 import Card from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 
+import { scrollToSection } from '~/lib/utils';
 import Schools from '~/data/schools.json';
 import Courses from '~/data/courses.json';
-import { DynamicIcon } from 'lucide-react/dynamic';
 import ContactSection from './home/ContactSection';
-import { scrollToSection } from '~/lib/utils';
-
-const ICONS: Record<string, 'radical' | 'code-xml' | 'bot'> = {
-    maths: 'radical',
-    info: 'code-xml',
-    ia: 'bot',
-};
+import BlavadIcon from '~/components/ui/BlavadIcon';
 
 function Teaching() {
     return (
@@ -81,7 +75,7 @@ function Teaching() {
                                     )
                                 }
                             >
-                                <DynamicIcon name={ICONS[course.topic]} size={25} />
+                                <BlavadIcon name={course.topic} size={25} />
                                 {course.name}
                             </Button>
                         </div>

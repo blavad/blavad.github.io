@@ -1,13 +1,12 @@
 import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
-import { DynamicIcon } from 'lucide-react/dynamic';
 
 import { MENU_ANIMATION_DURATION } from '~/config/global';
-import useNavigate from '~/hooks/useNavigate';
 import { isExternalLink, scrollToSection, sleep } from '~/lib/utils';
-import { useMenu } from '~/stores/useMenu';
-
 import socials from '~/data/socials.json';
+import BlavadIcon from '~/components/ui/BlavadIcon';
+import useNavigate from '~/hooks/useNavigate';
+import { useMenu } from '~/stores/useMenu';
 
 const NavData: Array<{ title: string; path: string }> = [
     { title: 'Home', path: '/' },
@@ -67,7 +66,7 @@ function MenuPage() {
                             whileHover={{ scale: 1.2 }}
                             className="flex flex-col items-center justify-center"
                         >
-                            <DynamicIcon
+                            <BlavadIcon
                                 name={item.icon}
                                 size={36}
                                 className="hover:text-text/50 decoration-black2 decoration-1.5 cursor-pointer text-3xl font-bold underline"
