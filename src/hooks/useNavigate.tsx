@@ -1,10 +1,8 @@
 import { useLoading } from '~/stores/useLoading';
 import { useNavigate as useNavigateReact } from 'react-router-dom';
+import { INITIAL_LOADING_DURATION, LOADING_DURATION } from '~/config/global';
 import topics from '~/data/topics.json';
-
-function sleep(ms: number) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-}
+import { sleep } from '~/lib/utils';
 
 function useNavigate() {
     const navigate = useNavigateReact();
@@ -14,7 +12,6 @@ function useNavigate() {
 
     return (path: string) => {
         const location = window.location;
-        console.log('Navigating to:', path, 'Current location:', location.pathname);
         window.scrollTo({
             top: 0,
             behavior: 'smooth',
@@ -26,7 +23,7 @@ function useNavigate() {
             openLoading(color, `Chargement de ${path}`)
                 .then(() => {
                     navigate(path);
-                    sleep(600)
+                    sleep(initialLoading ? INITIAL_LOADING_DURATION : LOADING_DURATION)
                         .then(() => {
                             setLoading(false);
                         })

@@ -4,3 +4,14 @@ import { twMerge } from 'tailwind-merge';
 export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
+
+export function sleep(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+export function scrollToSection(sectionID: string) {
+    const el = document.getElementById(sectionID);
+    if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+    }
+}

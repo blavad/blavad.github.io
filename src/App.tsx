@@ -1,12 +1,14 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
 import Home from './pages/home';
 import Teaching from './pages/Teaching';
 import Tech from './pages/Tech';
 import LoadingPage from './components/LoadingPage';
 
-import './App.css';
 import PageWrapper from './components/PageWrapper';
 import FadeWrapper from './components/FadeWrapper';
+
+import './App.css';
 
 const router = createBrowserRouter([
     {
@@ -45,7 +47,7 @@ function App() {
     return (
         <>
             <LoadingPage />
-            <RouterProvider router={router} />;
+            <RouterProvider router={router} />
         </>
     );
 }

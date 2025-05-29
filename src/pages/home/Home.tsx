@@ -6,16 +6,10 @@ import useNavigate from '~/hooks/useNavigate';
 
 import Hero from './Hero';
 import ContactSection from './ContactSection';
+import { scrollToSection } from '~/lib/utils';
 
 function Home() {
     const navigate = useNavigate();
-
-    const scrollToSection = (sectionID: string) => {
-        const el = document.getElementById(sectionID);
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
     return (
         <>
             <Hero />
@@ -30,7 +24,7 @@ function Home() {
                     <div className="mt-15 flex flex-wrap gap-10">
                         <Card
                             className="flex-1"
-                            title="En créant ton MVP"
+                            title="En créant un MVP"
                             label="startups"
                             color="blue"
                         >

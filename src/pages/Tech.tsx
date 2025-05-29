@@ -8,18 +8,11 @@ import Card from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 
 import ContactSection from './home/ContactSection';
+import { scrollToSection } from '~/lib/utils';
 
 function Tech() {
-    const scrollToSection = (sectionID: string) => {
-        const el = document.getElementById(sectionID);
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
     return (
         <div className="flex flex-col items-center justify-center">
-            <Navbar />
             <section id="hero" className="sm:px-20">
                 <Card
                     title="Créer un MVP"

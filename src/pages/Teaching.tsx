@@ -6,6 +6,7 @@ import Schools from '~/data/schools.json';
 import Courses from '~/data/courses.json';
 import { DynamicIcon } from 'lucide-react/dynamic';
 import ContactSection from './home/ContactSection';
+import { scrollToSection } from '~/lib/utils';
 
 const ICONS: Record<string, 'radical' | 'code-xml' | 'bot'> = {
     maths: 'radical',
@@ -14,16 +15,8 @@ const ICONS: Record<string, 'radical' | 'code-xml' | 'bot'> = {
 };
 
 function Teaching() {
-    const scrollToSection = (sectionID: string) => {
-        const el = document.getElementById(sectionID);
-        if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
     return (
         <div className="flex flex-col items-center justify-center">
-            <Navbar />
             <section id="hero" className="sm:px-20">
                 <Card
                     title="Formations"

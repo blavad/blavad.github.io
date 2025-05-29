@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { MENU_ANIMATION_DURATION } from '~/config/global';
 
 type LoadingState = {
     loading: boolean;
@@ -19,6 +20,6 @@ export const useLoading = create<LoadingState>((set) => ({
     setInitialLoading: (initialLoading: boolean) => set({ initialLoading }),
     openLoading: async (color = 'blue', msg = 'Loading ...') => {
         set({ loading: true, loadingColor: color, loadingMessage: msg });
-        await new Promise((resolve) => setTimeout(resolve, 300));
+        await new Promise((resolve) => setTimeout(resolve, MENU_ANIMATION_DURATION));
     },
 }));

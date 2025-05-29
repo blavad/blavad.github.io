@@ -1,19 +1,26 @@
 import { create } from 'zustand';
+import { MENU_ANIMATION_DURATION } from '~/config/global';
 
 type MenuState = {
     isOpen: boolean;
-    isMenuOpen: boolean;
-    close: () => void;
-    closeMenu: () => void;
-    open: () => void;
-    openMenu: () => void;
+    variant: 'default' | 'hero';
+    close: () => Promise<void>;
+    open: (variant?: 'default' | 'hero') => Promise<void>;
 };
 
 export const useMenu = create<MenuState>((set) => ({
     isOpen: false,
-    isMenuOpen: false,
-    close: () => set({ isOpen: false }),
-    closeMenu: () => set({ isOpen: false, isMenuOpen: false }),
-    open: () => set({ isOpen: true }),
-    openMenu: () => set({ isOpen: true, isMenuOpen: true }),
+    variant: 'default',
+    close: async () => {
+        set({ isOpen: false, variant: 'default' });
+        await new Promise((resolve) => setTimeout(resolve, MENU_ANIMATION_DURATION));
+    },
+    open: async (variant: 'default' | 'hero' = 'default') => {
+        if (variant == 'hero') {
+            set({ isOpen: true, variant });
+        } else {
+            set({ isOpen: true });
+            await new Promise((resolve) => setTimeout(resolve, MENU_ANIMATION_DURATION));
+        }
+    },
 }));

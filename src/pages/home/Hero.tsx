@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import topics from '~/data/topics.json';
@@ -6,14 +6,14 @@ import img from '~/assets/img/camion-3d.jpg';
 import HomeButton from '~/components/ui/buttons/HomeButton';
 import { SmoothParallaxImage } from '~/components/animation/SmoothParallaxImage';
 import useActionOnScroll from '~/hooks/useActionOnScroll';
-import RotatingIconButton from '~/components/ui/buttons/RotatingIconButton';
-import Navbar from '~/components/navbar/Navbar';
 
 import { HomeContent } from './HomeContent';
+import { useMenu } from '~/stores/useMenu';
 
 function Hero() {
     const [currentTopicID, setCurrentTopicID] = useState('default');
     const [fullscreen, setFullscreen] = useState(false);
+    const { isOpen, open, variant, close } = useMenu();
 
     const openTopic = (topicID: string) => {
         setCurrentTopicID(topicID);
@@ -25,7 +25,8 @@ function Hero() {
     };
 
     const clickTopic = (topicID: string) => {
-        if (!fullscreen) {
+        if (!isOpen) {
+            open('hero');
             setFullscreen(true);
             openTopic(topicID);
             window.scrollTo({
@@ -37,23 +38,25 @@ function Hero() {
         }
     };
 
-    useActionOnScroll(() => {
+    const closeFullscreen = () => {
         setFullscreen((prev) => {
             if (prev) {
                 closeTopic();
             }
             return false;
         });
-    });
-
-    const onClickMenu = () => {
-        if (fullscreen) {
-            setFullscreen(false);
-            closeTopic();
-        } else {
-            console.log('Opening menu');
-        }
     };
+
+    useActionOnScroll(closeFullscreen);
+
+    useEffect(() => {
+        if (isOpen && variant === 'hero' && !fullscreen) {
+            close();
+            closeTopic();
+        } else if (!isOpen && fullscreen) {
+            closeFullscreen();
+        }
+    }, [isOpen, fullscreen]);
 
     return (
         <motion.div
@@ -66,9 +69,6 @@ function Hero() {
             }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
         >
-            <Navbar>
-                <RotatingIconButton open={fullscreen} onClick={onClickMenu} />
-            </Navbar>
             <SmoothParallaxImage
                 src={img}
                 fullscreen={fullscreen}

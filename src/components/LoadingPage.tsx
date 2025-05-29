@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { MENU_ANIMATION_DURATION } from '~/config/global';
 import { useLoading } from '~/stores/useLoading';
 
 function LoadingPage() {
@@ -9,7 +10,7 @@ function LoadingPage() {
             initial={{ top: 0 }}
             animate={{
                 top: loading ? 0 : '-100vh',
-                transition: { duration: 0.3 },
+                transition: { duration: MENU_ANIMATION_DURATION / 1000 },
             }}
             className="fixed top-0 left-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center"
             style={{

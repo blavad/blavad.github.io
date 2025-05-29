@@ -106,28 +106,6 @@ import @tailwindcss/aspect-ratio
     --font-serif: 'EB Garamond', serif;
     --font-mono: "Space Mono", monospace;
 
-    --text-h1: var(--text-6xl);
-    --text-h2: var(--text-3xl);
-    --text-h3: var(--text-base);
-    --text-h4: var(--text-base);
-    --text-h5: var(--text-base);
-    --text-p: var(--text-lg);
-    --text-a: var(--text-lg);
-    --text-li: var(--text-lg);
-    --text-input: var(--text-lg);
-    --text-submit: var(--text-lg);
-    --text-checkbox: var(--text-lg);
-    --text-label: var(--text-lg);
-    --text-placeholder: var(--text-lg);
-    --text-button: var(--text-lg);
-    --text-i: var(--text-3xl);
-    --text-u: var(--text-lg);
-    --text-td: var(--text-lg);
-    --text-th: var(--text-lg);
-    --text-textarea-placeholder: var(--text-lg);
-    --text-textarea: var(--text-lg);
-    --text-select: var(--text-lg);
-
     --breakpoint-xs: 32rem;
     --breakpoint-3xl: 120rem;
 }
@@ -202,76 +180,77 @@ body {
 	all: unset;
 } */
 
-h1 {
-    @apply text-5xl font-black sm:text-7xl;
-    line-height: 1.4;
-    font-family: 'Inter', 'Inria Sans', system-ui, Helvetica, sans-serif;
-}
 
-h2 {
-    @apply text-3xl font-black sm:text-5xl;
-    font-family: 'Inter', 'Inria Sans', system-ui, Helvetica, sans-serif;
-}
+@layer base {
 
-h3 {
-    @apply font-light;
-}
+    h1 {
+        @apply text-5xl font-black sm:text-7xl;
+        line-height: 1.4;
+        font-family: 'Inter', 'Inria Sans', system-ui, Helvetica, sans-serif;
+    }
 
-h4 {
-    @apply font-light;
-}
+    h2 {
+        @apply text-3xl font-black sm:text-5xl;
+        font-family: 'Inter', 'Inria Sans', system-ui, Helvetica, sans-serif;
+    }
 
-h5 {
-    @apply text-h5 font-light;
-}
+    h3 {
+        @apply font-light text-lg;
+    }
 
-p {
-    @apply text-p;
-}
+    h4 {
+        @apply font-light text-lg;
+    }
 
-a {
-    @apply text-a;
-    text-decoration: none;
-}
+    h5 {
+        @apply font-light text-base;
+    }
 
-li {
-    @apply text-li;
-}
+    p {
+        @apply text-lg;
+    }
 
-i {
-    @apply text-i;
-}
+    a {
+        @apply text-lg;
+        text-decoration: none;
+    }
 
-u {
-    @apply text-u;
-}
+    li {
+        @apply text-lg;
+    }
 
-td {
-    @apply text-td;
-}
+    i {
+        @apply text-3xl;
+    }
 
-th {
-    @apply text-th;
-}
+    u {
+        @apply text-lg;
+    }
 
-textarea::placeholder {
-    @apply text-textarea-placeholder;
-}
+    td {
+        @apply text-lg;
+    }
 
-textarea {
-    @apply text-textarea;
-}
+    th {
+        @apply text-lg;
+    }
 
-select {
-    @apply text-select;
-}
+    textarea::placeholder {
+        @apply text-lg;
+    }
 
-small {
-    @apply text-sm;
-}
+    textarea {
+        @apply text-lg;
+    }
 
-blockquote h2 {
-    @apply text-h2 font-light;
+    select {
+        @apply text-lg;
+    }
+
+    small {
+        @apply text-sm;
+    }
+
 }
 
 
