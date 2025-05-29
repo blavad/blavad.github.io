@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 export type ContactFormProps = {
     className?: string;
@@ -105,7 +106,7 @@ function ContactForm({ className, color, onTopicChange }: ContactFormProps) {
                 color={color}
                 disabled={loading}
             >
-                {loading ? <span className="loading loading-spinner loading-xs"></span> : 'Envoyer'}
+                {loading ? <ClipLoader /> : 'Envoyer'}
             </Button>
 
             {status === 'success' && (

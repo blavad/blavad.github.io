@@ -5,18 +5,6 @@
 
 @import "tailwindcss";
 @import "tw-animate-css";
-/* 
-import @tailwindcss/forms 
-import @tailwindcss/typography 
-import @tailwindcss/aspect-ratio
-*/
-
-@plugin "daisyui" {
-    themes: light --default, dark --prefersdark, cupcake;
-}
-
-@custom-variant dark (&:is(.dark *));
-
 
 
 @theme {
@@ -235,24 +223,34 @@ body {
         @apply text-lg;
     }
 
-    textarea::placeholder {
-        @apply text-lg;
-    }
-
-    textarea {
-        @apply text-lg;
-    }
-
-    select {
-        @apply text-lg;
-    }
-
     small {
         @apply text-sm;
     }
 
-}
+    input,
+    textarea,
+    select {
+        @apply text-base rounded-2xl border-3 border-text/50 bg-white/75 min-h-10 px-4;
+        font-family: var(--font-sans);
 
+        &:hover {
+            @apply border-text/75 outline-none;
+        }
+
+        &:focus {
+            @apply border-text/75 outline-none;
+        }
+
+        &:disabled {
+            @apply bg-bg/50 border-text/25 text-text/50 cursor-default;
+        }
+    }
+
+    textarea {
+        @apply py-2;
+    }
+
+}
 
 .bg-gradient-green {
     background: linear-gradient(var(--color-green-t25), var(--color-bg));
