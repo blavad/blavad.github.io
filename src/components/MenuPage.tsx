@@ -4,7 +4,7 @@ import { DynamicIcon } from 'lucide-react/dynamic';
 
 import { MENU_ANIMATION_DURATION } from '~/config/global';
 import useNavigate from '~/hooks/useNavigate';
-import { scrollToSection, sleep } from '~/lib/utils';
+import { isExternalLink, scrollToSection, sleep } from '~/lib/utils';
 import { useMenu } from '~/stores/useMenu';
 
 import socials from '~/data/socials.json';
@@ -16,10 +16,6 @@ const NavData: Array<{ title: string; path: string }> = [
     { title: 'Unboared', path: 'https://unboared.com/' },
     { title: 'Contact', path: 'contact' },
 ];
-
-function isExternalLink(path: string): boolean {
-    return path.startsWith('http://') || path.startsWith('https://');
-}
 
 function MenuPage() {
     const { isOpen, variant, close } = useMenu();
