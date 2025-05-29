@@ -30,9 +30,20 @@ jobs:
             - name: Build package
               run: pnpm build
 
-            - uses: FirebaseExtended/action-hosting-deploy@v0
+            - name: Move CNAME file in build
+              run: |
+                  mkdir -p dist
+                  cp CNAME dist
+            - uses: crazy-max/ghaction-github-pages@v1
               with:
-                  repoToken: '${{ secrets.GITHUB_TOKEN }}'
-                  firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BLAVAD_WEBSITE }}'
-                  channelId: live
-                  projectId: blavad-website
+                  target_branch: gh-pages
+                  build_dir: dist
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            # - uses: FirebaseExtended/action-hosting-deploy@v0
+            #   with:
+            #       repoToken: '${{ secrets.GITHUB_TOKEN }}'
+            #       firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BLAVAD_WEBSITE }}'
+            #       channelId: live
+            #       projectId: blavad-website
