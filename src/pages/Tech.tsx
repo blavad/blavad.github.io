@@ -22,7 +22,7 @@ function Tech() {
             <Navbar />
             <section id="hero" className="sm:px-20">
                 <Card
-                    title="Créer son MVP"
+                    title="Créer un MVP"
                     label="“ Parce que l’imagination n’a pas de limite. “"
                     variant="page"
                     color="blue"

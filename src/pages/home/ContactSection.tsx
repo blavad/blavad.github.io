@@ -9,11 +9,13 @@ const colorMap: Record<string, string> = {
     green: 'bg-green-100',
     yellow: 'bg-yellow-100',
     purple: 'bg-purple-100',
+    pink: 'bg-pink-100',
     redGradient: 'bg-gradient-red-rev',
     blueGradient: 'bg-gradient-blue-rev',
     greenGradient: 'bg-gradient-green-rev',
     yellowGradient: 'bg-gradient-yellow-rev',
     purpleGradient: 'bg-gradient-purple-rev',
+    pinkGradient: 'bg-gradient-pink-rev',
 };
 
 function ContactSection() {
@@ -33,8 +35,8 @@ function ContactSection() {
             <section id="contact" className={contentClass}>
                 <h1 className={titleClass}>On discute ?</h1>
                 <p className="mt-4">
-                    Envoyez moi un message via le formulaire ci-dessous. Je vous recontacte le plus
-                    rapidement possible .
+                    Envoie-moi un message via le formulaire ci-dessous. Je te recontacte le plus
+                    rapidement possible.
                 </p>
                 <ContactForm onTopicChange={onTopicChange} color={sectionColor} />
             </section>

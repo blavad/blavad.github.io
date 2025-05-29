@@ -84,7 +84,8 @@ function ContactForm({ className, color, onTopicChange }: ContactFormProps) {
                     </option>
                     <option value="teaching">Demande pour une formation</option>
                     <option value="games">A propos d'Unboared</option>
-                    <option value="ecology">Autre demande</option>
+                    <option value="ecology">Parlons écologie</option>
+                    <option value="art">Autre demande</option>
                 </select>
             </label>
 

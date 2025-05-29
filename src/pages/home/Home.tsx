@@ -9,6 +9,13 @@ import ContactSection from './ContactSection';
 
 function Home() {
     const navigate = useNavigate();
+
+    const scrollToSection = (sectionID: string) => {
+        const el = document.getElementById(sectionID);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     return (
         <>
             <Hero />
@@ -70,16 +77,11 @@ function Home() {
                             Je forme tes équipes aux meilleures pratiques de développement et aux
                             dernières technologies.
                             <div className="mt-6 flex flex-wrap gap-5">
-                                <Button
-                                    color="purple"
-                                    className="min-w-40"
-                                    onClick={() => navigate('/teaching')}
-                                >
+                                <Button color="purple" onClick={() => navigate('/teaching')}>
                                     En savoir plus
                                 </Button>
                                 <Button
                                     color="purple"
-                                    className="min-w-40"
                                     onClick={() => navigate('/teaching#courses')}
                                 >
                                     Accéder aux cours
@@ -148,12 +150,29 @@ function Home() {
                     <h1>Et sinon ?</h1>
                     <div className="mt-15 flex flex-wrap gap-10">
                         <Card className="flex-1" title="De l'écologie .." label="" color="green">
-                            Si tu souhaites juste explorer mes projets et mes cours. Cet espace est
-                            également là pour ça.
+                            Je m'intéresse beaucoup à l'écologie et à la protection de la vie sur
+                            Terre. Je suis ouvert à toute nouvelle opportunité allant dans ce sens.
+                            <div className="mt-6 flex flex-wrap gap-5">
+                                <Button color="green" className="w-40" disabled>
+                                    En savoir plus
+                                </Button>
+                                <Button
+                                    color="green"
+                                    className="w-40"
+                                    onClick={() => scrollToSection('contact')}
+                                >
+                                    Me contacter
+                                </Button>
+                            </div>
                         </Card>
                         <Card className="flex-1" title=".. et du sport" label="" color="pink">
-                            Si tu souhaites juste explorer mes projets et mes cours. Cet espace est
-                            également là pour ça.
+                            Depuis tout petit, je suis passionné de sport. Du basket au triathlon,
+                            en passant par mon sport de prédilection: <b>la natation</b>.
+                            <div className="mt-6 flex flex-wrap gap-5">
+                                <Button color="purple" className="w-40" disabled>
+                                    En savoir plus
+                                </Button>
+                            </div>
                         </Card>
                     </div>
                 </motion.section>

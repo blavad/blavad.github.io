@@ -64,6 +64,13 @@ import @tailwindcss/aspect-ratio
     --color-purple-t50: #9a56ff80;
     --color-purple-t75: #9a56ffc0;
 
+    --color-pink: #9a56ff;
+    --color-pink-100: #e2cff7;
+    --color-pink-t10: #9a56ff1a;
+    --color-pink-t25: #9a56ff40;
+    --color-pink-t50: #9a56ff80;
+    --color-pink-t75: #9a56ffc0;
+
     --color-green: #1ac37a;
     --color-green-100: #c2ead6;
     --color-green-t10: #1ac37a1a;
@@ -349,7 +356,7 @@ blockquote h2 {
 
 
 .bg-gradient-pink {
-    background: linear-gradient(var(--color-purple-t25), var(--color-white));
+    background: linear-gradient(var(--color-pink-t25), var(--color-white));
 }
 
 .text-gradient-pink {
