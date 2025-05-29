@@ -9,39 +9,39 @@ import topics from '~/data/topics.json';
 import './HomeButton.css';
 
 function HomeButton({
-    preset = 'tech',
+    variant = 'tech',
     className,
     children,
     onHoverStart,
     onHoverEnd,
     onClick,
 }: PropsWithChildren<{
-    preset: Topics;
+    variant: Topics;
     className?: string;
     onHoverStart?: (theme: string) => void;
     onHoverEnd?: (theme: string) => void;
     onClick?: (theme: string) => void;
 }>) {
     const controls = useAnimation();
-    const colorClass = `btn-${topics[preset].color}`;
+    const colorClass = `btn-${topics[variant].color}`;
 
     const onHoverStartButton = () => {
         controls.start({ scale: 1 });
         if (onHoverStart) {
-            onHoverStart(preset);
+            onHoverStart(variant);
         }
     };
 
     const onHoverEndButton = () => {
         controls.start({ scale: 0 });
         if (onHoverEnd) {
-            onHoverEnd(preset);
+            onHoverEnd(variant);
         }
     };
 
     const onClickButton = () => {
         if (onClick) {
-            onClick(preset);
+            onClick(variant);
         }
     };
 
@@ -53,7 +53,7 @@ function HomeButton({
             onClick={onClickButton}
         >
             <div className="circle">
-                <DynamicIcon name={(topics[preset].icon || 'bot') as any} size={36} />
+                <DynamicIcon name={(topics[variant].icon || 'bot') as any} size={36} />
             </div>
             <motion.div className="label-container" animate={controls}>
                 <h3 className="label-text">{children}</h3>

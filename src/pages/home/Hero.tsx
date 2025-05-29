@@ -75,7 +75,7 @@ function Hero() {
                 header={<HomeContent topicID={currentTopicID} fullscreen={fullscreen} />}
             >
                 <HomeButton
-                    preset="games"
+                    variant="games"
                     className="absolute bottom-[40%] left-[16%]"
                     onHoverStart={openTopic}
                     onHoverEnd={closeTopic}
@@ -84,7 +84,7 @@ function Hero() {
                     {topics['games'].title}
                 </HomeButton>
                 <HomeButton
-                    preset="tech"
+                    variant="tech"
                     className="absolute bottom-[20%] left-[3%]"
                     onHoverStart={openTopic}
                     onHoverEnd={closeTopic}
@@ -93,7 +93,7 @@ function Hero() {
                     {topics['tech'].title}
                 </HomeButton>
                 <HomeButton
-                    preset="teaching"
+                    variant="teaching"
                     className="absolute right-[21%] bottom-[35%]"
                     onHoverStart={openTopic}
                     onHoverEnd={closeTopic}
@@ -102,7 +102,7 @@ function Hero() {
                     {topics['teaching'].title}
                 </HomeButton>
                 <HomeButton
-                    preset="sports"
+                    variant="sports"
                     className="absolute right-[10%] bottom-[15%]"
                     onHoverStart={openTopic}
                     onHoverEnd={closeTopic}
@@ -111,7 +111,7 @@ function Hero() {
                     {topics['sports'].title}
                 </HomeButton>
                 <HomeButton
-                    preset="ecology"
+                    variant="ecology"
                     className="absolute bottom-[5%] left-[40%]"
                     onHoverStart={openTopic}
                     onHoverEnd={closeTopic}

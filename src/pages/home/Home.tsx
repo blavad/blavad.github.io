@@ -13,7 +13,7 @@ function Home() {
         <>
             <Hero />
             <div id="home-content" className="flex flex-col items-center justify-center">
-                <motion.div
+                <motion.section
                     id="presta"
                     className="mt-20 px-5 sm:px-40"
                     initial={{ opacity: 0, y: 50 }}
@@ -87,9 +87,9 @@ function Home() {
                             </div>
                         </Card>
                     </div>
-                </motion.div>
+                </motion.section>
 
-                <div id="unboared">
+                <section id="unboared">
                     <div className="bg-gradient-black mt-10 h-40"></div>
                     <div className="bg-black px-5 pt-20 text-white sm:px-40">
                         <motion.div
@@ -108,7 +108,13 @@ function Home() {
                                 <Button
                                     color="red"
                                     className="w-40"
-                                    onClick={() => open('https://www.unboared.com', '_blank')}
+                                    onClick={() =>
+                                        open(
+                                            'https://www.unboared.com',
+                                            '_blank',
+                                            'noopener,noreferrer'
+                                        )
+                                    }
                                 >
                                     En savoir plus
                                 </Button>
@@ -118,7 +124,8 @@ function Home() {
                                     onClick={() =>
                                         open(
                                             'https://console.unboared.com/app/demo?game=geoloc',
-                                            '_blank'
+                                            '_blank',
+                                            'noopener,noreferrer'
                                         )
                                     }
                                 >
@@ -131,8 +138,8 @@ function Home() {
                         </motion.div>
                     </div>
                     <div className="bg-gradient-white h-40"></div>
-                </div>
-                <motion.div
+                </section>
+                <motion.section
                     id="whatelse"
                     className="mt-20 px-5 sm:px-40"
                     initial={{ opacity: 0, y: 50 }}
@@ -149,7 +156,7 @@ function Home() {
                             également là pour ça.
                         </Card>
                     </div>
-                </motion.div>
+                </motion.section>
                 <ContactSection />
             </div>
             <div id="footer"></div>

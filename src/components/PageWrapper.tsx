@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import useNavigate from '~/hooks/useNavigate';
-import Navbar from './navbar/Navbar';
 
 export default function PageWrapper() {
     const navigate = useNavigate();
@@ -14,7 +13,6 @@ export default function PageWrapper() {
 
     return (
         <AnimatePresence mode="wait">
-            <Navbar />
             <Outlet />
         </AnimatePresence>
     );

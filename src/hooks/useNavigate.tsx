@@ -1,5 +1,6 @@
 import { useLoading } from '~/stores/useLoading';
 import { useNavigate as useNavigateReact } from 'react-router-dom';
+import topics from '~/data/topics.json';
 
 function sleep(ms: number) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -15,10 +16,13 @@ function useNavigate() {
         const location = window.location;
         console.log('Navigating to:', path, 'Current location:', location.pathname);
         if (initialLoading || path !== location.pathname) {
-            openLoading()
+            const topicID = path.slice(1, path.length);
+            const color = topics[topicID]?.color || 'green';
+
+            openLoading(color, 'Chargement en cours...')
                 .then(() => {
                     navigate(path);
-                    sleep(1000)
+                    sleep(500)
                         .then(() => {
                             setLoading(false);
                         })

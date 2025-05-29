@@ -1,1 +1,0 @@
-export { BouncingRectangle } from './rectangle';

@@ -3,6 +3,12 @@ import useNavigate from '~/hooks/useNavigate';
 
 function Navbar({ children }: PropsWithChildren<{}>) {
     const navigate = useNavigate();
+    const scrollToSection = (sectionID: string) => {
+        const el = document.getElementById(sectionID);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     return (
         <>
@@ -23,7 +29,7 @@ function Navbar({ children }: PropsWithChildren<{}>) {
                                 navigate('/tech');
                             }}
                         >
-                            Tech Lead
+                            Créer un MVP
                         </a>
                         <a
                             className="hover:text-black2/50 cursor-pointer pr-6 font-bold"
@@ -31,9 +37,14 @@ function Navbar({ children }: PropsWithChildren<{}>) {
                                 navigate('/teaching');
                             }}
                         >
-                            Formateur
+                            Formations
                         </a>
-                        <a href="#contact" className="hover:text-black2/50 pr-6 font-bold">
+                        <a
+                            className="hover:text-black2/50 cursor-pointer pr-6 font-bold"
+                            onClick={() => {
+                                scrollToSection('contact');
+                            }}
+                        >
                             Let's talk
                         </a>
                     </div>

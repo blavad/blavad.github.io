@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Nexa Digital School",
+        "logo": "/images/logo-nexa.png",
+        "link": "https://www.nexa.fr/",
+        "description": "Nexa Digital School est une école spécialisée dans le digital."
+    },
+    {
+        "name": "GEMA",
+        "logo": "/images/logo-gema.png",
+        "link": "https://www.groupe-gema.com/nexa",
+        "description": "GEMA\n est une école de management et d'ingénierie."
+    },
+    {
+        "name": "Insa Lyon",
+        "logo": "/images/logo-insa2.png",
+        "link": "https://www.groupe-insa.fr/",
+        "description": "L'INSA de Lyon est une école d'ingénieurs généraliste."
+    }
+]

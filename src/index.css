@@ -37,91 +37,45 @@ import @tailwindcss/aspect-ratio
     --color-black2: #332F2F;
 
     --color-red: #ff567b;
+    --color-red-100: #fbcfd6;
     --color-red-t10: #ff567b1a;
     --color-red-t25: #ff567b40;
     --color-red-t50: #ff567b80;
     --color-red-t75: #ff567bc0;
-    --color-red-0: #ffffff;
-    --color-red-50: #ffd5d9;
-    --color-red-100: #ffafb9;
-    --color-red-200: #ff8a9b;
-    --color-red-300: #ff6681;
-    --color-red-400: #ff4569;
-    --color-red-500: var(--color-red);
-    --color-red-600: #c0183d;
-    --color-red-700: #83152c;
-    --color-red-800: #420614;
-    --color-red-900: #160007;
 
     --color-yellow: #d7c32a;
     --color-yellow-t10: #d7c32a1a;
     --color-yellow-t25: #d7c32a40;
     --color-yellow-t50: #d7c32a80;
     --color-yellow-t75: #d7c32ac0;
-    --color-yellow-50: #fffed4;
-    --color-yellow-100: #fff9ad;
-    --color-yellow-200: #fff188;
-    --color-yellow-300: #fde764;
-    --color-yellow-400: #f9da41;
-    --color-yellow-500: var(--color-yellow);
-    --color-yellow-600: #ba9a15;
-    --color-yellow-700: #7e680c;
-    --color-yellow-800: #483b05;
-    --color-yellow-900: #241900;
 
     --color-blue: #20b2d6;
+    --color-blue-100: #c3e6ed;
     --color-blue-t10: #20b2d61a;
     --color-blue-t25: #20b2d640;
     --color-blue-t50: #20b2d680;
     --color-blue-t75: #20b2d6c0;
-    --color-blue-50: #DFEAF5;
-    --color-blue-100: #EAF0FB;
-    --color-blue-200: #C4D5F3;
-    --color-blue-300: #9EBAEB;
-    --color-blue-400: #779FE4;
-    --color-blue-500: #5184DC;
-    --color-blue-600: #2B69D4;
-    --color-blue-700: #1E4A94;
-    --color-blue-800: #112A55;
-    --color-blue-900: #040B15;
 
 
     --color-purple: #9a56ff;
+    --color-purple-100: #e2cff7;
     --color-purple-t10: #9a56ff1a;
     --color-purple-t25: #9a56ff40;
     --color-purple-t50: #9a56ff80;
     --color-purple-t75: #9a56ffc0;
 
     --color-green: #1ac37a;
+    --color-green-100: #c2ead6;
     --color-green-t10: #1ac37a1a;
     --color-green-t25: #1ac37a40;
     --color-green-t50: #1ac37a80;
     --color-green-t75: #1ac37ac0;
-    --color-green-50: #d4f8e7;
-    --color-green-100: #adf0ce;
-    --color-green-200: #87e7b4;
-    --color-green-300: #62dd99;
-    --color-green-400: #3ed27d;
-    --color-green-500: #1bc65f;
-    --color-green-600: #129747;
-    --color-green-700: #0b672f;
-    --color-green-800: #053518;
-    --color-green-900: #001008;
 
     --color-primary: var(--color-green);
     --color-primary-t10: var(--color-green-t10);
     --color-primary-t25: var(--color-green-t25);
     --color-primary-t50: var(--color-green-t50);
     --color-primary-t75: var(--color-green-t75);
-    --color-primary-100: var(--color-green-100);
-    --color-primary-200: var(--color-green-200);
-    --color-primary-300: var(--color-green-300);
-    --color-primary-400: var(--color-green-400);
-    --color-primary-500: var(--color-green-500);
-    --color-primary-600: var(--color-green-600);
-    --color-primary-700: var(--color-green-700);
-    --color-primary-800: var(--color-green-800);
-    --color-primary-900: var(--color-green-900);
 
     --color-warning: #ff7d00;
     --color-success: var(--color-green);
@@ -213,19 +167,6 @@ body {
     overflow-x: hidden;
 }
 
-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: var(--responsive-m);
-    @apply mt-16
-}
-
-section>* {
-    @apply my-4;
-}
 
 /**
  * Can be used to style the gamepad. 
@@ -328,7 +269,7 @@ blockquote h2 {
 
 
 .bg-gradient-green {
-    background: linear-gradient(var(--color-green-t10), var(--color-bg));
+    background: linear-gradient(var(--color-green-t25), var(--color-bg));
 }
 
 .text-gradient-green {
@@ -339,16 +280,16 @@ blockquote h2 {
 }
 
 .bg-gradient-green-rev {
-    background: linear-gradient(var(--color-bg), var(--color-green-t10));
+    background: linear-gradient(var(--color-bg), var(--color-green-t25));
 }
 
 
 .bg-gradient-blue {
-    background: linear-gradient(var(--color-blue-t10), var(--color-bg));
+    background: linear-gradient(var(--color-blue-t25), var(--color-bg));
 }
 
 .bg-gradient-blue-rev {
-    background: linear-gradient(var(--color-bg), var(--color-blue-t10));
+    background: linear-gradient(var(--color-bg), var(--color-blue-t25));
 }
 
 .text-gradient-blue {
@@ -375,7 +316,7 @@ blockquote h2 {
 }
 
 .bg-gradient-purple {
-    background: linear-gradient(var(--color-purple-t10), var(--color-bg));
+    background: linear-gradient(var(--color-purple-t25), var(--color-bg));
 }
 
 .text-gradient-purple {
@@ -386,12 +327,12 @@ blockquote h2 {
 }
 
 .bg-gradient-purple-rev {
-    background: linear-gradient(var(--color-bg), var(--color-purple-t10));
+    background: linear-gradient(var(--color-bg), var(--color-purple-t25));
 }
 
 
 .bg-gradient-red {
-    background: linear-gradient(var(--color-red-t10), var(--color-bg));
+    background: linear-gradient(var(--color-red-t25), var(--color-bg));
 }
 
 .text-gradient-red {
@@ -402,13 +343,13 @@ blockquote h2 {
 }
 
 .bg-gradient-red-rev {
-    background: linear-gradient(var(--color-bg), var(--color-red-t10));
+    background: linear-gradient(var(--color-bg), var(--color-red-t25));
 }
 
 
 
 .bg-gradient-pink {
-    background: linear-gradient(var(--color-purple-t10), var(--color-white));
+    background: linear-gradient(var(--color-purple-t25), var(--color-white));
 }
 
 .text-gradient-pink {
@@ -419,5 +360,5 @@ blockquote h2 {
 }
 
 .bg-gradient-pink-rev {
-    background: linear-gradient(var(--color-bg), var(--color-pink-t10));
+    background: linear-gradient(var(--color-bg), var(--color-pink-t25));
 }

@@ -9,6 +9,7 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default: 'text-white shadow-sm shadow-black2/20 cursor-pointer',
+                colored: 'text-white shadow-sm shadow-black2/20 cursor-pointer',
                 outline:
                     'border rounded-3xl border-input border-3 border-black2 bg-white/75 backdrop-blur-sm shadow-sm shadow-black/5 hover:bg-white/25 cursor-pointer',
                 secondary:
@@ -36,8 +37,9 @@ export interface ButtonProps
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant, size, asChild = false, color, children, ...props }, ref) => {
+    ({ className, variant = 'default', size, asChild = false, color, children, ...props }, ref) => {
         const [isHovered, setIsHovered] = useState(false);
+
         return (
             // @ts-ignore
             <motion.button
@@ -45,32 +47,43 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 whileTap={{ scale: 0.95 }}
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.05 }}
                 className={cn(
                     buttonVariants({ variant, size, className }),
-                    variant !== 'outline'
+                    variant === 'default'
                         ? isHovered
                             ? 'text-white'
                             : `text-gradient-${color}`
                         : ''
                 )}
+                style={
+                    variant === 'colored'
+                        ? {
+                              background: `var(--color-gradient-${color || 'white'})`,
+                          }
+                        : {}
+                }
                 {...props}
             >
-                {variant !== 'outline' && (
-                    <motion.div
-                        className="absolute h-full w-full rounded-3xl"
-                        style={{
-                            background: `var(--color-gradient-${color || 'white'})`,
-                        }}
-                        initial={{ left: '-100%' }}
-                        animate={{ left: isHovered ? '0%' : '-100%' }}
-                        whileHover={{
-                            left: 0,
-                            transition: { duration: 0.3, ease: 'easeInOut' },
-                        }}
-                    ></motion.div>
+                {variant === 'default' ? (
+                    <>
+                        <motion.div
+                            className="absolute h-full w-full rounded-3xl"
+                            style={{
+                                background: `var(--color-gradient-${color || 'white'})`,
+                            }}
+                            initial={{ left: '-100%' }}
+                            animate={{ left: isHovered ? '0%' : '-100%' }}
+                            whileHover={{
+                                left: 0,
+                                transition: { duration: 0.3, ease: 'easeInOut' },
+                            }}
+                        ></motion.div>
+                        <div className="z-0">{children}</div>
+                    </>
+                ) : (
+                    children
                 )}
-                <div className="z-0">{children}</div>
             </motion.button>
         );
     }

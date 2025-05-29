@@ -4,11 +4,11 @@ import topics from '~/data/topics.json';
 import { cn } from '~/lib/utils';
 
 const colorMap: Record<string, string> = {
-    red: 'bg-red/10',
-    blue: 'bg-blue/10',
-    green: 'bg-green/10',
-    yellow: 'bg-yellow/10',
-    purple: 'bg-purple/10',
+    red: 'bg-red-100',
+    blue: 'bg-blue-100',
+    green: 'bg-green-100',
+    yellow: 'bg-yellow-100',
+    purple: 'bg-purple-100',
     redGradient: 'bg-gradient-red-rev',
     blueGradient: 'bg-gradient-blue-rev',
     greenGradient: 'bg-gradient-green-rev',
@@ -30,14 +30,14 @@ function ContactSection() {
     return (
         <div className="w-full">
             <div className={gradientClass}></div>
-            <div id="contact" className={contentClass}>
+            <section id="contact" className={contentClass}>
                 <h1 className={titleClass}>On discute ?</h1>
                 <p className="mt-4">
                     Envoyez moi un message via le formulaire ci-dessous. Je vous recontacte le plus
                     rapidement possible .
                 </p>
                 <ContactForm onTopicChange={onTopicChange} color={sectionColor} />
-            </div>
+            </section>
         </div>
     );
 }
