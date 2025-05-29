@@ -27,6 +27,7 @@ jobs:
             # Build package
             - name: Build package
               run: pnpm build
+
             - uses: FirebaseExtended/action-hosting-deploy@v0
               with:
                   repoToken: '${{ secrets.GITHUB_TOKEN }}'
