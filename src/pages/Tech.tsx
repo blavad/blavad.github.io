@@ -1,19 +1,15 @@
+import { motion } from 'framer-motion';
+
+import Projects from '~/data/projects.json';
+import Companies from '~/data/companies.json';
+
 import Navbar from '~/components/navbar/Navbar';
 import Card from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 
-import Projects from '~/data/projects.json';
-import { DynamicIcon } from 'lucide-react/dynamic';
-
 import ContactSection from './home/ContactSection';
 
-const ICONS: Record<string, 'radical' | 'code-xml' | 'bot'> = {
-    maths: 'radical',
-    info: 'code-xml',
-    ia: 'bot',
-};
-
-function Teaching() {
+function Tech() {
     const scrollToSection = (sectionID: string) => {
         const el = document.getElementById(sectionID);
         if (el) {
@@ -50,31 +46,11 @@ function Teaching() {
                     </div>
                 </Card>
             </section>
-            <section id="projects" className="mt-20 w-full px-5 sm:px-40">
-                <h2>Quelques projets</h2>
-                <div className="mt-15 flex w-full flex-wrap gap-6">
-                    {Projects.map((project) => (
-                        <div
-                            key={project.short_title}
-                            className="flex h-30 flex-1 flex-col items-center justify-center sm:min-w-1/4"
-                        >
-                            <div
-                                className="flex w-full flex-1 flex-col"
-                                style={{ backgroundColor: project.img }}
-                                onClick={() => open(project.url, '_blank', 'noopener,noreferrer')}
-                            >
-                                <DynamicIcon name={ICONS[project.topic]} size={25} />
-                            </div>
-                            <p></p>
-                            {project.short_title}
-                        </div>
-                    ))}
-                </div>
-            </section>
-            {/* <section id="companies" className="mt-20 w-full px-5 sm:px-20">
-                <h2>Les entreprises partenaires</h2>
+
+            <section id="companies" className="mt-20 w-full px-5 sm:px-20">
+                <h2>Ils m'ont fait confiance</h2>
                 <ul className="mt-15 flex flex-wrap justify-between gap-15">
-                    {Schools.map((school) => (
+                    {Companies.map((school) => (
                         <li
                             key={school.name}
                             className="flex h-20 flex-1 items-center justify-center"
@@ -86,16 +62,43 @@ function Teaching() {
                                     className="cursor-pointer object-contain opacity-60 grayscale filter transition duration-500 hover:opacity-100 hover:grayscale-0"
                                 />
                                 <div className="bg-black2/75 bg-opacity-60 absolute -bottom-20 left-1/2 flex w-60 -translate-x-1/2 items-center justify-center rounded-xl p-2 text-sm text-white opacity-0 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-100">
-                                    ‍🎓 {school.description}
+                                    ‍{school.description}
                                 </div>
                             </div>
                         </li>
                     ))}
                 </ul>
-            </section> */}
+            </section>
+            <section id="projects" className="mt-20 w-full px-5 sm:px-40">
+                <h2>Quelques projets</h2>
+                <div className="mt-15 grid w-full grid-cols-2 flex-wrap gap-6 sm:grid-cols-4">
+                    {Projects.map((project) => (
+                        <div>
+                            <div
+                                key={project.short_title}
+                                className="shadow-black2/20 flex h-30 flex-1 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-3xl shadow-sm sm:min-w-1/4"
+                                onClick={() =>
+                                    window.open(project.url, '_blank', 'noopener noreferrer')
+                                }
+                                style={{
+                                    background: `var(--color-gradient-blue)`,
+                                }}
+                            >
+                                <motion.img
+                                    src={project.img || project.imgVertical}
+                                    alt={`${project.short_title} icon`}
+                                    whileHover={{ scale: 1.1 }}
+                                    className="h-hull w-full object-cover text-xl font-bold text-white"
+                                />
+                            </div>
+                            <p className="ml-3 text-left font-light">{project.short_title}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
             <ContactSection />
         </div>
     );
 }
 
-export default Teaching;
+export default Tech;

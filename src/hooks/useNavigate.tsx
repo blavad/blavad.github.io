@@ -15,6 +15,10 @@ function useNavigate() {
     return (path: string) => {
         const location = window.location;
         console.log('Navigating to:', path, 'Current location:', location.pathname);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
         if (initialLoading || path !== location.pathname) {
             const topicID = path.slice(1, path.length);
             const color = topics[topicID]?.color || 'green';

@@ -1,20 +1,50 @@
 [
     {
-        "name": "Nexa Digital School",
-        "logo": "/images/logo-nexa.png",
-        "link": "https://www.nexa.fr/",
-        "description": "Nexa Digital School est une école spécialisée dans le digital."
+        "name": "Inria",
+        "logo": "https://imredd.fr/wp-content/uploads/2018/07/logo-inria-institutionnel-couleur_large.png",
+        "link": "https://www.inria.fr",
+        "description": "J'ai travaillé pendant 2 ans sur le développement d'un logiciel d'IA pour l'INRIA."
     },
     {
-        "name": "GEMA",
-        "logo": "/images/logo-gema.png",
-        "link": "https://www.groupe-gema.com/nexa",
-        "description": "GEMA\n est une école de management et d'ingénierie."
+        "name": "Accor Arena",
+        "logo": "https://upload.wikimedia.org/wikipedia/fr/6/6a/LogoAccorArena.png",
+        "link": "https://www.accorarena.com",
+        "description": "Avec Unboared, nous travaillons également avec le groupe ADP."
     },
     {
-        "name": "Insa Lyon",
-        "logo": "/images/logo-insa2.png",
-        "link": "https://www.groupe-insa.fr/",
-        "description": "L'INSA de Lyon est une école d'ingénieurs généraliste."
+        "name": "Pollen Robotics",
+        "logo": "https://cdn-uploads.huggingface.co/production/uploads/671faa3a541a76b548647676/K1kvUOcWfL8ni2h5c457d.png",
+        "link": "https://www.pollen-robotics.com/",
+        "description": "J'ai pu contribuer au développement d'outils d'IA pour la robotique avec l'équipe de Pollen."
+    },
+    {
+        "name": "Groupe ADP",
+        "logo": "https://presse.groupeadp.fr/wp-content/themes/aeroport-de-paris/assets/img/logo_groupe_adp.png",
+        "link": "https://www.parisaeroport.fr",
+        "description": "Avec Unboared, nous travaillons également avec le groupe ADP."
+    },
+    {
+        "name": "Ninkasi",
+        "logo": "https://recrutement.ninkasi.fr/generated_contents/images/company_logo_career/9v611zr9-logo-ninkasi-groupe.png",
+        "link": "https://www.ninkasi.fr/",
+        "description": "Une collaboration étroite dans le but de proposer plus de simplicité aux animateurs du bar."
+    },
+    {
+        "name": "Aéroport Marseille Provence",
+        "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtl3Dbfh_aogex8ZaY1QsHEyhAeks5BFDlSA&s",
+        "link": "https://www.marseille.aeroport.fr/",
+        "description": "AMP a été notre premier client chez Unboared. Nous avons coconstruit le produit avec eux."
+    },
+    {
+        "name": "Aéroport de Bordeaux",
+        "logo": "https://annuaire.frenchtechbordeaux.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6ImMyMjQ0YTE1LTQwY2ItNDM4YS1iNTkxLTFjZTg5ZTlmMDU0NyIsInB1ciI6ImJsb2JfaWQifX0=--dd2fcf486a8c5a00e7aecef44664872ac53ebac4/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJwbmciLCJyZXNpemVfYW5kX3BhZCI6WzEwMDAsNjAwLHsiZ3Jhdml0eSI6ImNlbnRlciJ9XX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--1008f611272d2794ca321fe4155ed8296805e4d7/logo-aeroport-bordeaux.png",
+        "link": "https://www.bordeaux.aeroport.fr/",
+        "description": "J'ai travaillé étroitement avec l'équipe de l'aéroport de Bordeaux pour développer la récolte de données."
+    },
+    {
+        "name": "Zénith de Strasbourg",
+        "logo": "https://www.zenith-strasbourg.fr/wp-content/uploads/7/2020/11/logo-sites-07.png",
+        "link": "https://www.zenith-strasbourg.fr/",
+        "description": "Notre premier client à utiliser le Blind Test Unboared."
     }
 ]

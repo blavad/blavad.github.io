@@ -2,8 +2,8 @@
     {
         "short_title": "Unboared",
         "long_title": "Unboared - 2.0 Board Games",
-        "img": "img-unboared.png",
-        "imgVertical": "img-unboared-v.jpg",
+        "img": "/images/projects/img-unboared.png",
+        "imgVertical": "/images/projects/img-unboared-v.jpg",
         "brief": "Une nouvelle ère pour le jeu de société.",
         "description": "Unboared est une nouvelle façon de jouer à nos jeux de société favoris avec nos amis. Prenez simplement votre téléphone et votre ordinateur ou télévision et jouez à plus de 100 jeux.",
         "githubURL": "https://github.com/unboared",
@@ -22,8 +22,8 @@
     {
         "short_title": "SDM'Studio",
         "long_title": "Sequential Decision Making Studio",
-        "img": "img-sdms-h.png",
-        "imgVertical": "img-sdms.png",
+        "img": "/images/projects/img-sdms-h.png",
+        "imgVertical": "/images/projects/img-sdms.png",
         "brief": "Bibliothèque logiciel pour la résolution des jeux stochastiques.",
         "description": "Bibliothèque logiciel contenant un ensemble d'outils et d'algorithmes pour la résolution des jeux stochastiques.",
         "githubURL": "https://github.com/SDMStudio/sdms",
@@ -40,51 +40,9 @@
         }
     },
     {
-        "short_title": "Draw a car : edges2car",
-        "long_title": "Draw a car : edges2car",
-        "img": "img-edges2car-h.png",
-        "imgVertical": "img-edges2car.png",
-        "brief": "Logiciel permettant de générer des images réalistes de voitures à partir d'un dessin et d'une couleur.",
-        "description": "Logiciel permettant de générer des images réalistes de voitures à partir d'un dessin et d'une couleur. Pour se faire, nous utilisons une méthode récente pour le transfert de style nommée <a href='https://phillipi.github.io/pix2pix/'><em>pix2pix</em></a>. Cette méthode utilise un réseau de neurones génératif(GAN) qui a appris à modifier de façon adéquate le style d 'une image.",
-        "pdf": "/assets/pdf/projects/stage-UnivDundee.pdf",
-        "githubURL": "https://github.com/blavad/edge2car",
-        "url": "https://georgezjchen.github.io/draw-a-car-build/",
-        "labels": ["ai", "computing"],
-        "public": false,
-        "translations": {
-            "en": {
-                "short_title": "Draw a car : edges2car",
-                "long_title": "Draw a car : edges2car",
-                "brief": "Realistic image of cars generator from a drawing and a color.",
-                "description": "Software that allow the user to generate realistic images of cars from a simple edge drawing and a color. To achieve this result, we use a new method of style transfert called <a href='https://phillipi.github.io/pix2pix/'><em>pix2pix</em></a>. This method is based on new knowledge in deep learning, especially the active research field of generative model, to learn a function able to change the style of an image."
-            }
-        }
-    },
-    {
-        "short_title": "MARL Library",
-        "long_title": "MARL Library",
-        "img": "img-marlapi-h.png",
-        "imgVertical": "img-marlapi.png",
-        "brief": "Librairie d'apprentissage par renforcement pour systèmes multi-agents.",
-        "description": "Librairie d'apprentissage par renforcement pour systèmes multi-agents. La librairie est écrite en python et comprend différents algorithmes d 'apprentissage par renforcement. L’objectif de cette librairie python est de fournir la possibilité à l’utilisateur de déclarer et d’entraînersimplement un ensemble d’agents évoluant de manière simultanée dans un environnement.",
-        "pdf": "/assets/pdf/projects/rapport-pfe.pdf",
-        "githubURL": "https://github.com/blavad/marl",
-        "url": "/marl",
-        "labels": ["ai"],
-        "public": false,
-        "translations": {
-            "en": {
-                "short_title": "MARL Library",
-                "long_title": "MARL Library",
-                "brief": "Reinforcement learning API for multi-agents systems.",
-                "description": "Reinforcement learning API for multi-agents systems. The library is coded in python and contains both single and multi agents reinforcement learning algortihms. The purpose of the library is to provide users the possibility to initiate and train simultaneously the policy of several agents progessing in an environment."
-            }
-        }
-    },
-    {
         "short_title": "Weekook",
         "long_title": "Weekook : Générateur de recettes",
-        "img": "weekook/logo.png",
+        "img": "/images/projects/weekook/logo.png",
         "imgVertical": "weekook/logo-v.png",
         "brief": "Générateur de listes de recettes pour la semaine.",
         "description": "Optimisez votre temps en générant chaque semaine, une nouvelle liste de recettes aléatoire pour la semaine. Catégorisez vos recettes pour créer des semaines à thèmes et partagez (bientôt) vos recettes avec vos proches.",
@@ -102,10 +60,52 @@
         }
     },
     {
+        "short_title": "MARL Library",
+        "long_title": "MARL Library",
+        "img": "/images/projects/img-marlapi-h.png",
+        "imgVertical": "/images/projects/img-marlapi.png",
+        "brief": "Librairie d'apprentissage par renforcement pour systèmes multi-agents.",
+        "description": "Librairie d'apprentissage par renforcement pour systèmes multi-agents. La librairie est écrite en python et comprend différents algorithmes d 'apprentissage par renforcement. L’objectif de cette librairie python est de fournir la possibilité à l’utilisateur de déclarer et d’entraînersimplement un ensemble d’agents évoluant de manière simultanée dans un environnement.",
+        "pdf": "/assets/pdf/projects/rapport-pfe.pdf",
+        "githubURL": "https://github.com/blavad/marl",
+        "url": "/marl",
+        "labels": ["ai"],
+        "public": false,
+        "translations": {
+            "en": {
+                "short_title": "MARL Library",
+                "long_title": "MARL Library",
+                "brief": "Reinforcement learning API for multi-agents systems.",
+                "description": "Reinforcement learning API for multi-agents systems. The library is coded in python and contains both single and multi agents reinforcement learning algortihms. The purpose of the library is to provide users the possibility to initiate and train simultaneously the policy of several agents progessing in an environment."
+            }
+        }
+    },
+    {
+        "short_title": "Draw a car : edges2car",
+        "long_title": "Draw a car : edges2car",
+        "img": "/images/projects/img-edges2car-h.png",
+        "imgVertical": "/images/projects/img-edges2car.png",
+        "brief": "Logiciel permettant de générer des images réalistes de voitures à partir d'un dessin et d'une couleur.",
+        "description": "Logiciel permettant de générer des images réalistes de voitures à partir d'un dessin et d'une couleur. Pour se faire, nous utilisons une méthode récente pour le transfert de style nommée <a href='https://phillipi.github.io/pix2pix/'><em>pix2pix</em></a>. Cette méthode utilise un réseau de neurones génératif(GAN) qui a appris à modifier de façon adéquate le style d 'une image.",
+        "pdf": "/assets/pdf/projects/stage-UnivDundee.pdf",
+        "githubURL": "https://github.com/blavad/edge2car",
+        "url": "https://georgezjchen.github.io/draw-a-car-build/",
+        "labels": ["ai", "computing"],
+        "public": false,
+        "translations": {
+            "en": {
+                "short_title": "Draw a car : edges2car",
+                "long_title": "Draw a car : edges2car",
+                "brief": "Realistic image of cars generator from a drawing and a color.",
+                "description": "Software that allow the user to generate realistic images of cars from a simple edge drawing and a color. To achieve this result, we use a new method of style transfert called <a href='https://phillipi.github.io/pix2pix/'><em>pix2pix</em></a>. This method is based on new knowledge in deep learning, especially the active research field of generative model, to learn a function able to change the style of an image."
+            }
+        }
+    },
+    {
         "short_title": "weRbeer",
         "long_title": "weRbeer",
-        "img": "img-sm-weRbeer.png",
-        "imgVertical": "img-weRbeer-v.png",
+        "img": "/images/projects/img-sm-weRbeer.png",
+        "imgVertical": "/images/projects/img-weRbeer-v.png",
         "brief": "Réseau social pour les amoureux de bières. Permet de partager des avis sur les bières.",
         "description": "Réseau social pour les amoureux de bières. L'idée de ce réseau social est de permettre à différentes personnes de partager leur avis sur les bières qu'ils ont goûté.",
         "pdf": "/assets/pdf/projects/proj-weRbeer.pdf",
@@ -125,7 +125,7 @@
     {
         "short_title": "DQN Flappy Bird",
         "long_title": "DQN Flappy Bird",
-        "img": "dqn-flappy-h.gif",
+        "img": "/images/projects/dqn-flappy-h.gif",
         "imgVertical": "dqn-flappy-v.gif",
         "brief": "Apprentissage par renforcement pour le jeu Flappy Bird. Développement d'une version deux joueurs.",
         "description": "Développement d'une version deux joueurs de Flappy Bird (voir <a href='https://github.com/blavad/flappy-bird-env'>flappy-bird-2p</a>) et expérimentation de l'algorithme d'apprentissage par renforcement DQN pour faire jouer une IA avec un humain. Ce projet a été réalisé dans le cadre d'un stage chez <a href='https://www.pollen-robotics.com/'> Pollen Robotics </a>.",
@@ -145,13 +145,13 @@
     {
         "short_title": "INS'Arcade",
         "long_title": "Borne de jeu d'arcade",
-        "img": "img-sm-insarcade.png",
+        "img": "/images/projects/img-sm-insarcade.png",
         "imgVertical": "borne-200.jpg",
         "brief": "Borne de jeu d'arcade créée de toute pièce avec du matériel de récupération.",
         "description": "Borne de jeu d'arcade créée de toute pièce avec uniquement du matériel de récupération (coût total < 100€).La borne a été mise à disposition gratuitement des étudiants de l 'INSA de Rouen pendant un an. Cinq jeux y étaient disponibles. Ensuite, elle a été reconfigurée pour offrir une plus grande diversité de jeux grâce à l'OS <a href='https://www.recalbox.com/'>Recalbox</a>.",
         "pdf": "/assets/pdf/projects/proj-TIPNE.pdf",
         "githubURL": "https://github.com/blavad/Insarcade",
-        "url": "/projects/insarcade",
+        "url": "/images/projects/insarcade",
         "labels": ["computing", "diy"],
         "public": false,
         "translations": {
@@ -160,67 +160,6 @@
                 "long_title": "Arcade Game Machine",
                 "brief": "Arcade game machine created from scratch with recycled materials.",
                 "description": "Arcade game machine created from scratch with only recycled materials (total cost < 100€). The machine was made available for free to INSA Rouen students for a year. Five games were available. Then, it was reconfigured to offer a wider variety of games thanks to the OS <a href='https://www.recalbox.com/'>Recalbox</a>."
-            }
-        }
-    },
-    {
-        "short_title": "Ernest",
-        "long_title": "Ernest : Aménagement d'un van",
-        "img": "planDiagBas-08-11-21.png",
-        "imgVertical": "ernest-v2.jpg",
-        "brief": "Aménagement d'un fourgon Renault Master en camping-car (en cours).",
-        "description": "Van aménagé construit à partir d'un fourgon Reanault Master L2H2. <hr><ol><li>Nettoyer le van et traiter les parties rouillées <i style='color:green' class='fas fa-check'></i></li> <li>Modéliser l'aménagement intérieur <i style='color:green' class='fas fa-check'></i></li><li>Poser les ouvertures (fenêtres, lanterneau, prise extérieur) <i style='color:green' class='fas fa-check'></i></li><li>Isoler le van <i style='color:green' class='fas fa-check'></i></li><li>Installer le circuit électrique <i style='color:green' class='fas fa-check'></i></i></li><li>Poser le plancher et les parois <i class='fas fa-spinner fa-pulse'></i> </li> <li>Faire le circuit d'eau et de gaz <i style='color:red' class='fas fa-times'></i></li><li>Construire les meubles intérieur <i style='color:red' class='fas fa-times'></i></li>  </ol> ",
-        "url": "/projects/ernest",
-        "labels": ["diy"],
-        "public": false,
-        "translations": {
-            "en": {
-                "short_title": "Ernest",
-                "long_title": "Ernest: Van Conversion",
-                "brief": "Conversion of a Renault Master van into a camper van (ongoing).",
-                "description": "Van conversion built from a Renault Master L2H2 van. <hr><ol><li>Clean the van and treat rusty parts <i style='color:green' class='fas fa-check'></i></li> <li>Model the interior layout <i style='color:green' class='fas fa-check'></i></li><li>Install openings (windows, skylight, external socket) <i style='color:green' class='fas fa-check'></i></li><li>Insulate the van <i style='color:green' class='fas fa-check'></i></li><li>Install the electrical circuit <i style='color:green' class='fas fa-check'></i></li><li>Lay the floor and walls <i class='fas fa-spinner fa-pulse'></i> </li> <li>Create water and gas circuits <i style='color:red' class='fas fa-times'></i></li><li>Build interior furniture <i style='color:red' class='fas fa-times'></i></li>  </ol>"
-            }
-        }
-    },
-    {
-        "short_title": "Neural Networks Manager",
-        "long_title": "Neural Networks Manager",
-        "img": "img-NNmanager-h.png",
-        "imgVertical": "img-NNmanager-v.png",
-        "brief": "Logiciel de création et entraînement de modèles par réseaux de neurones artificiels.",
-        "description": "Logiciel développé en C++ ayant pour but de créer et entraîner simplemenet des architectures de réseau de neurones pour des tâches de classification.",
-        "pdf": "/assets/pdf/projects/proj-cpp.pdf",
-        "githubURL": "https://github.com/blavad/NeuralNetworks-manager",
-        "url": "https://github.com/blavad/NeuralNetworks-manager",
-        "labels": ["ai", "computing"],
-        "public": false,
-        "translations": {
-            "en": {
-                "short_title": "Neural Networks Manager",
-                "long_title": "Neural Networks Manager",
-                "brief": "Software for creating and training artificial neural networks.",
-                "description": "Software developed in C++ designed to easily create and train neural network architectures for classification tasks."
-            }
-        }
-    },
-    {
-        "short_title": "Space of War",
-        "long_title": "Space of War",
-        "img": "img-sow-h.png",
-        "imgVertical": "img-sow-v.png",
-        "brief": "Evolution du jeu <a href='https://play.google.com/store/apps/description?id=com.maxgames.ageofwar1&hl=fr'> Age of War </a> pour le cas de 2 à 5 joueurs jouant en réseau.",
-        "description": "Jeu vidéo développé en Java qui s'inspire du jeu mobile <a href='https://play.google.com/store/apps/details?id=com.maxgames.ageofwar1&hl=fr'>Age of War</a>. Le jeu est une amélioration de la version initiale dans laquelle plusieurs joueurs peuvent jouer en réseau.",
-        "url": "https://github.com/blavad/AgeOfWar",
-        "pdf": "/assets/pdf/projects/proj-SpaceOfWar.pdf",
-        "githubURL": "https://github.com/blavad/AgeOfWar",
-        "labels": ["computing", "web"],
-        "public": false,
-        "translations": {
-            "en": {
-                "short_title": "Space of War",
-                "long_title": "Space of War",
-                "brief": "Evolution of the game <a href='https://play.google.com/store/apps/description?id=com.maxgames.ageofwar1&hl=fr'>Age of War</a> for 2 to 5 players playing online.",
-                "description": "Video game developed in Java inspired by the mobile game <a href='https://play.google.com/store/apps/details?id=com.maxgames.ageofwar1&hl=fr'>Age of War</a>. The game is an improvement over the original version where multiple players can play online."
             }
         }
     }
