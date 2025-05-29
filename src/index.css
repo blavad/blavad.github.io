@@ -260,7 +260,9 @@ body {
     background: var(--color-gradient-green);
     background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
+    display: inline-block;
 }
 
 .bg-gradient-green-rev {
@@ -280,7 +282,9 @@ body {
     background: var(--color-gradient-blue);
     background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
+    display: inline-block;
 }
 
 .bg-gradient-black {
@@ -296,7 +300,9 @@ body {
     background: var(--color-gradient-black);
     background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
+    display: inline-block;
 }
 
 .bg-gradient-purple {
@@ -307,7 +313,9 @@ body {
     background: var(--color-gradient-purple);
     background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
+    display: inline-block;
 }
 
 .bg-gradient-purple-rev {
@@ -323,7 +331,9 @@ body {
     background: var(--color-gradient-red);
     background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
+    display: inline-block;
 }
 
 .bg-gradient-red-rev {
@@ -340,7 +350,9 @@ body {
     background: var(--color-gradient-pink);
     background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
+    display: inline-block;
 }
 
 .bg-gradient-pink-rev {
