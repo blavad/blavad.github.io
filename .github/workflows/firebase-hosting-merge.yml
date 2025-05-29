@@ -32,6 +32,7 @@ jobs:
 
             - name: Move CNAME file in build
               run: |
+                  echo "Move CNAME file in build"
                   mkdir -p dist
                   cp CNAME dist
             - uses: crazy-max/ghaction-github-pages@v1
@@ -41,9 +42,9 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            # - uses: FirebaseExtended/action-hosting-deploy@v0
-            #   with:
-            #       repoToken: '${{ secrets.GITHUB_TOKEN }}'
-            #       firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BLAVAD_WEBSITE }}'
-            #       channelId: live
-            #       projectId: blavad-website
+            - uses: FirebaseExtended/action-hosting-deploy@v0
+              with:
+                  repoToken: '${{ secrets.GITHUB_TOKEN }}'
+                  firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BLAVAD_WEBSITE }}'
+                  channelId: live
+                  projectId: blavad-website
