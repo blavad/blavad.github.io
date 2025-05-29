@@ -2,42 +2,36 @@
     {
         "id": "maths-info",
         "name": "Mathématiques pour l'informatique",
-        "link": "https://www.david-albert.fr/teaching-docs/maths-info",
         "topic": "maths",
         "description": "Ce cours a pour objectif d’introduire différents outils mathématiques utilisés en informatique."
     },
     {
         "id": "proba-stats",
         "name": "Probabilités",
-        "link": "https://www.david-albert.fr/teaching-docs/proba-stats",
         "topic": "maths",
         "description": "Ce cours a pour objectif d’initier les étudiants à la manipulation des probabilités."
     },
     {
         "id": "c-cpp",
         "name": "Programmation en C/C++",
-        "link": "https://www.david-albert.fr/teaching-docs/c-cpp",
         "topic": "info",
         "description": "Ce cours a pour objectif d’initier les étudiants au langage de programmation C (et plus récemment C++)."
     },
     {
         "id": "prog-python",
         "name": "Programmation en Python",
-        "link": "https://www.david-albert.fr/teaching-docs/prog-python",
         "topic": "info",
         "description": "Ce cours a pour objectif d’initier les étudiants au langage de programmation python."
     },
     {
         "id": "poo-python",
         "name": "Programmation Orientée Objet",
-        "link": "https://www.david-albert.fr/teaching-docs/poo-python",
         "topic": "info",
         "description": "Ce cours a pour objectif d’initier les étudiants à un nouveau paradigme de programmation: la Programmation Orientée Objet (POO)."
     },
     {
         "id": "rl",
         "name": "Apprentissage par renforcement",
-        "link": "https://www.david-albert.fr/teaching-docs/rl",
         "topic": "ia",
         "description": "Ce cours a pour objectif d’initier les étudiants à l’apprentissage par renforcement."
     }

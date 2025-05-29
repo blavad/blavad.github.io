@@ -6,6 +6,7 @@ import Schools from '~/data/schools.json';
 import Courses from '~/data/courses.json';
 import ContactSection from './home/ContactSection';
 import BlavadIcon from '~/components/ui/BlavadIcon';
+import { RESOURCES_URL } from '~/config/global';
 
 function Teaching() {
     return (
@@ -69,7 +70,7 @@ function Teaching() {
                                 className="flex w-full flex-1 flex-col"
                                 onClick={() =>
                                     open(
-                                        `https://www.david-albert.fr/teaching-docs/${course.id}`,
+                                        `${RESOURCES_URL}/teaching-docs/${course.id}`,
                                         '_blank',
                                         'noopener,noreferrer'
                                     )
