@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import Projects from '~/data/projects.json';
 import Companies from '~/data/companies.json';
 
-import Navbar from '~/components/navbar/Navbar';
 import Card from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 

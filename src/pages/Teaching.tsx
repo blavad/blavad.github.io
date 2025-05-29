@@ -1,4 +1,3 @@
-import Navbar from '~/components/navbar/Navbar';
 import Card from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 
