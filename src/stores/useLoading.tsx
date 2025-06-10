@@ -19,7 +19,7 @@ export const useLoading = create<LoadingState>((set) => ({
     setLoading: (loading: boolean) => set({ loading }),
     setInitialLoading: (initialLoading: boolean) => set({ initialLoading }),
     openLoading: async (color = 'blue', msg = 'Loading ...') => {
-        set({ loading: true, loadingColor: color, loadingMessage: msg });
+        set({ loading: true, initialLoading: false, loadingColor: color, loadingMessage: msg });
         await new Promise((resolve) => setTimeout(resolve, MENU_ANIMATION_DURATION));
     },
 }));

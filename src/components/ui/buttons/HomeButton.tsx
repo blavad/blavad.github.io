@@ -56,7 +56,7 @@ function HomeButton({
                 <BlavadIcon name={(topics[variant].icon || 'bot') as any} size={36} />
             </div>
             <motion.div className="label-container" animate={controls}>
-                <h3 className="label-text">{children}</h3>
+                <h4 className="label-text">{children}</h4>
             </motion.div>
         </motion.div>
     );

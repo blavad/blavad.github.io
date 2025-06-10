@@ -11,7 +11,7 @@ import { useMenu } from '~/stores/useMenu';
 const NavData: Array<{ title: string; path: string }> = [
     { title: 'Home', path: '/' },
     { title: 'Créer un MVP', path: '/tech' },
-    { title: 'Les formations', path: '/teaching' },
+    { title: 'Formations', path: '/teaching' },
     { title: 'Unboared', path: 'https://unboared.com/' },
     { title: 'Contact', path: 'contact' },
 ];

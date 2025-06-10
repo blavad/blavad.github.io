@@ -10,6 +10,9 @@ function useNavigate() {
     const setLoading = useLoading((state) => state.setLoading);
     const initialLoading = useLoading((state) => state.initialLoading);
 
+    console.log('useNavigate initialized');
+    console.log('initialLoading:', initialLoading);
+
     return (path: string) => {
         const location = window.location;
         window.scrollTo({
