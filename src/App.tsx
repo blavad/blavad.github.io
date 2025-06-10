@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import Home from './pages/home';
 import Teaching from './pages/Teaching';
@@ -40,6 +40,11 @@ const router = createBrowserRouter([
                 ),
             },
         ],
+    },
+
+    {
+        path: '*',
+        element: <Navigate to="/" />,
     },
 ]);
 

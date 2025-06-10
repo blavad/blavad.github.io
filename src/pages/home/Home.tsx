@@ -21,7 +21,7 @@ function Home() {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
                 >
-                    <h1>Comment je peux t'aider à développer ton activité ?</h1>
+                    <h2>Comment je peux t'aider à développer ton activité ?</h2>
                     <div className="mt-15 flex flex-wrap gap-10">
                         <Card
                             className="flex-1"
@@ -142,7 +142,7 @@ function Home() {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
                 >
-                    <h1>Et sinon ?</h1>
+                    <h2>Et sinon ?</h2>
                     <div className="mt-15 flex flex-wrap gap-10">
                         <Card className="flex-1" title="De l'écologie .." label="" color="green">
                             Je m'intéresse beaucoup à l'écologie et à la protection de la vie sur

@@ -47,7 +47,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 whileTap={{ scale: 0.95 }}
-                whileHover={{ scale: 1.05 }}
+                // whileHover={{ scale: 1.05 }}
                 className={cn(
                     buttonVariants({ variant, size, className }),
                     variant === 'default'

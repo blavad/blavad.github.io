@@ -34,7 +34,7 @@ export function HomeContent({ topicID, fullscreen }: { topicID: string; fullscre
                     fullscreen ? 'py-4' : 'py-2'
                 )}
             >
-                <h2 className={styles.title}>David ALBERT</h2>
+                <h1 className={styles.title}>David ALBERT</h1>
                 <motion.p
                     className={styles.subtitle}
                     animate={{

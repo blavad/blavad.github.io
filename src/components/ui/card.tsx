@@ -23,22 +23,24 @@ function Card({
         'rounded-3xl p-12 text-left sm:p-20 sm:pt-14'
     );
     const labelGradientClass = `text-gradient-${color} text-xl ${label ? '' : 'mt-4 sm:mt-6 py-2'}`;
-    const textGradientClass = `text-gradient-${color} py-2`;
+    const textGradientClass = `text-gradient-${color} py-2 text-blue`;
 
     return (
         <div className={cardClass}>
             {variant === 'page' ? (
                 <>
-                    <h1 className={textGradientClass}>{title}</h1>
-                    <h3 className={labelGradientClass}>{label}</h3>
+                    <h2 className={textGradientClass}>{title}</h2>
+                    <br />
+                    <h4 className={labelGradientClass}>{label}</h4>
                 </>
             ) : (
                 <>
-                    <h3 className={labelGradientClass}>{label}</h3>
-                    <h2 className={textGradientClass}>{title}</h2>
+                    <h4 className={labelGradientClass}>{label}</h4>
+                    <br />
+                    <h3 className={textGradientClass}>{title}</h3>
                 </>
             )}
-            <p className="mt-4">{children}</p>
+            <div className="mt-4">{children}</div>
         </div>
     );
 }

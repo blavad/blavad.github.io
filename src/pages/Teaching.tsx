@@ -56,7 +56,7 @@ function Teaching() {
                 </Card>
             </section>
             <section id="courses" className="mt-20 w-full px-5 sm:px-40">
-                <h2>Les cours</h2>
+                <h3>Les cours</h3>
                 <div className="mt-15 flex w-full flex-wrap gap-6">
                     {Courses.map((course) => (
                         <div
@@ -84,7 +84,7 @@ function Teaching() {
                 </div>
             </section>
             <section id="schools" className="mt-20 w-full px-5 sm:px-40">
-                <h2>Les écoles partenaires</h2>
+                <h3>Les écoles partenaires</h3>
                 <ul className="mt-15 flex flex-wrap justify-between gap-15">
                     {Schools.map((school) => (
                         <li

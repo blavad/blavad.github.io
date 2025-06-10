@@ -47,7 +47,7 @@ function MenuPage() {
                 <h1 className="">Menu</h1>
                 <div className="mt-4 flex flex-col items-center gap-3 sm:mt-6">
                     {NavData.map((item) => (
-                        <div className="flex items-center justify-center">
+                        <div key={item.path} className="flex items-center justify-center">
                             <a
                                 className="hover:text-text/50 decoration-black2 decoration-1.5 cursor-pointer text-3xl font-bold underline"
                                 onClick={() => {
@@ -63,6 +63,7 @@ function MenuPage() {
                 <div className="mt-20 flex w-full items-center justify-between gap-3">
                     {(socials as any).map((item: any) => (
                         <motion.div
+                            key={item.name}
                             whileHover={{ scale: 1.2 }}
                             className="flex flex-col items-center justify-center"
                         >

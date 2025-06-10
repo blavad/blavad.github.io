@@ -38,6 +38,7 @@ function Navbar({ children }: PropsWithChildren<{}>) {
                         <div className="hidden items-center md:flex">
                             {NavData.map((item) => (
                                 <a
+                                    key={item.path}
                                     className="hover:text-black2/50 cursor-pointer pr-6 font-bold"
                                     onClick={() => {
                                         handleNavigate(item.path);

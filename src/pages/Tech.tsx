@@ -40,7 +40,7 @@ function Tech() {
             </section>
 
             <section id="companies" className="mt-20 w-full px-5 sm:px-20">
-                <h2>Ils m'ont fait confiance</h2>
+                <h3>Ils m'ont fait confiance</h3>
                 <ul className="mt-15 flex flex-wrap justify-between gap-15">
                     {Companies.map((school) => (
                         <li
@@ -62,7 +62,7 @@ function Tech() {
                 </ul>
             </section>
             <section id="projects" className="mt-20 w-full px-5 sm:px-40">
-                <h2>Quelques projets</h2>
+                <h3>Quelques projets</h3>
                 <div className="mt-15 grid w-full grid-cols-2 flex-wrap gap-6 sm:grid-cols-4">
                     {Projects.map((project) => (
                         <div>

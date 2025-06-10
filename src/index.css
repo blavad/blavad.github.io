@@ -178,12 +178,13 @@ body {
     }
 
     h2 {
-        @apply text-3xl font-black sm:text-5xl;
+        @apply text-5xl font-black sm:text-7xl;
         font-family: 'Inter', 'Inria Sans', system-ui, Helvetica, sans-serif;
     }
 
     h3 {
-        @apply font-light text-lg;
+        @apply text-3xl font-black sm:text-5xl;
+        font-family: 'Inter', 'Inria Sans', system-ui, Helvetica, sans-serif;
     }
 
     h4 {
