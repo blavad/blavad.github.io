@@ -12,6 +12,12 @@
         "description": "Ce cours a pour objectif d’initier les étudiants à la manipulation des probabilités."
     },
     {
+        "id": "proba-stats",
+        "name": "Statistiques",
+        "topic": "maths",
+        "description": "Ce cours a pour objectif d’initier les étudiants au statistiques."
+    },
+    {
         "id": "c-cpp",
         "name": "Programmation en C/C++",
         "topic": "info",
@@ -28,6 +34,18 @@
         "name": "Programmation Orientée Objet",
         "topic": "info",
         "description": "Ce cours a pour objectif d’initier les étudiants à un nouveau paradigme de programmation: la Programmation Orientée Objet (POO)."
+    },
+    {
+        "id": "prog-web",
+        "name": "HTML / CSS",
+        "topic": "info",
+        "description": "Ce cours a pour objectif d’initier les étudiants à la programmation web."
+    },
+    {
+        "id": "prog-web",
+        "name": "Introduction à React",
+        "topic": "info",
+        "description": "Ce cours a pour objectif d’initier les étudiants à la programmation d'applications web."
     },
     {
         "id": "rl",

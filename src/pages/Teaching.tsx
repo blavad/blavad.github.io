@@ -42,12 +42,12 @@ function Teaching() {
                                 </div>
 
                                 <div className="flex flex-col items-center">
-                                    <h1 className="text-gradient-purple">+150</h1>
+                                    <h1 className="text-gradient-purple">+200</h1>
                                     <p>étudiants formés</p>
                                 </div>
 
                                 <div className="flex flex-col items-center">
-                                    <h1 className="text-gradient-purple">6</h1>
+                                    <h1 className="text-gradient-purple">9</h1>
                                     <p>matières</p>
                                 </div>
                             </div>

@@ -2,7 +2,12 @@
 <html>
 
 <head>
-    <meta http-equiv="refresh" content="0; url=/" />
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        // Redirect all 404 requests to index.html
+        var pathname = window.location.pathname;
+        window.location.replace("/?" + pathname);
+    </script>
 </head>
 
 <body>
