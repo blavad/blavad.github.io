@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ContactForm from '~/components/ContactForm';
+import { Topics } from '~/types/topics';
 import topics from '~/data/topics.json';
 import { cn } from '~/lib/utils';
 
@@ -18,8 +19,8 @@ const colorMap: Record<string, string> = {
     pinkGradient: 'bg-gradient-pink-rev',
 };
 
-function ContactSection() {
-    const [sectionColor, setSectionColor] = useState(topics.tech.color);
+function ContactSection({ defaultTopic }: { defaultTopic?: Topics }) {
+    const [sectionColor, setSectionColor] = useState(topics[defaultTopic || 'tech'].color);
     const contentClass = cn(colorMap[sectionColor], 'px-5 sm:px-40');
     const gradientClass = cn(colorMap[`${sectionColor}Gradient`], 'mt-10 h-40');
     const titleClass = `text-gradient-${sectionColor}`;
@@ -38,7 +39,11 @@ function ContactSection() {
                     Envoie-moi un message via le formulaire ci-dessous. Je te recontacte le plus
                     rapidement possible.
                 </p>
-                <ContactForm onTopicChange={onTopicChange} color={sectionColor} />
+                <ContactForm
+                    color={sectionColor}
+                    onTopicChange={onTopicChange}
+                    defaultTopic={defaultTopic}
+                />
             </section>
         </div>
     );

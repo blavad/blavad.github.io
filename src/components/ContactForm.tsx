@@ -3,14 +3,16 @@ import emailjs from 'emailjs-com';
 import { motion } from 'framer-motion';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { Button } from './ui/button';
+import { Topics } from '~/types/topics';
 
 export type ContactFormProps = {
     className?: string;
     color: string;
+    defaultTopic?: Topics;
     onTopicChange: (theme: string) => void;
 };
 
-function ContactForm({ className, color, onTopicChange }: ContactFormProps) {
+function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactFormProps) {
     const form = useRef<any>(undefined);
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState('');
@@ -46,6 +48,10 @@ function ContactForm({ className, color, onTopicChange }: ContactFormProps) {
             );
     };
 
+    console.log('CONTACT');
+    console.log(defaultTopic);
+    console.log(defaultTopic == 'teaching');
+
     return (
         <form ref={form} onSubmit={sendEmail} className={contactFormClass}>
             <label className="form-control mb-4">
@@ -73,16 +79,14 @@ function ContactForm({ className, color, onTopicChange }: ContactFormProps) {
             <label className="form-control mb-4">
                 <p className="label-text">Sujet</p>
                 <select
-                    defaultValue="Choisir le sujet"
+                    defaultValue={defaultTopic ? defaultTopic : 'Choisir le sujet'}
                     className="select"
                     name="subject"
                     onChange={onChangeTheme}
                     disabled={loading}
                 >
                     <option disabled={true}>Choisir le sujet</option>
-                    <option defaultChecked value="tech">
-                        Demande technique
-                    </option>
+                    <option value="tech">Demande technique</option>
                     <option value="teaching">Demande pour une formation</option>
                     <option value="games">A propos d'Unboared</option>
                     <option value="ecology">Parlons écologie</option>

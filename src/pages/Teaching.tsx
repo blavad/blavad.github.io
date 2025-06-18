@@ -105,7 +105,7 @@ function Teaching() {
                     ))}
                 </ul>
             </section>
-            <ContactSection />
+            <ContactSection defaultTopic="teaching" />
         </div>
     );
 }
