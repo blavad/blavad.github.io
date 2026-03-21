@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-
 import Projects from '~/data/projects.json';
 import Companies from '~/data/companies.json';
 
@@ -61,29 +59,31 @@ function Tech() {
                     ))}
                 </ul>
             </section>
-            <section id="projects" className="mt-20 w-full px-5 sm:px-40">
+            <section id="projects" className="mt-20 w-full px-5 lg:px-40">
                 <h3>Quelques projets</h3>
-                <div className="mt-15 grid w-full grid-cols-2 flex-wrap gap-6 sm:grid-cols-4">
+                <div className="mt-15 grid w-full grid-cols-2 gap-4 lg:grid-cols-4">
                     {Projects.map((project) => (
-                        <div>
-                            <div
-                                key={project.short_title}
-                                className="shadow-black2/20 flex h-30 flex-1 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-3xl shadow-sm sm:min-w-1/4"
-                                onClick={() =>
-                                    window.open(project.url, '_blank', 'noopener noreferrer')
-                                }
-                                style={{
-                                    background: `var(--color-gradient-blue)`,
-                                }}
-                            >
-                                <motion.img
-                                    src={project.img || project.imgVertical}
-                                    alt={`${project.short_title} icon`}
-                                    whileHover={{ scale: 1.1 }}
-                                    className="h-hull w-full object-cover text-xl font-bold text-white"
-                                />
+                        <div
+                            key={project.short_title}
+                            className="group relative aspect-4/3 cursor-pointer overflow-hidden rounded-2xl"
+                            onClick={() =>
+                                window.open(project.url, '_blank', 'noopener noreferrer')
+                            }
+                        >
+                            <img
+                                src={project.img || project.imgVertical}
+                                alt={`${project.short_title} icon`}
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/10 to-transparent" />
+                            <div className="absolute right-0 bottom-0 left-0 p-3">
+                                <p className="text-sm leading-tight font-bold text-white">
+                                    {project.short_title}
+                                </p>
+                                <p className="mt-1 line-clamp-2 text-xs text-white/75 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                    {project.brief}
+                                </p>
                             </div>
-                            <p className="ml-3 text-left font-light">{project.short_title}</p>
                         </div>
                     ))}
                 </div>

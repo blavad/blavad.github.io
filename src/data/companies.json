@@ -1,15 +1,15 @@
 [
     {
         "name": "Inria",
-        "logo": "https://imredd.fr/wp-content/uploads/2018/07/logo-inria-institutionnel-couleur_large.png",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Inr_logo_rouge.svg/1280px-Inr_logo_rouge.svg.png",
         "link": "https://www.inria.fr",
-        "description": "J'ai travaillé pendant 2 ans sur le développement d'un logiciel d'IA pour l'INRIA."
+        "description": "J'ai travaillé pendant deux ans sur le développement d'un logiciel d'IA pour l'INRIA."
     },
     {
         "name": "Accor Arena",
         "logo": "https://upload.wikimedia.org/wikipedia/fr/6/6a/LogoAccorArena.png",
         "link": "https://www.accorarena.com",
-        "description": "Avec Unboared, nous travaillons également avec le groupe ADP."
+        "description": "Accor Arena a été un partenaire clé dans le développement de notre volet animation."
     },
     {
         "name": "Pollen Robotics",
@@ -45,6 +45,6 @@
         "name": "Zénith de Strasbourg",
         "logo": "https://www.zenith-strasbourg.fr/wp-content/uploads/7/2020/11/logo-sites-07.png",
         "link": "https://www.zenith-strasbourg.fr/",
-        "description": "Notre premier client à utiliser le Blind Test Unboared."
+        "description": "La première salle de concert à utiliser le Blind Test Unboared."
     }
 ]
