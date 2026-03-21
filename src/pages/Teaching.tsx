@@ -37,12 +37,12 @@ function Teaching() {
                         <div className="mt-20">
                             <div className="mt-6 flex w-full justify-between">
                                 <div className="flex flex-col items-center">
-                                    <h1 className="text-gradient-purple">3</h1>
+                                    <h1 className="text-gradient-purple">4</h1>
                                     <p>écoles</p>
                                 </div>
 
                                 <div className="flex flex-col items-center">
-                                    <h1 className="text-gradient-purple">+300</h1>
+                                    <h1 className="text-gradient-purple">+350</h1>
                                     <p>étudiants formés</p>
                                 </div>
 
@@ -55,7 +55,7 @@ function Teaching() {
                     </div>
                 </Card>
             </section>
-            <section id="courses" className="mt-20 w-full px-5 sm:px-40">
+            <section id="courses" className="mt-20 w-full px-5 sm:px-20 lg:px-40">
                 <h3>Les cours</h3>
                 <div className="mt-15 flex w-full flex-wrap gap-6">
                     {Courses.map((course) => (
@@ -98,7 +98,7 @@ function Teaching() {
                                     className="cursor-pointer object-contain opacity-60 grayscale filter transition duration-500 hover:opacity-100 hover:grayscale-0"
                                 />
                                 <div className="bg-black2/75 bg-opacity-60 absolute -bottom-20 left-1/2 flex w-60 -translate-x-1/2 items-center justify-center rounded-xl p-2 text-sm text-white opacity-0 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-100">
-                                    ‍🎓 {school.description}
+                                    {school.description}
                                 </div>
                             </div>
                         </li>

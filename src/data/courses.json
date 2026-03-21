@@ -37,7 +37,7 @@
     },
     {
         "id": "prog-web",
-        "name": "HTML / CSS",
+        "name": "HTML / CSS / JavaScript",
         "topic": "info",
         "description": "Ce cours a pour objectif d’initier les étudiants à la programmation web."
     },
@@ -52,5 +52,11 @@
         "name": "Apprentissage par renforcement",
         "topic": "ia",
         "description": "Ce cours a pour objectif d’initier les étudiants à l’apprentissage par renforcement."
+    },
+    {
+        "id": "projet-app-ia",
+        "name": "Créer une application IA",
+        "topic": "ia",
+        "description": "Ce cours a pour objectif d’initier les étudiants au développement d'applications et outils d'IA."
     }
 ]
