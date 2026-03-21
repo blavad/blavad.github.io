@@ -76,11 +76,11 @@ function Tech() {
                                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                             />
                             <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/10 to-transparent" />
-                            <div className="absolute right-0 bottom-0 left-0 p-3">
-                                <p className="text-sm leading-tight font-bold text-white">
+                            <div className="absolute right-0 bottom-0 left-0 translate-y-9 p-3 transition-transform duration-300 group-hover:translate-y-0">
+                                <p className="text-sm font-bold leading-tight text-white">
                                     {project.short_title}
                                 </p>
-                                <p className="mt-1 line-clamp-2 text-xs text-white/75 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                <p className="mt-1 line-clamp-2 text-xs text-white/75">
                                     {project.brief}
                                 </p>
                             </div>
