@@ -40,7 +40,6 @@ export function HomeContent({ topicID, fullscreen }: { topicID: string; fullscre
                     animate={{
                         background: `var(--color-gradient-${currentTopic.color})`,
                         backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
                         color: 'transparent',
                         transition: {
                             duration: 0,
