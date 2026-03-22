@@ -1,0 +1,161 @@
+{
+    "nav": {
+        "mvp": "创建MVP",
+        "teaching": "培训",
+        "contact": "联系",
+        "home": "首页",
+        "unboared": "Unboared",
+        "menu": "菜单"
+    },
+    "hero": {
+        "scrollHint": "+ 滚动以了解更多 +"
+    },
+    "home": {
+        "helpTitle": "我如何帮助您发展业务？",
+        "mvpCard": {
+            "title": "创建MVP",
+            "label": "初创企业",
+            "description": "我帮助您快速高效地创建MVP，以验证您的想法。",
+            "learnMore": "了解更多"
+        },
+        "teamsCard": {
+            "title": "团队支持",
+            "label": "企业",
+            "description": "我协助技术团队提高生产力和效率。",
+            "learnMore": "了解更多"
+        },
+        "studentsCard": {
+            "title": "培训学生",
+            "label": "学校",
+            "description": "我向学生传授最佳开发实践和最新技术。",
+            "learnMore": "了解更多",
+            "accessCourses": "访问课程"
+        },
+        "unboaredSection": {
+            "title": "探索Unboared",
+            "description": "Unboared为人流密集的场所提供独特的访客体验。",
+            "learnMore": "了解更多",
+            "tryDemo": "试用演示"
+        },
+        "whatElse": {
+            "title": "其他方面？",
+            "ecologyCard": {
+                "title": "生态学 ..",
+                "description": "我对生态学和保护地球生命非常感兴趣。我愿意接受任何朝这个方向的新机遇。",
+                "learnMore": "了解更多",
+                "contact": "联系我"
+            },
+            "sportsCard": {
+                "title": ".. 和运动",
+                "description": "从小我就热爱运动。从篮球到铁人三项，也包括游泳。",
+                "learnMore": "了解更多"
+            }
+        }
+    },
+    "contact": {
+        "title": "一起聊聊？",
+        "description": "通过下方表单给我发消息，我会尽快回复您。"
+    },
+    "contactForm": {
+        "name": "姓名",
+        "email": "邮箱",
+        "subject": "主题",
+        "message": "消息",
+        "send": "发送",
+        "chooseTopic": "选择主题",
+        "topics": {
+            "tech": "技术咨询",
+            "teaching": "培训咨询",
+            "games": "关于Unboared",
+            "ecology": "生态学交流",
+            "art": "其他咨询"
+        },
+        "success": "消息已发送！",
+        "error": "出错了，请重试。"
+    },
+    "tech": {
+        "heroCard": {
+            "title": "创建MVP",
+            "label": "\" 因为想象力没有边界。\"",
+            "description": "您想测试一个高科技产品创意？自动化任务？或者推出一款网页和移动应用？我为您提供实施建议，并在几天内搭建您所需的MVP。",
+            "startProject": "启动您的项目",
+            "contact": "联系我"
+        },
+        "companiesTitle": "他们信任了我",
+        "projectsTitle": "部分项目"
+    },
+    "teaching": {
+        "heroCard": {
+            "title": "培训",
+            "label": "\" 最好的学习方式就是享受其中。\"",
+            "description": "自2021年起，我在高等院校教授与数学、计算机科学和人工智能相关的课程。",
+            "accessCourses": "访问课程",
+            "contact": "联系我",
+            "stats": {
+                "schools": "所学校",
+                "students": "名培训学生",
+                "subjects": "门科目"
+            }
+        },
+        "coursesTitle": "课程",
+        "schoolsTitle": "合作学校"
+    },
+    "topics": {
+        "default": {
+            "title": "David ALBERT",
+            "subtitle": "悬停图标以探索",
+            "description": []
+        },
+        "tech": {
+            "title": "技术",
+            "subtitle": "资深技术顾问",
+            "description": [
+                "您想测试一个高科技产品创意？",
+                "自动化任务？推出网页或移动",
+                "应用？我为企业提供实施建议，",
+                "并在几天内搭建所需的MVP。"
+            ]
+        },
+        "games": {
+            "title": "游戏",
+            "subtitle": "Unboared联合创始人",
+            "description": [
+                "Unboared是面向人流密集场所的动画解决方案：",
+                "酒吧、音乐厅、",
+                "机场、游乐园等。"
+            ]
+        },
+        "teaching": {
+            "title": "教育",
+            "subtitle": "培训师 / 教师",
+            "description": [
+                "我热爱分享我在",
+                "数学、计算机科学和人工智能",
+                "方面的知识。"
+            ]
+        },
+        "sports": {
+            "title": "运动",
+            "subtitle": "我热爱运动",
+            "description": [
+                "竞技运动10年，如今",
+                "纯粹为了享受而锻炼。"
+            ]
+        },
+        "art": {
+            "title": "创造力",
+            "subtitle": "艺术、设计与创造力",
+            "description": []
+        },
+        "music": {
+            "title": "音乐",
+            "subtitle": "音乐与声音",
+            "description": []
+        },
+        "ecology": {
+            "title": "生态学",
+            "subtitle": "致力于生命保护",
+            "description": []
+        }
+    }
+}

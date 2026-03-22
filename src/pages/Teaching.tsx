@@ -20,7 +20,7 @@ function Teaching() {
                     label={t('teaching.heroCard.label')}
                     variant="page"
                     color="purple"
-                    className="mt-30 px-5 sm:px-40"
+                    className="min-w-60vw mt-30 px-5 sm:px-40"
                 >
                     <div className="max-w-full sm:max-w-2/3">
                         <p>{t('teaching.heroCard.description')}</p>

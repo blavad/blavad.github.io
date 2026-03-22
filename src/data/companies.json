@@ -7,6 +7,12 @@
         "translations": {
             "en": {
                 "description": "I worked for two years on the development of an AI software for INRIA."
+            },
+            "es": {
+                "description": "Trabajé durante dos años en el desarrollo de un software de IA para INRIA."
+            },
+            "zh": {
+                "description": "我在INRIA为AI软件的开发工作了两年。"
             }
         }
     },
@@ -18,6 +24,12 @@
         "translations": {
             "en": {
                 "description": "Accor Arena was a key partner in the development of our entertainment offering."
+            },
+            "es": {
+                "description": "Accor Arena fue un socio clave en el desarrollo de nuestra oferta de animación."
+            },
+            "zh": {
+                "description": "Accor Arena是我们娱乐项目开发中的重要合作伙伴。"
             }
         }
     },
@@ -29,6 +41,12 @@
         "translations": {
             "en": {
                 "description": "I contributed to the development of AI tools for robotics with the Pollen team."
+            },
+            "es": {
+                "description": "Contribuí al desarrollo de herramientas de IA para robótica con el equipo de Pollen."
+            },
+            "zh": {
+                "description": "我与Pollen团队一起为机器人技术开发AI工具做出了贡献。"
             }
         }
     },
@@ -40,6 +58,12 @@
         "translations": {
             "en": {
                 "description": "With Unboared, we also work with the ADP Group."
+            },
+            "es": {
+                "description": "Con Unboared, también trabajamos con el Grupo ADP."
+            },
+            "zh": {
+                "description": "通过Unboared，我们也与ADP集团合作。"
             }
         }
     },
@@ -51,6 +75,12 @@
         "translations": {
             "en": {
                 "description": "A close collaboration aimed at bringing more simplicity to the bar's entertainers."
+            },
+            "es": {
+                "description": "Una colaboración estrecha con el objetivo de aportar más sencillez a los animadores del bar."
+            },
+            "zh": {
+                "description": "紧密合作，旨在为酒吧娱乐人员带来更多便利。"
             }
         }
     },
@@ -62,6 +92,12 @@
         "translations": {
             "en": {
                 "description": "AMP was our first client at Unboared. We co-built the product with them."
+            },
+            "es": {
+                "description": "AMP fue nuestro primer cliente en Unboared. Coconstruimos el producto con ellos."
+            },
+            "zh": {
+                "description": "AMP是我们在Unboared的第一个客户。我们与他们共同构建了产品。"
             }
         }
     },
@@ -73,6 +109,12 @@
         "translations": {
             "en": {
                 "description": "I worked closely with the Bordeaux Airport team to develop data collection."
+            },
+            "es": {
+                "description": "Trabajé estrechamente con el equipo del aeropuerto de Burdeos para desarrollar la recolección de datos."
+            },
+            "zh": {
+                "description": "我与波尔多机场团队密切合作，开发数据采集系统。"
             }
         }
     },
@@ -84,6 +126,12 @@
         "translations": {
             "en": {
                 "description": "The first concert venue to use the Unboared Blind Test."
+            },
+            "es": {
+                "description": "El primer recinto de conciertos en usar el Blind Test de Unboared."
+            },
+            "zh": {
+                "description": "第一个使用Unboared盲听测试的音乐厅。"
             }
         }
     }

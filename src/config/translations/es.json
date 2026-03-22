@@ -1,0 +1,162 @@
+{
+    "nav": {
+        "mvp": "Crear un MVP",
+        "teaching": "Formaciones",
+        "contact": "Contacto",
+        "home": "Inicio",
+        "unboared": "Unboared",
+        "menu": "Menú"
+    },
+    "hero": {
+        "scrollHint": "+ Scroll para saber más +"
+    },
+    "home": {
+        "helpTitle": "¿Cómo puedo ayudarte a desarrollar tu negocio?",
+        "mvpCard": {
+            "title": "Creando un MVP",
+            "label": "startups",
+            "description": "Te ayudo a crear tu MVP para validar tu idea de forma rápida y eficaz.",
+            "learnMore": "Saber más"
+        },
+        "teamsCard": {
+            "title": "Apoyo a los equipos",
+            "label": "empresas",
+            "description": "Acompaño a los equipos técnicos a mejorar su productividad y eficiencia.",
+            "learnMore": "Saber más"
+        },
+        "studentsCard": {
+            "title": "Formando a los estudiantes",
+            "label": "escuelas",
+            "description": "Formo a los estudiantes en las mejores prácticas de desarrollo y las últimas tecnologías.",
+            "learnMore": "Saber más",
+            "accessCourses": "Acceder a los cursos"
+        },
+        "unboaredSection": {
+            "title": "Descubre Unboared",
+            "description": "Unboared ofrece a los espacios concurridos una experiencia única para sus visitantes.",
+            "learnMore": "Saber más",
+            "tryDemo": "Probar la demo"
+        },
+        "whatElse": {
+            "title": "¿Y además?",
+            "ecologyCard": {
+                "title": "Ecología ..",
+                "description": "Me intereso mucho por la ecología y la protección de la vida en la Tierra. Estoy abierto a cualquier nueva oportunidad en este sentido.",
+                "learnMore": "Saber más",
+                "contact": "Contáctame"
+            },
+            "sportsCard": {
+                "title": ".. y deporte",
+                "description": "Desde pequeño, soy apasionado del deporte. Del baloncesto al triatlón, pasando por la natación.",
+                "learnMore": "Saber más"
+            }
+        }
+    },
+    "contact": {
+        "title": "¿Hablamos?",
+        "description": "Envíame un mensaje a través del formulario de abajo. Me pondré en contacto contigo lo antes posible."
+    },
+    "contactForm": {
+        "name": "Nombre",
+        "email": "Email",
+        "subject": "Asunto",
+        "message": "Mensaje",
+        "send": "Enviar",
+        "chooseTopic": "Elegir el asunto",
+        "topics": {
+            "tech": "Consulta técnica",
+            "teaching": "Consulta de formación",
+            "games": "Sobre Unboared",
+            "ecology": "Hablemos de ecología",
+            "art": "Otra consulta"
+        },
+        "success": "¡Mensaje enviado!",
+        "error": "Error, por favor inténtalo de nuevo."
+    },
+    "tech": {
+        "heroCard": {
+            "title": "Crear un MVP",
+            "label": "\" Porque la imaginación no tiene límites. \"",
+            "description": "¿Quieres probar una idea de producto de alta tecnología? ¿Automatizar tareas? ¿O lanzar una aplicación web y móvil? Te asesoro sobre la implementación y monto el MVP que necesitas en pocos días.",
+            "startProject": "Iniciar tu proyecto",
+            "contact": "Contáctame"
+        },
+        "companiesTitle": "Han confiado en mí",
+        "projectsTitle": "Algunos proyectos"
+    },
+    "teaching": {
+        "heroCard": {
+            "title": "Formaciones",
+            "label": "\" La mejor manera de aprender es divirtiéndose. \"",
+            "description": "Desde 2021, enseño en escuelas de educación superior sobre temas relacionados con las matemáticas, la informática y la inteligencia artificial.",
+            "accessCourses": "Acceder a los cursos",
+            "contact": "Contáctame",
+            "stats": {
+                "schools": "escuelas",
+                "students": "estudiantes formados",
+                "subjects": "materias"
+            }
+        },
+        "coursesTitle": "Los cursos",
+        "schoolsTitle": "Las escuelas asociadas"
+    },
+    "topics": {
+        "default": {
+            "title": "David ALBERT",
+            "subtitle": "Pasa el cursor por los iconos para descubrir",
+            "description": []
+        },
+        "tech": {
+            "title": "Tecnología",
+            "subtitle": "Consultor tech senior",
+            "description": [
+                "¿Quieres probar una idea de producto de alta",
+                "tecnología? ¿Automatizar tareas? ¿Lanzar una",
+                "aplicación web o móvil? Asesoro a las empresas ",
+                "en la implementación y monto el MVP que necesitan",
+                "en pocos días."
+            ]
+        },
+        "games": {
+            "title": "Games",
+            "subtitle": "Co-fundador de Unboared",
+            "description": [
+                "Unboared es una solución de animación para los",
+                "espacios concurridos: bares, salas de conciertos,",
+                "aeropuertos, parques de juegos y actividades."
+            ]
+        },
+        "teaching": {
+            "title": "Enseñanza",
+            "subtitle": "Formador / Docente",
+            "description": [
+                "Me encanta compartir mis conocimientos en",
+                "matemáticas, informática e inteligencia",
+                " artificial."
+            ]
+        },
+        "sports": {
+            "title": "Deportes",
+            "subtitle": "Me encanta el deporte",
+            "description": [
+                "Practicado durante 10 años en competición, hoy ",
+                "lo practico por el simple placer."
+            ]
+        },
+        "art": {
+            "title": "Creatividad",
+            "subtitle": "Arte, diseño y creatividad",
+            "description": []
+        },
+        "music": {
+            "title": "Música",
+            "subtitle": "Música y sonido",
+            "description": []
+        },
+        "ecology": {
+            "title": "Ecología",
+            "subtitle": "Comprometido con la vida",
+            "description": []
+        }
+    }
+}

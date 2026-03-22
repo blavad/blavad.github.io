@@ -8,6 +8,14 @@
             "en": {
                 "name": "Mathematics for Computer Science",
                 "description": "This course aims to introduce various mathematical tools used in computer science."
+            },
+            "es": {
+                "name": "Matemáticas para la Informática",
+                "description": "Este curso tiene como objetivo introducir diferentes herramientas matemáticas utilizadas en informática."
+            },
+            "zh": {
+                "name": "计算机数学",
+                "description": "本课程旨在介绍计算机科学中使用的各种数学工具。"
             }
         }
     },
@@ -20,6 +28,14 @@
             "en": {
                 "name": "Probability",
                 "description": "This course aims to introduce students to probability theory."
+            },
+            "es": {
+                "name": "Probabilidad",
+                "description": "Este curso tiene como objetivo iniciar a los estudiantes en el manejo de las probabilidades."
+            },
+            "zh": {
+                "name": "概率论",
+                "description": "本课程旨在引导学生掌握概率论的基础知识。"
             }
         }
     },
@@ -32,6 +48,14 @@
             "en": {
                 "name": "Statistics",
                 "description": "This course aims to introduce students to statistics."
+            },
+            "es": {
+                "name": "Estadísticas",
+                "description": "Este curso tiene como objetivo iniciar a los estudiantes en las estadísticas."
+            },
+            "zh": {
+                "name": "统计学",
+                "description": "本课程旨在引导学生了解统计学。"
             }
         }
     },
@@ -44,6 +68,14 @@
             "en": {
                 "name": "C/C++ Programming",
                 "description": "This course aims to introduce students to the C programming language (and more recently C++)."
+            },
+            "es": {
+                "name": "Programación en C/C++",
+                "description": "Este curso tiene como objetivo iniciar a los estudiantes en el lenguaje de programación C (y más recientemente C++)."
+            },
+            "zh": {
+                "name": "C/C++编程",
+                "description": "本课程旨在引导学生学习C编程语言（以及近年来的C++）。"
             }
         }
     },
@@ -56,6 +88,14 @@
             "en": {
                 "name": "Python Programming",
                 "description": "This course aims to introduce students to the Python programming language."
+            },
+            "es": {
+                "name": "Programación en Python",
+                "description": "Este curso tiene como objetivo iniciar a los estudiantes en el lenguaje de programación Python."
+            },
+            "zh": {
+                "name": "Python编程",
+                "description": "本课程旨在引导学生学习Python编程语言。"
             }
         }
     },
@@ -68,6 +108,14 @@
             "en": {
                 "name": "Object-Oriented Programming",
                 "description": "This course aims to introduce students to a new programming paradigm: Object-Oriented Programming (OOP)."
+            },
+            "es": {
+                "name": "Programación Orientada a Objetos",
+                "description": "Este curso tiene como objetivo iniciar a los estudiantes en un nuevo paradigma de programación: la Programación Orientada a Objetos (POO)."
+            },
+            "zh": {
+                "name": "面向对象编程",
+                "description": "本课程旨在引导学生了解一种新的编程范式：面向对象编程（OOP）。"
             }
         }
     },
@@ -79,6 +127,12 @@
         "translations": {
             "en": {
                 "description": "This course aims to introduce students to web programming."
+            },
+            "es": {
+                "description": "Este curso tiene como objetivo iniciar a los estudiantes en la programación web."
+            },
+            "zh": {
+                "description": "本课程旨在引导学生了解Web编程。"
             }
         }
     },
@@ -91,6 +145,14 @@
             "en": {
                 "name": "Introduction to React",
                 "description": "This course aims to introduce students to web application development."
+            },
+            "es": {
+                "name": "Introducción a React",
+                "description": "Este curso tiene como objetivo iniciar a los estudiantes en el desarrollo de aplicaciones web."
+            },
+            "zh": {
+                "name": "React入门",
+                "description": "本课程旨在引导学生了解Web应用程序开发。"
             }
         }
     },
@@ -103,6 +165,14 @@
             "en": {
                 "name": "Reinforcement Learning",
                 "description": "This course aims to introduce students to reinforcement learning."
+            },
+            "es": {
+                "name": "Aprendizaje por refuerzo",
+                "description": "Este curso tiene como objetivo iniciar a los estudiantes en el aprendizaje por refuerzo."
+            },
+            "zh": {
+                "name": "强化学习",
+                "description": "本课程旨在引导学生了解强化学习。"
             }
         }
     },
@@ -115,6 +185,14 @@
             "en": {
                 "name": "Building an AI Application",
                 "description": "This course aims to introduce students to the development of AI applications and tools."
+            },
+            "es": {
+                "name": "Crear una aplicación de IA",
+                "description": "Este curso tiene como objetivo iniciar a los estudiantes en el desarrollo de aplicaciones y herramientas de IA."
+            },
+            "zh": {
+                "name": "构建AI应用",
+                "description": "本课程旨在引导学生开发AI应用程序和工具。"
             }
         }
     }

@@ -8,7 +8,7 @@ import { scrollToSection } from '~/lib/utils';
 function Navbar({ children }: PropsWithChildren<{}>) {
     const navigate = useNavigate();
     const { isOpen, open, close } = useMenu();
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const NavData: Array<{ title: string; path: string }> = [
         { title: t('nav.mvp'), path: '/tech' },
@@ -22,10 +22,6 @@ function Navbar({ children }: PropsWithChildren<{}>) {
         } else {
             scrollToSection(path);
         }
-    };
-
-    const toggleLanguage = () => {
-        i18n.changeLanguage(i18n.language === 'fr' ? 'en' : 'fr');
     };
 
     return (
@@ -53,12 +49,7 @@ function Navbar({ children }: PropsWithChildren<{}>) {
                                     {item.title}
                                 </a>
                             ))}
-                            <button
-                                onClick={toggleLanguage}
-                                className="hover:text-black2/50 cursor-pointer pr-6 font-bold uppercase"
-                            >
-                                {i18n.language === 'fr' ? 'EN' : 'FR'}
-                            </button>
+                            {/* <LanguageSwitcher className="pr-6" /> */}
                         </div>
                     )}
                     <RotatingIconButton
