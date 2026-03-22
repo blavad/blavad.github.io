@@ -2,7 +2,6 @@ import { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import useNavigate from '~/hooks/useNavigate';
 import RotatingIconButton from '../ui/buttons/RotatingIconButton';
-import LanguageSwitcher from '../ui/LanguageSwitcher';
 import { useMenu } from '~/stores/useMenu';
 import { scrollToSection } from '~/lib/utils';
 
