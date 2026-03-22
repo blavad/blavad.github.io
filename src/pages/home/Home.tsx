@@ -69,7 +69,7 @@ function Home() {
                             label="écoles"
                             color="purple"
                         >
-                            Je forme tes équipes aux meilleures pratiques de développement et aux
+                            Je forme les étudiants aux meilleures pratiques de développement et aux
                             dernières technologies.
                             <div className="mt-6 flex flex-wrap gap-5">
                                 <Button color="purple" onClick={() => navigate('/teaching')}>
@@ -162,7 +162,7 @@ function Home() {
                         </Card>
                         <Card className="flex-1" title=".. et du sport" label="" color="pink">
                             Depuis tout petit, je suis passionné de sport. Du basket au triathlon,
-                            en passant par mon sport de prédilection: <b>la natation</b>.
+                            en passant par <b>la natation</b>.
                             <div className="mt-6 flex flex-wrap gap-5">
                                 <Button color="purple" className="w-40" disabled>
                                     En savoir plus
