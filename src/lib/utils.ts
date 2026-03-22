@@ -19,3 +19,11 @@ export function scrollToSection(sectionID: string) {
 export function isExternalLink(path: string): boolean {
     return path.startsWith('http://') || path.startsWith('https://');
 }
+
+type Translatable = Record<string, unknown> & {
+    translations?: Record<string, Record<string, string | undefined>>;
+};
+
+export function getLocalizedField(item: Translatable, field: string, language: string): string {
+    return item.translations?.[language]?.[field] ?? (item[field] as string) ?? '';
+}

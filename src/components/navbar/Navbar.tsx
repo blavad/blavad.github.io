@@ -1,18 +1,20 @@
 import { PropsWithChildren } from 'react';
+import { useTranslation } from 'react-i18next';
 import useNavigate from '~/hooks/useNavigate';
 import RotatingIconButton from '../ui/buttons/RotatingIconButton';
 import { useMenu } from '~/stores/useMenu';
 import { scrollToSection } from '~/lib/utils';
 
-const NavData: Array<{ title: string; path: string }> = [
-    { title: 'Créer un MVP', path: '/tech' },
-    { title: 'Formations', path: '/teaching' },
-    { title: 'Contact', path: 'contact' },
-];
-
 function Navbar({ children }: PropsWithChildren<{}>) {
     const navigate = useNavigate();
     const { isOpen, open, close } = useMenu();
+    const { t, i18n } = useTranslation();
+
+    const NavData: Array<{ title: string; path: string }> = [
+        { title: t('nav.mvp'), path: '/tech' },
+        { title: t('nav.teaching'), path: '/teaching' },
+        { title: t('nav.contact'), path: 'contact' },
+    ];
 
     const handleNavigate = (path: string) => {
         if (path.startsWith('/')) {
@@ -20,6 +22,10 @@ function Navbar({ children }: PropsWithChildren<{}>) {
         } else {
             scrollToSection(path);
         }
+    };
+
+    const toggleLanguage = () => {
+        i18n.changeLanguage(i18n.language === 'fr' ? 'en' : 'fr');
     };
 
     return (
@@ -47,6 +53,12 @@ function Navbar({ children }: PropsWithChildren<{}>) {
                                     {item.title}
                                 </a>
                             ))}
+                            <button
+                                onClick={toggleLanguage}
+                                className="hover:text-black2/50 cursor-pointer pr-6 font-bold uppercase"
+                            >
+                                {i18n.language === 'fr' ? 'EN' : 'FR'}
+                            </button>
                         </div>
                     )}
                     <RotatingIconButton

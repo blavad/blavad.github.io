@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import ContactForm from '~/components/ContactForm';
 import { Topics } from '~/types/topics';
 import topics from '~/data/topics.json';
@@ -21,6 +22,7 @@ const colorMap: Record<string, string> = {
 
 function ContactSection({ defaultTopic }: { defaultTopic?: Topics }) {
     const [sectionColor, setSectionColor] = useState(topics[defaultTopic || 'tech'].color);
+    const { t } = useTranslation();
     const contentClass = cn(colorMap[sectionColor], 'px-5 sm:px-40');
     const gradientClass = cn(colorMap[`${sectionColor}Gradient`], 'mt-10 h-40');
     const titleClass = `text-gradient-${sectionColor}`;
@@ -34,11 +36,8 @@ function ContactSection({ defaultTopic }: { defaultTopic?: Topics }) {
         <div className="w-full">
             <div className={gradientClass}></div>
             <section id="contact" className={contentClass}>
-                <h1 className={titleClass}>On discute ?</h1>
-                <p className="mt-4">
-                    Envoie-moi un message via le formulaire ci-dessous. Je te recontacte le plus
-                    rapidement possible.
-                </p>
+                <h1 className={titleClass}>{t('contact.title')}</h1>
+                <p className="mt-4">{t('contact.description')}</p>
                 <ContactForm
                     color={sectionColor}
                     onTopicChange={onTopicChange}

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Unboared from '~/components/Unboared';
 import { Button } from '~/components/ui/button';
 import Card from '~/components/ui/card';
@@ -10,6 +11,7 @@ import { scrollToSection } from '~/lib/utils';
 
 function Home() {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     return (
         <>
@@ -21,65 +23,58 @@ function Home() {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
                 >
-                    <h2>Comment je peux t'aider à développer ton activité ?</h2>
+                    <h2>{t('home.helpTitle')}</h2>
                     <div className="mt-15 flex flex-wrap gap-10">
                         <Card
                             className="flex-1"
-                            title="En créant un MVP"
-                            label="startups"
+                            title={t('home.mvpCard.title')}
+                            label={t('home.mvpCard.label')}
                             color="blue"
                         >
-                            Je t'aide à créer ton MVP pour valider ton idée rapidement et
-                            efficacement.
-                            {/* Je peux t'accompagner dans la définition des fonctionnalités clés,
-                            l'architecture technique et le choix des technologies. */}
+                            {t('home.mvpCard.description')}
                             <div className="mt-6 flex flex-wrap gap-5">
                                 <Button
                                     color="blue"
                                     className="min-w-40"
                                     onClick={() => navigate('/tech')}
                                 >
-                                    En savoir plus
+                                    {t('home.mvpCard.learnMore')}
                                 </Button>
                             </div>
                         </Card>
                         <Card
                             className="flex-1"
-                            title="En support aux équipes"
-                            label="entreprises"
+                            title={t('home.teamsCard.title')}
+                            label={t('home.teamsCard.label')}
                             color="red"
                         >
-                            J'accompagne les équipes techniques à améliorer leur productivité et
-                            leur efficacité.
-                            {/* JJe peux t'aider à mettre en place des bonnes pratiques de développement,
-                            à améliorer la qualité du code et à optimiser les processus. */}
+                            {t('home.teamsCard.description')}
                             <div className="mt-6 flex flex-wrap gap-5">
                                 <Button
                                     color="red"
                                     className="min-w-40"
                                     onClick={() => navigate('/tech')}
                                 >
-                                    En savoir plus
+                                    {t('home.teamsCard.learnMore')}
                                 </Button>
                             </div>
                         </Card>
                         <Card
                             className="flex-1"
-                            title="En formant les étudiants"
-                            label="écoles"
+                            title={t('home.studentsCard.title')}
+                            label={t('home.studentsCard.label')}
                             color="purple"
                         >
-                            Je forme les étudiants aux meilleures pratiques de développement et aux
-                            dernières technologies.
+                            {t('home.studentsCard.description')}
                             <div className="mt-6 flex flex-wrap gap-5">
                                 <Button color="purple" onClick={() => navigate('/teaching')}>
-                                    En savoir plus
+                                    {t('home.studentsCard.learnMore')}
                                 </Button>
                                 <Button
                                     color="purple"
                                     onClick={() => navigate('/teaching#courses')}
                                 >
-                                    Accéder aux cours
+                                    {t('home.studentsCard.accessCourses')}
                                 </Button>
                             </div>
                         </Card>
@@ -94,12 +89,9 @@ function Home() {
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
                         >
-                            <h1>Découvre Unboared</h1>
+                            <h1>{t('home.unboaredSection.title')}</h1>
                             <div className="font-inter mt-4 w-3/4">
-                                <p>
-                                    Unboared offre aux espaces d'affluences une expérience inédite
-                                    pour leurs visiteurs.
-                                </p>
+                                <p>{t('home.unboaredSection.description')}</p>
                             </div>
                             <div className="mt-6 flex flex-wrap items-center justify-center gap-5">
                                 <Button
@@ -113,7 +105,7 @@ function Home() {
                                         )
                                     }
                                 >
-                                    En savoir plus
+                                    {t('home.unboaredSection.learnMore')}
                                 </Button>
                                 <Button
                                     color="red"
@@ -126,7 +118,7 @@ function Home() {
                                         )
                                     }
                                 >
-                                    Tester la démo
+                                    {t('home.unboaredSection.tryDemo')}
                                 </Button>
                             </div>
                             <div className="w-full sm:w-2/3">
@@ -142,30 +134,38 @@ function Home() {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
                 >
-                    <h2>Et sinon ?</h2>
+                    <h2>{t('home.whatElse.title')}</h2>
                     <div className="mt-15 flex flex-wrap gap-10">
-                        <Card className="flex-1" title="De l'écologie .." label="" color="green">
-                            Je m'intéresse beaucoup à l'écologie et à la protection de la vie sur
-                            Terre. Je suis ouvert à toute nouvelle opportunité allant dans ce sens.
+                        <Card
+                            className="flex-1"
+                            title={t('home.whatElse.ecologyCard.title')}
+                            label=""
+                            color="green"
+                        >
+                            {t('home.whatElse.ecologyCard.description')}
                             <div className="mt-6 flex flex-wrap gap-5">
                                 <Button color="green" className="w-40" disabled>
-                                    En savoir plus
+                                    {t('home.whatElse.ecologyCard.learnMore')}
                                 </Button>
                                 <Button
                                     color="green"
                                     className="w-40"
                                     onClick={() => scrollToSection('contact')}
                                 >
-                                    Me contacter
+                                    {t('home.whatElse.ecologyCard.contact')}
                                 </Button>
                             </div>
                         </Card>
-                        <Card className="flex-1" title=".. et du sport" label="" color="pink">
-                            Depuis tout petit, je suis passionné de sport. Du basket au triathlon,
-                            en passant par <b>la natation</b>.
+                        <Card
+                            className="flex-1"
+                            title={t('home.whatElse.sportsCard.title')}
+                            label=""
+                            color="pink"
+                        >
+                            {t('home.whatElse.sportsCard.description')}
                             <div className="mt-6 flex flex-wrap gap-5">
                                 <Button color="purple" className="w-40" disabled>
-                                    En savoir plus
+                                    {t('home.whatElse.sportsCard.learnMore')}
                                 </Button>
                             </div>
                         </Card>

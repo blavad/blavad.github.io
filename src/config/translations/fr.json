@@ -1,48 +1,162 @@
 {
-    "common": {
-        "connectedPlayers": "Joueurs connectés"
+    "nav": {
+        "mvp": "Créer un MVP",
+        "teaching": "Formations",
+        "contact": "Contact",
+        "home": "Accueil",
+        "unboared": "Unboared",
+        "menu": "Menu"
     },
-    "screen": {
-        "common": {
-            "orientation": {
-                "message": "Changez l'orientation de l'écran pour continuer."
+    "hero": {
+        "scrollHint": "+ Scroll pour en savoir plus +"
+    },
+    "home": {
+        "helpTitle": "Comment je peux t'aider à développer ton activité ?",
+        "mvpCard": {
+            "title": "En créant un MVP",
+            "label": "startups",
+            "description": "Je t'aide à créer ton MVP pour valider ton idée rapidement et efficacement.",
+            "learnMore": "En savoir plus"
+        },
+        "teamsCard": {
+            "title": "En support aux équipes",
+            "label": "entreprises",
+            "description": "J'accompagne les équipes techniques à améliorer leur productivité et leur efficacité.",
+            "learnMore": "En savoir plus"
+        },
+        "studentsCard": {
+            "title": "En formant les étudiants",
+            "label": "écoles",
+            "description": "Je forme les étudiants aux meilleures pratiques de développement et aux dernières technologies.",
+            "learnMore": "En savoir plus",
+            "accessCourses": "Accéder aux cours"
+        },
+        "unboaredSection": {
+            "title": "Découvre Unboared",
+            "description": "Unboared offre aux espaces d'affluences une expérience inédite pour leurs visiteurs.",
+            "learnMore": "En savoir plus",
+            "tryDemo": "Tester la démo"
+        },
+        "whatElse": {
+            "title": "Et sinon ?",
+            "ecologyCard": {
+                "title": "De l'écologie ..",
+                "description": "Je m'intéresse beaucoup à l'écologie et à la protection de la vie sur Terre. Je suis ouvert à toute nouvelle opportunité allant dans ce sens.",
+                "learnMore": "En savoir plus",
+                "contact": "Me contacter"
+            },
+            "sportsCard": {
+                "title": ".. et du sport",
+                "description": "Depuis tout petit, je suis passionné de sport. Du basket au triathlon, en passant par la natation.",
+                "learnMore": "En savoir plus"
             }
-        },
-        "home": {
-            "choosePlaylist": "Choix de la playlist",
-            "randomPlaylist": "Playlist aléatoire",
-            "instructions": "Comment jouer ?"
-        },
-        "instructions": {
-            "instr1": "Regardez l'écran et écoutez la musique",
-            "instr2": "Cliquez sur la bonne réponse sur votre téléphone",
-            "instr3": "Le plus rapide gagne plus de points"
-        },
-        "playlistSelection": {
-            "title": "Playlist"
-        },
-        "game": {
-            "question": "De qui est cette musique ? (%{count}/%{total})",
-            "ready": "Prêt ?",
-            "go": "GO"
-        },
-        "endgame": {
-            "title": "Scoreboard",
-            "backToHome": "Unblind Test Menu",
-            "backToPlatform": "Quitter Unblind Test"
         }
     },
-    "gamepad": {
-        "common": {
-            "waitingPage": {
-                "infos": " est le maître du jeu.",
-                "help": "Attendez ou aidez %{master} à choisir un jeu !"
+    "contact": {
+        "title": "On discute ?",
+        "description": "Envoie-moi un message via le formulaire ci-dessous. Je te recontacte le plus rapidement possible."
+    },
+    "contactForm": {
+        "name": "Nom",
+        "email": "Email",
+        "subject": "Sujet",
+        "message": "Message",
+        "send": "Envoyer",
+        "chooseTopic": "Choisir le sujet",
+        "topics": {
+            "tech": "Demande technique",
+            "teaching": "Demande pour une formation",
+            "games": "A propos d'Unboared",
+            "ecology": "Parlons écologie",
+            "art": "Autre demande"
+        },
+        "success": "Message envoyé !",
+        "error": "Erreur, veuillez réessayer."
+    },
+    "tech": {
+        "heroCard": {
+            "title": "Créer un MVP",
+            "label": "\" Parce que l'imagination n'a pas de limite. \"",
+            "description": "Vous souhaitez tester une idée de produit high tech ? Automatiser des tâches ? Ou lancer une application web et mobile ? Je vous conseille pour la mise en place et je mets en place le MVP qu'il vous faut en quelques jours.",
+            "startProject": "Démarrer votre projet",
+            "contact": "Me contacter"
+        },
+        "companiesTitle": "Ils m'ont fait confiance",
+        "projectsTitle": "Quelques projets"
+    },
+    "teaching": {
+        "heroCard": {
+            "title": "Formations",
+            "label": "\" La meilleure façon d'apprendre est de s'amuser. \"",
+            "description": "Depuis 2021, j'enseigne dans des écoles du supérieur sur des thématiques liées aux mathématiques, à l'informatique et à l'intelligence artificielle.",
+            "accessCourses": "Accéder aux cours",
+            "contact": "Me contacter",
+            "stats": {
+                "schools": "écoles",
+                "students": "étudiants formés",
+                "subjects": "matières"
             }
         },
-        "endgame": {
-            "good": "Félicitations !",
-            "bad": "Dommage !",
-            "mood": "Envoie ton humeur"
+        "coursesTitle": "Les cours",
+        "schoolsTitle": "Les écoles partenaires"
+    },
+    "topics": {
+        "default": {
+            "title": "David ALBERT",
+            "subtitle": "Survole les icones pour découvrir",
+            "description": []
+        },
+        "tech": {
+            "title": "Technologie",
+            "subtitle": "Consultant tech senior",
+            "description": [
+                "Tu souhaites tester une idée de produit high tech ? ",
+                "Automatiser des tâches ? Lancer une application web ",
+                "ou mobile ? Je conseille les entreprises pour la mise",
+                "en place et je mets en place le MVP qu'il vous faut ",
+                "en quelques jours."
+            ]
+        },
+        "games": {
+            "title": "Games",
+            "subtitle": "Co-fondateur d'Unboared",
+            "description": [
+                "Unboared est une solution d'animation pour les",
+                "espaces d'affluence : bars, salles de concerts,",
+                "aéroports, parc de de jeux et d'activités."
+            ]
+        },
+        "teaching": {
+            "title": "Enseignement",
+            "subtitle": "Formateur / Enseignant",
+            "description": [
+                "J'aime partager mes connaissances en",
+                "mathématiques, en informatique et en intelligence",
+                " artificielle."
+            ]
+        },
+        "sports": {
+            "title": "Sports",
+            "subtitle": "J'aime le sport",
+            "description": [
+                "Pratiqué pendant 10 ans en compétition, aujourd'hui ",
+                "j'en pratique pour le simple plaisir."
+            ]
+        },
+        "art": {
+            "title": "Créativité",
+            "subtitle": "Art, design, and creativity",
+            "description": []
+        },
+        "music": {
+            "title": "Musique",
+            "subtitle": "Music and sound",
+            "description": []
+        },
+        "ecology": {
+            "title": "Ecologie",
+            "subtitle": "Engagé pour le vivant",
+            "description": []
         }
     }
 }

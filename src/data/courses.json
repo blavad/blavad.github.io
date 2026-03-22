@@ -3,60 +3,119 @@
         "id": "maths-info",
         "name": "Mathématiques pour l'informatique",
         "topic": "maths",
-        "description": "Ce cours a pour objectif d’introduire différents outils mathématiques utilisés en informatique."
+        "description": "Ce cours a pour objectif d'introduire différents outils mathématiques utilisés en informatique.",
+        "translations": {
+            "en": {
+                "name": "Mathematics for Computer Science",
+                "description": "This course aims to introduce various mathematical tools used in computer science."
+            }
+        }
     },
     {
         "id": "proba-stats",
         "name": "Probabilités",
         "topic": "maths",
-        "description": "Ce cours a pour objectif d’initier les étudiants à la manipulation des probabilités."
+        "description": "Ce cours a pour objectif d'initier les étudiants à la manipulation des probabilités.",
+        "translations": {
+            "en": {
+                "name": "Probability",
+                "description": "This course aims to introduce students to probability theory."
+            }
+        }
     },
     {
         "id": "proba-stats",
         "name": "Statistiques",
         "topic": "maths",
-        "description": "Ce cours a pour objectif d’initier les étudiants au statistiques."
+        "description": "Ce cours a pour objectif d'initier les étudiants au statistiques.",
+        "translations": {
+            "en": {
+                "name": "Statistics",
+                "description": "This course aims to introduce students to statistics."
+            }
+        }
     },
     {
         "id": "c-cpp",
         "name": "Programmation en C/C++",
         "topic": "info",
-        "description": "Ce cours a pour objectif d’initier les étudiants au langage de programmation C (et plus récemment C++)."
+        "description": "Ce cours a pour objectif d'initier les étudiants au langage de programmation C (et plus récemment C++).",
+        "translations": {
+            "en": {
+                "name": "C/C++ Programming",
+                "description": "This course aims to introduce students to the C programming language (and more recently C++)."
+            }
+        }
     },
     {
         "id": "prog-python",
         "name": "Programmation en Python",
         "topic": "info",
-        "description": "Ce cours a pour objectif d’initier les étudiants au langage de programmation python."
+        "description": "Ce cours a pour objectif d'initier les étudiants au langage de programmation python.",
+        "translations": {
+            "en": {
+                "name": "Python Programming",
+                "description": "This course aims to introduce students to the Python programming language."
+            }
+        }
     },
     {
         "id": "poo-python",
         "name": "Programmation Orientée Objet",
         "topic": "info",
-        "description": "Ce cours a pour objectif d’initier les étudiants à un nouveau paradigme de programmation: la Programmation Orientée Objet (POO)."
+        "description": "Ce cours a pour objectif d'initier les étudiants à un nouveau paradigme de programmation: la Programmation Orientée Objet (POO).",
+        "translations": {
+            "en": {
+                "name": "Object-Oriented Programming",
+                "description": "This course aims to introduce students to a new programming paradigm: Object-Oriented Programming (OOP)."
+            }
+        }
     },
     {
         "id": "prog-web",
         "name": "HTML / CSS / JavaScript",
         "topic": "info",
-        "description": "Ce cours a pour objectif d’initier les étudiants à la programmation web."
+        "description": "Ce cours a pour objectif d'initier les étudiants à la programmation web.",
+        "translations": {
+            "en": {
+                "description": "This course aims to introduce students to web programming."
+            }
+        }
     },
     {
         "id": "prog-web",
         "name": "Introduction à React",
         "topic": "info",
-        "description": "Ce cours a pour objectif d’initier les étudiants à la programmation d'applications web."
+        "description": "Ce cours a pour objectif d'initier les étudiants à la programmation d'applications web.",
+        "translations": {
+            "en": {
+                "name": "Introduction to React",
+                "description": "This course aims to introduce students to web application development."
+            }
+        }
     },
     {
         "id": "rl",
         "name": "Apprentissage par renforcement",
         "topic": "ia",
-        "description": "Ce cours a pour objectif d’initier les étudiants à l’apprentissage par renforcement."
+        "description": "Ce cours a pour objectif d'initier les étudiants à l'apprentissage par renforcement.",
+        "translations": {
+            "en": {
+                "name": "Reinforcement Learning",
+                "description": "This course aims to introduce students to reinforcement learning."
+            }
+        }
     },
     {
         "id": "projet-app-ia",
         "name": "Créer une application IA",
         "topic": "ia",
-        "description": "Ce cours a pour objectif d’initier les étudiants au développement d'applications et outils d'IA."
+        "description": "Ce cours a pour objectif d'initier les étudiants au développement d'applications et outils d'IA.",
+        "translations": {
+            "en": {
+                "name": "Building an AI Application",
+                "description": "This course aims to introduce students to the development of AI applications and tools."
+            }
+        }
     }
 ]
