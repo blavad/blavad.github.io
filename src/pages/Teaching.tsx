@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import Card from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 
-import { scrollToSection } from '~/lib/utils';
+import { scrollToSection, getLocalizedField } from '~/lib/utils';
 import Schools from '~/data/schools.json';
 import Courses from '~/data/courses.json';
 import ContactSection from './home/ContactSection';
@@ -10,7 +10,7 @@ import BlavadIcon from '~/components/ui/BlavadIcon';
 import { RESOURCES_URL } from '~/config/global';
 
 function Teaching() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return (
         <div className="flex flex-col items-center justify-center">
@@ -76,7 +76,7 @@ function Teaching() {
                                 }
                             >
                                 <BlavadIcon name={course.topic} size={25} />
-                                {course.name}
+                                {getLocalizedField(course, 'name', i18n.language)}
                             </Button>
                         </div>
                     ))}
@@ -97,7 +97,7 @@ function Teaching() {
                                     className="cursor-pointer object-contain opacity-60 grayscale filter transition duration-500 hover:opacity-100 hover:grayscale-0"
                                 />
                                 <div className="bg-black2/75 bg-opacity-60 absolute -bottom-20 left-1/2 flex w-60 -translate-x-1/2 items-center justify-center rounded-xl p-2 text-sm text-white opacity-0 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-100">
-                                    {school.description}
+                                    {getLocalizedField(school, 'description', i18n.language)}
                                 </div>
                             </div>
                         </li>

@@ -3,48 +3,88 @@
         "name": "Inria",
         "logo": "/images/logo-companies/inria.png",
         "link": "https://www.inria.fr",
-        "description": "J'ai travaillé pendant deux ans sur le développement d'un logiciel d'IA pour l'INRIA."
+        "description": "J'ai travaillé pendant deux ans sur le développement d'un logiciel d'IA pour l'INRIA.",
+        "translations": {
+            "en": {
+                "description": "I worked for two years on the development of an AI software for INRIA."
+            }
+        }
     },
     {
         "name": "Accor Arena",
         "logo": "/images/logo-companies/accor-arena.png",
         "link": "https://www.accorarena.com",
-        "description": "Accor Arena a été un partenaire clé dans le développement de notre volet animation."
+        "description": "Accor Arena a été un partenaire clé dans le développement de notre volet animation.",
+        "translations": {
+            "en": {
+                "description": "Accor Arena was a key partner in the development of our entertainment offering."
+            }
+        }
     },
     {
         "name": "Pollen Robotics",
         "logo": "/images/logo-companies/pollen.png",
         "link": "https://www.pollen-robotics.com/",
-        "description": "J'ai pu contribuer au développement d'outils d'IA pour la robotique avec l'équipe de Pollen."
+        "description": "J'ai pu contribuer au développement d'outils d'IA pour la robotique avec l'équipe de Pollen.",
+        "translations": {
+            "en": {
+                "description": "I contributed to the development of AI tools for robotics with the Pollen team."
+            }
+        }
     },
     {
         "name": "Groupe ADP",
         "logo": "/images/logo-companies/adp.png",
         "link": "https://www.parisaeroport.fr",
-        "description": "Avec Unboared, nous travaillons également avec le groupe ADP."
+        "description": "Avec Unboared, nous travaillons également avec le groupe ADP.",
+        "translations": {
+            "en": {
+                "description": "With Unboared, we also work with the ADP Group."
+            }
+        }
     },
     {
         "name": "Ninkasi",
         "logo": "/images/logo-companies/ninkasi.png",
         "link": "https://www.ninkasi.fr/",
-        "description": "Une collaboration étroite dans le but de proposer plus de simplicité aux animateurs du bar."
+        "description": "Une collaboration étroite dans le but de proposer plus de simplicité aux animateurs du bar.",
+        "translations": {
+            "en": {
+                "description": "A close collaboration aimed at bringing more simplicity to the bar's entertainers."
+            }
+        }
     },
     {
         "name": "Aéroport Marseille Provence",
         "logo": "/images/logo-companies/amp.png",
         "link": "https://www.marseille.aeroport.fr/",
-        "description": "AMP a été notre premier client chez Unboared. Nous avons coconstruit le produit avec eux."
+        "description": "AMP a été notre premier client chez Unboared. Nous avons coconstruit le produit avec eux.",
+        "translations": {
+            "en": {
+                "description": "AMP was our first client at Unboared. We co-built the product with them."
+            }
+        }
     },
     {
         "name": "Aéroport de Bordeaux",
         "logo": "/images/logo-companies/aeroport-bordeaux.png",
         "link": "https://www.bordeaux.aeroport.fr/",
-        "description": "J'ai travaillé étroitement avec l'équipe de l'aéroport de Bordeaux pour développer la récolte de données."
+        "description": "J'ai travaillé étroitement avec l'équipe de l'aéroport de Bordeaux pour développer la récolte de données.",
+        "translations": {
+            "en": {
+                "description": "I worked closely with the Bordeaux Airport team to develop data collection."
+            }
+        }
     },
     {
         "name": "Zénith de Strasbourg",
         "logo": "/images/logo-companies/zenith-strasbourg.png",
         "link": "https://www.zenith-strasbourg.fr/",
-        "description": "La première salle de concert à utiliser le Blind Test Unboared."
+        "description": "La première salle de concert à utiliser le Blind Test Unboared.",
+        "translations": {
+            "en": {
+                "description": "The first concert venue to use the Unboared Blind Test."
+            }
+        }
     }
 ]

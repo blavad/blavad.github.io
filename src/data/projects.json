@@ -12,10 +12,8 @@
         "public": false,
         "translations": {
             "en": {
-                "short_title": "Unboared",
-                "long_title": "Unboared - 2.0 Board Games",
-                "brief": "A new era of board games.",
-                "description": "Unboared is a new way to play your favorite board games with people you love. Just pick your phone(s), your computer or a TV and play together to +100 games. Come on, test it!"
+                "brief": "A new era of board games. Entertainment solution for bars, concert venues, or airports.",
+                "description": "Unboared is a new way to play your favorite board games with friends. Just pick your phone, your computer or a TV and play +100 games together."
             }
         }
     },
@@ -32,10 +30,8 @@
         "public": false,
         "translations": {
             "en": {
-                "short_title": "SDM'Studio",
-                "long_title": "Sequential Decision Making Studio",
-                "brief": "Solver and library for solving stochastic games.",
-                "description": "SDMS (Sequential Decision Making Studio) is a software library containing a set of tools and algorithms for solving sequential decision making problems. The platform is based on algorithmic choices, resulting from a detailed analysis of the limitations of current methods."
+                "brief": "Software library for solving stochastic games. Stochastic games are a class of sequential decision-making problems.",
+                "description": "Software library containing a set of tools and algorithms for solving stochastic games."
             }
         }
     },
@@ -52,9 +48,8 @@
         "public": false,
         "translations": {
             "en": {
-                "short_title": "Weekook",
                 "long_title": "Weekook: Recipe Generator",
-                "brief": "Weekly recipe list generator.",
+                "brief": "Weekly recipe list generator. Categorize your recipes to create themed weeks and (soon) share them with loved ones.",
                 "description": "Optimize your time by generating a new random list of recipes for the week. Categorize your recipes to create themed weeks and (soon) share your recipes with friends and family."
             }
         }
@@ -73,10 +68,8 @@
         "public": false,
         "translations": {
             "en": {
-                "short_title": "MARL Library",
-                "long_title": "MARL Library",
-                "brief": "Reinforcement learning API for multi-agents systems.",
-                "description": "Reinforcement learning API for multi-agents systems. The library is coded in python and contains both single and multi agents reinforcement learning algortihms. The purpose of the library is to provide users the possibility to initiate and train simultaneously the policy of several agents progessing in an environment."
+                "brief": "Reinforcement learning library for multi-agent systems. Developed in Python, it includes various planning algorithms for multi-agent systems.",
+                "description": "Reinforcement learning library for multi-agent systems. The library is written in Python and includes various reinforcement learning algorithms. The goal of this library is to provide users the ability to easily declare and train a set of agents evolving simultaneously in an environment."
             }
         }
     },
@@ -94,8 +87,6 @@
         "public": false,
         "translations": {
             "en": {
-                "short_title": "Draw a car : edges2car",
-                "long_title": "Draw a car : edges2car",
                 "brief": "Realistic image of cars generator from a drawing and a color.",
                 "description": "Software that allow the user to generate realistic images of cars from a simple edge drawing and a color. To achieve this result, we use a new method of style transfert called <a href='https://phillipi.github.io/pix2pix/'><em>pix2pix</em></a>. This method is based on new knowledge in deep learning, especially the active research field of generative model, to learn a function able to change the style of an image."
             }
@@ -115,8 +106,6 @@
         "public": false,
         "translations": {
             "en": {
-                "short_title": "weRbeer",
-                "long_title": "weRbeer",
                 "brief": "Social network for beer lovers. Allow users to share their opinion about beers.",
                 "description": "A social network for beer lovers. Users can save the beers they have tasted by giving them a rating and a review. By following other people, they will be able to know the opinion of their friends."
             }
@@ -124,7 +113,7 @@
     },
     {
         "short_title": "DQN Flappy Bird",
-        "long_title": "DQN Flappy Bird",
+        "long_title": "Deep Q-learning for Flappy Bird",
         "img": "/images/projects/dqn-flappy-h.gif",
         "imgVertical": "dqn-flappy-v.gif",
         "brief": "Apprentissage par renforcement pour le jeu Flappy Bird. Développement d'une version deux joueurs.",
@@ -136,9 +125,8 @@
         "public": false,
         "translations": {
             "en": {
-                "short_title": "DQN Flappy Bird",
-                "long_title": "Deep Q-learning for Flappy Bird",
-                "brief": "Reinforcement learning for Flappy Bird. Development of a two-player version."
+                "brief": "Reinforcement learning for Flappy Bird. Development of a two-player version.",
+                "description": "Development of a two-player version of Flappy Bird (see <a href='https://github.com/blavad/flappy-bird-env'>flappy-bird-2p</a>) and experimentation with the DQN reinforcement learning algorithm to have an AI play alongside a human. This project was carried out during an internship at <a href='https://www.pollen-robotics.com/'>Pollen Robotics</a>."
             }
         }
     },
@@ -156,9 +144,8 @@
         "public": false,
         "translations": {
             "en": {
-                "short_title": "INS'Arcade",
                 "long_title": "Arcade Game Machine",
-                "brief": "Arcade game machine created from scratch with recycled materials.",
+                "brief": "Arcade game machine created from scratch with recycled materials. 5 games specially designed for the project.",
                 "description": "Arcade game machine created from scratch with only recycled materials (total cost < 100€). The machine was made available for free to INSA Rouen students for a year. Five games were available. Then, it was reconfigured to offer a wider variety of games thanks to the OS <a href='https://www.recalbox.com/'>Recalbox</a>."
             }
         }

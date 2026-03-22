@@ -6,10 +6,10 @@ import Card from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 
 import ContactSection from './home/ContactSection';
-import { scrollToSection } from '~/lib/utils';
+import { scrollToSection, getLocalizedField } from '~/lib/utils';
 
 function Tech() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return (
         <div className="flex flex-col items-center justify-center">
@@ -50,7 +50,7 @@ function Tech() {
                                     className="cursor-pointer object-contain opacity-60 grayscale filter transition duration-300 hover:opacity-100 hover:grayscale-0"
                                 />
                                 <div className="bg-black2/75 bg-opacity-60 absolute -bottom-20 left-1/2 flex w-60 -translate-x-1/2 items-center justify-center rounded-xl p-2 text-sm text-white opacity-0 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-100">
-                                    ‍{school.description}
+                                    ‍{getLocalizedField(school, 'description', i18n.language)}
                                 </div>
                             </div>
                         </li>
@@ -79,7 +79,7 @@ function Tech() {
                                     {project.short_title}
                                 </p>
                                 <p className="mt-1 line-clamp-2 text-xs text-white/75">
-                                    {project.brief}
+                                    {getLocalizedField(project, 'brief', i18n.language)}
                                 </p>
                             </div>
                         </div>
