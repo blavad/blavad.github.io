@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Projects from '~/data/projects.json';
 import Companies from '~/data/companies.json';
 
@@ -8,29 +9,26 @@ import ContactSection from './home/ContactSection';
 import { scrollToSection } from '~/lib/utils';
 
 function Tech() {
+    const { t } = useTranslation();
+
     return (
         <div className="flex flex-col items-center justify-center">
             <section id="hero" className="sm:px-20">
                 <Card
-                    title="Créer un MVP"
-                    label="“ Parce que l’imagination n’a pas de limite. “"
+                    title={t('tech.heroCard.title')}
+                    label={t('tech.heroCard.label')}
                     variant="page"
                     color="blue"
                     className="mt-30 px-5 sm:px-40"
                 >
                     <div className="max-w-full sm:max-w-2/3">
-                        <p>
-                            Vous souhaitez tester une idée de produit high tech ? Automatiser des
-                            tâches ? Ou lancer une application web et mobile ? Je vous conseille
-                            pour la mise en place et je mets en place le MVP qu'il vous faut en
-                            quelques jours.
-                        </p>
+                        <p>{t('tech.heroCard.description')}</p>
                         <div className="mt-6 flex flex-wrap gap-5">
                             <Button color="blue" onClick={() => scrollToSection('contact')}>
-                                Démarrer votre projet
+                                {t('tech.heroCard.startProject')}
                             </Button>
                             <Button color="blue" onClick={() => scrollToSection('contact')}>
-                                Me contacter
+                                {t('tech.heroCard.contact')}
                             </Button>
                         </div>
                     </div>
@@ -38,7 +36,7 @@ function Tech() {
             </section>
 
             <section id="companies" className="mt-20 w-full px-5 sm:px-20">
-                <h3>Ils m'ont fait confiance</h3>
+                <h3>{t('tech.companiesTitle')}</h3>
                 <ul className="mt-15 flex flex-wrap justify-between gap-15">
                     {Companies.map((school) => (
                         <li
@@ -60,7 +58,7 @@ function Tech() {
                 </ul>
             </section>
             <section id="projects" className="mt-20 w-full px-5 lg:px-40">
-                <h3>Quelques projets</h3>
+                <h3>{t('tech.projectsTitle')}</h3>
                 <div className="mt-15 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     {Projects.map((project) => (
                         <div

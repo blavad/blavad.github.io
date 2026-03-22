@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import { motion } from 'framer-motion';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { useTranslation } from 'react-i18next';
 import { Button } from './ui/button';
 import { Topics } from '~/types/topics';
 
@@ -16,6 +17,7 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
     const form = useRef<any>(undefined);
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState('');
+    const { t } = useTranslation();
     const contactFormClass = `flex flex-col p-6 ${className}`;
 
     const onChangeTheme = (e: any) => {
@@ -48,14 +50,10 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
             );
     };
 
-    console.log('CONTACT');
-    console.log(defaultTopic);
-    console.log(defaultTopic == 'teaching');
-
     return (
         <form ref={form} onSubmit={sendEmail} className={contactFormClass}>
             <label className="form-control mb-4">
-                <p className="label-text">Nom</p>
+                <p className="label-text">{t('contactForm.name')}</p>
                 <input
                     type="text"
                     name="user_name"
@@ -66,7 +64,7 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
             </label>
 
             <label className="form-control mb-4">
-                <p className="label-text">Email</p>
+                <p className="label-text">{t('contactForm.email')}</p>
                 <input
                     type="email"
                     name="user_email"
@@ -77,25 +75,25 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
             </label>
 
             <label className="form-control mb-4">
-                <p className="label-text">Sujet</p>
+                <p className="label-text">{t('contactForm.subject')}</p>
                 <select
-                    defaultValue={defaultTopic ? defaultTopic : 'Choisir le sujet'}
+                    defaultValue={defaultTopic ? defaultTopic : t('contactForm.chooseTopic')}
                     className="select"
                     name="subject"
                     onChange={onChangeTheme}
                     disabled={loading}
                 >
-                    <option disabled={true}>Choisir le sujet</option>
-                    <option value="tech">Demande technique</option>
-                    <option value="teaching">Demande pour une formation</option>
-                    <option value="games">A propos d'Unboared</option>
-                    <option value="ecology">Parlons écologie</option>
-                    <option value="art">Autre demande</option>
+                    <option disabled={true}>{t('contactForm.chooseTopic')}</option>
+                    <option value="tech">{t('contactForm.topics.tech')}</option>
+                    <option value="teaching">{t('contactForm.topics.teaching')}</option>
+                    <option value="games">{t('contactForm.topics.games')}</option>
+                    <option value="ecology">{t('contactForm.topics.ecology')}</option>
+                    <option value="art">{t('contactForm.topics.art')}</option>
                 </select>
             </label>
 
             <label className="form-control mb-4">
-                <p className="label-text">Message</p>
+                <p className="label-text">{t('contactForm.message')}</p>
                 <textarea
                     name="message"
                     className="textarea textarea-bordered h-24 md:w-1/2"
@@ -110,7 +108,7 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
                 color={color}
                 disabled={loading}
             >
-                {loading ? <ClipLoader /> : 'Envoyer'}
+                {loading ? <ClipLoader /> : t('contactForm.send')}
             </Button>
 
             {status === 'success' && (
@@ -119,7 +117,7 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
                     animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
                     className="text-success fixed bottom-5 left-[50%] mt-4 -translate-x-[50%] rounded-3xl border-[2px] bg-white/75 px-4 py-2 backdrop-blur-sm"
                 >
-                    Message envoyé !
+                    {t('contactForm.success')}
                 </motion.p>
             )}
             {status === 'error' && (
@@ -128,7 +126,7 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
                     animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
                     className="text-error fixed bottom-5 left-[50%] mt-4 -translate-x-[50%] rounded-3xl border-[2px] bg-white/75 px-4 py-2 backdrop-blur-sm"
                 >
-                    Erreur, veuillez réessayer.
+                    {t('contactForm.error')}
                 </motion.p>
             )}
         </form>

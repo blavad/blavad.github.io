@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 import { cn } from '~/lib/utils';
 import topics from '~/data/topics.json';
@@ -9,7 +10,10 @@ const LINE_HEIGHT = 16;
 const LINE_APPEAR_TIME = 0.1;
 
 export function HomeContent({ topicID, fullscreen }: { topicID: string; fullscreen: boolean }) {
+    const { t } = useTranslation();
     const currentTopic = (topics as any)[topicID] || topics.default;
+    const description = t(`topics.${topicID}.description`, { returnObjects: true }) as string[];
+    const descriptionArray = Array.isArray(description) ? description : [];
 
     return (
         <motion.div
@@ -21,9 +25,9 @@ export function HomeContent({ topicID, fullscreen }: { topicID: string; fullscre
             }}
             animate={{
                 y: fullscreen ? 50 : 0,
-                height: fullscreen ? 100 + currentTopic.description.length * LINE_HEIGHT : 'auto',
+                height: fullscreen ? 100 + descriptionArray.length * LINE_HEIGHT : 'auto',
                 transition: {
-                    height: { duration: currentTopic.description.length * LINE_APPEAR_TIME },
+                    height: { duration: descriptionArray.length * LINE_APPEAR_TIME },
                 },
                 padding: fullscreen ? '4px' : '3px',
             }}
@@ -46,10 +50,10 @@ export function HomeContent({ topicID, fullscreen }: { topicID: string; fullscre
                         },
                     }}
                 >
-                    {currentTopic?.subtitle}
+                    {t(`topics.${topicID}.subtitle`)}
                 </motion.p>
                 {fullscreen &&
-                    currentTopic?.description.map((desc: string) => (
+                    descriptionArray.map((desc: string) => (
                         <motion.p key={desc} className={styles.description}>
                             {desc}
                         </motion.p>

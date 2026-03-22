@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import Card from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 
@@ -9,28 +10,26 @@ import BlavadIcon from '~/components/ui/BlavadIcon';
 import { RESOURCES_URL } from '~/config/global';
 
 function Teaching() {
+    const { t } = useTranslation();
+
     return (
         <div className="flex flex-col items-center justify-center">
             <section id="hero" className="sm:px-20">
                 <Card
-                    title="Formations"
-                    label="“ La meilleure façon d’apprendre est de s’amuser. “"
+                    title={t('teaching.heroCard.title')}
+                    label={t('teaching.heroCard.label')}
                     variant="page"
                     color="purple"
                     className="mt-30 px-5 sm:px-40"
                 >
                     <div className="max-w-full sm:max-w-2/3">
-                        <p>
-                            Depuis 2021, j'enseigne dans des écoles du supérieur sur des thématiques
-                            liées aux{' '}
-                            <b>mathématiques, à l’informatique et à l'intelligence artificielle</b>.
-                        </p>
+                        <p>{t('teaching.heroCard.description')}</p>
                         <div className="mt-6 flex flex-wrap gap-5">
                             <Button color="purple" onClick={() => scrollToSection('courses')}>
-                                Accéder aux cours
+                                {t('teaching.heroCard.accessCourses')}
                             </Button>
                             <Button color="purple" onClick={() => scrollToSection('contact')}>
-                                Me contacter
+                                {t('teaching.heroCard.contact')}
                             </Button>
                         </div>
 
@@ -38,17 +37,17 @@ function Teaching() {
                             <div className="mt-6 flex w-full justify-between">
                                 <div className="flex flex-col items-center">
                                     <h1 className="text-gradient-purple">4</h1>
-                                    <p>écoles</p>
+                                    <p>{t('teaching.heroCard.stats.schools')}</p>
                                 </div>
 
                                 <div className="flex flex-col items-center">
                                     <h1 className="text-gradient-purple">+350</h1>
-                                    <p>étudiants formés</p>
+                                    <p>{t('teaching.heroCard.stats.students')}</p>
                                 </div>
 
                                 <div className="flex flex-col items-center">
                                     <h1 className="text-gradient-purple">12</h1>
-                                    <p>matières</p>
+                                    <p>{t('teaching.heroCard.stats.subjects')}</p>
                                 </div>
                             </div>
                         </div>
@@ -56,7 +55,7 @@ function Teaching() {
                 </Card>
             </section>
             <section id="courses" className="mt-20 w-full px-5 sm:px-20 lg:px-40">
-                <h3>Les cours</h3>
+                <h3>{t('teaching.coursesTitle')}</h3>
                 <div className="mt-15 flex w-full flex-wrap gap-6">
                     {Courses.map((course) => (
                         <div
@@ -84,7 +83,7 @@ function Teaching() {
                 </div>
             </section>
             <section id="schools" className="mt-20 w-full px-5 sm:px-40">
-                <h3>Les écoles partenaires</h3>
+                <h3>{t('teaching.schoolsTitle')}</h3>
                 <ul className="mt-15 flex flex-wrap justify-between gap-15">
                     {Schools.map((school) => (
                         <li

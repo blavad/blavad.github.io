@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 import topics from '~/data/topics.json';
 import img from '~/assets/img/camion-3d.jpg';
@@ -14,6 +15,7 @@ function Hero() {
     const [currentTopicID, setCurrentTopicID] = useState('default');
     const [fullscreen, setFullscreen] = useState(false);
     const { isOpen, open, variant, close } = useMenu();
+    const { t } = useTranslation();
 
     const openTopic = (topicID: string) => {
         setCurrentTopicID(topicID);
@@ -81,7 +83,7 @@ function Hero() {
                     onHoverEnd={closeTopic}
                     onClick={clickTopic}
                 >
-                    {topics['games'].title}
+                    {t(`topics.${topics['games'].id}.title`)}
                 </HomeButton>
                 <HomeButton
                     variant="tech"
@@ -90,7 +92,7 @@ function Hero() {
                     onHoverEnd={closeTopic}
                     onClick={clickTopic}
                 >
-                    {topics['tech'].title}
+                    {t(`topics.${topics['tech'].id}.title`)}
                 </HomeButton>
                 <HomeButton
                     variant="teaching"
@@ -99,7 +101,7 @@ function Hero() {
                     onHoverEnd={closeTopic}
                     onClick={clickTopic}
                 >
-                    {topics['teaching'].title}
+                    {t(`topics.${topics['teaching'].id}.title`)}
                 </HomeButton>
                 <HomeButton
                     variant="sports"
@@ -108,7 +110,7 @@ function Hero() {
                     onHoverEnd={closeTopic}
                     onClick={clickTopic}
                 >
-                    {topics['sports'].title}
+                    {t(`topics.${topics['sports'].id}.title`)}
                 </HomeButton>
                 <HomeButton
                     variant="ecology"
@@ -117,10 +119,10 @@ function Hero() {
                     onHoverEnd={closeTopic}
                     onClick={clickTopic}
                 >
-                    {topics['ecology'].title}
+                    {t(`topics.${topics['ecology'].id}.title`)}
                 </HomeButton>
                 <p className="absolute bottom-[2%] left-[50%] w-full -translate-x-1/2 text-base">
-                    + Scroll pour en savoir plus +
+                    {t('hero.scrollHint')}
                 </p>
             </SmoothParallaxImage>
         </motion.div>
