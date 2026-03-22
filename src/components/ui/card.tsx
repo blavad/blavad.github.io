@@ -20,7 +20,7 @@ function Card({
     const cardClass = cn(
         `bg-gradient-${color}`,
         className,
-        'rounded-3xl p-12 text-left sm:p-20 sm:pt-14 min-w-[80vw]'
+        'rounded-3xl p-12 text-left sm:p-20 sm:pt-14'
     );
     const labelGradientClass = `text-gradient-${color} text-xl ${label ? '' : 'mt-4 sm:mt-6 py-2'}`;
     const textGradientClass = `text-gradient-${color} py-2 text-blue`;
