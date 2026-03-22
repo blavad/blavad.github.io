@@ -14,6 +14,14 @@
             "en": {
                 "brief": "A new era of board games. Entertainment solution for bars, concert venues, or airports.",
                 "description": "Unboared is a new way to play your favorite board games with friends. Just pick your phone, your computer or a TV and play +100 games together."
+            },
+            "es": {
+                "brief": "Una nueva era para los juegos de mesa. Solución de animación para bares, salas de conciertos o aeropuertos.",
+                "description": "Unboared es una nueva forma de jugar a tus juegos de mesa favoritos con amigos. Simplemente toma tu teléfono y tu computadora o televisor y juega a más de 100 juegos."
+            },
+            "zh": {
+                "brief": "桌游的新时代。面向酒吧、音乐厅或机场的娱乐解决方案。",
+                "description": "Unboared是一种与朋友一起玩最喜欢的桌游的新方式。只需拿起手机和电脑或电视，即可一起畅玩100多款游戏。"
             }
         }
     },
@@ -32,6 +40,14 @@
             "en": {
                 "brief": "Software library for solving stochastic games. Stochastic games are a class of sequential decision-making problems.",
                 "description": "Software library containing a set of tools and algorithms for solving stochastic games."
+            },
+            "es": {
+                "brief": "Biblioteca de software para la resolución de juegos estocásticos. Los juegos estocásticos forman una clase de problemas de decisión secuencial.",
+                "description": "Biblioteca de software que contiene un conjunto de herramientas y algoritmos para la resolución de juegos estocásticos."
+            },
+            "zh": {
+                "brief": "用于求解随机博弈的软件库。随机博弈是一类序贯决策问题。",
+                "description": "包含一套用于求解随机博弈的工具和算法的软件库。"
             }
         }
     },
@@ -51,6 +67,16 @@
                 "long_title": "Weekook: Recipe Generator",
                 "brief": "Weekly recipe list generator. Categorize your recipes to create themed weeks and (soon) share them with loved ones.",
                 "description": "Optimize your time by generating a new random list of recipes for the week. Categorize your recipes to create themed weeks and (soon) share your recipes with friends and family."
+            },
+            "es": {
+                "long_title": "Weekook: Generador de recetas",
+                "brief": "Generador de listas de recetas semanales. Categoriza tus recetas para crear semanas temáticas y (pronto) compártelas con tus seres queridos.",
+                "description": "Optimiza tu tiempo generando cada semana una nueva lista aleatoria de recetas. Categoriza tus recetas para crear semanas temáticas y (pronto) comparte tus recetas con amigos y familia."
+            },
+            "zh": {
+                "long_title": "Weekook：食谱生成器",
+                "brief": "每周食谱列表生成器。对食谱分类，创建主题周，并（即将）与亲友分享。",
+                "description": "通过每周生成随机食谱列表来优化您的时间。对食谱分类，创建主题周，并（即将）与朋友和家人分享您的食谱。"
             }
         }
     },
@@ -70,6 +96,14 @@
             "en": {
                 "brief": "Reinforcement learning library for multi-agent systems. Developed in Python, it includes various planning algorithms for multi-agent systems.",
                 "description": "Reinforcement learning library for multi-agent systems. The library is written in Python and includes various reinforcement learning algorithms. The goal of this library is to provide users the ability to easily declare and train a set of agents evolving simultaneously in an environment."
+            },
+            "es": {
+                "brief": "Biblioteca de aprendizaje por refuerzo para sistemas multiagente. Desarrollada en Python, incluye varios algoritmos de planificación para sistemas multiagente.",
+                "description": "Biblioteca de aprendizaje por refuerzo para sistemas multiagente. La biblioteca está escrita en Python e incluye varios algoritmos de aprendizaje por refuerzo. El objetivo de esta biblioteca es proporcionar a los usuarios la capacidad de declarar y entrenar fácilmente un conjunto de agentes que evolucionan simultáneamente en un entorno."
+            },
+            "zh": {
+                "brief": "多智能体系统强化学习库。用Python开发，包含多种多智能体系统规划算法。",
+                "description": "多智能体系统强化学习库。该库用Python编写，包含各种强化学习算法。该库的目标是为用户提供声明和训练在环境中同时运行的一组智能体的能力。"
             }
         }
     },
@@ -89,6 +123,14 @@
             "en": {
                 "brief": "Realistic image of cars generator from a drawing and a color.",
                 "description": "Software that allow the user to generate realistic images of cars from a simple edge drawing and a color. To achieve this result, we use a new method of style transfert called <a href='https://phillipi.github.io/pix2pix/'><em>pix2pix</em></a>. This method is based on new knowledge in deep learning, especially the active research field of generative model, to learn a function able to change the style of an image."
+            },
+            "es": {
+                "brief": "Generador de imágenes realistas de coches a partir de un dibujo y un color.",
+                "description": "Software que permite generar imágenes realistas de coches a partir de un dibujo de bordes y un color. Para ello, utilizamos un método reciente de transferencia de estilo llamado <a href='https://phillipi.github.io/pix2pix/'><em>pix2pix</em></a>. Este método utiliza una red neuronal generativa (GAN) que ha aprendido a modificar adecuadamente el estilo de una imagen."
+            },
+            "zh": {
+                "brief": "从草图和颜色生成逼真汽车图像的软件。",
+                "description": "允许用户从简单的边缘草图和颜色生成逼真汽车图像的软件。为实现此结果，我们使用了一种名为<a href='https://phillipi.github.io/pix2pix/'><em>pix2pix</em></a>的新型风格迁移方法。该方法基于深度学习中生成模型的最新研究，学习能够改变图像风格的函数。"
             }
         }
     },
@@ -108,6 +150,14 @@
             "en": {
                 "brief": "Social network for beer lovers. Allow users to share their opinion about beers.",
                 "description": "A social network for beer lovers. Users can save the beers they have tasted by giving them a rating and a review. By following other people, they will be able to know the opinion of their friends."
+            },
+            "es": {
+                "brief": "Red social para los amantes de la cerveza. Permite compartir opiniones sobre cervezas entre amigos y familia.",
+                "description": "Red social para los amantes de la cerveza. Los usuarios pueden guardar las cervezas que han probado dándoles una calificación y una reseña. Al seguir a otras personas, podrán conocer la opinión de sus amigos."
+            },
+            "zh": {
+                "brief": "啤酒爱好者社交网络。允许用户在朋友和家人之间分享对啤酒的看法。",
+                "description": "啤酒爱好者社交网络。用户可以保存他们品尝过的啤酒，给出评分和评论。通过关注其他人，他们可以了解朋友的意见。"
             }
         }
     },
@@ -127,6 +177,14 @@
             "en": {
                 "brief": "Reinforcement learning for Flappy Bird. Development of a two-player version.",
                 "description": "Development of a two-player version of Flappy Bird (see <a href='https://github.com/blavad/flappy-bird-env'>flappy-bird-2p</a>) and experimentation with the DQN reinforcement learning algorithm to have an AI play alongside a human. This project was carried out during an internship at <a href='https://www.pollen-robotics.com/'>Pollen Robotics</a>."
+            },
+            "es": {
+                "brief": "Aprendizaje por refuerzo para el juego Flappy Bird. Desarrollo de una versión para dos jugadores.",
+                "description": "Desarrollo de una versión para dos jugadores de Flappy Bird (ver <a href='https://github.com/blavad/flappy-bird-env'>flappy-bird-2p</a>) y experimentación del algoritmo de aprendizaje por refuerzo DQN para que una IA juegue con un humano. Este proyecto se realizó en el marco de una pasantía en <a href='https://www.pollen-robotics.com/'>Pollen Robotics</a>."
+            },
+            "zh": {
+                "brief": "Flappy Bird游戏的强化学习。开发双人版本。",
+                "description": "开发Flappy Bird的双人版本（见<a href='https://github.com/blavad/flappy-bird-env'>flappy-bird-2p</a>），并使用DQN强化学习算法让AI与人类对战。该项目在<a href='https://www.pollen-robotics.com/'>Pollen Robotics</a>实习期间完成。"
             }
         }
     },
@@ -147,6 +205,16 @@
                 "long_title": "Arcade Game Machine",
                 "brief": "Arcade game machine created from scratch with recycled materials. 5 games specially designed for the project.",
                 "description": "Arcade game machine created from scratch with only recycled materials (total cost < 100€). The machine was made available for free to INSA Rouen students for a year. Five games were available. Then, it was reconfigured to offer a wider variety of games thanks to the OS <a href='https://www.recalbox.com/'>Recalbox</a>."
+            },
+            "es": {
+                "long_title": "Máquina Recreativa",
+                "brief": "Máquina recreativa creada desde cero con material reciclado. 5 juegos especialmente diseñados para el proyecto.",
+                "description": "Máquina recreativa creada desde cero con únicamente material reciclado (coste total < 100€). La máquina estuvo disponible gratuitamente para los estudiantes del INSA de Rouen durante un año. Cinco juegos estaban disponibles. Luego, fue reconfigurada para ofrecer una mayor diversidad de juegos gracias al OS <a href='https://www.recalbox.com/'>Recalbox</a>."
+            },
+            "zh": {
+                "long_title": "街机游戏机",
+                "brief": "从零开始用回收材料制作的街机游戏机。5款专为该项目设计的游戏。",
+                "description": "完全使用回收材料从零开始制作的街机游戏机（总成本 < 100欧元）。该游戏机免费向鲁昂INSA的学生提供了一年。共有五款游戏可供使用。之后，它被重新配置，借助<a href='https://www.recalbox.com/'>Recalbox</a>操作系统提供更多种类的游戏。"
             }
         }
     }
