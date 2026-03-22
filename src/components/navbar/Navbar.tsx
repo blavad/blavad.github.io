@@ -50,7 +50,7 @@ function Navbar({ children }: PropsWithChildren<{}>) {
                                     {item.title}
                                 </a>
                             ))}
-                            <LanguageSwitcher className="pr-6" />
+                            {/* <LanguageSwitcher className="pr-6" /> */}
                         </div>
                     )}
                     <RotatingIconButton

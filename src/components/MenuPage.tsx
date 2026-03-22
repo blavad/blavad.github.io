@@ -62,7 +62,7 @@ function MenuPage() {
                             {isExternalLink(item.path) && <ExternalLink className="ml-3" />}
                         </div>
                     ))}
-                    <LanguageSwitcher className="text-3xl" />
+                    <LanguageSwitcher className="mt-2 text-2xl" />
                 </div>
                 <div className="mt-20 flex w-full items-center justify-between gap-3">
                     {(socials as any).map((item: any) => (
