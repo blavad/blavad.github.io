@@ -6,13 +6,14 @@ import { MENU_ANIMATION_DURATION } from '~/config/global';
 import { isExternalLink, scrollToSection, sleep } from '~/lib/utils';
 import socials from '~/data/socials.json';
 import BlavadIcon from '~/components/ui/BlavadIcon';
+import LanguageSwitcher from '~/components/ui/LanguageSwitcher';
 import useNavigate from '~/hooks/useNavigate';
 import { useMenu } from '~/stores/useMenu';
 
 function MenuPage() {
     const { isOpen, variant, close } = useMenu();
     const navigate = useNavigate();
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const NavData: Array<{ title: string; path: string }> = [
         { title: t('nav.home'), path: '/' },
@@ -34,10 +35,6 @@ function MenuPage() {
             close();
             scrollToSection(path);
         }
-    };
-
-    const toggleLanguage = () => {
-        i18n.changeLanguage(i18n.language === 'fr' ? 'en' : 'fr');
     };
 
     return (
@@ -65,12 +62,7 @@ function MenuPage() {
                             {isExternalLink(item.path) && <ExternalLink className="ml-3" />}
                         </div>
                     ))}
-                    <button
-                        onClick={toggleLanguage}
-                        className="hover:text-text/50 decoration-black2 decoration-1.5 cursor-pointer text-3xl font-bold uppercase underline"
-                    >
-                        {i18n.language === 'fr' ? 'EN' : 'FR'}
-                    </button>
+                    <LanguageSwitcher className="text-3xl" />
                 </div>
                 <div className="mt-20 flex w-full items-center justify-between gap-3">
                     {(socials as any).map((item: any) => (
