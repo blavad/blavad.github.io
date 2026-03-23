@@ -28,10 +28,10 @@ function Teaching() {
                     provider: {
                         '@type': 'Person',
                         name: 'David Albert',
-                        url: 'https://david.albert.fr',
+                        url: 'https://www.david-albert.fr',
                     },
                     numberOfStudents: 350,
-                    url: 'https://david.albert.fr/teaching',
+                    url: 'https://www.david-albert.fr/teaching',
                 }}
             />
             <section id="hero" className="sm:px-20">

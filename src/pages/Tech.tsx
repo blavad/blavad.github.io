@@ -27,11 +27,11 @@ function Tech() {
                     provider: {
                         '@type': 'Person',
                         name: 'David Albert',
-                        url: 'https://david.albert.fr',
+                        url: 'https://www.david-albert.fr',
                     },
                     serviceType: 'Développement logiciel',
                     areaServed: 'FR',
-                    url: 'https://david.albert.fr/tech',
+                    url: 'https://www.david-albert.fr/tech',
                 }}
             />
             <section id="hero" className="sm:px-20">

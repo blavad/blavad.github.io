@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { LANGUAGES } from '~/config/translations';
 
-const BASE_URL = 'https://david.albert.fr';
+const BASE_URL = 'https://www.david-albert.fr';
 
 interface SeoHeadProps {
     title: string;
