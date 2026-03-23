@@ -1,5 +1,5 @@
 @font-face {
-    font-display: swap;
+    font-display: optional;
     font-family: 'Inter';
     src: url('./assets/fonts/Inter/Inter-Light.woff2') format('woff2');
     font-weight: 300;

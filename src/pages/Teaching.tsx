@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { SeoHead } from '~/components/SeoHead';
 import Card from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 
@@ -15,11 +15,25 @@ function Teaching() {
 
     return (
         <div className="flex flex-col items-center justify-center">
-            <Helmet>
-                <title>Formations — David Albert</title>
-                <meta name="description" content="Formations en informatique et intelligence artificielle par David Albert. Cours dispensés dans 4 écoles supérieures, +350 étudiants formés." />
-                <link rel="canonical" href="https://david.albert.fr/teaching" />
-            </Helmet>
+            <SeoHead
+                title="Formations — David Albert"
+                description="Formations en informatique et intelligence artificielle par David Albert. Cours dispensés dans 4 écoles supérieures, +350 étudiants formés."
+                path="/teaching"
+                jsonLd={{
+                    '@context': 'https://schema.org',
+                    '@type': 'Course',
+                    name: 'Formations en informatique et intelligence artificielle',
+                    description:
+                        "Cours dispensés dans des écoles supérieures sur les mathématiques, l'informatique et l'intelligence artificielle.",
+                    provider: {
+                        '@type': 'Person',
+                        name: 'David Albert',
+                        url: 'https://david.albert.fr',
+                    },
+                    numberOfStudents: 350,
+                    url: 'https://david.albert.fr/teaching',
+                }}
+            />
             <section id="hero" className="sm:px-20">
                 <Card
                     title={t('teaching.heroCard.title')}
