@@ -20,12 +20,25 @@
     "reactSnap": {
         "source": "dist",
         "destination": "dist",
-        "include": ["/", "/tech", "/teaching"],
+        "include": [
+            "/",
+            "/tech",
+            "/teaching"
+        ],
         "skipThirdPartyRequests": true,
         "puppeteerExecutablePath": "/usr/bin/google-chrome",
-        "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
-        "viewport": { "width": 1440, "height": 900 },
-        "minifyHtml": { "collapseWhitespace": false, "removeComments": false }
+        "puppeteerArgs": [
+            "--no-sandbox",
+            "--disable-setuid-sandbox"
+        ],
+        "viewport": {
+            "width": 1440,
+            "height": 900
+        },
+        "minifyHtml": {
+            "collapseWhitespace": false,
+            "removeComments": false
+        }
     },
     "dependencies": {
         "class-variance-authority": "^0.7.1",
