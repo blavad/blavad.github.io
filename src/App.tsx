@@ -1,8 +1,10 @@
+import { lazy, Suspense } from 'react';
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import Home from './pages/home';
-import Teaching from './pages/Teaching';
-import Tech from './pages/Tech';
+const Home = lazy(() => import('./pages/home'));
+const Teaching = lazy(() => import('./pages/Teaching'));
+const Tech = lazy(() => import('./pages/Tech'));
+
 import LoadingPage from './components/LoadingPage';
 
 import PageWrapper from './components/PageWrapper';
@@ -18,25 +20,31 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: (
-                    <FadeWrapper>
-                        <Home />
-                    </FadeWrapper>
+                    <Suspense>
+                        <FadeWrapper>
+                            <Home />
+                        </FadeWrapper>
+                    </Suspense>
                 ),
             },
             {
                 path: '/tech',
                 element: (
-                    <FadeWrapper>
-                        <Tech />
-                    </FadeWrapper>
+                    <Suspense>
+                        <FadeWrapper>
+                            <Tech />
+                        </FadeWrapper>
+                    </Suspense>
                 ),
             },
             {
                 path: '/teaching',
                 element: (
-                    <FadeWrapper>
-                        <Teaching />
-                    </FadeWrapper>
+                    <Suspense>
+                        <FadeWrapper>
+                            <Teaching />
+                        </FadeWrapper>
+                    </Suspense>
                 ),
             },
         ],

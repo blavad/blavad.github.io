@@ -7,11 +7,18 @@ const BG_HEIGHT = 82; // Hauteur de l'image de fond
 
 export function SmoothParallaxImage({
     src,
+    webpSrc,
     className,
     header,
     children,
     fullscreen = false,
-}: PropsWithChildren<{ src?: string; className?: string; header?: any; fullscreen: boolean }>) {
+}: PropsWithChildren<{
+    src?: string;
+    webpSrc?: string;
+    className?: string;
+    header?: any;
+    fullscreen: boolean;
+}>) {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
 
@@ -39,7 +46,9 @@ export function SmoothParallaxImage({
                 className
             )}
             style={{
-                backgroundImage: `url(${src})`,
+                backgroundImage: webpSrc
+                    ? `image-set(url("${webpSrc}") type("image/webp"), url("${src}") type("image/jpeg"))`
+                    : `url(${src})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
@@ -56,15 +65,19 @@ export function SmoothParallaxImage({
             transition={{ duration: 0.4, ease: 'easeInOut' }}
         >
             <div className="absolute h-full w-full backdrop-blur-xs"></div>
-            <motion.img
-                className="absolute h-full w-full object-cover"
-                src={src}
-                alt="Smooth Parallax"
-                style={{
-                    x,
-                    y,
-                }}
-            />
+            <motion.div
+                className="absolute h-full w-full"
+                style={{ x, y }}
+            >
+                <picture className="h-full w-full">
+                    {webpSrc && <source srcSet={webpSrc} type="image/webp" />}
+                    <img
+                        className="h-full w-full object-cover"
+                        src={src}
+                        alt="Smooth Parallax"
+                    />
+                </picture>
+            </motion.div>
             {header}
             <motion.div
                 className="absolute h-full w-full"

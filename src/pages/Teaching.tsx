@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Card from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
@@ -14,6 +15,11 @@ function Teaching() {
 
     return (
         <div className="flex flex-col items-center justify-center">
+            <Helmet>
+                <title>Formations — David Albert</title>
+                <meta name="description" content="Formations en informatique et intelligence artificielle par David Albert. Cours dispensés dans 4 écoles supérieures, +350 étudiants formés." />
+                <link rel="canonical" href="https://david.albert.fr/teaching" />
+            </Helmet>
             <section id="hero" className="sm:px-20">
                 <Card
                     title={t('teaching.heroCard.title')}

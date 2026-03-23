@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Unboared from '~/components/Unboared';
@@ -15,6 +16,11 @@ function Home() {
 
     return (
         <>
+            <Helmet>
+                <title>David Albert</title>
+                <meta name="description" content="David Albert — Ingénieur & consultant tech. Création de MVP, accompagnement d'équipes techniques, formations en informatique et IA." />
+                <link rel="canonical" href="https://david.albert.fr/" />
+            </Helmet>
             <Hero />
             <div id="home-content" className="flex flex-col items-center justify-center">
                 <motion.section
