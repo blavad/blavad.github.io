@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
 
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
@@ -25,4 +26,8 @@ i18n.use(XHR)
         },
     });
 
-ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')!).render(
+    <HelmetProvider>
+        <App />
+    </HelmetProvider>
+);

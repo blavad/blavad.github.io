@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Projects from '~/data/projects.json';
 import Companies from '~/data/companies.json';
@@ -13,6 +14,11 @@ function Tech() {
 
     return (
         <div className="flex flex-col items-center justify-center">
+            <Helmet>
+                <title>Tech — David Albert</title>
+                <meta name="description" content="Création de MVP, développement web & mobile, automatisation. David Albert accompagne startups et entreprises dans leurs projets tech." />
+                <link rel="canonical" href="https://david.albert.fr/tech" />
+            </Helmet>
             <section id="hero" className="sm:px-20">
                 <Card
                     title={t('tech.heroCard.title')}
