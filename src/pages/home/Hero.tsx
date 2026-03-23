@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import topics from '~/data/topics.json';
-import img from '~/assets/img/camion-3d.jpg';
+import img from '~/assets/img/camion-3d-xs.jpg';
 import HomeButton from '~/components/ui/buttons/HomeButton';
 import { SmoothParallaxImage } from '~/components/animation/SmoothParallaxImage';
 import useActionOnScroll from '~/hooks/useActionOnScroll';
