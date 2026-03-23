@@ -1,3 +1,5 @@
+'use client';
+
 import { useTranslation } from 'react-i18next';
 import { SeoHead } from '~/components/SeoHead';
 import Projects from '~/data/projects.json';

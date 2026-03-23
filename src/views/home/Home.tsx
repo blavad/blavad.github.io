@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { SeoHead } from '~/components/SeoHead';
 import { useTranslation } from 'react-i18next';

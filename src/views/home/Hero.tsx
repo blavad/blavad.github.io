@@ -3,8 +3,11 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import topics from '~/data/topics.json';
-import img from '~/assets/img/camion-3d.jpg';
-import imgWebp from '~/assets/img/camion-3d.webp';
+import imgData from '~/assets/img/camion-3d.jpg';
+import imgWebpData from '~/assets/img/camion-3d.webp';
+
+const img: string = (imgData as any).src ?? imgData;
+const imgWebp: string = (imgWebpData as any).src ?? imgWebpData;
 import HomeButton from '~/components/ui/buttons/HomeButton';
 import { SmoothParallaxImage } from '~/components/animation/SmoothParallaxImage';
 import useActionOnScroll from '~/hooks/useActionOnScroll';

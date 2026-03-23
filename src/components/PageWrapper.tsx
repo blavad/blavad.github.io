@@ -1,24 +1,26 @@
-import { useEffect } from 'react';
-import { Outlet, useLocation } from 'react-router-dom';
+'use client';
+
+import { PropsWithChildren, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import useNavigate from '~/hooks/useNavigate';
 
 import Navbar from './navbar/Navbar';
 import MenuPage from './MenuPage';
+import LoadingPage from './LoadingPage';
 
-export default function PageWrapper() {
+export default function PageWrapper({ children }: PropsWithChildren) {
     const navigate = useNavigate();
-    const location = useLocation();
 
     useEffect(() => {
-        navigate(location.pathname);
-    }, [location.pathname]);
+        navigate(window.location.pathname);
+    }, []);
 
     return (
         <AnimatePresence mode="wait">
+            <LoadingPage />
             <MenuPage />
             <Navbar />
-            <Outlet />
+            {children}
         </AnimatePresence>
     );
 }
