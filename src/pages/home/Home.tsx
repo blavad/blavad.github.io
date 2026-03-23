@@ -112,7 +112,7 @@ function Home() {
                                     className="w-40"
                                     onClick={() =>
                                         open(
-                                            'https://console.unboared.com/app/demo?game=geoloc',
+                                            'https://console.unboared.com/demo',
                                             '_blank',
                                             'noopener,noreferrer'
                                         )
