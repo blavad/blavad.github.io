@@ -26,8 +26,15 @@ i18n.use(XHR)
         },
     });
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const rootElement = document.getElementById('root')!;
+const app = (
     <HelmetProvider>
         <App />
     </HelmetProvider>
 );
+
+if (rootElement.hasChildNodes()) {
+    ReactDOM.hydrateRoot(rootElement, app);
+} else {
+    ReactDOM.createRoot(rootElement).render(app);
+}

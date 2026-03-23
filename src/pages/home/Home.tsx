@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import { SeoHead } from '~/components/SeoHead';
 import { useTranslation } from 'react-i18next';
 import Unboared from '~/components/Unboared';
 import { Button } from '~/components/ui/button';
@@ -16,11 +16,11 @@ function Home() {
 
     return (
         <>
-            <Helmet>
-                <title>David Albert</title>
-                <meta name="description" content="David Albert — Ingénieur & consultant tech. Création de MVP, accompagnement d'équipes techniques, formations en informatique et IA." />
-                <link rel="canonical" href="https://david.albert.fr/" />
-            </Helmet>
+            <SeoHead
+                title="David Albert"
+                description="David Albert — Ingénieur & consultant tech. Création de MVP, accompagnement d'équipes techniques, formations en informatique et IA."
+                path="/"
+            />
             <Hero />
             <div id="home-content" className="flex flex-col items-center justify-center">
                 <motion.section

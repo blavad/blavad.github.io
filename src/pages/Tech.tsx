@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
+import { SeoHead } from '~/components/SeoHead';
 import Projects from '~/data/projects.json';
 import Companies from '~/data/companies.json';
 
@@ -14,11 +14,26 @@ function Tech() {
 
     return (
         <div className="flex flex-col items-center justify-center">
-            <Helmet>
-                <title>Tech — David Albert</title>
-                <meta name="description" content="Création de MVP, développement web & mobile, automatisation. David Albert accompagne startups et entreprises dans leurs projets tech." />
-                <link rel="canonical" href="https://david.albert.fr/tech" />
-            </Helmet>
+            <SeoHead
+                title="Tech — David Albert"
+                description="Création de MVP, développement web & mobile, automatisation. David Albert accompagne startups et entreprises dans leurs projets tech."
+                path="/tech"
+                jsonLd={{
+                    '@context': 'https://schema.org',
+                    '@type': 'Service',
+                    name: 'Création de MVP & Conseil Tech',
+                    description:
+                        'Développement web et mobile, automatisation, accompagnement technique pour startups et entreprises.',
+                    provider: {
+                        '@type': 'Person',
+                        name: 'David Albert',
+                        url: 'https://david.albert.fr',
+                    },
+                    serviceType: 'Développement logiciel',
+                    areaServed: 'FR',
+                    url: 'https://david.albert.fr/tech',
+                }}
+            />
             <section id="hero" className="sm:px-20">
                 <Card
                     title={t('tech.heroCard.title')}
