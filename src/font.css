@@ -1,4 +1,4 @@
-/* @font-face {
+@font-face {
     font-display: swap;
     font-family: 'Inter';
     src: url('./assets/fonts/Inter/Inter-Light.ttf') format('truetype');
@@ -28,4 +28,4 @@
     src: url('./assets/fonts/Inter/Inter-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
-} */
+}
