@@ -98,7 +98,10 @@
             }
         },
         "coursesTitle": "课程",
-        "schoolsTitle": "合作学校"
+        "schoolsTitle": "合作学校",
+        "statsTitle": "培训学生",
+        "statsBySubject": "按科目",
+        "statsBySchool": "按学校"
     },
     "topics": {
         "default": {

@@ -10,6 +10,56 @@ import ContactSection from './home/ContactSection';
 import BlavadIcon from '~/components/ui/BlavadIcon';
 import { RESOURCES_URL } from '~/config/global';
 
+const subjectStats = [
+    { label: 'Informatique', count: 29 },
+    { label: 'Python', count: 25 },
+    { label: 'C/C++', count: 55 },
+    { label: 'POO', count: 62 },
+    { label: 'Web débutant', count: 35 },
+    { label: 'Web avancé', count: 43 },
+    { label: 'Appr. par renforcement', count: 38 },
+    { label: "Maths pour l'info", count: 50 },
+    { label: 'Probabilités', count: 40 },
+    { label: 'Statistiques', count: 16 },
+];
+
+const totalStudents = subjectStats.reduce((sum, s) => sum + s.count, 0);
+const nLessons = 14 + 4 + 2 + 6;
+
+const schoolStats = [
+    { label: 'INSA', count: Math.round((totalStudents * 6) / nLessons) },
+    { label: 'GEMA', count: Math.round((totalStudents * 15) / nLessons) },
+    { label: 'NEXA Lyon', count: Math.round((totalStudents * 4) / nLessons) },
+    {
+        label: 'NEXA E-learning',
+        count: Math.round((totalStudents * 2) / nLessons),
+    },
+];
+
+function BarChart({ data }: { data: { label: string; count: number }[] }) {
+    const max = Math.max(...data.map((d) => d.count));
+    return (
+        <div className="flex flex-col gap-4">
+            {data.map(({ label, count }) => (
+                <div key={label} className="flex items-center gap-3">
+                    <span className="hidden w-36 shrink-0 text-right text-sm opacity-70 lg:block">
+                        {label}
+                    </span>
+                    <div className="flex flex-1 items-center gap-2">
+                        <div
+                            className="bg-purple-t50 hover:bg-purple relative flex h-7 items-center rounded-r-md transition-colors duration-300"
+                            style={{ width: `${(count / max) * 100}%` }}
+                        >
+                            <span className="truncate px-2 text-xs lg:hidden">{label}</span>
+                        </div>
+                        <span className="text-sm font-semibold">{count}</span>
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
+}
+
 function Teaching() {
     const { t, i18n } = useTranslation();
 
@@ -34,15 +84,15 @@ function Teaching() {
                     url: 'https://www.david-albert.fr/teaching',
                 }}
             />
-            <section id="hero" className="sm:px-20">
+            <section id="hero" className="px-5 sm:px-20">
                 <Card
                     title={t('teaching.heroCard.title')}
                     label={t('teaching.heroCard.label')}
                     variant="page"
                     color="purple"
-                    className="min-w-60vw mt-30 px-5 sm:px-40"
+                    className="w-full mt-20 px-5 sm:mt-30 sm:min-w-60vw sm:px-40"
                 >
-                    <div className="max-w-full sm:max-w-2/3">
+                    <div className="w-full sm:max-w-2/3">
                         <p>{t('teaching.heroCard.description')}</p>
                         <div className="mt-6 flex flex-wrap gap-5">
                             <Button color="purple" onClick={() => scrollToSection('courses')}>
@@ -53,21 +103,21 @@ function Teaching() {
                             </Button>
                         </div>
 
-                        <div className="mt-20">
-                            <div className="mt-6 flex w-full justify-between">
+                        <div className="mt-10 sm:mt-20">
+                            <div className="mt-6 flex w-full justify-between gap-4">
                                 <div className="flex flex-col items-center">
                                     <h1 className="text-gradient-purple">4</h1>
-                                    <p>{t('teaching.heroCard.stats.schools')}</p>
+                                    <p className="text-center text-sm sm:text-base">{t('teaching.heroCard.stats.schools')}</p>
                                 </div>
 
                                 <div className="flex flex-col items-center">
-                                    <h1 className="text-gradient-purple">+350</h1>
-                                    <p>{t('teaching.heroCard.stats.students')}</p>
+                                    <h1 className="text-gradient-purple">+{totalStudents}</h1>
+                                    <p className="text-center text-sm sm:text-base">{t('teaching.heroCard.stats.students')}</p>
                                 </div>
 
                                 <div className="flex flex-col items-center">
                                     <h1 className="text-gradient-purple">12</h1>
-                                    <p>{t('teaching.heroCard.stats.subjects')}</p>
+                                    <p className="text-center text-sm sm:text-base">{t('teaching.heroCard.stats.subjects')}</p>
                                 </div>
                             </div>
                         </div>
@@ -76,11 +126,11 @@ function Teaching() {
             </section>
             <section id="courses" className="mt-20 w-full px-5 sm:px-20 lg:px-40">
                 <h3>{t('teaching.coursesTitle')}</h3>
-                <div className="mt-15 flex w-full flex-wrap gap-6">
+                <div className="mt-10 flex w-full flex-wrap gap-6 sm:mt-15">
                     {Courses.map((course) => (
                         <div
                             key={course.id}
-                            className="flex h-30 flex-1 flex-col items-center justify-center sm:min-w-1/4"
+                            className="flex min-h-24 flex-1 flex-col items-center justify-center sm:h-30 sm:min-w-1/4"
                         >
                             <Button
                                 key={course.id}
@@ -102,21 +152,34 @@ function Teaching() {
                     ))}
                 </div>
             </section>
-            <section id="schools" className="mt-20 w-full px-5 sm:px-40">
+            <section id="stats" className="mt-20 w-full px-5 sm:px-20 lg:px-40">
+                <h3>{t('teaching.statsTitle')}</h3>
+                <div className="mt-10 flex flex-col gap-12 md:flex-row md:gap-16">
+                    <div className="flex-1">
+                        <p className="mb-4 text-sm opacity-50">{t('teaching.statsBySubject')}</p>
+                        <BarChart data={subjectStats} />
+                    </div>
+                    <div className="flex-1">
+                        <p className="mb-4 text-sm opacity-50">{t('teaching.statsBySchool')}</p>
+                        <BarChart data={schoolStats} />
+                    </div>
+                </div>
+            </section>
+            <section id="schools" className="mt-20 w-full px-5 sm:px-20 lg:px-40">
                 <h3>{t('teaching.schoolsTitle')}</h3>
-                <ul className="mt-15 flex flex-wrap justify-between gap-15">
+                <ul className="mt-10 flex flex-wrap justify-between gap-10 sm:mt-15 sm:gap-15">
                     {Schools.map((school) => (
                         <li
                             key={school.name}
-                            className="flex h-20 flex-1 items-center justify-center"
+                            className="flex h-16 flex-1 basis-2/5 items-center justify-center sm:h-20 sm:basis-auto"
                         >
-                            <div className="group relative flex h-full w-60 justify-center">
+                            <div className="group relative flex h-full w-full max-w-40 justify-center sm:w-60 sm:max-w-none">
                                 <img
                                     src={school.logo}
                                     alt={`${school.name} logo`}
                                     className="cursor-pointer object-contain opacity-60 grayscale filter transition duration-500 hover:opacity-100 hover:grayscale-0"
                                 />
-                                <div className="bg-black2/75 bg-opacity-60 absolute -bottom-20 left-1/2 flex w-60 -translate-x-1/2 items-center justify-center rounded-xl p-2 text-sm text-white opacity-0 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-100">
+                                <div className="bg-black2/75 bg-opacity-60 absolute -bottom-20 left-1/2 hidden w-60 -translate-x-1/2 items-center justify-center rounded-xl p-2 text-sm text-white opacity-0 backdrop-blur-sm transition-opacity duration-500 sm:flex group-hover:opacity-100">
                                     {getLocalizedField(school, 'description', i18n.language)}
                                 </div>
                             </div>

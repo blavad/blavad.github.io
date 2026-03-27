@@ -98,7 +98,10 @@
             }
         },
         "coursesTitle": "Les cours",
-        "schoolsTitle": "Les écoles partenaires"
+        "schoolsTitle": "Les écoles partenaires",
+        "statsTitle": "Les étudiants formés",
+        "statsBySubject": "par matière",
+        "statsBySchool": "par école"
     },
     "topics": {
         "default": {

@@ -98,7 +98,10 @@
             }
         },
         "coursesTitle": "Courses",
-        "schoolsTitle": "Partner schools"
+        "schoolsTitle": "Partner schools",
+        "statsTitle": "Students trained",
+        "statsBySubject": "by subject",
+        "statsBySchool": "by school"
     },
     "topics": {
         "default": {

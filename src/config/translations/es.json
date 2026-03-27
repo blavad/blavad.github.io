@@ -98,7 +98,10 @@
             }
         },
         "coursesTitle": "Los cursos",
-        "schoolsTitle": "Las escuelas asociadas"
+        "schoolsTitle": "Las escuelas asociadas",
+        "statsTitle": "Los estudiantes formados",
+        "statsBySubject": "por materia",
+        "statsBySchool": "por escuela"
     },
     "topics": {
         "default": {
