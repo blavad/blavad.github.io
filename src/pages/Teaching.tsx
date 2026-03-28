@@ -1,27 +1,18 @@
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SeoHead } from '~/components/SeoHead';
-import Card from '~/components/ui/card';
-import { Button } from '~/components/ui/button';
 
+import { RESOURCES_URL } from '~/config/global';
 import { scrollToSection, getLocalizedField } from '~/lib/utils';
 import Schools from '~/data/schools.json';
-import Courses from '~/data/courses.json';
-import ContactSection from './home/ContactSection';
+import Card from '~/components/ui/card';
 import BlavadIcon from '~/components/ui/BlavadIcon';
-import { RESOURCES_URL } from '~/config/global';
+import { SeoHead } from '~/components/SeoHead';
+import { Button } from '~/components/ui/button';
 
-const totalStudents = Courses.reduce((sum, s) => sum + s.students, 0);
+import ContactSection from './home/ContactSection';
+
+const COURSES_URL = `${RESOURCES_URL}/courses.json`;
 const nLessons = 14 + 4 + 2 + 6;
-
-const schoolStats = [
-    { label: 'INSA', count: Math.round((totalStudents * 6) / nLessons) },
-    { label: 'GEMA', count: Math.round((totalStudents * 15) / nLessons) },
-    { label: 'NEXA Lyon', count: Math.round((totalStudents * 4) / nLessons) },
-    {
-        label: 'NEXA E-learning',
-        count: Math.round((totalStudents * 2) / nLessons),
-    },
-];
 
 function BarChart({ data }: { data: { label: string; count: number }[] }) {
     const max = Math.max(...data.map((d) => d.count));
@@ -47,8 +38,25 @@ function BarChart({ data }: { data: { label: string; count: number }[] }) {
     );
 }
 
+type Course = { id: string; name: string; topic: string; students: number; [key: string]: unknown };
+
 function Teaching() {
     const { t, i18n } = useTranslation();
+    const [courses, setcourses] = useState<Course[]>([]);
+
+    useEffect(() => {
+        fetch(COURSES_URL)
+            .then((res) => res.json())
+            .then(setcourses);
+    }, []);
+
+    const totalStudents = courses.reduce((sum, s) => sum + s.students, 0);
+    const schoolStats = [
+        { label: 'INSA', count: Math.round((totalStudents * 6) / nLessons) },
+        { label: 'GEMA', count: Math.round((totalStudents * 15) / nLessons) },
+        { label: 'NEXA Lyon', count: Math.round((totalStudents * 4) / nLessons) },
+        { label: 'NEXA E-learning', count: Math.round((totalStudents * 2) / nLessons) },
+    ];
 
     return (
         <div className="flex flex-col items-center justify-center">
@@ -114,7 +122,7 @@ function Teaching() {
             <section id="courses" className="mt-20 w-full px-5 sm:px-20 lg:px-40">
                 <h3>{t('teaching.coursesTitle')}</h3>
                 <div className="mt-10 flex w-full flex-wrap gap-6 sm:mt-15">
-                    {Courses.map((course) => (
+                    {courses.map((course) => (
                         <div
                             key={course.id}
                             className="flex min-h-24 flex-1 flex-col items-center justify-center sm:h-30 sm:min-w-1/4"
@@ -145,7 +153,7 @@ function Teaching() {
                     <div className="flex-1">
                         <p className="mb-4 text-sm opacity-50">{t('teaching.statsBySubject')}</p>
                         <BarChart
-                            data={Courses.map((course) => ({
+                            data={courses.map((course) => ({
                                 label: course.name,
                                 count: course.students,
                             }))}
