@@ -40,7 +40,7 @@ function Tech() {
                     label={t('tech.heroCard.label')}
                     variant="page"
                     color="blue"
-                    className="mt-30 px-5 sm:px-40"
+                    className="mt-30 w-screen px-5 sm:w-[90vw] sm:px-40"
                 >
                     <div className="max-w-full sm:max-w-2/3">
                         <p>{t('tech.heroCard.description')}</p>

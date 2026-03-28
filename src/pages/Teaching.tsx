@@ -71,15 +71,15 @@ function Teaching() {
                     url: 'https://www.david-albert.fr/teaching',
                 }}
             />
-            <section id="hero" className="px-5 sm:px-20">
+            <section id="hero" className="sm:px-20">
                 <Card
                     title={t('teaching.heroCard.title')}
                     label={t('teaching.heroCard.label')}
                     variant="page"
                     color="purple"
-                    className="sm:min-w-60vw mt-20 w-full px-5 sm:mt-30 sm:px-40"
+                    className="mt-30 w-screen px-5 sm:w-[90vw] sm:px-40"
                 >
-                    <div className="w-full sm:max-w-2/3">
+                    <div className="max-w-full sm:max-w-2/3">
                         <p>{t('teaching.heroCard.description')}</p>
                         <div className="mt-6 flex flex-wrap gap-5">
                             <Button color="purple" onClick={() => scrollToSection('courses')}>
@@ -90,27 +90,21 @@ function Teaching() {
                             </Button>
                         </div>
 
-                        <div className="mt-10 sm:mt-20">
-                            <div className="mt-6 flex w-full justify-between gap-4">
+                        <div className="mt-20">
+                            <div className="mt-6 flex w-full justify-between">
                                 <div className="flex flex-col items-center">
                                     <h1 className="text-gradient-purple">4</h1>
-                                    <p className="text-center text-sm sm:text-base">
-                                        {t('teaching.heroCard.stats.schools')}
-                                    </p>
+                                    <p>{t('teaching.heroCard.stats.schools')}</p>
                                 </div>
 
                                 <div className="flex flex-col items-center">
                                     <h1 className="text-gradient-purple">+{totalStudents}</h1>
-                                    <p className="text-center text-sm sm:text-base">
-                                        {t('teaching.heroCard.stats.students')}
-                                    </p>
+                                    <p>{t('teaching.heroCard.stats.students')}</p>
                                 </div>
 
                                 <div className="flex flex-col items-center">
                                     <h1 className="text-gradient-purple">12</h1>
-                                    <p className="text-center text-sm sm:text-base">
-                                        {t('teaching.heroCard.stats.subjects')}
-                                    </p>
+                                    <p>{t('teaching.heroCard.stats.subjects')}</p>
                                 </div>
                             </div>
                         </div>
