@@ -3,6 +3,7 @@
         "id": "maths-info",
         "name": "Mathématiques pour l'informatique",
         "topic": "maths",
+        "students": 50,
         "description": "Ce cours a pour objectif d'introduire différents outils mathématiques utilisés en informatique.",
         "translations": {
             "en": {
@@ -23,6 +24,7 @@
         "id": "proba-stats",
         "name": "Probabilités",
         "topic": "maths",
+        "students": 40,
         "description": "Ce cours a pour objectif d'initier les étudiants à la manipulation des probabilités.",
         "translations": {
             "en": {
@@ -43,6 +45,8 @@
         "id": "proba-stats",
         "name": "Statistiques",
         "topic": "maths",
+        "students": 16,
+
         "description": "Ce cours a pour objectif d'initier les étudiants au statistiques.",
         "translations": {
             "en": {
@@ -63,6 +67,7 @@
         "id": "c-cpp",
         "name": "Programmation en C/C++",
         "topic": "info",
+        "students": 55,
         "description": "Ce cours a pour objectif d'initier les étudiants au langage de programmation C (et plus récemment C++).",
         "translations": {
             "en": {
@@ -83,6 +88,7 @@
         "id": "prog-python",
         "name": "Programmation en Python",
         "topic": "info",
+        "students": 30,
         "description": "Ce cours a pour objectif d'initier les étudiants au langage de programmation python.",
         "translations": {
             "en": {
@@ -103,6 +109,7 @@
         "id": "poo-python",
         "name": "Programmation Orientée Objet",
         "topic": "info",
+        "students": 45,
         "description": "Ce cours a pour objectif d'initier les étudiants à un nouveau paradigme de programmation: la Programmation Orientée Objet (POO).",
         "translations": {
             "en": {
@@ -123,6 +130,7 @@
         "id": "prog-web",
         "name": "HTML / CSS / JavaScript",
         "topic": "info",
+        "students": 35,
         "description": "Ce cours a pour objectif d'initier les étudiants à la programmation web.",
         "translations": {
             "en": {
@@ -140,6 +148,7 @@
         "id": "prog-web",
         "name": "Introduction à React",
         "topic": "info",
+        "students": 43,
         "description": "Ce cours a pour objectif d'initier les étudiants à la programmation d'applications web.",
         "translations": {
             "en": {
@@ -160,6 +169,7 @@
         "id": "rl",
         "name": "Apprentissage par renforcement",
         "topic": "ia",
+        "students": 38,
         "description": "Ce cours a pour objectif d'initier les étudiants à l'apprentissage par renforcement.",
         "translations": {
             "en": {
@@ -180,6 +190,7 @@
         "id": "projet-app-ia",
         "name": "Créer une application IA",
         "topic": "ia",
+        "students": 20,
         "description": "Ce cours a pour objectif d'initier les étudiants au développement d'applications et outils d'IA.",
         "translations": {
             "en": {

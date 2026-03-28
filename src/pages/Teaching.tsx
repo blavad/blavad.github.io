@@ -10,20 +10,7 @@ import ContactSection from './home/ContactSection';
 import BlavadIcon from '~/components/ui/BlavadIcon';
 import { RESOURCES_URL } from '~/config/global';
 
-const subjectStats = [
-    { label: 'Informatique', count: 29 },
-    { label: 'Python', count: 25 },
-    { label: 'C/C++', count: 55 },
-    { label: 'POO', count: 62 },
-    { label: 'Web débutant', count: 35 },
-    { label: 'Web avancé', count: 43 },
-    { label: 'Appr. par renforcement', count: 38 },
-    { label: "Maths pour l'info", count: 50 },
-    { label: 'Probabilités', count: 40 },
-    { label: 'Statistiques', count: 16 },
-];
-
-const totalStudents = subjectStats.reduce((sum, s) => sum + s.count, 0);
+const totalStudents = Courses.reduce((sum, s) => sum + s.students, 0);
 const nLessons = 14 + 4 + 2 + 6;
 
 const schoolStats = [
@@ -90,7 +77,7 @@ function Teaching() {
                     label={t('teaching.heroCard.label')}
                     variant="page"
                     color="purple"
-                    className="w-full mt-20 px-5 sm:mt-30 sm:min-w-60vw sm:px-40"
+                    className="sm:min-w-60vw mt-20 w-full px-5 sm:mt-30 sm:px-40"
                 >
                     <div className="w-full sm:max-w-2/3">
                         <p>{t('teaching.heroCard.description')}</p>
@@ -107,17 +94,23 @@ function Teaching() {
                             <div className="mt-6 flex w-full justify-between gap-4">
                                 <div className="flex flex-col items-center">
                                     <h1 className="text-gradient-purple">4</h1>
-                                    <p className="text-center text-sm sm:text-base">{t('teaching.heroCard.stats.schools')}</p>
+                                    <p className="text-center text-sm sm:text-base">
+                                        {t('teaching.heroCard.stats.schools')}
+                                    </p>
                                 </div>
 
                                 <div className="flex flex-col items-center">
                                     <h1 className="text-gradient-purple">+{totalStudents}</h1>
-                                    <p className="text-center text-sm sm:text-base">{t('teaching.heroCard.stats.students')}</p>
+                                    <p className="text-center text-sm sm:text-base">
+                                        {t('teaching.heroCard.stats.students')}
+                                    </p>
                                 </div>
 
                                 <div className="flex flex-col items-center">
                                     <h1 className="text-gradient-purple">12</h1>
-                                    <p className="text-center text-sm sm:text-base">{t('teaching.heroCard.stats.subjects')}</p>
+                                    <p className="text-center text-sm sm:text-base">
+                                        {t('teaching.heroCard.stats.subjects')}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +150,12 @@ function Teaching() {
                 <div className="mt-10 flex flex-col gap-12 md:flex-row md:gap-16">
                     <div className="flex-1">
                         <p className="mb-4 text-sm opacity-50">{t('teaching.statsBySubject')}</p>
-                        <BarChart data={subjectStats} />
+                        <BarChart
+                            data={Courses.map((course) => ({
+                                label: course.name,
+                                count: course.students,
+                            }))}
+                        />
                     </div>
                     <div className="flex-1">
                         <p className="mb-4 text-sm opacity-50">{t('teaching.statsBySchool')}</p>
@@ -179,7 +177,7 @@ function Teaching() {
                                     alt={`${school.name} logo`}
                                     className="cursor-pointer object-contain opacity-60 grayscale filter transition duration-500 hover:opacity-100 hover:grayscale-0"
                                 />
-                                <div className="bg-black2/75 bg-opacity-60 absolute -bottom-20 left-1/2 hidden w-60 -translate-x-1/2 items-center justify-center rounded-xl p-2 text-sm text-white opacity-0 backdrop-blur-sm transition-opacity duration-500 sm:flex group-hover:opacity-100">
+                                <div className="bg-black2/75 bg-opacity-60 absolute -bottom-20 left-1/2 hidden w-60 -translate-x-1/2 items-center justify-center rounded-xl p-2 text-sm text-white opacity-0 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-100 sm:flex">
                                     {getLocalizedField(school, 'description', i18n.language)}
                                 </div>
                             </div>
