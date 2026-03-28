@@ -11,7 +11,7 @@ import { Button } from '~/components/ui/button';
 
 import ContactSection from './home/ContactSection';
 
-const COURSES_URL = `${RESOURCES_URL}/courses.json`;
+const COURSES_URL = `${RESOURCES_URL}/teaching-docs/courses.json`;
 const nLessons = 14 + 4 + 2 + 6;
 
 function BarChart({ data }: { data: { label: string; count: number }[] }) {
