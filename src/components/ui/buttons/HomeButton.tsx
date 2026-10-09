@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { CSSProperties, PropsWithChildren } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
 import { Topics } from '~/types/topics';
@@ -11,6 +11,7 @@ import BlavadIcon from '../BlavadIcon';
 function HomeButton({
     variant = 'tech',
     className,
+    style,
     children,
     onHoverStart,
     onHoverEnd,
@@ -18,6 +19,7 @@ function HomeButton({
 }: PropsWithChildren<{
     variant: Topics;
     className?: string;
+    style?: CSSProperties;
     onHoverStart?: (theme: string) => void;
     onHoverEnd?: (theme: string) => void;
     onClick?: (theme: string) => void;
@@ -48,6 +50,7 @@ function HomeButton({
     return (
         <motion.div
             className={cn(`home-btn ${colorClass}`, className)}
+            style={style}
             onHoverStart={onHoverStartButton}
             onHoverEnd={onHoverEndButton}
             onClick={onClickButton}
