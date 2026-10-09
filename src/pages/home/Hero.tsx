@@ -36,6 +36,9 @@ function mobileEllipsePosition(index: number, count: number) {
     } as CSSProperties;
 }
 
+// Intervalle (en s) entre le déclenchement de la pulsation de deux boutons successifs
+const PULSE_INTERVAL = 0.03;
+
 // Heures locales (début inclus, fin exclue) pendant lesquelles l'image de jour est affichée
 const DAY_START_HOUR = 7;
 const DAY_END_HOUR = 20;
@@ -126,7 +129,13 @@ function Hero() {
                             'absolute max-sm:top-(--y) max-sm:left-(--x) max-sm:-translate-x-1/2 max-sm:-translate-y-7.5',
                             className
                         )}
-                        style={mobileEllipsePosition(index, HERO_BUTTONS.length)}
+                        style={
+                            {
+                                ...mobileEllipsePosition(index, HERO_BUTTONS.length),
+                                // Déclenche la pulsation de chaque bouton l'un après l'autre
+                                '--pulse-delay': `${index * PULSE_INTERVAL}s`,
+                            } as CSSProperties
+                        }
                         onHoverStart={openTopic}
                         onHoverEnd={closeTopic}
                         onClick={clickTopic}

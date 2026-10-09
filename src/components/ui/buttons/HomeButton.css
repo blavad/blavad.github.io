@@ -12,16 +12,43 @@
 }
 
 .circle {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     color: var(--color-white);
     border: 3px solid var(--color-white);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    animation: home-btn-pulse 5s ease-in-out infinite;
+    animation-delay: var(--pulse-delay, 0s);
 }
+
+.home-btn:hover .circle {
+    animation-play-state: paused;
+}
+
+/* Zoom/dézoom léger pour signaler que le bouton est cliquable */
+@keyframes home-btn-pulse {
+
+    0%,
+    40%,
+    60%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+/* @media (prefers-reduced-motion: reduce) {
+    .circle {
+        animation: none;
+    }
+} */
 
 
 .label-container {

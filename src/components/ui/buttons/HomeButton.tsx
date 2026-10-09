@@ -56,7 +56,7 @@ function HomeButton({
             onClick={onClickButton}
         >
             <div className="circle">
-                <BlavadIcon name={(topics[variant].icon || 'bot') as any} size={36} />
+                <BlavadIcon name={(topics[variant].icon || 'bot') as any} size={32} />
             </div>
             <motion.div className="label-container" animate={controls}>
                 <h4 className="label-text">{children}</h4>
