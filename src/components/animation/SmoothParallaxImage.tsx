@@ -65,10 +65,7 @@ export function SmoothParallaxImage({
             transition={{ duration: 0.4, ease: 'easeInOut' }}
         >
             <div className="absolute h-full w-full backdrop-blur-xs"></div>
-            <motion.div
-                className="absolute h-full w-full"
-                style={{ x, y }}
-            >
+            <motion.div className="absolute h-full w-full" style={{ x, y }}>
                 <picture className="h-full w-full">
                     {webpSrc && <source srcSet={webpSrc} type="image/webp" />}
                     <img
