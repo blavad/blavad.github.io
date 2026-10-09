@@ -134,7 +134,7 @@ function Hero() {
                         {t(`topics.${topics[variant].id}.title`)}
                     </HomeButton>
                 ))}
-                <p className="absolute bottom-[2%] left-[50%] w-full -translate-x-1/2 text-base">
+                <p className="absolute bottom-[2%] left-[50%] w-full -translate-x-1/2 text-base text-white">
                     {t('hero.scrollHint')}
                 </p>
             </SmoothParallaxImage>
