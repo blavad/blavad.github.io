@@ -153,12 +153,18 @@
         },
         "music": {
             "title": "Musique",
-            "subtitle": "Music and sound",
-            "description": []
+            "subtitle": "Clique pour découvrir ma playlist",
+            "description": [],
+            "closePlayer": "Fermer le lecteur"
         },
         "ecology": {
             "title": "Ecologie",
             "subtitle": "Engagé pour le vivant",
+            "description": []
+        },
+        "psychology": {
+            "title": "Psychologie",
+            "subtitle": "Etudiant en psychologie",
             "description": []
         }
     }

@@ -1,1 +1,1 @@
-export type Topics = 'tech' | 'teaching' | 'games' | 'sports' | 'art' | 'music' | 'ecology';
+export type Topics = 'tech' | 'teaching' | 'games' | 'sports' | 'art' | 'music' | 'ecology' | 'psychology';

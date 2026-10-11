@@ -1,45 +1,108 @@
-import { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, Fragment, useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import topics from '~/data/topics.json';
 import { cn } from '~/lib/utils';
 import { Topics } from '~/types/topics';
-import img from '~/assets/img/village-day.jpeg';
-import imgWebp from '~/assets/img/village-day.webp';
-import imgNight from '~/assets/img/village-night.jpeg';
-import imgNightWebp from '~/assets/img/village-night.webp';
+import skyImg from '~/assets/img/ciel_background.jpeg';
+import skyImgWebp from '~/assets/img/ciel_background.webp';
+import islandImg from '~/assets/img/village-low-poly-v2.webp';
+import artIsletImg from '~/assets/img/ilot-art.webp';
+import musicIsletImg from '~/assets/img/ilot-music-v2.webp';
+import forestIsletImg from '~/assets/img/ilot-forest.webp';
+import psychoIsletImg from '~/assets/img/ilot-psycho.webp';
+import treeIsletImg from '~/assets/img/ilot-arbre.webp';
+import cloudLargeImg from '~/assets/img/nuage-1.webp';
+import cloudMediumImg from '~/assets/img/nuage-2.webp';
+import cloudSmallImg from '~/assets/img/nuage-3.webp';
 import HomeButton from '~/components/ui/buttons/HomeButton';
-import { SmoothParallaxImage } from '~/components/animation/SmoothParallaxImage';
+import { MusicPlayer } from '~/components/MusicPlayer';
+import { FloatingIslandScene, SceneLayer } from '~/components/animation/FloatingIslandScene';
 import useActionOnScroll from '~/hooks/useActionOnScroll';
 
 import { HomeContent } from './HomeContent';
 import { useMenu } from '~/stores/useMenu';
 
-// Positions desktop (sm et +) placées sur l'image ; en mobile les boutons sont répartis sur un ovale
-const HERO_BUTTONS: { variant: Topics; className: string }[] = [
-    { variant: 'games', className: 'sm:top-[53%] sm:left-[34%]' },
-    { variant: 'teaching', className: 'sm:right-[21%] sm:bottom-[35%]' },
-    { variant: 'sports', className: 'sm:right-[10%] sm:bottom-[15%]' },
-    { variant: 'ecology', className: 'sm:-bottom-[1%] sm:left-[40%]' },
-    { variant: 'tech', className: 'sm:bottom-[40%] sm:left-[13%]' },
+type HeroButton = { variant: Topics; className: string };
+
+type Island = {
+    src: string;
+    left: number;
+    top: number;
+    width: string;
+    depth: number;
+    float: { amplitude: number; duration: number; delay?: number };
+    className?: string;
+    imgClassName?: string;
+    priority?: boolean;
+    // Position de chaque bouton sur son lieu, en % de l'image de l'île
+    buttons: HeroButton[];
+};
+
+// Taille des îlots satellites, relative à la scène
+const ISLET_WIDTH = 'min(17cqw, 30cqh)';
+
+// Îlots satellites (masqués sous lg : pas assez de place sur les côtés), puis l'île principale au premier plan
+const ISLANDS: Island[] = [
+    {
+        src: psychoIsletImg,
+        left: 13,
+        top: 42,
+        width: ISLET_WIDTH,
+        depth: 0.4,
+        float: { amplitude: 8, duration: 7, delay: 1 },
+        className: 'max-lg:hidden',
+        buttons: [{ variant: 'psychology', className: 'top-[28%] left-[46%]' }],
+    },
+    {
+        src: forestIsletImg,
+        left: 87,
+        top: 40,
+        // Un peu en retrait : entre les îlots satellites et les îlots lointains
+        width: 'min(13cqw, 23cqh)',
+        depth: 0.3,
+        float: { amplitude: 6, duration: 8, delay: 2.5 },
+        className: 'max-lg:hidden',
+        imgClassName: 'opacity-90 saturate-[0.85]',
+        buttons: [],
+    },
+    {
+        src: musicIsletImg,
+        left: 82,
+        top: 80,
+        width: ISLET_WIDTH,
+        depth: 0.5,
+        float: { amplitude: 8, duration: 6.5, delay: 0.5 },
+        className: 'max-lg:hidden',
+        buttons: [{ variant: 'music', className: 'top-[16%] left-[49%]' }],
+    },
+    {
+        src: islandImg,
+        left: 50,
+        top: 60,
+        width: 'min(88cqw, 66cqh)',
+        depth: 0.6,
+        float: { amplitude: 10, duration: 6 },
+        imgClassName: 'drop-shadow-2xl',
+        priority: true,
+        buttons: [
+            { variant: 'games', className: 'top-[14%] left-[36%]' },
+            { variant: 'teaching', className: 'top-[18%] left-[79%]' },
+            { variant: 'sports', className: 'top-[51%] left-[77%]' },
+            { variant: 'ecology', className: 'top-[56%] left-[37%]' },
+            { variant: 'tech', className: 'top-[29%] left-[14%]' },
+        ],
+    },
 ];
-
-// Ovale mobile, en % du conteneur : centré sous l'en-tête et au-dessus du scroll hint
-const ELLIPSE = { cx: 50, cy: 57, rx: 30, ry: 22 };
-
-function mobileEllipsePosition(index: number, count: number) {
-    const angle = -Math.PI / 2 + (index * 2 * Math.PI) / count;
-    return {
-        '--x': `${ELLIPSE.cx + ELLIPSE.rx * Math.cos(angle)}%`,
-        '--y': `${ELLIPSE.cy + ELLIPSE.ry * Math.sin(angle)}%`,
-    } as CSSProperties;
-}
 
 // Intervalle (en s) entre le déclenchement de la pulsation de deux boutons successifs
 const PULSE_INTERVAL = 0.03;
 
-// Heures locales (début inclus, fin exclue) pendant lesquelles l'image de jour est affichée
+// Ordre de pulsation : tous les boutons de toutes les îles
+const BUTTON_ORDER = ISLANDS.flatMap((island) => island.buttons.map((button) => button.variant));
+
+// Heures locales (début inclus, fin exclue) pendant lesquelles la scène de jour est affichée
 const DAY_START_HOUR = 7;
 const DAY_END_HOUR = 20;
 
@@ -52,6 +115,8 @@ function Hero() {
     const [currentTopicID, setCurrentTopicID] = useState('default');
     const [fullscreen, setFullscreen] = useState(false);
     const [daytime, setDaytime] = useState(isDaytime);
+    const [musicOpen, setMusicOpen] = useState(false);
+    const closeMusic = useCallback(() => setMusicOpen(false), []);
     const { isOpen, open, variant, close } = useMenu();
     const { t } = useTranslation();
 
@@ -65,6 +130,9 @@ function Hero() {
     };
 
     const clickTopic = (topicID: string) => {
+        if (topicID === 'music') {
+            setMusicOpen((prev) => !prev);
+        }
         if (!isOpen) {
             open('hero');
             setFullscreen(true);
@@ -115,38 +183,116 @@ function Hero() {
             }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
         >
-            <SmoothParallaxImage
-                src={daytime ? img : imgNight}
-                webpSrc={daytime ? imgWebp : imgNightWebp}
+            <FloatingIslandScene
+                skySrc={skyImg}
+                skyWebpSrc={skyImgWebp}
+                night={!daytime}
                 fullscreen={fullscreen}
                 header={<HomeContent topicID={currentTopicID} fullscreen={fullscreen} />}
+                overlay={
+                    <p className="absolute bottom-[2%] left-[50%] w-full -translate-x-1/2 text-base">
+                        {t('hero.scrollHint')}
+                    </p>
+                }
             >
-                {HERO_BUTTONS.map(({ variant, className }, index) => (
-                    <HomeButton
-                        key={variant}
-                        variant={variant}
+                {/* Nuages lointains : dérivent lentement derrière les îles */}
+                <SceneLayer
+                    src={cloudSmallImg}
+                    left={27}
+                    top={20}
+                    width="min(9cqw, 16cqh)"
+                    depth={0.1}
+                    float={{ amplitude: 20, duration: 20, axis: 'x' }}
+                    className="max-sm:hidden"
+                />
+                <SceneLayer
+                    src={cloudMediumImg}
+                    left={76}
+                    top={13}
+                    width="min(15cqw, 26cqh)"
+                    depth={0.2}
+                    float={{ amplitude: 25, duration: 24, delay: 3, axis: 'x' }}
+                    className="max-sm:hidden"
+                />
+
+                {/* Îlots lointains (décor) : petits, brumeux et presque immobiles pour donner de la profondeur */}
+                <SceneLayer
+                    src={treeIsletImg}
+                    left={66}
+                    top={30}
+                    width="min(7cqw, 13cqh)"
+                    depth={0.15}
+                    float={{ amplitude: 5, duration: 9, delay: 4 }}
+                    className="max-lg:hidden"
+                    imgClassName="opacity-75 saturate-[0.7] blur-[0.5px]"
+                />
+
+                <SceneLayer
+                    src={artIsletImg}
+                    left={25}
+                    top={74}
+                    width="min(7cqw, 13cqh)"
+                    depth={0.15}
+                    float={{ amplitude: 5, duration: 10, delay: 2 }}
+                    className="max-lg:hidden"
+                    imgClassName="opacity-75 saturate-[0.7] blur-[0.5px]"
+                />
+
+                {ISLANDS.map(({ buttons, ...island }) => (
+                    <SceneLayer
+                        key={island.src}
+                        {...island}
+                        // Passe l'île au premier plan pour que le lecteur ouvert ne soit pas masqué
                         className={cn(
-                            'absolute max-sm:top-(--y) max-sm:left-(--x) max-sm:-translate-x-1/2 max-sm:-translate-y-7.5',
-                            className
+                            island.className,
+                            musicOpen && buttons.some((b) => b.variant === 'music') && 'z-20'
                         )}
-                        style={
-                            {
-                                ...mobileEllipsePosition(index, HERO_BUTTONS.length),
-                                // Déclenche la pulsation de chaque bouton l'un après l'autre
-                                '--pulse-delay': `${index * PULSE_INTERVAL}s`,
-                            } as CSSProperties
-                        }
-                        onHoverStart={openTopic}
-                        onHoverEnd={closeTopic}
-                        onClick={clickTopic}
                     >
-                        {t(`topics.${topics[variant].id}.title`)}
-                    </HomeButton>
+                        {buttons.map(({ variant, className }) => (
+                            <Fragment key={variant}>
+                                {variant === 'music' && (
+                                    <MusicPlayer
+                                        open={musicOpen}
+                                        onClose={closeMusic}
+                                        // Au-dessus du rond du bouton, avec une petite marge
+                                        className={cn(className, '-mt-8')}
+                                    />
+                                )}
+                                <HomeButton
+                                    variant={variant}
+                                    className={cn(
+                                        // Centre le rond du bouton (50px) sur le point visé
+                                        'absolute -translate-x-1/2 -translate-y-6.25',
+                                        className
+                                    )}
+                                    style={
+                                        {
+                                            // Déclenche la pulsation de chaque bouton l'un après l'autre
+                                            '--pulse-delay': `${BUTTON_ORDER.indexOf(variant) * PULSE_INTERVAL}s`,
+                                        } as CSSProperties
+                                    }
+                                    onHoverStart={openTopic}
+                                    onHoverEnd={closeTopic}
+                                    onClick={clickTopic}
+                                >
+                                    {t(`topics.${topics[variant].id}.title`)}
+                                </HomeButton>
+                            </Fragment>
+                        ))}
+                    </SceneLayer>
                 ))}
-                <p className="absolute bottom-[2%] left-[50%] w-full -translate-x-1/2 text-base text-white">
-                    {t('hero.scrollHint')}
-                </p>
-            </SmoothParallaxImage>
+
+                {/* Nuage de premier plan : déborde du coin bas gauche, légèrement flou */}
+                <SceneLayer
+                    src={cloudLargeImg}
+                    left={6}
+                    top={90}
+                    width="min(30cqw, 45cqh)"
+                    depth={1.2}
+                    float={{ amplitude: 15, duration: 16, axis: 'x' }}
+                    imgClassName="blur-[1px]"
+                />
+            </FloatingIslandScene>
         </motion.div>
     );
 }

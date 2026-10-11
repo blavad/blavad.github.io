@@ -22,7 +22,7 @@ function Home() {
                 path="/"
             />
             <Hero />
-            <div id="home-content" className="flex flex-col items-center justify-center">
+            <div id="HomeContent-content" className="flex flex-col items-center justify-center">
                 <motion.section
                     id="presta"
                     className="mt-20 px-5 sm:px-40"

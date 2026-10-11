@@ -153,11 +153,17 @@
         "music": {
             "title": "音乐",
             "subtitle": "音乐与声音",
-            "description": []
+            "description": [],
+            "closePlayer": "关闭播放器"
         },
         "ecology": {
             "title": "生态学",
             "subtitle": "致力于生命保护",
+            "description": []
+        },
+        "psychology": {
+            "title": "心理学",
+            "subtitle": "理解人类心智",
             "description": []
         }
     }

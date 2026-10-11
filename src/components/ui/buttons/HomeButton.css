@@ -11,9 +11,17 @@
     transform: translateY(-20px) scale(1.1);
 }
 
+/* Sur mobile l'île est plus petite : on réduit les boutons autour du centre du rond */
+@media (max-width: 639px) {
+    .home-btn {
+        scale: 0.75;
+        transform-origin: 50% 25px;
+    }
+}
+
 .circle {
-    width: 50px;
-    height: 50px;
+    width: 47px;
+    height: 47px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,6 +139,48 @@
 
     .label-text {
         background: var(--color-gradient-purple);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+
+.btn-coral {
+    .circle {
+        background: var(--color-gradient-coral);
+    }
+
+    .label-text {
+        background: var(--color-gradient-coral);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+
+.btn-lime {
+    .circle {
+        background: var(--color-gradient-lime);
+    }
+
+    .label-text {
+        background: var(--color-gradient-lime);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+
+.btn-indigo {
+    .circle {
+        background: var(--color-gradient-indigo);
+    }
+
+    .label-text {
+        background: var(--color-gradient-indigo);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;

@@ -146,11 +146,17 @@
         "music": {
             "title": "Music",
             "subtitle": "Music and sound",
-            "description": []
+            "description": [],
+            "closePlayer": "Close player"
         },
         "ecology": {
             "title": "Ecology",
             "subtitle": "Committed to life",
+            "description": []
+        },
+        "psychology": {
+            "title": "Psychology",
+            "subtitle": "Understanding the human mind",
             "description": []
         }
     }

@@ -29,22 +29,28 @@
         "color": "pink",
         "path": "whatelse"
     },
+    "ecology": {
+        "id": "ecology",
+        "icon": "sprout",
+        "color": "green",
+        "path": "whatelse"
+    },
     "art": {
         "id": "art",
         "icon": "palette",
-        "color": "pink",
+        "color": "red",
         "path": "whatelse"
     },
     "music": {
         "id": "music",
         "icon": "music",
-        "color": "pink",
+        "color": "red",
         "path": "whatelse"
     },
-    "ecology": {
-        "id": "ecology",
-        "icon": "sprout",
-        "color": "green",
+    "psychology": {
+        "id": "psychology",
+        "icon": "brain",
+        "color": "purple",
         "path": "whatelse"
     }
 }
