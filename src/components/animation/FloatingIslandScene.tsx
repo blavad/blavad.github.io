@@ -5,13 +5,59 @@ import { cn } from '~/lib/utils';
 const BG_WIDTH = 95; // Largeur de la scène (vw)
 const BG_HEIGHT = 82; // Hauteur de la scène (dvh)
 
+export type SkyPhase = 'dawn' | 'day' | 'dusk' | 'night';
+
 type SceneContextValue = {
     mouseX: MotionValue<number>;
     mouseY: MotionValue<number>;
-    night: boolean;
+    phase: SkyPhase;
 };
 
 const SceneContext = createContext<SceneContextValue | null>(null);
+
+const PHASE_TRANSITION = { duration: 2, ease: 'easeInOut' } as const;
+
+/** Dégradé posé sur l'image du ciel pour chaque moment de la journée (le jour garde le ciel d'origine) */
+const SKY_TINTS: Record<Exclude<SkyPhase, 'day'>, { gradient: string; opacity: number }> = {
+    // Aube : bleu doux en haut, rose puis pêche à l'horizon
+    dawn: {
+        gradient: 'linear-gradient(to bottom, #7d97c9, #e6a7b0 65%, #f7c99a)',
+        opacity: 0.55,
+    },
+    // Crépuscule : bleu soutenu en haut, corail puis orange à l'horizon
+    dusk: {
+        gradient: 'linear-gradient(to bottom, #34477f, #b8678a 55%, #f39a5b)',
+        opacity: 0.7,
+    },
+    // Nuit : bleu nuit en haut, bleu ardoise à l'horizon
+    night: {
+        gradient: 'linear-gradient(to bottom, #0b1633, #1e2d55 55%, #33456e)',
+        opacity: 0.95,
+    },
+};
+
+const STAR_COUNT = 45;
+
+/** Étoiles réparties dans le haut du ciel (pseudo-aléatoire déterministe : identiques à chaque rendu) */
+const STARS = (() => {
+    let seed = 11;
+    const random = () => {
+        seed = (seed * 16807) % 2147483647;
+        return seed / 2147483647;
+    };
+    return Array.from({ length: STAR_COUNT }, () => ({
+        left: random() * 100,
+        // Plus denses en haut, rares vers l'horizon
+        top: random() ** 1.6 * 70,
+        size: 3 + random() * 6,
+        duration: 2 + random() * 4,
+        delay: random() * 4,
+    }));
+})();
+
+/** Étoile low-poly : losange à 4 branches */
+const STAR_SHAPE =
+    'polygon(50% 0%, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0% 50%, 38% 38%)';
 
 /**
  * Scène de ciel en parallaxe : un fond (cover) et des calques détourés (`SceneLayer`) passés en `children`.
@@ -20,7 +66,7 @@ const SceneContext = createContext<SceneContextValue | null>(null);
 export function FloatingIslandScene({
     skySrc,
     skyWebpSrc,
-    night = false,
+    phase = 'day',
     fullscreen = false,
     header,
     overlay,
@@ -29,7 +75,7 @@ export function FloatingIslandScene({
 }: PropsWithChildren<{
     skySrc: string;
     skyWebpSrc?: string;
-    night?: boolean;
+    phase?: SkyPhase;
     fullscreen: boolean;
     header?: ReactNode;
     overlay?: ReactNode;
@@ -41,6 +87,7 @@ export function FloatingIslandScene({
     // Le ciel (le plus lointain) bouge légèrement à l'opposé des calques
     const skyX = useTransform(mouseX, (v) => v * -0.3);
     const skyY = useTransform(mouseY, (v) => v * -0.3);
+    const night = phase === 'night';
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
@@ -74,7 +121,8 @@ export function FloatingIslandScene({
             <motion.div
                 className={cn(
                     'absolute -inset-[4%] transition-[filter] duration-1000',
-                    night && 'brightness-[0.35] hue-rotate-40 saturate-[1.4]'
+                    // Bleu un peu plus soutenu que l'image d'origine (sous les teintes d'aube et de crépuscule)
+                    !night && 'brightness-[0.94] saturate-[1.2]'
                 )}
                 style={{ x: skyX, y: skyY }}
             >
@@ -87,11 +135,54 @@ export function FloatingIslandScene({
                         fetchPriority="high"
                     />
                 </picture>
+
+                {/* Teintes d'aube, de crépuscule et de nuit, en fondu les unes sur les autres */}
+                {(Object.keys(SKY_TINTS) as (keyof typeof SKY_TINTS)[]).map((tint) => (
+                    <motion.div
+                        key={tint}
+                        className="absolute inset-0"
+                        style={{ background: SKY_TINTS[tint].gradient }}
+                        initial={false}
+                        animate={{ opacity: phase === tint ? SKY_TINTS[tint].opacity : 0 }}
+                        transition={PHASE_TRANSITION}
+                    />
+                ))}
+
+                {/* Étoiles de nuit */}
+                <motion.div
+                    className="absolute inset-0"
+                    initial={false}
+                    animate={{ opacity: night ? 1 : 0 }}
+                    transition={PHASE_TRANSITION}
+                >
+                    {night &&
+                        STARS.map((star, i) => (
+                            <motion.span
+                                key={i}
+                                className="absolute bg-white"
+                                style={{
+                                    left: `${star.left}%`,
+                                    top: `${star.top}%`,
+                                    width: star.size,
+                                    height: star.size,
+                                    clipPath: STAR_SHAPE,
+                                }}
+                                // Scintillement doux
+                                animate={{ opacity: [0.9, 0.3, 0.9] }}
+                                transition={{
+                                    duration: star.duration,
+                                    delay: star.delay,
+                                    ease: 'easeInOut',
+                                    repeat: Infinity,
+                                }}
+                            />
+                        ))}
+                </motion.div>
             </motion.div>
 
             {header}
 
-            <SceneContext.Provider value={{ mouseX, mouseY, night }}>
+            <SceneContext.Provider value={{ mouseX, mouseY, phase }}>
                 {children}
             </SceneContext.Provider>
 
@@ -156,7 +247,12 @@ export function SceneLayer({
                 <img
                     className={cn(
                         'block h-auto w-full transition-[filter] duration-1000 select-none',
-                        scene.night && 'brightness-75 saturate-[0.8]',
+                        // Nuit : plus sombres, avec une teinte légèrement refroidie
+                        scene.phase === 'night' &&
+                            'brightness-[0.7] hue-rotate-[10deg] saturate-[0.75]',
+                        // Aube et crépuscule : lumière rasante, légèrement dorée
+                        (scene.phase === 'dawn' || scene.phase === 'dusk') &&
+                            'brightness-[0.95] saturate-[1.1] sepia-[0.2]',
                         imgClassName
                     )}
                     src={src}

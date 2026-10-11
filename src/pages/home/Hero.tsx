@@ -18,7 +18,11 @@ import cloudMediumImg from '~/assets/img/nuage-2.webp';
 import cloudSmallImg from '~/assets/img/nuage-3.webp';
 import HomeButton from '~/components/ui/buttons/HomeButton';
 import { MusicPlayer } from '~/components/MusicPlayer';
-import { FloatingIslandScene, SceneLayer } from '~/components/animation/FloatingIslandScene';
+import {
+    FloatingIslandScene,
+    SceneLayer,
+    SkyPhase,
+} from '~/components/animation/FloatingIslandScene';
 import useActionOnScroll from '~/hooks/useActionOnScroll';
 
 import { HomeContent } from './HomeContent';
@@ -102,19 +106,24 @@ const PULSE_INTERVAL = 0.03;
 // Ordre de pulsation : tous les boutons de toutes les îles
 const BUTTON_ORDER = ISLANDS.flatMap((island) => island.buttons.map((button) => button.variant));
 
-// Heures locales (début inclus, fin exclue) pendant lesquelles la scène de jour est affichée
+// Heures locales (début inclus, fin exclue) pendant lesquelles il fait jour
 const DAY_START_HOUR = 7;
 const DAY_END_HOUR = 20;
+// Durée (en h) de l'aube au début du jour et du crépuscule à la fin
+const TWILIGHT_HOURS = 3;
 
-const isDaytime = () => {
+const getSkyPhase = (): SkyPhase => {
     const hour = new Date().getHours();
-    return hour >= DAY_START_HOUR && hour < DAY_END_HOUR;
+    if (hour < DAY_START_HOUR || hour >= DAY_END_HOUR) return 'night';
+    if (hour < DAY_START_HOUR + TWILIGHT_HOURS) return 'dawn';
+    if (hour >= DAY_END_HOUR - TWILIGHT_HOURS) return 'dusk';
+    return 'day';
 };
 
 function Hero() {
     const [currentTopicID, setCurrentTopicID] = useState('default');
     const [fullscreen, setFullscreen] = useState(false);
-    const [daytime, setDaytime] = useState(isDaytime);
+    const [skyPhase, setSkyPhase] = useState(getSkyPhase);
     const [musicOpen, setMusicOpen] = useState(false);
     const closeMusic = useCallback(() => setMusicOpen(false), []);
     const { isOpen, open, variant, close } = useMenu();
@@ -157,9 +166,9 @@ function Hero() {
 
     useActionOnScroll(closeFullscreen);
 
-    // Bascule jour/nuit si la page reste ouverte au passage de l'heure
+    // Fait évoluer le ciel si la page reste ouverte au passage de l'heure
     useEffect(() => {
-        const interval = setInterval(() => setDaytime(isDaytime()), 60_000);
+        const interval = setInterval(() => setSkyPhase(getSkyPhase()), 60_000);
         return () => clearInterval(interval);
     }, []);
 
@@ -186,7 +195,7 @@ function Hero() {
             <FloatingIslandScene
                 skySrc={skyImg}
                 skyWebpSrc={skyImgWebp}
-                night={!daytime}
+                phase={skyPhase}
                 fullscreen={fullscreen}
                 header={<HomeContent topicID={currentTopicID} fullscreen={fullscreen} />}
                 overlay={
