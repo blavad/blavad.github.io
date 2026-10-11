@@ -7,6 +7,7 @@ import {
     FileText,
     Gamepad,
     Github,
+    Instagram,
     Linkedin,
     Music,
     Palette,
@@ -18,6 +19,7 @@ import {
 
 const IconMap: Record<string, any> = {
     github: Github,
+    instagram: Instagram,
     linkedin: Linkedin,
     container: Container,
     'file-text': FileText,

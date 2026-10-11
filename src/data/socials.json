@@ -3,7 +3,7 @@
         "name": "Mail",
         "color": "#00000",
         "text": "david.albert@cegetel.net",
-        "url": "mailto:david.albert@cegetel.net",
+        "url": "david.albert@cegetel.net",
         "icon": "send"
     },
     {
@@ -21,11 +21,11 @@
         "icon": "github"
     },
     {
-        "name": "Docker",
+        "name": "Instagram",
         "color": "#00000",
-        "text": "blavad",
-        "url": "https://hub.docker.com/u/blavad",
-        "icon": "container"
+        "text": "__blavad__",
+        "url": "https://www.instagram.com/__blavad__/",
+        "icon": "instagram"
     },
     {
         "name": "CV",

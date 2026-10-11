@@ -44,7 +44,7 @@ function MenuPage() {
                 top: isOpen && variant !== 'hero' ? 0 : '-100vh',
                 transition: { duration: MENU_ANIMATION_DURATION / 1000 },
             }}
-            className="bg-bg fixed top-0 left-0 z-10 flex h-[100vh] w-[100vw] flex-col items-center justify-center"
+            className="bg-bg fixed top-0 left-0 z-10 flex h-screen w-screen flex-col items-center justify-center"
         >
             <div className="flex h-full w-[80%] flex-col justify-center sm:w-1/3">
                 <h1 className="">{t('nav.menu')}</h1>
@@ -66,21 +66,18 @@ function MenuPage() {
                 </div>
                 <div className="mt-20 flex w-full items-center justify-between gap-3">
                     {(socials as any).map((item: any) => (
-                        <motion.div
+                        // Vrai lien : clic droit > copier l'adresse, ouverture dans un nouvel onglet…
+                        <motion.a
                             key={item.name}
+                            href={isExternalLink(item.url) ? item.url : `mailto:${item.url}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             whileHover={{ scale: 1.2 }}
-                            className="flex flex-col items-center justify-center"
+                            className="hover:text-text/50 flex flex-col items-center justify-center"
                         >
-                            <BlavadIcon
-                                name={item.icon}
-                                size={36}
-                                className="hover:text-text/50 decoration-black2 decoration-1.5 cursor-pointer text-3xl font-bold underline"
-                                onClick={() => {
-                                    handleNavigate(item.url);
-                                }}
-                            />
+                            <BlavadIcon name={item.icon} size={36} />
                             <small>{item.name}</small>
-                        </motion.div>
+                        </motion.a>
                     ))}
                 </div>
             </div>
