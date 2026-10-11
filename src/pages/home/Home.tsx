@@ -105,7 +105,7 @@ function Home() {
                                     className="w-40"
                                     onClick={() =>
                                         open(
-                                            'https://www.unboared.com',
+                                            'https://unboared.com',
                                             '_blank',
                                             'noopener,noreferrer'
                                         )
