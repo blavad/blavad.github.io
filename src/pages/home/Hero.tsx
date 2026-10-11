@@ -69,7 +69,7 @@ const ISLANDS: Island[] = [
         depth: 0.4,
         float: { amplitude: 8, duration: 7, delay: 1 },
         className: 'max-lg:hidden',
-        buttons: [{ variant: 'psychology', className: 'top-[28%] left-[46%]' }],
+        buttons: [{ variant: 'psychology', className: 'top-[23%] left-[21%]' }],
     },
     {
         src: forestIsletImg,
@@ -100,7 +100,7 @@ const ISLANDS: Island[] = [
         depth: 0.5,
         float: { amplitude: 8, duration: 6.5, delay: 0.5 },
         className: 'max-lg:hidden',
-        buttons: [{ variant: 'music', className: 'top-[16%] left-[49%]' }],
+        buttons: [{ variant: 'music', className: 'top-[13%] left-[30%]' }],
         effects: (
             <>
                 <MusicNote src={note1Img} left={56.62} top={10.49} width={6.84} />
@@ -120,11 +120,11 @@ const ISLANDS: Island[] = [
         imgClassName: 'drop-shadow-2xl',
         priority: true,
         buttons: [
-            { variant: 'games', className: 'top-[14%] left-[36%]' },
-            { variant: 'teaching', className: 'top-[18%] left-[79%]' },
-            { variant: 'sports', className: 'top-[51%] left-[77%]' },
-            { variant: 'ecology', className: 'top-[56%] left-[37%]' },
-            { variant: 'tech', className: 'top-[29%] left-[14%]' },
+            { variant: 'games', className: 'top-[20%] left-[25%]' },
+            { variant: 'teaching', className: 'top-[26%] left-[92%]' },
+            { variant: 'sports', className: 'top-[63%] left-[86%]' },
+            { variant: 'ecology', className: 'top-[70%] left-[33%]' },
+            { variant: 'tech', className: 'top-[40%] left-[2%]' },
         ],
         effects: (
             <>
