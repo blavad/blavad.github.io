@@ -360,3 +360,15 @@ body {
 .bg-gradient-pink-rev {
     background: linear-gradient(var(--color-bg), var(--color-pink-t25));
 }
+
+/* Scintillement des étoiles du ciel de nuit (FloatingIslandScene) */
+@keyframes star-twinkle {
+    0%,
+    100% {
+        opacity: 0.9;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}

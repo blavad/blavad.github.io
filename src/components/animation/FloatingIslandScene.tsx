@@ -1,5 +1,12 @@
-import { motion, MotionValue, useMotionValue, useTransform } from 'framer-motion';
-import { createContext, PropsWithChildren, ReactNode, useContext, useEffect } from 'react';
+import {
+    motion,
+    MotionValue,
+    Transition,
+    useInView,
+    useMotionValue,
+    useTransform,
+} from 'framer-motion';
+import { createContext, PropsWithChildren, ReactNode, useContext, useEffect, useRef } from 'react';
 import { cn } from '~/lib/utils';
 
 const BG_WIDTH = 95; // Largeur de la scène (vw)
@@ -14,6 +21,33 @@ type SceneContextValue = {
 };
 
 const SceneContext = createContext<SceneContextValue | null>(null);
+
+type LayerContextValue = {
+    // Faux quand le calque est hors écran ou masqué (ex. sur mobile)
+    active: boolean;
+    // Classes de lumière du moment de la journée, à appliquer aux éléments animés du calque
+    filter: string;
+    phase: SkyPhase;
+};
+
+const LayerContext = createContext<LayerContextValue>({ active: true, filter: '', phase: 'day' });
+
+/** État du calque courant, pour les effets passés dans `effects` */
+export const useLayer = () => useContext(LayerContext);
+
+type Keyframes = Record<string, (string | number)[]>;
+
+/**
+ * Props d'une animation en boucle, suspendue quand `active` est faux : l'élément revient alors en douceur
+ * à sa pose de départ (première image clé) et ne consomme plus rien.
+ */
+export function loop(active: boolean, keyframes: Keyframes, transition: Transition) {
+    if (active) return { animate: keyframes, transition: { ...transition, repeat: Infinity } };
+    const rest = Object.fromEntries(
+        Object.entries(keyframes).map(([key, values]) => [key, values[0]])
+    );
+    return { animate: rest, transition: { duration: 0.6, ease: 'easeOut' } as Transition };
+}
 
 const PHASE_TRANSITION = { duration: 2, ease: 'easeInOut' } as const;
 
@@ -89,6 +123,10 @@ export function FloatingIslandScene({
     const skyY = useTransform(mouseY, (v) => v * -0.3);
     const night = phase === 'night';
 
+    const sceneRef = useRef<HTMLDivElement>(null);
+    const inView = useInView(sceneRef);
+    const active = inView;
+
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             mouseX.set((e.clientX / window.innerWidth - 0.5) * 30);
@@ -101,6 +139,7 @@ export function FloatingIslandScene({
 
     return (
         <motion.div
+            ref={sceneRef}
             // `perspective` fait de la scène le bloc de référence des éléments `fixed` (ex. HomeContent)
             className={cn('relative overflow-hidden rounded-3xl perspective-[1000px]', className)}
             // Permet de dimensionner les calques en unités cqw/cqh (relatives à la scène)
@@ -157,23 +196,18 @@ export function FloatingIslandScene({
                 >
                     {night &&
                         STARS.map((star, i) => (
-                            <motion.span
+                            <span
                                 key={i}
-                                className="absolute bg-white"
+                                className="absolute bg-white opacity-90"
                                 style={{
                                     left: `${star.left}%`,
                                     top: `${star.top}%`,
                                     width: star.size,
                                     height: star.size,
                                     clipPath: STAR_SHAPE,
-                                }}
-                                // Scintillement doux
-                                animate={{ opacity: [0.9, 0.3, 0.9] }}
-                                transition={{
-                                    duration: star.duration,
-                                    delay: star.delay,
-                                    ease: 'easeInOut',
-                                    repeat: Infinity,
+                                    // Scintillement doux, en CSS : calculé par le navigateur sans JavaScript
+                                    animation: `star-twinkle ${star.duration}s ease-in-out ${star.delay}s infinite`,
+                                    animationPlayState: active ? 'running' : 'paused',
                                 }}
                             />
                         ))}
@@ -195,6 +229,8 @@ export function FloatingIslandScene({
  * Calque détouré de la scène, centré sur (`left`, `top`) en % de la scène.
  * - `depth` : intensité du parallaxe (0 = immobile, 1 = premier plan)
  * - `float` : oscillation continue (amplitude en px, durée et délai en s, axe)
+ * - `effects` : animations dessinées sur l'image ; elles lisent `useLayer()` pour s'éclairer comme elle
+ *   et se suspendre quand le calque n'est pas visible
  * Les `children` sont positionnés en % de l'image : ils restent accrochés à ses éléments.
  */
 export function SceneLayer({
@@ -205,6 +241,7 @@ export function SceneLayer({
     depth,
     float,
     priority = false,
+    effects,
     className,
     imgClassName,
     children,
@@ -216,6 +253,7 @@ export function SceneLayer({
     depth: number;
     float?: { amplitude: number; duration: number; delay?: number; axis?: 'x' | 'y' };
     priority?: boolean;
+    effects?: ReactNode;
     className?: string;
     imgClassName?: string;
 }>) {
@@ -226,40 +264,54 @@ export function SceneLayer({
     const y = useTransform(scene.mouseY, (v) => v * depth);
     const axis = float?.axis ?? 'y';
 
+    // Un calque masqué (display: none) n'est jamais visible : ses animations restent suspendues
+    const layerRef = useRef<HTMLDivElement>(null);
+    const inView = useInView(layerRef);
+    const active = inView;
+
+    // Lumière selon le moment de la journée, partagée par l'image et ses effets
+    const phaseFilter = cn(
+        'transition-[filter] duration-1000',
+        // Nuit : plus sombres, avec une teinte légèrement refroidie
+        scene.phase === 'night' && 'brightness-[0.7] hue-rotate-[10deg] saturate-[0.75]',
+        // Aube et crépuscule : lumière rasante, légèrement dorée
+        (scene.phase === 'dawn' || scene.phase === 'dusk') &&
+            'brightness-[0.95] saturate-[1.1] sepia-[0.2]'
+    );
+
     return (
         <motion.div
+            ref={layerRef}
             // Le centrage passe par la propriété CSS `translate` (Tailwind v4), indépendante du `transform` de framer-motion
             className={cn('absolute -translate-x-1/2 -translate-y-1/2', className)}
             style={{ left: `${left}%`, top: `${top}%`, width, x, y }}
         >
             <motion.div
                 className="relative"
-                animate={float && { [axis]: [0, -float.amplitude, 0] }}
-                transition={
-                    float && {
-                        duration: float.duration,
-                        delay: float.delay ?? 0,
-                        ease: 'easeInOut',
-                        repeat: Infinity,
-                    }
-                }
+                {...(float &&
+                    loop(
+                        active,
+                        { [axis]: [0, -float.amplitude, 0] },
+                        { duration: float.duration, delay: float.delay ?? 0, ease: 'easeInOut' }
+                    ))}
             >
                 <img
-                    className={cn(
-                        'block h-auto w-full transition-[filter] duration-1000 select-none',
-                        // Nuit : plus sombres, avec une teinte légèrement refroidie
-                        scene.phase === 'night' &&
-                            'brightness-[0.7] hue-rotate-[10deg] saturate-[0.75]',
-                        // Aube et crépuscule : lumière rasante, légèrement dorée
-                        (scene.phase === 'dawn' || scene.phase === 'dusk') &&
-                            'brightness-[0.95] saturate-[1.1] sepia-[0.2]',
-                        imgClassName
-                    )}
+                    className={cn('block h-auto w-full select-none', phaseFilter, imgClassName)}
                     src={src}
                     alt=""
                     draggable={false}
                     fetchPriority={priority ? 'high' : 'auto'}
                 />
+                {/* Animations accrochées à l'image, positionnées en % de celle-ci, sous les `children`.
+                    Le filtre de lumière est appliqué par chaque effet sur ses éléments animés plutôt qu'ici :
+                    filtrer le conteneur forcerait à le redessiner entièrement à chaque image. */}
+                {effects && (
+                    <LayerContext.Provider
+                        value={{ active, filter: phaseFilter, phase: scene.phase }}
+                    >
+                        <div className="pointer-events-none absolute inset-0">{effects}</div>
+                    </LayerContext.Provider>
+                )}
                 {children}
             </motion.div>
         </motion.div>

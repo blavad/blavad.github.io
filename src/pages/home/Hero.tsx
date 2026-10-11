@@ -1,4 +1,4 @@
-import { CSSProperties, Fragment, useCallback, useEffect, useState } from 'react';
+import { CSSProperties, Fragment, ReactNode, useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
@@ -9,14 +9,24 @@ import skyImg from '~/assets/img/ciel_background.jpeg';
 import skyImgWebp from '~/assets/img/ciel_background.webp';
 import islandImg from '~/assets/img/village-low-poly-v2.webp';
 import artIsletImg from '~/assets/img/ilot-art.webp';
-import musicIsletImg from '~/assets/img/ilot-music-v2.webp';
-import forestIsletImg from '~/assets/img/ilot-forest.webp';
+// Îlots sans leurs oiseaux et notes : ces éléments sont animés séparément (sprites ci-dessous)
+import musicIsletImg from '~/assets/img/ilot-music-v2-base.webp';
+import forestIsletImg from '~/assets/img/ilot-forest-base.webp';
+import bird1Img from '~/assets/img/bird-1.webp';
+import bird2Img from '~/assets/img/bird-2.webp';
+import bird3Img from '~/assets/img/bird-3.webp';
+import bird4Img from '~/assets/img/bird-4.webp';
+import note1Img from '~/assets/img/note-1.webp';
+import note2Img from '~/assets/img/note-2.webp';
+import note3Img from '~/assets/img/note-3.webp';
+import note4Img from '~/assets/img/note-4.webp';
 import psychoIsletImg from '~/assets/img/ilot-psycho.webp';
 import treeIsletImg from '~/assets/img/ilot-arbre.webp';
 import cloudLargeImg from '~/assets/img/nuage-1.webp';
 import cloudMediumImg from '~/assets/img/nuage-2.webp';
 import cloudSmallImg from '~/assets/img/nuage-3.webp';
 import HomeButton from '~/components/ui/buttons/HomeButton';
+import { Bird, ChimneySmoke, MusicNote, Waterfall } from '~/components/animation/IslandEffects';
 import { MusicPlayer } from '~/components/MusicPlayer';
 import {
     FloatingIslandScene,
@@ -42,6 +52,8 @@ type Island = {
     priority?: boolean;
     // Position de chaque bouton sur son lieu, en % de l'image de l'île
     buttons: HeroButton[];
+    // Animations accrochées à l'image (positionnées en % de l'image)
+    effects?: ReactNode;
 };
 
 // Taille des îlots satellites, relative à la scène
@@ -70,6 +82,15 @@ const ISLANDS: Island[] = [
         className: 'max-lg:hidden',
         imgClassName: 'opacity-90 saturate-[0.85]',
         buttons: [],
+        effects: (
+            // Même rendu en retrait que l'îlot
+            <div className="absolute inset-0 opacity-90 saturate-[0.85]">
+                <Bird src={bird1Img} left={6.39} top={8.71} width={10.74} />
+                <Bird src={bird2Img} left={31.93} top={1.16} width={9.58} delay={1.8} />
+                <Bird src={bird3Img} left={65.02} top={1.31} width={11.18} delay={3.1} />
+                <Bird src={bird4Img} left={85.2} top={12.77} width={9.72} delay={0.9} />
+            </div>
+        ),
     },
     {
         src: musicIsletImg,
@@ -80,6 +101,14 @@ const ISLANDS: Island[] = [
         float: { amplitude: 8, duration: 6.5, delay: 0.5 },
         className: 'max-lg:hidden',
         buttons: [{ variant: 'music', className: 'top-[16%] left-[49%]' }],
+        effects: (
+            <>
+                <MusicNote src={note1Img} left={56.62} top={10.49} width={6.84} />
+                <MusicNote src={note2Img} left={63.9} top={17.58} width={6.55} delay={0.6} />
+                <MusicNote src={note3Img} left={64.34} top={1.03} width={4.37} delay={1.2} />
+                <MusicNote src={note4Img} left={67.69} top={7.09} width={6.11} delay={1.8} />
+            </>
+        ),
     },
     {
         src: islandImg,
@@ -97,6 +126,13 @@ const ISLANDS: Island[] = [
             { variant: 'ecology', className: 'top-[56%] left-[37%]' },
             { variant: 'tech', className: 'top-[29%] left-[14%]' },
         ],
+        effects: (
+            <>
+                <Waterfall left={59} top={75} width={7.3} height={23} />
+                {/* Sur le pan droit du toit de l'école */}
+                <ChimneySmoke left={83.5} top={20.7} width={2} height={3.5} />
+            </>
+        ),
     },
 ];
 
@@ -247,10 +283,11 @@ function Hero() {
                     imgClassName="opacity-75 saturate-[0.7] blur-[0.5px]"
                 />
 
-                {ISLANDS.map(({ buttons, ...island }) => (
+                {ISLANDS.map(({ buttons, effects, ...island }) => (
                     <SceneLayer
                         key={island.src}
                         {...island}
+                        effects={effects}
                         // Passe l'île au premier plan pour que le lecteur ouvert ne soit pas masqué
                         className={cn(
                             island.className,
