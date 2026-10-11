@@ -89,6 +89,7 @@
     --color-gradient-mixed: linear-gradient(-40deg, var(--color-red), var(--color-yellow), var(--color-green), var(--color-blue), var(--color-purple));
 
 
+
     --font-sans: 'Inria Sans', 'Inter', system-ui, Helvetica, sans-serif;
     --font-inter: 'Inter', 'Inria Sans', system-ui, Helvetica, sans-serif;
     --font-serif: 'EB Garamond', serif;

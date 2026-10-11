@@ -152,6 +152,11 @@
             "title": "Ecology",
             "subtitle": "Committed to life",
             "description": []
+        },
+        "psychology": {
+            "title": "Psychology",
+            "subtitle": "Understanding the human mind",
+            "description": []
         }
     }
 }

@@ -160,6 +160,11 @@
             "title": "Ecología",
             "subtitle": "Comprometido con la vida",
             "description": []
+        },
+        "psychology": {
+            "title": "Psicología",
+            "subtitle": "Comprender la mente humana",
+            "description": []
         }
     }
 }

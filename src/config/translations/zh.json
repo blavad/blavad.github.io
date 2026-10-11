@@ -159,6 +159,11 @@
             "title": "生态学",
             "subtitle": "致力于生命保护",
             "description": []
+        },
+        "psychology": {
+            "title": "心理学",
+            "subtitle": "理解人类心智",
+            "description": []
         }
     }
 }

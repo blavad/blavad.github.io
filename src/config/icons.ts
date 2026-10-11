@@ -1,5 +1,6 @@
 import {
     Book,
+    Brain,
     Bot,
     CodeXml,
     Container,
@@ -31,6 +32,7 @@ const IconMap: Record<string, any> = {
     palette: Palette,
     music: Music,
     sprout: Sprout,
+    brain: Brain,
 };
 
 export default IconMap;
