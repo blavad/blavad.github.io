@@ -68,6 +68,7 @@
             "teaching": "Training request",
             "games": "About Unboared",
             "ecology": "Let's talk ecology",
+            "sports": "Let's talk sports",
             "art": "Other request"
         },
         "success": "Message sent!",
@@ -102,6 +103,74 @@
         "statsTitle": "Students trained",
         "statsBySubject": "by subject",
         "statsBySchool": "by school"
+    },
+    "sports": {
+        "heroCard": {
+            "title": "Sports",
+            "label": "“Today for the fun of it, back then for performance.”",
+            "description": "I've been passionate about sports since I was a kid. After 10 years of competition, I now play simply for the fun of it: from basketball to triathlon, by way of swimming.",
+            "discover": "My sports",
+            "contact": "Contact me"
+        },
+        "disciplinesTitle": "The sports I love to practice",
+        "currentLegend": "What I'm into right now",
+        "otherLegend": "Other sports I love",
+        "disciplines": {
+            "swimming": "Swimming",
+            "acroyoga": "Acroyoga",
+            "trail": "Trail running",
+            "hiking": "Hiking",
+            "basketball": "Basketball",
+            "volleyball": "Volleyball",
+            "cycling": "Cycling"
+        },
+        "swimming": {
+            "title": "My swimming records",
+            "intro": "My personal bests in competition, from the French Swimming Federation (FFN) database.",
+            "pool": "{{pool}} m pool",
+            "event": "Event",
+            "time": "Time",
+            "points": "pts",
+            "competition": "Competition",
+            "level": "Level",
+            "source": "{{count}} performances recorded by the FFN (data as of {{date}}).",
+            "ffnLink": "See my FFN profile",
+            "showOthers": "See my other records ({{count}})",
+            "hideOthers": "Hide the other records",
+            "strokes": {
+                "NL": "freestyle",
+                "Dos": "backstroke",
+                "Bra": "breaststroke",
+                "Pap": "butterfly",
+                "4N": "individual medley"
+            },
+            "levels": {
+                "INT": "International",
+                "NAT": "National",
+                "ZON": "Interregional",
+                "REG": "Regional",
+                "DEP": "Departmental"
+            }
+        },
+        "acroyoga": {
+            "title": "Acroyoga",
+            "intro": "Acroyoga blends acrobatics and yoga. It's usually practiced in pairs: together, you build balancing poses based on trust and attentiveness.",
+            "roles": {
+                "base": {
+                    "name": "The base",
+                    "description": "Lying on the ground, the base supports and balances the flyer, usually with their feet and hands."
+                },
+                "flyer": {
+                    "name": "The flyer",
+                    "description": "Lifted by the base, the flyer takes the poses in the air and lets themselves be guided while staying engaged."
+                },
+                "spotter": {
+                    "name": "The spotter",
+                    "description": "The spotter keeps everyone safe, helps with balance and prevents falls."
+                }
+            },
+            "benefits": "A discipline that builds strength, balance and flexibility, as well as communication and letting go."
+        }
     },
     "topics": {
         "default": {
@@ -141,6 +210,7 @@
         "sports": {
             "title": "Sports",
             "subtitle": "I love sports",
+            "linkLabel": "Discover my sports",
             "description": [
                 "After 10 years of competition, I now play",
                 "sports simply for the fun of it."

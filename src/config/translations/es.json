@@ -68,6 +68,7 @@
             "teaching": "Consulta sobre una formación",
             "games": "Sobre Unboared",
             "ecology": "Hablemos de ecología",
+            "sports": "Hablemos de deporte",
             "art": "Otra consulta"
         },
         "success": "¡Mensaje enviado!",
@@ -102,6 +103,74 @@
         "statsTitle": "Los estudiantes formados",
         "statsBySubject": "por materia",
         "statsBySchool": "por escuela"
+    },
+    "sports": {
+        "heroCard": {
+            "title": "Deporte",
+            "label": "«Hoy por placer, antes por el rendimiento.»",
+            "description": "Desde pequeño me apasiona el deporte. Tras 10 años de competición, hoy lo practico por el simple placer de hacerlo: del baloncesto al triatlón, pasando por la natación.",
+            "discover": "Mis deportes",
+            "contact": "Contáctame"
+        },
+        "disciplinesTitle": "Los deportes que me gusta practicar",
+        "currentLegend": "Mis deportes del momento",
+        "otherLegend": "Otros deportes que me gustan",
+        "disciplines": {
+            "swimming": "Natación",
+            "acroyoga": "Acroyoga",
+            "trail": "Trail",
+            "hiking": "Senderismo",
+            "basketball": "Baloncesto",
+            "volleyball": "Vóley",
+            "cycling": "Ciclismo"
+        },
+        "swimming": {
+            "title": "Mis récords de natación",
+            "intro": "Mis mejores marcas personales en competición, según la base de datos de la Federación Francesa de Natación (FFN).",
+            "pool": "Piscina de {{pool}} m",
+            "event": "Prueba",
+            "time": "Tiempo",
+            "points": "pts",
+            "competition": "Competición",
+            "level": "Nivel",
+            "source": "{{count}} marcas registradas por la FFN (datos del {{date}}).",
+            "ffnLink": "Ver mi ficha FFN",
+            "showOthers": "Ver mis otros récords ({{count}})",
+            "hideOthers": "Ocultar los otros récords",
+            "strokes": {
+                "NL": "libre",
+                "Dos": "espalda",
+                "Bra": "braza",
+                "Pap": "mariposa",
+                "4N": "estilos"
+            },
+            "levels": {
+                "INT": "Internacional",
+                "NAT": "Nacional",
+                "ZON": "Interregional",
+                "REG": "Regional",
+                "DEP": "Departamental"
+            }
+        },
+        "acroyoga": {
+            "title": "El acroyoga",
+            "intro": "El acroyoga combina acrobacia y yoga. Suele practicarse en pareja: juntos se construyen figuras de equilibrio, con confianza y escucha.",
+            "roles": {
+                "base": {
+                    "name": "La base",
+                    "description": "Tumbada en el suelo, sostiene y equilibra al volador, normalmente con los pies y las manos."
+                },
+                "flyer": {
+                    "name": "El flyer",
+                    "description": "Sostenido por la base, adopta las posturas en el aire y se deja guiar manteniendo el core activo."
+                },
+                "spotter": {
+                    "name": "El spotter",
+                    "description": "Vela por la seguridad, ayuda a mantener el equilibrio y previene las caídas."
+                }
+            },
+            "benefits": "Una disciplina que desarrolla la fuerza, el equilibrio y la flexibilidad, además de la comunicación y la capacidad de soltar."
+        }
     },
     "topics": {
         "default": {
@@ -141,6 +210,7 @@
         "sports": {
             "title": "Deportes",
             "subtitle": "Me encanta el deporte",
+            "linkLabel": "Descubrir mis deportes",
             "description": [
                 "Tras 10 años de competición, hoy lo practico",
                 "por el simple placer de hacerlo."

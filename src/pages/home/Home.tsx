@@ -170,7 +170,11 @@ function Home() {
                         >
                             {t('home.whatElse.sportsCard.description')}
                             <div className="mt-6 flex flex-wrap gap-5">
-                                <Button color="purple" className="w-40" disabled>
+                                <Button
+                                    color="pink"
+                                    className="w-40"
+                                    onClick={() => navigate('/sports')}
+                                >
                                     {t('home.whatElse.sportsCard.learnMore')}
                                 </Button>
                             </div>

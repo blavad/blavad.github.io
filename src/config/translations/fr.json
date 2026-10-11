@@ -68,6 +68,7 @@
             "teaching": "Demande pour une formation",
             "games": "À propos d'Unboared",
             "ecology": "Parlons écologie",
+            "sports": "Parlons sport",
             "art": "Autre demande"
         },
         "success": "Message envoyé !",
@@ -102,6 +103,74 @@
         "statsTitle": "Les étudiants formés",
         "statsBySubject": "par matière",
         "statsBySchool": "par école"
+    },
+    "sports": {
+        "heroCard": {
+            "title": "Sport",
+            "label": "« Aujourd'hui pour le plaisir, avant pour la performance. »",
+            "description": "Depuis tout petit, je suis passionné de sport. Après 10 ans de compétition, je le pratique aujourd'hui pour le simple plaisir : du basket au triathlon, en passant par la natation.",
+            "discover": "Mes sports",
+            "contact": "Me contacter"
+        },
+        "disciplinesTitle": "Les sports que j'aime pratiquer",
+        "currentLegend": "Mes sports du moment",
+        "otherLegend": "Autres sports que j'aime",
+        "disciplines": {
+            "swimming": "Natation",
+            "acroyoga": "Acroyoga",
+            "trail": "Trail",
+            "hiking": "Randonnée",
+            "basketball": "Basket",
+            "volleyball": "Volley",
+            "cycling": "Vélo"
+        },
+        "swimming": {
+            "title": "Mes records en natation",
+            "intro": "Mes meilleures performances personnelles en compétition, issues de la base de la Fédération française de natation.",
+            "pool": "Bassin de {{pool}} m",
+            "event": "Épreuve",
+            "time": "Temps",
+            "points": "pts",
+            "competition": "Compétition",
+            "level": "Niveau",
+            "source": "{{count}} performances enregistrées par la FFN (données du {{date}}).",
+            "ffnLink": "Voir ma fiche FFN",
+            "showOthers": "Voir mes autres records ({{count}})",
+            "hideOthers": "Masquer les autres records",
+            "strokes": {
+                "NL": "nage libre",
+                "Dos": "dos",
+                "Bra": "brasse",
+                "Pap": "papillon",
+                "4N": "4 nages"
+            },
+            "levels": {
+                "INT": "International",
+                "NAT": "National",
+                "ZON": "Interrégional",
+                "REG": "Régional",
+                "DEP": "Départemental"
+            }
+        },
+        "acroyoga": {
+            "title": "L'acroyoga",
+            "intro": "L'acroyoga mêle l'acrobatie et le yoga. Il se pratique généralement à deux : on construit ensemble des figures en équilibre, dans la confiance et l'écoute.",
+            "roles": {
+                "base": {
+                    "name": "La base",
+                    "description": "Allongée au sol, elle porte et équilibre le voltigeur, le plus souvent avec les pieds et les mains."
+                },
+                "flyer": {
+                    "name": "Le fly",
+                    "description": "Porté par la base, il prend les positions en l'air et se laisse guider en gardant son gainage."
+                },
+                "spotter": {
+                    "name": "Le spot",
+                    "description": "Il veille à la sécurité, aide à l'équilibre et prévient les chutes."
+                }
+            },
+            "benefits": "Une discipline qui développe la force, l'équilibre et la souplesse, mais aussi la communication et le lâcher-prise."
+        }
     },
     "topics": {
         "default": {
@@ -141,6 +210,7 @@
         "sports": {
             "title": "Sports",
             "subtitle": "J'aime le sport",
+            "linkLabel": "Découvrir mes sports",
             "description": [
                 "Après 10 ans de compétition, je le pratique",
                 "aujourd'hui pour le simple plaisir."

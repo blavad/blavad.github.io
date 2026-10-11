@@ -30,7 +30,8 @@
         "id": "sports",
         "icon": "trophy",
         "color": "pink",
-        "path": "whatelse"
+        "path": "whatelse",
+        "link": "/sports"
     },
     "ecology": {
         "id": "ecology",
