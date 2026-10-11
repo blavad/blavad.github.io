@@ -68,6 +68,7 @@
             "teaching": "培训咨询",
             "games": "关于 Unboared",
             "ecology": "聊聊生态",
+            "sports": "聊聊运动",
             "art": "其他咨询"
         },
         "success": "消息已发送！",
@@ -102,6 +103,74 @@
         "statsTitle": "受训学生",
         "statsBySubject": "按科目",
         "statsBySchool": "按学校"
+    },
+    "sports": {
+        "heroCard": {
+            "title": "运动",
+            "label": "“如今为了乐趣，从前为了成绩。”",
+            "description": "我从小就热爱运动。经过 10 年的竞技比赛，如今我运动只为纯粹的乐趣：从篮球到铁人三项，还有游泳。",
+            "discover": "我的运动",
+            "contact": "联系我"
+        },
+        "disciplinesTitle": "我喜欢的运动",
+        "currentLegend": "我目前在练的运动",
+        "otherLegend": "我喜欢的其他运动",
+        "disciplines": {
+            "swimming": "游泳",
+            "acroyoga": "双人瑜伽",
+            "trail": "越野跑",
+            "hiking": "徒步",
+            "basketball": "篮球",
+            "volleyball": "排球",
+            "cycling": "骑行"
+        },
+        "swimming": {
+            "title": "我的游泳纪录",
+            "intro": "我在比赛中的个人最佳成绩，数据来自法国游泳协会（FFN）。",
+            "pool": "{{pool}} 米泳池",
+            "event": "项目",
+            "time": "成绩",
+            "points": "分",
+            "competition": "比赛",
+            "level": "级别",
+            "source": "FFN 共记录了 {{count}} 项成绩（数据更新于 {{date}}）。",
+            "ffnLink": "查看我的 FFN 档案",
+            "showOthers": "查看其他纪录（{{count}}）",
+            "hideOthers": "收起其他纪录",
+            "strokes": {
+                "NL": "自由泳",
+                "Dos": "仰泳",
+                "Bra": "蛙泳",
+                "Pap": "蝶泳",
+                "4N": "个人混合泳"
+            },
+            "levels": {
+                "INT": "国际级",
+                "NAT": "国家级",
+                "ZON": "跨大区级",
+                "REG": "大区级",
+                "DEP": "省级"
+            }
+        },
+        "acroyoga": {
+            "title": "双人瑜伽（AcroYoga）",
+            "intro": "双人瑜伽融合了杂技与瑜伽，通常两人一起练习：在信任与倾听中共同完成各种平衡动作。",
+            "roles": {
+                "base": {
+                    "name": "底座（Base）",
+                    "description": "躺在地上，通常用双脚和双手托举并平衡飞者。"
+                },
+                "flyer": {
+                    "name": "飞者（Flyer）",
+                    "description": "由底座托起，在空中完成各种姿势，保持核心收紧并跟随引导。"
+                },
+                "spotter": {
+                    "name": "保护者（Spotter）",
+                    "description": "负责安全，帮助保持平衡并防止跌落。"
+                }
+            },
+            "benefits": "这项运动能锻炼力量、平衡和柔韧性，也能增进沟通，学会放下。"
+        }
     },
     "topics": {
         "default": {
@@ -141,6 +210,7 @@
         "sports": {
             "title": "运动",
             "subtitle": "我热爱运动",
+            "linkLabel": "了解我的运动",
             "description": [
                 "经过 10 年的竞技比赛，",
                 "如今我运动只为纯粹的乐趣。"

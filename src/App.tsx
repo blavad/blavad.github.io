@@ -4,6 +4,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 const Home = lazy(() => import('./pages/home'));
 const Teaching = lazy(() => import('./pages/Teaching'));
 const Tech = lazy(() => import('./pages/Tech'));
+const Sports = lazy(() => import('./pages/Sports'));
 
 import LoadingPage from './components/LoadingPage';
 
@@ -43,6 +44,16 @@ const router = createBrowserRouter([
                     <Suspense>
                         <FadeWrapper>
                             <Teaching />
+                        </FadeWrapper>
+                    </Suspense>
+                ),
+            },
+            {
+                path: '/sports',
+                element: (
+                    <Suspense>
+                        <FadeWrapper>
+                            <Sports />
                         </FadeWrapper>
                     </Suspense>
                 ),

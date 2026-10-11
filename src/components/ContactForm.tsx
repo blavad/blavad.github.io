@@ -88,6 +88,7 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
                     <option value="teaching">{t('contactForm.topics.teaching')}</option>
                     <option value="games">{t('contactForm.topics.games')}</option>
                     <option value="ecology">{t('contactForm.topics.ecology')}</option>
+                    <option value="sports">{t('contactForm.topics.sports')}</option>
                     <option value="art">{t('contactForm.topics.art')}</option>
                 </select>
             </label>

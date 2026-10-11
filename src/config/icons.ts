@@ -1,20 +1,30 @@
 import {
     Book,
     Brain,
+    Bike,
     Bot,
     CodeXml,
+    Dribbble,
+    Eye,
+    Feather,
     Container,
     FileText,
+    Footprints,
     Gamepad,
+    HandHelping,
     Github,
     Instagram,
     Linkedin,
+    Mountain,
     Music,
     Palette,
+    PersonStanding,
     Radical,
     Send,
     Sprout,
     Trophy,
+    Volleyball,
+    Waves,
 } from 'lucide-react';
 
 const IconMap: Record<string, any> = {
@@ -35,6 +45,16 @@ const IconMap: Record<string, any> = {
     music: Music,
     sprout: Sprout,
     brain: Brain,
+    basketball: Dribbble,
+    swimming: Waves,
+    cycling: Bike,
+    acroyoga: PersonStanding,
+    trail: Footprints,
+    hiking: Mountain,
+    volleyball: Volleyball,
+    'acro-base': HandHelping,
+    'acro-flyer': Feather,
+    'acro-spotter': Eye,
 };
 
 export default IconMap;
