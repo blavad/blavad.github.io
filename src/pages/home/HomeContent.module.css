@@ -11,3 +11,12 @@
 .description {
     @apply leading-4 text-text/75 text-xs xs:text-sm text-left;
 }
+
+/* Lien en couleur d'accentuation du sujet (dégradé appliqué au texte via `background-image`) */
+.link {
+    @apply mt-2 inline-block bg-clip-text text-sm font-bold text-transparent xs:text-base;
+}
+
+.link:hover {
+    @apply underline decoration-text/40;
+}

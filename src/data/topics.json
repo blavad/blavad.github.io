@@ -9,19 +9,22 @@
         "id": "tech",
         "icon": "bot",
         "color": "blue",
-        "path": "presta"
+        "path": "presta",
+        "link": "/tech"
     },
     "games": {
         "id": "games",
         "icon": "gamepad",
         "color": "red",
-        "path": "unboared"
+        "path": "unboared",
+        "link": "https://www.unboared.com"
     },
     "teaching": {
         "id": "teaching",
         "icon": "book",
         "color": "purple",
-        "path": "presta"
+        "path": "presta",
+        "link": "/teaching"
     },
     "sports": {
         "id": "sports",

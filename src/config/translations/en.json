@@ -1,6 +1,6 @@
 {
     "nav": {
-        "mvp": "Create an MVP",
+        "mvp": "Build an MVP",
         "teaching": "Training",
         "contact": "Contact",
         "home": "Home",
@@ -8,7 +8,7 @@
         "menu": "Menu"
     },
     "hero": {
-        "scrollHint": "+ Scroll to learn more +"
+        "scrollHint": "+ Scroll down to learn more +"
     },
     "home": {
         "helpTitle": "How can I help you grow your business?",
@@ -19,42 +19,42 @@
             "learnMore": "Learn more"
         },
         "teamsCard": {
-            "title": "Supporting your teams",
+            "title": "By supporting teams",
             "label": "companies",
-            "description": "I help technical teams improve their productivity and efficiency.",
+            "description": "I support technical teams in improving their productivity and efficiency.",
             "learnMore": "Learn more"
         },
         "studentsCard": {
             "title": "By training students",
             "label": "schools",
-            "description": "I train students in best development practices and the latest technologies.",
+            "description": "I train students in development best practices and the latest technologies.",
             "learnMore": "Learn more",
-            "accessCourses": "Access courses"
+            "accessCourses": "Access the courses"
         },
         "unboaredSection": {
             "title": "Discover Unboared",
-            "description": "Unboared offers crowded spaces a unique experience for their visitors.",
+            "description": "Unboared offers busy venues a brand-new experience for their visitors.",
             "learnMore": "Learn more",
             "tryDemo": "Try the demo"
         },
         "whatElse": {
             "title": "What else?",
             "ecologyCard": {
-                "title": "Ecology ..",
-                "description": "I'm very interested in ecology and protecting life on Earth. I'm open to any new opportunity in this direction.",
+                "title": "Ecology…",
+                "description": "I'm deeply interested in ecology and in protecting life on Earth. I'm open to any new opportunity in that direction.",
                 "learnMore": "Learn more",
                 "contact": "Contact me"
             },
             "sportsCard": {
-                "title": ".. and sports",
-                "description": "Since childhood, I've been passionate about sports. From basketball to triathlon, including swimming.",
+                "title": "… and sports",
+                "description": "I've been passionate about sports since I was a kid. From basketball to triathlon, by way of swimming.",
                 "learnMore": "Learn more"
             }
         }
     },
     "contact": {
-        "title": "Let's talk?",
-        "description": "Send me a message via the form below. I'll get back to you as soon as possible."
+        "title": "Shall we talk?",
+        "description": "Send me a message using the form below. I'll get back to you as soon as possible."
     },
     "contactForm": {
         "name": "Name",
@@ -71,25 +71,25 @@
             "art": "Other request"
         },
         "success": "Message sent!",
-        "error": "Error, please try again."
+        "error": "Something went wrong, please try again."
     },
     "tech": {
         "heroCard": {
             "title": "Build an MVP",
-            "label": "\" Because imagination has no limits. \"",
-            "description": "Do you want to test a high-tech product idea? Automate tasks? Or launch a web and mobile application? I advise on implementation and set up the MVP you need in just a few days.",
+            "label": "“Because imagination has no limits.”",
+            "description": "Want to test a high-tech product idea? Automate tasks? Launch a web or mobile app? I advise you and build the MVP you need in just a few days.",
             "startProject": "Start your project",
             "contact": "Contact me"
         },
         "companiesTitle": "They trusted me",
-        "projectsTitle": "Some projects"
+        "projectsTitle": "Selected projects"
     },
     "teaching": {
         "heroCard": {
             "title": "Training",
-            "label": "\" The best way to learn is to have fun. \"",
-            "description": "Since 2021, I have been teaching in higher education schools on topics related to mathematics, computer science and artificial intelligence.",
-            "accessCourses": "Access courses",
+            "label": "“The best way to learn is to have fun.”",
+            "description": "Since 2021, I have been teaching in higher education on topics related to mathematics, computer science and artificial intelligence.",
+            "accessCourses": "Access the courses",
             "contact": "Contact me",
             "stats": {
                 "schools": "schools",
@@ -106,58 +106,66 @@
     "topics": {
         "default": {
             "title": "David ALBERT",
-            "subtitle": "Hover over icons to discover",
+            "subtitle": "Hover over the icons to explore",
             "description": []
         },
         "tech": {
             "title": "Technology",
             "subtitle": "Senior tech consultant",
+            "linkLabel": "Discover my services",
             "description": [
-                "Do you want to test a high-tech product idea? ",
-                "Automate tasks? Launch a web or mobile ",
-                "application? I advise companies on implementation",
-                " and set up the MVP you need in just a few days."
+                "I help companies set up a solid MVP",
+                "in just a few days.",
+                "→ Web and mobile apps, innovative products."
             ]
         },
         "games": {
             "title": "Games",
             "subtitle": "Co-founder of Unboared",
-            "description": ["Unboared is a way to play games with hundreds of peoples."]
+            "linkLabel": "Discover Unboared",
+            "description": [
+                "Unboared is an entertainment solution for",
+                "busy venues: bars, concert halls,",
+                "airports, playgrounds and activity parks."
+            ]
         },
         "teaching": {
             "title": "Teaching",
-            "subtitle": "Teacher and mentor",
+            "subtitle": "Trainer / Teacher",
+            "linkLabel": "See the courses",
             "description": [
-                "I love sharing my knowledge in",
-                "mathematics, computer science and artificial",
-                " intelligence."
+                "I love sharing my knowledge of computer",
+                "science, mathematics and AI."
             ]
         },
         "sports": {
             "title": "Sports",
             "subtitle": "I love sports",
-            "description": []
+            "description": [
+                "After 10 years of competition, I now play",
+                "sports simply for the fun of it."
+            ]
         },
         "art": {
             "title": "Creativity",
-            "subtitle": "Art, design, and creativity",
+            "subtitle": "Art, design and creativity",
             "description": []
         },
         "music": {
             "title": "Music",
-            "subtitle": "Music and sound",
+            "subtitle": "Click to discover my playlist",
             "description": [],
-            "closePlayer": "Close player"
+            "closePlayer": "Close the player"
         },
         "ecology": {
             "title": "Ecology",
-            "subtitle": "Committed to life",
+            "subtitle": "Committed to the living world",
             "description": []
         },
         "psychology": {
             "title": "Psychology",
-            "subtitle": "Understanding the human mind",
-            "description": []
+            "subtitle": "Psychology student",
+            "description": ["In 2026, I'm going back to study psychology."]
         }
     }
 }

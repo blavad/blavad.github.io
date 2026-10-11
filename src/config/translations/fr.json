@@ -8,10 +8,10 @@
         "menu": "Menu"
     },
     "hero": {
-        "scrollHint": "+ Scroll pour en savoir plus +"
+        "scrollHint": "+ Fais défiler pour en savoir plus +"
     },
     "home": {
-        "helpTitle": "Comment je peux t'aider à développer ton activité ?",
+        "helpTitle": "Comment puis-je t'aider à développer ton activité ?",
         "mvpCard": {
             "title": "En créant un MVP",
             "label": "startups",
@@ -21,7 +21,7 @@
         "teamsCard": {
             "title": "En support aux équipes",
             "label": "entreprises",
-            "description": "J'accompagne les équipes techniques à améliorer leur productivité et leur efficacité.",
+            "description": "J'accompagne les équipes techniques pour améliorer leur productivité et leur efficacité.",
             "learnMore": "En savoir plus"
         },
         "studentsCard": {
@@ -33,20 +33,20 @@
         },
         "unboaredSection": {
             "title": "Découvre Unboared",
-            "description": "Unboared offre aux espaces d'affluences une expérience inédite pour leurs visiteurs.",
+            "description": "Unboared offre aux lieux à forte affluence une expérience inédite pour leurs visiteurs.",
             "learnMore": "En savoir plus",
             "tryDemo": "Tester la démo"
         },
         "whatElse": {
             "title": "Et sinon ?",
             "ecologyCard": {
-                "title": "De l'écologie ..",
+                "title": "De l'écologie…",
                 "description": "Je m'intéresse beaucoup à l'écologie et à la protection de la vie sur Terre. Je suis ouvert à toute nouvelle opportunité allant dans ce sens.",
                 "learnMore": "En savoir plus",
                 "contact": "Me contacter"
             },
             "sportsCard": {
-                "title": ".. et du sport",
+                "title": "… et du sport",
                 "description": "Depuis tout petit, je suis passionné de sport. Du basket au triathlon, en passant par la natation.",
                 "learnMore": "En savoir plus"
             }
@@ -58,7 +58,7 @@
     },
     "contactForm": {
         "name": "Nom",
-        "email": "Email",
+        "email": "E-mail",
         "subject": "Sujet",
         "message": "Message",
         "send": "Envoyer",
@@ -66,18 +66,18 @@
         "topics": {
             "tech": "Demande technique",
             "teaching": "Demande pour une formation",
-            "games": "A propos d'Unboared",
+            "games": "À propos d'Unboared",
             "ecology": "Parlons écologie",
             "art": "Autre demande"
         },
         "success": "Message envoyé !",
-        "error": "Erreur, veuillez réessayer."
+        "error": "Erreur, merci de réessayer."
     },
     "tech": {
         "heroCard": {
             "title": "Créer un MVP",
-            "label": "\" Parce que l'imagination n'a pas de limite. \"",
-            "description": "Vous souhaitez tester une idée de produit high tech ? Automatiser des tâches ? Ou lancer une application web et mobile ? Je vous conseille pour la mise en place et je mets en place le MVP qu'il vous faut en quelques jours.",
+            "label": "« Parce que l'imagination n'a pas de limites. »",
+            "description": "Vous souhaitez tester une idée de produit high tech ? Automatiser des tâches ? Lancer une application web ou mobile ? Je vous conseille et je développe le MVP qu'il vous faut en quelques jours.",
             "startProject": "Démarrer votre projet",
             "contact": "Me contacter"
         },
@@ -87,8 +87,8 @@
     "teaching": {
         "heroCard": {
             "title": "Formations",
-            "label": "\" La meilleure façon d'apprendre est de s'amuser. \"",
-            "description": "Depuis 2021, j'enseigne dans des écoles du supérieur sur des thématiques liées aux mathématiques, à l'informatique et à l'intelligence artificielle.",
+            "label": "« La meilleure façon d'apprendre, c'est de s'amuser. »",
+            "description": "Depuis 2021, j'enseigne dans l'enseignement supérieur sur des thématiques liées aux mathématiques, à l'informatique et à l'intelligence artificielle.",
             "accessCourses": "Accéder aux cours",
             "contact": "Me contacter",
             "stats": {
@@ -106,49 +106,49 @@
     "topics": {
         "default": {
             "title": "David ALBERT",
-            "subtitle": "Survole les icones pour découvrir",
+            "subtitle": "Survole les icônes pour découvrir",
             "description": []
         },
         "tech": {
             "title": "Technologie",
             "subtitle": "Consultant tech senior",
+            "linkLabel": "Découvrir mes offres",
             "description": [
-                "Tu souhaites tester une idée de produit high tech ? ",
-                "Automatiser des tâches ? Lancer une application web ",
-                "ou mobile ? Je conseille les entreprises pour la mise",
-                "en place et je mets en place le MVP qu'il vous faut ",
-                "en quelques jours."
+                "J'accompagne les entreprises dans la mise en place",
+                "d'un MVP solide en quelques jours.",
+                "→ Application web et mobile, produit innovant."
             ]
         },
         "games": {
-            "title": "Games",
+            "title": "Jeux",
             "subtitle": "Co-fondateur d'Unboared",
+            "linkLabel": "Découvrir Unboared",
             "description": [
                 "Unboared est une solution d'animation pour les",
-                "espaces d'affluence : bars, salles de concerts,",
-                "aéroports, parc de de jeux et d'activités."
+                "lieux à forte affluence : bars, salles de concert,",
+                "aéroports, parcs de jeux et d'activités."
             ]
         },
         "teaching": {
             "title": "Enseignement",
             "subtitle": "Formateur / Enseignant",
+            "linkLabel": "Voir les formations",
             "description": [
-                "J'aime partager mes connaissances en",
-                "mathématiques, en informatique et en intelligence",
-                " artificielle."
+                "J'aime partager mes connaissances en informatique",
+                "en mathématiques et en IA."
             ]
         },
         "sports": {
             "title": "Sports",
             "subtitle": "J'aime le sport",
             "description": [
-                "Pratiqué pendant 10 ans en compétition, aujourd'hui ",
-                "j'en pratique pour le simple plaisir."
+                "Après 10 ans de compétition, je le pratique",
+                "aujourd'hui pour le simple plaisir."
             ]
         },
         "art": {
             "title": "Créativité",
-            "subtitle": "Art, design, and creativity",
+            "subtitle": "Art, design et créativité",
             "description": []
         },
         "music": {
@@ -158,14 +158,14 @@
             "closePlayer": "Fermer le lecteur"
         },
         "ecology": {
-            "title": "Ecologie",
+            "title": "Écologie",
             "subtitle": "Engagé pour le vivant",
             "description": []
         },
         "psychology": {
             "title": "Psychologie",
-            "subtitle": "Etudiant en psychologie",
-            "description": []
+            "subtitle": "Étudiant en psychologie",
+            "description": ["En 2026, je reprends des études de psychologie."]
         }
     }
 }
