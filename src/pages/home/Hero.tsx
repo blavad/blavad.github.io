@@ -235,7 +235,12 @@ function Hero() {
                 fullscreen={fullscreen}
                 header={<HomeContent topicID={currentTopicID} fullscreen={fullscreen} />}
                 overlay={
-                    <p className="absolute bottom-[2%] left-[50%] w-full -translate-x-1/2 text-base">
+                    <p
+                        className={cn(
+                            'absolute bottom-[2%] left-[50%] w-full -translate-x-1/2 text-base transition-colors duration-1000',
+                            skyPhase === 'night' && 'text-white'
+                        )}
+                    >
                         {t('hero.scrollHint')}
                     </p>
                 }
