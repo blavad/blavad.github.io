@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, Fragment, useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
@@ -17,6 +17,7 @@ import cloudLargeImg from '~/assets/img/nuage-1.webp';
 import cloudMediumImg from '~/assets/img/nuage-2.webp';
 import cloudSmallImg from '~/assets/img/nuage-3.webp';
 import HomeButton from '~/components/ui/buttons/HomeButton';
+import { MusicPlayer } from '~/components/MusicPlayer';
 import { FloatingIslandScene, SceneLayer } from '~/components/animation/FloatingIslandScene';
 import useActionOnScroll from '~/hooks/useActionOnScroll';
 
@@ -114,6 +115,8 @@ function Hero() {
     const [currentTopicID, setCurrentTopicID] = useState('default');
     const [fullscreen, setFullscreen] = useState(false);
     const [daytime, setDaytime] = useState(isDaytime);
+    const [musicOpen, setMusicOpen] = useState(false);
+    const closeMusic = useCallback(() => setMusicOpen(false), []);
     const { isOpen, open, variant, close } = useMenu();
     const { t } = useTranslation();
 
@@ -127,6 +130,9 @@ function Hero() {
     };
 
     const clickTopic = (topicID: string) => {
+        if (topicID === 'music') {
+            setMusicOpen((prev) => !prev);
+        }
         if (!isOpen) {
             open('hero');
             setFullscreen(true);
@@ -233,28 +239,45 @@ function Hero() {
                 />
 
                 {ISLANDS.map(({ buttons, ...island }) => (
-                    <SceneLayer key={island.src} {...island}>
+                    <SceneLayer
+                        key={island.src}
+                        {...island}
+                        // Passe l'île au premier plan pour que le lecteur ouvert ne soit pas masqué
+                        className={cn(
+                            island.className,
+                            musicOpen && buttons.some((b) => b.variant === 'music') && 'z-20'
+                        )}
+                    >
                         {buttons.map(({ variant, className }) => (
-                            <HomeButton
-                                key={variant}
-                                variant={variant}
-                                className={cn(
-                                    // Centre le rond du bouton (50px) sur le point visé
-                                    'absolute -translate-x-1/2 -translate-y-6.25',
-                                    className
+                            <Fragment key={variant}>
+                                {variant === 'music' && (
+                                    <MusicPlayer
+                                        open={musicOpen}
+                                        onClose={closeMusic}
+                                        // Au-dessus du rond du bouton, avec une petite marge
+                                        className={cn(className, '-mt-8')}
+                                    />
                                 )}
-                                style={
-                                    {
-                                        // Déclenche la pulsation de chaque bouton l'un après l'autre
-                                        '--pulse-delay': `${BUTTON_ORDER.indexOf(variant) * PULSE_INTERVAL}s`,
-                                    } as CSSProperties
-                                }
-                                onHoverStart={openTopic}
-                                onHoverEnd={closeTopic}
-                                onClick={clickTopic}
-                            >
-                                {t(`topics.${topics[variant].id}.title`)}
-                            </HomeButton>
+                                <HomeButton
+                                    variant={variant}
+                                    className={cn(
+                                        // Centre le rond du bouton (50px) sur le point visé
+                                        'absolute -translate-x-1/2 -translate-y-6.25',
+                                        className
+                                    )}
+                                    style={
+                                        {
+                                            // Déclenche la pulsation de chaque bouton l'un après l'autre
+                                            '--pulse-delay': `${BUTTON_ORDER.indexOf(variant) * PULSE_INTERVAL}s`,
+                                        } as CSSProperties
+                                    }
+                                    onHoverStart={openTopic}
+                                    onHoverEnd={closeTopic}
+                                    onClick={clickTopic}
+                                >
+                                    {t(`topics.${topics[variant].id}.title`)}
+                                </HomeButton>
+                            </Fragment>
                         ))}
                     </SceneLayer>
                 ))}

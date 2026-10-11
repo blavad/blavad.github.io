@@ -154,7 +154,8 @@
         "music": {
             "title": "Música",
             "subtitle": "Música y sonido",
-            "description": []
+            "description": [],
+            "closePlayer": "Cerrar el reproductor"
         },
         "ecology": {
             "title": "Ecología",

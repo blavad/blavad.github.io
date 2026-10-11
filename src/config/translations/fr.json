@@ -154,7 +154,8 @@
         "music": {
             "title": "Musique",
             "subtitle": "Clique pour découvrir ma playlist",
-            "description": []
+            "description": [],
+            "closePlayer": "Fermer le lecteur"
         },
         "ecology": {
             "title": "Ecologie",

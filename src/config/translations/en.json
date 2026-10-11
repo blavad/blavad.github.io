@@ -146,7 +146,8 @@
         "music": {
             "title": "Music",
             "subtitle": "Music and sound",
-            "description": []
+            "description": [],
+            "closePlayer": "Close player"
         },
         "ecology": {
             "title": "Ecology",
