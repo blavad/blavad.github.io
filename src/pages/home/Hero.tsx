@@ -156,7 +156,7 @@ const BUTTON_ORDER = ISLANDS.flatMap((island) => island.buttons.map((button) => 
 const DAY_START_HOUR = 7;
 const DAY_END_HOUR = 21;
 // Durée (en h) de l'aube au début du jour et du crépuscule à la fin
-const TWILIGHT_HOURS = 4;
+const TWILIGHT_HOURS = 3;
 
 // Mode obscure : pas de plein jour, les 24h sont découpées en 3x8h (matin, soir, nuit)
 const DARK_MORNING_START_HOUR = 6;
