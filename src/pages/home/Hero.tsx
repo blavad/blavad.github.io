@@ -36,9 +36,11 @@ import {
 import useActionOnScroll from '~/hooks/useActionOnScroll';
 
 import { HomeContent } from './HomeContent';
+import { HeroTitle, SkyHint } from './HeroTitle';
 import { useMenu } from '~/stores/useMenu';
 
-type HeroButton = { variant: Topics; className: string };
+// `cardSide` impose le côté où s'ouvre la carte du sujet (sinon : au-dessus s'il y a la place)
+type HeroButton = { variant: Topics; className: string; cardSide?: 'above' | 'below' };
 
 type Island = {
     src: string;
@@ -69,7 +71,7 @@ const ISLANDS: Island[] = [
         depth: 0.4,
         float: { amplitude: 8, duration: 7, delay: 1 },
         className: 'max-lg:hidden',
-        buttons: [{ variant: 'psychology', className: 'top-[23%] left-[21%]' }],
+        buttons: [{ variant: 'psychology', className: 'top-[23%] left-[21%]', cardSide: 'below' }],
     },
     {
         src: forestIsletImg,
@@ -167,12 +169,21 @@ function Hero() {
 
     const closeTopic = useCallback(() => setCurrentTopicID('default'), []);
 
+    // Vrai si l'une de ces îles porte la carte ou le lecteur ouvert
+    const hasOpenPanel = (buttons: HeroButton[]) =>
+        buttons.some(
+            ({ variant }) => variant === currentTopicID || (variant === 'music' && musicOpen)
+        );
+
     const clickTopic = (topicID: string) => {
         if (topicID === 'music') {
+            // La musique n'a pas de carte : le bouton ouvre seulement le lecteur (et ferme la carte ouverte)
             setMusicOpen((prev) => !prev);
+            closeTopic();
+        } else {
+            // Recliquer sur le bouton du sujet ouvert referme sa carte
+            setCurrentTopicID((prev) => (prev === topicID ? 'default' : topicID));
         }
-        // Recliquer sur le bouton du sujet ouvert referme sa carte
-        setCurrentTopicID((prev) => (prev === topicID ? 'default' : topicID));
         if (!isOpen) {
             open('hero');
             setFullscreen(true);
@@ -225,26 +236,14 @@ function Hero() {
                 skyWebpSrc={skyImgWebp}
                 phase={skyPhase}
                 fullscreen={fullscreen}
-                header={
-                    <div
-                        className={cn(
-                            'pointer-events-none absolute top-[3%] left-1/2 w-full -translate-x-1/2 text-base transition-colors duration-1000',
-                            skyPhase === 'night' && 'text-white'
-                        )}
-                    >
-                        <p className="font-semibold">David Albert</p>
-                        <p>{t('topics.default.subtitle')}</p>
-                    </div>
-                }
+                header={<HeroTitle hintVisible={currentTopicID === 'default' && !musicOpen} />}
                 overlay={
-                    <p
-                        className={cn(
-                            'absolute bottom-[2%] left-[50%] w-full -translate-x-1/2 text-base transition-colors duration-1000',
-                            skyPhase === 'night' && 'text-white'
-                        )}
+                    <SkyHint
+                        className="absolute bottom-[2%] left-1/2 w-full -translate-x-1/2 px-4"
+                        delay={1.2}
                     >
                         {t('hero.scrollHint')}
-                    </p>
+                    </SkyHint>
                 }
             >
                 {/* Nuages lointains : dérivent lentement derrière les îles */}
@@ -295,38 +294,29 @@ function Hero() {
                         key={island.src}
                         {...island}
                         effects={effects}
-                        // Immobilise l'île dont la carte est ouverte : un texte qui flotte tremble (arrondi au pixel)
-                        still={buttons.some((b) => b.variant === currentTopicID)}
+                        // Immobilise l'île dont la carte ou le lecteur est ouvert : un texte qui flotte tremble (arrondi au pixel)
+                        still={hasOpenPanel(buttons)}
                         // Passe l'île au premier plan pour que le lecteur ou la carte ouverts ne soient pas masqués
-                        className={cn(
-                            island.className,
-                            buttons.some(
-                                (b) =>
-                                    b.variant === currentTopicID ||
-                                    (musicOpen && b.variant === 'music')
-                            ) && 'z-20'
-                        )}
+                        className={cn(island.className, hasOpenPanel(buttons) && 'z-20')}
                     >
-                        {buttons.map(({ variant, className }) => (
+                        {buttons.map(({ variant, className, cardSide }) => (
                             <Fragment key={variant}>
-                                {variant === 'music' && (
+                                {variant === 'music' ? (
                                     <MusicPlayer
                                         open={musicOpen}
                                         onClose={closeMusic}
                                         // Au-dessus du rond du bouton, avec une petite marge
                                         className={cn(className, '-mt-8')}
                                     />
+                                ) : (
+                                    <HomeContent
+                                        topicID={variant}
+                                        open={currentTopicID === variant}
+                                        onClose={closeTopic}
+                                        side={cardSide}
+                                        className={className}
+                                    />
                                 )}
-                                <HomeContent
-                                    topicID={variant}
-                                    // Le lecteur de musique ouvert remplace la carte
-                                    open={
-                                        currentTopicID === variant &&
-                                        !(variant === 'music' && musicOpen)
-                                    }
-                                    onClose={closeTopic}
-                                    className={className}
-                                />
                                 <HomeButton
                                     variant={variant}
                                     className={cn(

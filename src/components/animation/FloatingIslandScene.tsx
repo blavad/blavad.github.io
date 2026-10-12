@@ -51,8 +51,13 @@ export function loop(active: boolean, keyframes: Keyframes, transition: Transiti
 
 const PHASE_TRANSITION = { duration: 2, ease: 'easeInOut' } as const;
 
-/** Dégradé posé sur l'image du ciel pour chaque moment de la journée (le jour garde le ciel d'origine) */
-const SKY_TINTS: Record<Exclude<SkyPhase, 'day'>, { gradient: string; opacity: number }> = {
+/** Dégradé posé sur l'image du ciel pour chaque moment de la journée */
+const SKY_TINTS: Record<SkyPhase, { gradient: string; opacity: number }> = {
+    // Jour : léger bleu soutenu, plus marqué en haut (derrière le titre) et en bas, pour faire ressortir le texte blanc
+    day: {
+        gradient: 'linear-gradient(to bottom, #1f4f94, #3f80cc 35%, #6fa6de 70%, #4f87c8)',
+        opacity: 0.15,
+    },
     // Aube : bleu doux en haut, rose puis pêche à l'horizon
     dawn: {
         gradient: 'linear-gradient(to bottom, #7d97c9, #e6a7b0 65%, #f7c99a)',

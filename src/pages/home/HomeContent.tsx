@@ -18,17 +18,20 @@ type Placement = { left: number; top: number; above: boolean };
 /**
  * Carte d'un sujet qui apparaît à côté du bouton qui l'ouvre, fermée par un clic à l'extérieur ou Échap.
  * Le parent doit être positionné : le point d'ancrage (centre du bouton) est donné par `className`.
- * La carte se place au-dessus du bouton s'il y a la place, sinon en dessous, et reste dans la scène.
+ * La carte se place au-dessus du bouton s'il y a la place, sinon en dessous (ou du côté imposé par `side`),
+ * et reste dans la scène.
  */
 export function HomeContent({
     topicID,
     open,
     onClose,
+    side,
     className,
 }: {
     topicID: string;
     open: boolean;
     onClose: () => void;
+    side?: 'above' | 'below';
     className?: string;
 }) {
     const { t } = useTranslation();
@@ -79,7 +82,9 @@ export function HomeContent({
 
             const spaceAbove = a.top - s.top - SCENE_MARGIN - GAP_ABOVE;
             const spaceBelow = s.bottom - a.top - SCENE_MARGIN - GAP_BELOW;
-            const above = spaceAbove >= height || spaceAbove >= spaceBelow;
+            const above = side
+                ? side === 'above'
+                : spaceAbove >= height || spaceAbove >= spaceBelow;
 
             const clamp = (value: number, min: number, max: number) =>
                 Math.max(min, Math.min(value, max));
@@ -103,7 +108,7 @@ export function HomeContent({
         observer.observe(scene);
         observer.observe(card);
         return () => observer.disconnect();
-    }, [open]);
+    }, [open, side]);
 
     return (
         <div
