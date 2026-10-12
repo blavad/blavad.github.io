@@ -14,14 +14,13 @@ const SCENE_MARGIN = 16; // Marge minimale entre la carte et les bords de la sc�
 const GAP_ABOVE = 56; // Distance entre le point d'ancrage et la carte placée au-dessus (bouton soulevé au survol)
 const GAP_BELOW = 50; // Distance entre le point d'ancrage et la carte placée en dessous (sous l'étiquette du bouton)
 const CORNER_INSET = 40; // Distance entre le point d'ancrage et le bord de la carte qui s'étend d'un côté
-// Sur mobile (même seuil que les boutons de l'île), une carte centrée l'est sur la scène plutôt que sur son ancrage
-const MOBILE_QUERY = '(max-width: 639px)';
-// Hauteur (fraction de la scène) du centre de la carte sur mobile : un peu au-dessus du milieu, qui paraît trop bas
-const MOBILE_CARD_CENTER = 0.35;
+// Hauteur (fraction de la scène) du centre d'une carte centrée : un peu au-dessus du milieu, qui paraît trop bas
+const CENTERED_CARD_Y = 0.35;
 
 /**
  * Côtés vers lesquels la carte s'ouvre depuis son point d'ancrage (par défaut : au-dessus s'il y a la place,
- * centrée horizontalement). `y: 'center'` centre la carte sur le point (ancrage fixe, hors bouton).
+ * centrée horizontalement). `y: 'center'` centre la carte horizontalement sur le point (ancrage fixe, hors bouton)
+ * et la place à `CENTERED_CARD_Y` de la hauteur de la scène.
  */
 export type CardDirection = { y?: 'above' | 'below' | 'center'; x?: 'left' | 'right' };
 
@@ -107,9 +106,13 @@ export function HomeContent({
 
             const clamp = (value: number, min: number, max: number) =>
                 Math.max(min, Math.min(value, max));
-            const centerTop = window.matchMedia(MOBILE_QUERY).matches
-                ? s.top + s.height * MOBILE_CARD_CENTER - height / 2 - a.top
-                : -height / 2;
+            // Carte centrée : centrée horizontalement sur l'ancrage, mais placée en hauteur dans la scène,
+            // sans remonter sur le titre (écrans peu hauts, ex. téléphone en paysage)
+            const header = scene.querySelector('[data-scene-header]')?.getBoundingClientRect();
+            const centerTop = Math.max(
+                s.top + s.height * CENTERED_CARD_Y - height / 2 - a.top,
+                header ? header.bottom + SCENE_MARGIN - a.top : -Infinity
+            );
             setPlacement({
                 // L'animation d'apparition part du point d'ancrage
                 originY: { above: '100%', below: '0%', center: '50%' }[y],

@@ -49,9 +49,11 @@ function MenuPage() {
                 top: isOpen && variant !== 'hero' ? 0 : '-100vh',
                 transition: { duration: MENU_ANIMATION_DURATION / 1000 },
             }}
-            className="bg-bg fixed top-0 left-0 z-10 flex h-screen w-screen flex-col items-center justify-center"
+            // Défile dans son cadre sur les écrans peu hauts (téléphone en paysage) : sinon le contenu déborde
+            // en dessous, et réapparaît en haut de la page quand le menu est fermé (remonté d'un écran)
+            className="bg-bg fixed top-0 left-0 z-10 flex h-screen w-screen flex-col items-center overflow-y-auto"
         >
-            <div className="flex h-full w-[80%] flex-col justify-center sm:w-1/3">
+            <div className="flex min-h-full w-[80%] shrink-0 flex-col justify-center py-6 sm:w-1/3">
                 <h1 className="">{t('nav.menu')}</h1>
                 <div className="mt-4 flex flex-col items-center gap-3 sm:mt-6">
                     {NavData.map((item) => (

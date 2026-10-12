@@ -22,6 +22,8 @@ export function HeroTitle({
 
     return (
         <div
+            // Les cartes de sujet centrées (HomeContent) restent en dessous
+            data-scene-header
             className={cn(
                 'pointer-events-none absolute top-[4%] left-1/2 flex w-full -translate-x-1/2 flex-col items-center px-4 text-white transition-[top] duration-400 ease-in-out',
                 // En plein écran, la barre de navigation (logo, croix) recouvre le haut de la scène :
