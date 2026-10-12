@@ -35,12 +35,12 @@ import {
 } from '~/components/animation/FloatingIslandScene';
 import useActionOnScroll from '~/hooks/useActionOnScroll';
 
-import { HomeContent } from './HomeContent';
+import { CardDirection, HomeContent } from './HomeContent';
 import { HeroTitle, SkyHint } from './HeroTitle';
 import { useMenu } from '~/stores/useMenu';
 
-// `cardSide` impose le côté où s'ouvre la carte du sujet (sinon : au-dessus s'il y a la place)
-type HeroButton = { variant: Topics; className: string; cardSide?: 'above' | 'below' };
+// `card` : côtés vers lesquels s'ouvre la carte du sujet (sinon : au-dessus s'il y a la place, centrée)
+type HeroButton = { variant: Topics; className: string; card?: CardDirection };
 
 type Island = {
     src: string;
@@ -54,6 +54,8 @@ type Island = {
     priority?: boolean;
     // Position de chaque bouton sur son lieu, en % de l'image de l'île
     buttons: HeroButton[];
+    // Point fixe (en % de l'image) où s'ouvrent, centrées, toutes les cartes de l'île ; sinon près de chaque bouton
+    cardAnchor?: string;
     // Animations accrochées à l'image (positionnées en % de l'image)
     effects?: ReactNode;
 };
@@ -71,7 +73,9 @@ const ISLANDS: Island[] = [
         depth: 0.4,
         float: { amplitude: 8, duration: 7, delay: 1 },
         className: 'max-lg:hidden',
-        buttons: [{ variant: 'psychology', className: 'top-[23%] left-[21%]', cardSide: 'below' }],
+        buttons: [
+            { variant: 'psychology', className: 'top-[23%] left-[21%]', card: { y: 'below' } },
+        ],
     },
     {
         src: forestIsletImg,
@@ -128,6 +132,8 @@ const ISLANDS: Island[] = [
             { variant: 'ecology', className: 'top-[70%] left-[33%]' },
             { variant: 'tech', className: 'top-[40%] left-[2%]' },
         ],
+        // Au centre de l'île, sur l'arbre
+        cardAnchor: 'top-[38%] left-[51%]',
         effects: (
             <>
                 <Waterfall left={59} top={75} width={7.3} height={23} />
@@ -146,9 +152,9 @@ const BUTTON_ORDER = ISLANDS.flatMap((island) => island.buttons.map((button) => 
 
 // Heures locales (début inclus, fin exclue) pendant lesquelles il fait jour
 const DAY_START_HOUR = 7;
-const DAY_END_HOUR = 20;
+const DAY_END_HOUR = 21;
 // Durée (en h) de l'aube au début du jour et du crépuscule à la fin
-const TWILIGHT_HOURS = 3;
+const TWILIGHT_HOURS = 4;
 
 const getSkyPhase = (): SkyPhase => {
     const hour = new Date().getHours();
@@ -236,7 +242,12 @@ function Hero() {
                 skyWebpSrc={skyImgWebp}
                 phase={skyPhase}
                 fullscreen={fullscreen}
-                header={<HeroTitle hintVisible={currentTopicID === 'default' && !musicOpen} />}
+                header={
+                    <HeroTitle
+                        hintVisible={currentTopicID === 'default' && !musicOpen}
+                        fullscreen={fullscreen}
+                    />
+                }
                 overlay={
                     <SkyHint
                         className="absolute bottom-[2%] left-1/2 w-full -translate-x-1/2 px-4"
@@ -289,7 +300,7 @@ function Hero() {
                     imgClassName="opacity-75 saturate-[0.7] blur-[0.5px]"
                 />
 
-                {ISLANDS.map(({ buttons, effects, ...island }) => (
+                {ISLANDS.map(({ buttons, cardAnchor, effects, ...island }) => (
                     <SceneLayer
                         key={island.src}
                         {...island}
@@ -299,7 +310,7 @@ function Hero() {
                         // Passe l'île au premier plan pour que le lecteur ou la carte ouverts ne soient pas masqués
                         className={cn(island.className, hasOpenPanel(buttons) && 'z-20')}
                     >
-                        {buttons.map(({ variant, className, cardSide }) => (
+                        {buttons.map(({ variant, className, card }) => (
                             <Fragment key={variant}>
                                 {variant === 'music' ? (
                                     <MusicPlayer
@@ -313,8 +324,8 @@ function Hero() {
                                         topicID={variant}
                                         open={currentTopicID === variant}
                                         onClose={closeTopic}
-                                        side={cardSide}
-                                        className={className}
+                                        direction={cardAnchor ? { y: 'center' } : card}
+                                        className={cardAnchor ?? className}
                                     />
                                 )}
                                 <HomeButton

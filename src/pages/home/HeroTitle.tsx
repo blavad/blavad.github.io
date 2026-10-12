@@ -11,11 +11,24 @@ const SKY_TEXT_SHADOW = '0 2px 12px rgb(20 40 80 / 0.35), 0 1px 2px rgb(20 40 80
  * Titre du Hero, posé dans le ciel : le nom, un trait aux couleurs des sujets de l'île,
  * puis l'invitation à explorer, qui s'efface quand un sujet est ouvert.
  */
-export function HeroTitle({ hintVisible }: { hintVisible: boolean }) {
+export function HeroTitle({
+    hintVisible,
+    fullscreen,
+}: {
+    hintVisible: boolean;
+    fullscreen: boolean;
+}) {
     const { t } = useTranslation();
 
     return (
-        <div className="pointer-events-none absolute top-[4%] left-1/2 flex w-full -translate-x-1/2 flex-col items-center px-4 text-white">
+        <div
+            className={cn(
+                'pointer-events-none absolute top-[4%] left-1/2 flex w-full -translate-x-1/2 flex-col items-center px-4 text-white transition-[top] duration-400 ease-in-out',
+                // En plein écran, la barre de navigation (logo, croix) recouvre le haut de la scène :
+                // sur mobile, faute de place sur les côtés, le titre passe en dessous
+                fullscreen && 'max-sm:top-22'
+            )}
+        >
             <motion.h1
                 className="text-3xl leading-none font-bold tracking-tight sm:text-4xl"
                 style={{ textShadow: SKY_TEXT_SHADOW }}

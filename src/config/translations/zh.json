@@ -8,7 +8,8 @@
         "menu": "菜单"
     },
     "hero": {
-        "scrollHint": "+ 向下滚动了解更多 +"
+        "scrollHint": "+ 向下滚动了解更多 +",
+        "closeCard": "关闭卡片"
     },
     "home": {
         "helpTitle": "我能如何帮助你发展业务？",
@@ -176,66 +177,52 @@
         "default": {
             "title": "David ALBERT",
             "subtitle": "将鼠标悬停在图标上探索",
-            "description": []
+            "description": ""
         },
         "tech": {
             "title": "技术",
             "subtitle": "资深技术顾问",
             "linkLabel": "了解我的服务",
-            "description": [
-                "我帮助企业在几天内",
-                "搭建扎实的 MVP。",
-                "→ 网页和移动应用、创新产品。"
-            ]
+            "description": "我帮助企业在几天内搭建扎实的 MVP：网页和移动应用、创新产品。"
         },
         "games": {
             "title": "游戏",
             "subtitle": "Unboared 联合创始人",
             "linkLabel": "了解 Unboared",
-            "description": [
-                "Unboared 是面向人流密集场所的",
-                "互动娱乐方案：酒吧、音乐厅、",
-                "机场、游乐园和活动场所。"
-            ]
+            "description": "Unboared 是面向人流密集场所的互动娱乐方案：酒吧、音乐厅、机场、游乐园和活动场所。"
         },
         "teaching": {
             "title": "教学",
             "subtitle": "培训师 / 教师",
             "linkLabel": "查看课程",
-            "description": [
-                "我喜欢分享自己在计算机科学、",
-                "数学和人工智能方面的知识。"
-            ]
+            "description": "我喜欢分享自己在计算机科学、数学和人工智能方面的知识。"
         },
         "sports": {
             "title": "运动",
             "subtitle": "我热爱运动",
             "linkLabel": "了解我的运动",
-            "description": [
-                "经过 10 年的竞技比赛，",
-                "如今我运动只为纯粹的乐趣。"
-            ]
+            "description": "经过 10 年的竞技比赛，如今我运动只为纯粹的乐趣。"
         },
         "art": {
             "title": "创意",
             "subtitle": "艺术、设计与创意",
-            "description": []
+            "description": ""
         },
         "music": {
             "title": "音乐",
             "subtitle": "点击探索我的歌单",
-            "description": [],
+            "description": "",
             "closePlayer": "关闭播放器"
         },
         "ecology": {
             "title": "生态",
             "subtitle": "守护生命",
-            "description": []
+            "description": ""
         },
         "psychology": {
             "title": "心理学",
             "subtitle": "心理学学生",
-            "description": ["2026 年，我重新开始攻读心理学。"]
+            "description": "2026 年，我重新开始攻读心理学。"
         }
     }
 }

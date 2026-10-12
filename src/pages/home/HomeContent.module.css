@@ -9,7 +9,7 @@
 }
 
 .description {
-    @apply leading-4 text-text/75 text-xs xs:text-sm text-left;
+    @apply mt-1 leading-5 text-text/75 text-xs xs:text-sm text-left;
 }
 
 /* Lien en couleur d'accentuation du sujet (dégradé appliqué au texte via `background-image`) */

@@ -8,7 +8,8 @@
         "menu": "Menú"
     },
     "hero": {
-        "scrollHint": "+ Desplázate para saber más +"
+        "scrollHint": "+ Desplázate para saber más +",
+        "closeCard": "Cerrar la tarjeta"
     },
     "home": {
         "helpTitle": "¿Cómo puedo ayudarte a desarrollar tu actividad?",
@@ -176,66 +177,52 @@
         "default": {
             "title": "David ALBERT",
             "subtitle": "Pasa el cursor por los iconos para descubrir",
-            "description": []
+            "description": ""
         },
         "tech": {
             "title": "Tecnología",
             "subtitle": "Consultor tecnológico sénior",
             "linkLabel": "Descubrir mis servicios",
-            "description": [
-                "Acompaño a las empresas en la creación",
-                "de un MVP sólido en pocos días.",
-                "→ Aplicaciones web y móviles, productos innovadores."
-            ]
+            "description": "Acompaño a las empresas en la creación de un MVP sólido en pocos días: aplicaciones web y móviles, productos innovadores."
         },
         "games": {
             "title": "Juegos",
             "subtitle": "Cofundador de Unboared",
             "linkLabel": "Descubrir Unboared",
-            "description": [
-                "Unboared es una solución de animación para",
-                "lugares con mucha afluencia: bares, salas de",
-                "conciertos, aeropuertos, parques de ocio."
-            ]
+            "description": "Unboared es una solución de animación para lugares con mucha afluencia: bares, salas de conciertos, aeropuertos, parques de ocio."
         },
         "teaching": {
             "title": "Enseñanza",
             "subtitle": "Formador / Docente",
             "linkLabel": "Ver las formaciones",
-            "description": [
-                "Me encanta compartir mis conocimientos de",
-                "informática, matemáticas e IA."
-            ]
+            "description": "Me encanta compartir mis conocimientos de informática, matemáticas e IA."
         },
         "sports": {
             "title": "Deportes",
             "subtitle": "Me encanta el deporte",
             "linkLabel": "Descubrir mis deportes",
-            "description": [
-                "Tras 10 años de competición, hoy lo practico",
-                "por el simple placer de hacerlo."
-            ]
+            "description": "Tras 10 años de competición, hoy lo practico por el simple placer de hacerlo."
         },
         "art": {
             "title": "Creatividad",
             "subtitle": "Arte, diseño y creatividad",
-            "description": []
+            "description": ""
         },
         "music": {
             "title": "Música",
             "subtitle": "Haz clic para descubrir mi playlist",
-            "description": [],
+            "description": "",
             "closePlayer": "Cerrar el reproductor"
         },
         "ecology": {
             "title": "Ecología",
             "subtitle": "Comprometido con la vida",
-            "description": []
+            "description": ""
         },
         "psychology": {
             "title": "Psicología",
             "subtitle": "Estudiante de psicología",
-            "description": ["En 2026, retomo los estudios de psicología."]
+            "description": "En 2026, retomo los estudios de psicología."
         }
     }
 }
