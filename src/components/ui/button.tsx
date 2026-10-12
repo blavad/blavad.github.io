@@ -4,15 +4,18 @@ import { motion } from 'framer-motion';
 import useNavigate from '~/hooks/useNavigate';
 import { cn, isExternalLink, isPlainLeftClick, scrollToSection } from '~/lib/utils';
 
+// En mode obscure, une ombre foncée ne se voit pas : les boutons ont un halo clair (`dark:shadow-[0_0_12px_1px]`)
 const buttonVariants = cva(
     'relative overflow-hidden inline-flex items-center justify-center whitespace-nowrap rounded-3xl text-sm font-bold transition-colors outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
     {
         variants: {
             variant: {
-                default: 'text-white shadow-sm shadow-black2/20 cursor-pointer',
-                colored: 'text-white shadow-sm shadow-black2/20 cursor-pointer',
+                default:
+                    'text-white shadow-sm shadow-black2/20 dark:shadow-[0_0_12px_1px] dark:shadow-white/30 cursor-pointer',
+                colored:
+                    'text-white shadow-sm shadow-black2/20 dark:shadow-[0_0_12px_1px] dark:shadow-white/30 cursor-pointer',
                 outline:
-                    'border rounded-3xl border-input border-3 border-text bg-surface/75 backdrop-blur-sm shadow-sm shadow-black/5 hover:bg-surface/25 cursor-pointer',
+                    'border rounded-3xl border-input border-3 border-text bg-surface/75 backdrop-blur-sm shadow-sm shadow-black/5 dark:shadow-[0_0_12px_1px] dark:shadow-white/30 hover:bg-surface/25 cursor-pointer',
                 secondary:
                     'bg-secondary text-secondary-foreground shadow-sm shadow-black/5 hover:bg-secondary/80',
                 link: 'text-primary underline-offset-4 hover:underline',
@@ -32,8 +35,7 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-    extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-        VariantProps<typeof buttonVariants> {
+    extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
     asChild?: boolean;
     /** Transforme le bouton en lien : route ('/x'), ancre de section ('#x') ou URL externe */
     href?: string;

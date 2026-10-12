@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { PropsWithChildren } from 'react';
 
 import { cn } from '~/lib/utils';
-import { loop, useLayer } from './FloatingIslandScene';
+import { loop, phaseTransition, useLayer } from './FloatingIslandScene';
 
 /** Zone d'un effet, en % de l'image de l'île (comme les boutons) */
 type Area = { left: number; top: number; width: number; height: number };
@@ -134,13 +134,13 @@ const spriteStyle = ({ left, top, width }: SpriteProps) => ({
 
 /** Disparaît en fondu la nuit (oiseaux et notes dorment) */
 function DaytimeOnly({ children }: PropsWithChildren) {
-    const { phase } = useLayer();
+    const { phase, instantPhase } = useLayer();
     return (
         <motion.div
             className="absolute inset-0"
             initial={false}
             animate={{ opacity: phase === 'night' ? 0 : 1 }}
-            transition={{ duration: 2, ease: 'easeInOut' }}
+            transition={phaseTransition(instantPhase)}
         >
             {children}
         </motion.div>

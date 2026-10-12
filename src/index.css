@@ -2,6 +2,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* `dark:` cible le mode obscure (classe `dark` sur <html>), et non la préférence du système */
+@custom-variant dark (&:where(.dark, .dark *));
+
 
 @theme {
     --spacing: 0.25rem;
@@ -118,9 +121,22 @@
    `--color-white` reste blanc : il sert aussi au texte et aux éléments posés sur le ciel. */
 html.dark {
     color-scheme: dark;
-    --color-bg: #110d26;
-    --color-text: #e6e3ef;
-    --color-surface: #1e1938;
+    --color-bg: #2e3d6b;
+    --color-text: #f3f1f8;
+    --color-surface: #3c4d82;
+
+    /* Teintes pâles (fond de la section contact) : 25 % de la couleur sur le fond, comme les dégradés `-rev` */
+    --color-red-100: color-mix(in srgb, var(--color-red) 25%, var(--color-bg));
+    --color-blue-100: color-mix(in srgb, var(--color-blue) 25%, var(--color-bg));
+    --color-green-100: color-mix(in srgb, var(--color-green) 25%, var(--color-bg));
+    --color-purple-100: color-mix(in srgb, var(--color-purple) 25%, var(--color-bg));
+    --color-pink-100: color-mix(in srgb, var(--color-pink) 25%, var(--color-bg));
+}
+
+html.dark {
+    --color-bg: #2b2a33;
+    --color-surface: #42414d;
+    --color-text: #f0eef5;
 }
 
 html {
@@ -370,6 +386,7 @@ body {
 
 /* Scintillement des étoiles du ciel de nuit (FloatingIslandScene) */
 @keyframes star-twinkle {
+
     0%,
     100% {
         opacity: 0.9;

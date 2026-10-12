@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -11,6 +11,12 @@ const FACET_FROM = [0xd7, 0xc3, 0x2a];
 const FACET_TO = [0xff, 0x56, 0x7b];
 const FACET_COLS = 4;
 const FACET_ROWS = 6;
+
+// Marge (px) entre le bas des boutons de la navbar et le haut du lecteur, croix de fermeture comprise
+const NAVBAR_GAP = 28;
+// Hauteurs (px) prévues par Spotify : entre les deux, le lecteur compact laisse un vide en dessous
+const FULL_PLAYER_HEIGHT = 352;
+const COMPACT_PLAYER_HEIGHT = 152;
 
 /** Fond low-poly : une grille de triangles dont la teinte suit le dégradé, avec une légère variation par facette */
 const LOW_POLY_BACKGROUND = (() => {
@@ -66,6 +72,38 @@ export function MusicPlayer({
     className?: string;
 }) {
     const { t } = useTranslation();
+    const playerRef = useRef<HTMLDivElement>(null);
+    const iframeRef = useRef<HTMLIFrameElement>(null);
+    // Lecteur compact quand le lecteur complet monterait jusqu'aux boutons de la navbar (écrans peu hauts)
+    const [compact, setCompact] = useState(false);
+
+    useLayoutEffect(() => {
+        if (!open) return;
+        const update = () => {
+            const player = playerRef.current;
+            const iframe = iframeRef.current;
+            const nav = document.querySelector('nav');
+            if (!player || !iframe || !nav) return;
+            // Le bas du lecteur est fixe (ancré au bouton) ; ses tailles hors transformations restent fiables pendant l'animation
+            const chrome = player.offsetHeight - iframe.offsetHeight;
+            const available =
+                player.getBoundingClientRect().bottom -
+                nav.getBoundingClientRect().bottom -
+                NAVBAR_GAP -
+                chrome;
+            setCompact(available < FULL_PLAYER_HEIGHT);
+        };
+        update();
+        // La scène change de taille au passage en plein écran (ouverture du lecteur) et au redimensionnement
+        const scene = playerRef.current?.closest('[data-scene]');
+        const observer = new ResizeObserver(update);
+        if (scene) observer.observe(scene);
+        window.addEventListener('resize', update);
+        return () => {
+            observer.disconnect();
+            window.removeEventListener('resize', update);
+        };
+    }, [open]);
 
     useEffect(() => {
         if (!open) return;
@@ -80,6 +118,7 @@ export function MusicPlayer({
         <AnimatePresence>
             {open && (
                 <motion.div
+                    ref={playerRef}
                     className={cn(
                         // Ancré en bas au centre : l'animation part du bouton et monte
                         'absolute z-20 w-75 origin-bottom -translate-x-1/2 -translate-y-full',
@@ -96,14 +135,18 @@ export function MusicPlayer({
                         style={{ background: LOW_POLY_BACKGROUND }}
                     >
                         <button
-                            className="absolute -top-3 -right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-surface shadow-md"
+                            className="bg-surface absolute -top-3 -right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full shadow-md"
                             onClick={onClose}
                             aria-label={t('topics.music.closePlayer')}
                         >
                             <X size={18} />
                         </button>
                         <iframe
-                            className="block h-[min(380px,55cqh)] w-full rounded-xl"
+                            ref={iframeRef}
+                            className="block w-full rounded-xl"
+                            style={{
+                                height: compact ? COMPACT_PLAYER_HEIGHT : FULL_PLAYER_HEIGHT,
+                            }}
                             src={`https://open.spotify.com/embed/playlist/${SPOTIFY_PLAYLIST_ID}?utm_source=generator&theme=0`}
                             title="Spotify"
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

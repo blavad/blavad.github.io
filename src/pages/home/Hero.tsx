@@ -108,7 +108,7 @@ const ISLANDS: Island[] = [
         depth: 0.5,
         float: { amplitude: 8, duration: 6.5, delay: 0.5 },
         className: 'max-lg:hidden',
-        buttons: [{ variant: 'music', className: 'top-[13%] left-[30%]' }],
+        buttons: [{ variant: 'music', className: 'top-[53%] left-[25%]' }],
         effects: (
             <>
                 <MusicNote src={note1Img} left={56.62} top={10.49} width={6.84} />
@@ -179,7 +179,8 @@ function Hero() {
     const [currentTopicID, setCurrentTopicID] = useState('default');
     const [fullscreen, setFullscreen] = useState(false);
     const dark = useThemeConfig((state) => state.dark);
-    const [skyPhase, setSkyPhase] = useState(() => getSkyPhase(dark));
+    // `instant` : changement de phase sans fondu (bascule du mode obscure), sinon fondu au passage de l'heure
+    const [sky, setSky] = useState(() => ({ phase: getSkyPhase(dark), instant: true }));
     const [musicOpen, setMusicOpen] = useState(false);
     const closeMusic = useCallback(() => setMusicOpen(false), []);
     const { isOpen, open, variant, close } = useMenu();
@@ -240,8 +241,11 @@ function Hero() {
 
     // Fait évoluer le ciel au passage de l'heure, et aussitôt à l'activation du mode obscure
     useEffect(() => {
-        setSkyPhase(getSkyPhase(dark));
-        const interval = setInterval(() => setSkyPhase(getSkyPhase(dark)), 60_000);
+        setSky({ phase: getSkyPhase(dark), instant: true });
+        const interval = setInterval(
+            () => setSky({ phase: getSkyPhase(dark), instant: false }),
+            60_000
+        );
         return () => clearInterval(interval);
     }, [dark]);
 
@@ -268,7 +272,8 @@ function Hero() {
             <FloatingIslandScene
                 skySrc={skyImg}
                 skyWebpSrc={skyImgWebp}
-                phase={skyPhase}
+                phase={sky.phase}
+                instantPhase={sky.instant}
                 fullscreen={fullscreen}
                 header={
                     <HeroTitle
