@@ -4,14 +4,11 @@ import { useTranslation } from 'react-i18next';
 import Unboared from '~/components/Unboared';
 import { Button } from '~/components/ui/button';
 import Card from '~/components/ui/card';
-import useNavigate from '~/hooks/useNavigate';
 
 import Hero from './Hero';
 import ContactSection from './ContactSection';
-import { scrollToSection } from '~/lib/utils';
 
 function Home() {
-    const navigate = useNavigate();
     const { t } = useTranslation();
 
     return (
@@ -39,11 +36,7 @@ function Home() {
                         >
                             {t('home.mvpCard.description')}
                             <div className="mt-6 flex flex-wrap gap-5">
-                                <Button
-                                    color="blue"
-                                    className="min-w-40"
-                                    onClick={() => navigate('/tech')}
-                                >
+                                <Button color="blue" className="min-w-40" href="/tech">
                                     {t('home.mvpCard.learnMore')}
                                 </Button>
                             </div>
@@ -56,11 +49,7 @@ function Home() {
                         >
                             {t('home.teamsCard.description')}
                             <div className="mt-6 flex flex-wrap gap-5">
-                                <Button
-                                    color="red"
-                                    className="min-w-40"
-                                    onClick={() => navigate('/tech')}
-                                >
+                                <Button color="red" className="min-w-40" href="/tech">
                                     {t('home.teamsCard.learnMore')}
                                 </Button>
                             </div>
@@ -73,13 +62,10 @@ function Home() {
                         >
                             {t('home.studentsCard.description')}
                             <div className="mt-6 flex flex-wrap gap-5">
-                                <Button color="purple" onClick={() => navigate('/teaching')}>
+                                <Button color="purple" href="/teaching">
                                     {t('home.studentsCard.learnMore')}
                                 </Button>
-                                <Button
-                                    color="purple"
-                                    onClick={() => navigate('/teaching#courses')}
-                                >
+                                <Button color="purple" href="/teaching#courses">
                                     {t('home.studentsCard.accessCourses')}
                                 </Button>
                             </div>
@@ -100,29 +86,13 @@ function Home() {
                                 <p>{t('home.unboaredSection.description')}</p>
                             </div>
                             <div className="mt-6 flex flex-wrap items-center justify-center gap-5">
-                                <Button
-                                    color="red"
-                                    className="w-40"
-                                    onClick={() =>
-                                        open(
-                                            'https://unboared.com',
-                                            '_blank',
-                                            'noopener,noreferrer'
-                                        )
-                                    }
-                                >
+                                <Button color="red" className="w-40" href="https://unboared.com">
                                     {t('home.unboaredSection.learnMore')}
                                 </Button>
                                 <Button
                                     color="red"
                                     className="w-40"
-                                    onClick={() =>
-                                        open(
-                                            'https://console.unboared.com/demo',
-                                            '_blank',
-                                            'noopener,noreferrer'
-                                        )
-                                    }
+                                    href="https://console.unboared.com/demo"
                                 >
                                     {t('home.unboaredSection.tryDemo')}
                                 </Button>
@@ -153,11 +123,7 @@ function Home() {
                                 <Button color="green" className="w-40" disabled>
                                     {t('home.whatElse.ecologyCard.learnMore')}
                                 </Button>
-                                <Button
-                                    color="green"
-                                    className="w-40"
-                                    onClick={() => scrollToSection('contact')}
-                                >
+                                <Button color="green" className="w-40" href="#contact">
                                     {t('home.whatElse.ecologyCard.contact')}
                                 </Button>
                             </div>
@@ -170,11 +136,7 @@ function Home() {
                         >
                             {t('home.whatElse.sportsCard.description')}
                             <div className="mt-6 flex flex-wrap gap-5">
-                                <Button
-                                    color="pink"
-                                    className="w-40"
-                                    onClick={() => navigate('/sports')}
-                                >
+                                <Button color="pink" className="w-40" href="/sports">
                                     {t('home.whatElse.sportsCard.learnMore')}
                                 </Button>
                             </div>

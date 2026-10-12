@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { RESOURCES_URL } from '~/config/global';
-import { scrollToSection, getLocalizedField } from '~/lib/utils';
+import { getLocalizedField } from '~/lib/utils';
 import Schools from '~/data/schools.json';
 import Card from '~/components/ui/card';
 import BlavadIcon from '~/components/ui/BlavadIcon';
@@ -12,7 +12,7 @@ import { Button } from '~/components/ui/button';
 import ContactSection from './home/ContactSection';
 
 const COURSES_URL = `${RESOURCES_URL}/teaching-docs/courses.json`;
-const nLessons = 14 + 4 + 2 + 6;
+const COURSES_OCCURENCES_URL = `${RESOURCES_URL}/teaching-docs/courses-occurences.json`;
 
 function BarChart({ data }: { data: { label: string; count: number }[] }) {
     const max = Math.max(...data.map((d) => d.count));
@@ -38,25 +38,43 @@ function BarChart({ data }: { data: { label: string; count: number }[] }) {
     );
 }
 
-type Course = { id: string; name: string; topic: string; students: number; [key: string]: unknown };
+type Course = { id: string; name: string; topic: string; [key: string]: unknown };
+type CourseOccurence = { date: string; course_id: string; school: string; nbStudents?: number };
+
+function countBy(occurences: CourseOccurence[], key: 'course_id' | 'school') {
+    const counts = new Map<string, number>();
+    occurences.forEach((o) => counts.set(o[key], (counts.get(o[key]) ?? 0) + (o.nbStudents ?? 0)));
+    return [...counts.entries()]
+        .map(([label, count]) => ({ label, count }))
+        .sort((a, b) => b.count - a.count);
+}
+
+function countDistinctCourses(occurences: CourseOccurence[]) {
+    return new Set(occurences.map((o) => o.course_id)).size;
+}
 
 function Teaching() {
     const { t, i18n } = useTranslation();
     const [courses, setcourses] = useState<Course[]>([]);
+    const [occurences, setOccurences] = useState<CourseOccurence[]>([]);
 
     useEffect(() => {
         fetch(COURSES_URL)
             .then((res) => res.json())
             .then(setcourses);
+        fetch(COURSES_OCCURENCES_URL)
+            .then((res) => res.json())
+            .then(setOccurences)
+            .catch(() => setOccurences([]));
     }, []);
 
-    const totalStudents = courses.reduce((sum, s) => sum + s.students, 0);
-    const schoolStats = [
-        { label: 'INSA', count: Math.round((totalStudents * 6) / nLessons) },
-        { label: 'GEMA', count: Math.round((totalStudents * 15) / nLessons) },
-        { label: 'NEXA Lyon', count: Math.round((totalStudents * 4) / nLessons) },
-        { label: 'NEXA E-learning', count: Math.round((totalStudents * 2) / nLessons) },
-    ];
+    const totalStudents = occurences.reduce((sum, o) => sum + (o.nbStudents ?? 0), 0);
+    const numCourses = countDistinctCourses(occurences);
+    const schoolStats = countBy(occurences, 'school');
+    const courseStats = countBy(occurences, 'course_id').map(({ label, count }) => {
+        const course = courses.find((c) => c.id === label);
+        return { label: course ? getLocalizedField(course, 'name', i18n.language) : label, count };
+    });
 
     return (
         <div className="flex flex-col items-center justify-center">
@@ -90,10 +108,10 @@ function Teaching() {
                     <div className="max-w-full sm:max-w-2/3">
                         <p>{t('teaching.heroCard.description')}</p>
                         <div className="mt-6 flex flex-wrap gap-5">
-                            <Button color="purple" onClick={() => scrollToSection('courses')}>
+                            <Button color="purple" href="#courses">
                                 {t('teaching.heroCard.accessCourses')}
                             </Button>
-                            <Button color="purple" onClick={() => scrollToSection('contact')}>
+                            <Button color="purple" href="#contact">
                                 {t('teaching.heroCard.contact')}
                             </Button>
                         </div>
@@ -106,12 +124,14 @@ function Teaching() {
                                 </div>
 
                                 <div className="flex flex-col items-center">
-                                    <h1 className="text-gradient-purple">+{totalStudents}</h1>
+                                    <h1 className="text-gradient-purple">
+                                        +{Math.round(totalStudents / 10) * 10}
+                                    </h1>
                                     <p>{t('teaching.heroCard.stats.students')}</p>
                                 </div>
 
                                 <div className="flex flex-col items-center">
-                                    <h1 className="text-gradient-purple">12</h1>
+                                    <h1 className="text-gradient-purple">{numCourses}</h1>
                                     <p>{t('teaching.heroCard.stats.subjects')}</p>
                                 </div>
                             </div>
@@ -132,13 +152,9 @@ function Teaching() {
                                 variant="colored"
                                 color="purple"
                                 className="flex w-full flex-1 flex-col"
-                                onClick={() =>
-                                    open(
-                                        `${RESOURCES_URL}/teaching-docs/${course.id}`,
-                                        '_blank',
-                                        'noopener,noreferrer'
-                                    )
-                                }
+                                href={`${RESOURCES_URL}/teaching-docs/${course.id}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 <BlavadIcon name={course.topic} size={25} />
                                 {getLocalizedField(course, 'name', i18n.language)}
@@ -152,12 +168,7 @@ function Teaching() {
                 <div className="mt-10 flex flex-col gap-12 md:flex-row md:gap-16">
                     <div className="flex-1">
                         <p className="mb-4 text-sm opacity-50">{t('teaching.statsBySubject')}</p>
-                        <BarChart
-                            data={courses.map((course) => ({
-                                label: course.name,
-                                count: course.students,
-                            }))}
-                        />
+                        <BarChart data={courseStats} />
                     </div>
                     <div className="flex-1">
                         <p className="mb-4 text-sm opacity-50">{t('teaching.statsBySchool')}</p>

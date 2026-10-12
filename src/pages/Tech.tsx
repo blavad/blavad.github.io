@@ -7,7 +7,7 @@ import Card from '~/components/ui/card';
 import { Button } from '~/components/ui/button';
 
 import ContactSection from './home/ContactSection';
-import { scrollToSection, getLocalizedField } from '~/lib/utils';
+import { getLocalizedField } from '~/lib/utils';
 
 function Tech() {
     const { t, i18n } = useTranslation();
@@ -45,10 +45,10 @@ function Tech() {
                     <div className="max-w-full sm:max-w-2/3">
                         <p>{t('tech.heroCard.description')}</p>
                         <div className="mt-6 flex flex-wrap gap-5">
-                            <Button color="blue" onClick={() => scrollToSection('contact')}>
+                            <Button color="blue" href="#contact">
                                 {t('tech.heroCard.startProject')}
                             </Button>
-                            <Button color="blue" onClick={() => scrollToSection('contact')}>
+                            <Button color="blue" href="#contact">
                                 {t('tech.heroCard.contact')}
                             </Button>
                         </div>
@@ -82,12 +82,12 @@ function Tech() {
                 <h3>{t('tech.projectsTitle')}</h3>
                 <div className="mt-15 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     {Projects.map((project) => (
-                        <div
+                        <a
                             key={project.short_title}
-                            className="group relative aspect-8/3 cursor-pointer overflow-hidden rounded-2xl sm:aspect-4/3"
-                            onClick={() =>
-                                window.open(project.url, '_blank', 'noopener noreferrer')
-                            }
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group relative block aspect-8/3 cursor-pointer overflow-hidden rounded-2xl sm:aspect-4/3"
                         >
                             <img
                                 src={project.img || project.imgVertical}
@@ -103,7 +103,7 @@ function Tech() {
                                     {getLocalizedField(project, 'brief', i18n.language)}
                                 </p>
                             </div>
-                        </div>
+                        </a>
                     ))}
                 </div>
             </section>

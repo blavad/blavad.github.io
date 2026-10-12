@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { cn, scrollToSection } from '~/lib/utils';
+import { cn } from '~/lib/utils';
 import { motion } from 'framer-motion';
 import Card from '~/components/ui/card';
 import BlavadIcon from '~/components/ui/BlavadIcon';
@@ -51,10 +51,10 @@ function Sports() {
                     <div className="max-w-full sm:max-w-2/3">
                         <p>{t('sports.heroCard.description')}</p>
                         <div className="mt-6 flex flex-wrap gap-5">
-                            <Button color="pink" onClick={() => scrollToSection('disciplines')}>
+                            <Button color="pink" href="#disciplines">
                                 {t('sports.heroCard.discover')}
                             </Button>
-                            <Button color="pink" onClick={() => scrollToSection('contact')}>
+                            <Button color="pink" href="#contact">
                                 {t('sports.heroCard.contact')}
                             </Button>
                         </div>

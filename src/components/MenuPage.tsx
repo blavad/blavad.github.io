@@ -3,7 +3,7 @@ import { ExternalLink } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 import { MENU_ANIMATION_DURATION } from '~/config/global';
-import { isExternalLink, scrollToSection, sleep } from '~/lib/utils';
+import { getNavHref, isExternalLink, isPlainLeftClick, scrollToSection, sleep } from '~/lib/utils';
 import socials from '~/data/socials.json';
 import BlavadIcon from '~/components/ui/BlavadIcon';
 import LanguageSwitcher from '~/components/ui/LanguageSwitcher';
@@ -23,10 +23,15 @@ function MenuPage() {
         { title: t('nav.contact'), path: 'contact' },
     ];
 
+    const handleClick = (event: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+        // Liens externes et ouvertures dans un nouvel onglet : géré par le navigateur
+        if (isExternalLink(path) || !isPlainLeftClick(event)) return;
+        event.preventDefault();
+        handleNavigate(path);
+    };
+
     const handleNavigate = (path: string) => {
-        if (isExternalLink(path)) {
-            open(path, '_blank', 'noopener,noreferrer');
-        } else if (path.startsWith('/')) {
+        if (path.startsWith('/')) {
             navigate(path);
             sleep(MENU_ANIMATION_DURATION).then(() => {
                 close();
@@ -52,10 +57,13 @@ function MenuPage() {
                     {NavData.map((item) => (
                         <div key={item.path} className="flex items-center justify-center">
                             <a
+                                href={getNavHref(item.path)}
+                                {...(isExternalLink(item.path) && {
+                                    target: '_blank',
+                                    rel: 'noopener noreferrer',
+                                })}
                                 className="hover:text-text/50 decoration-black2 decoration-1.5 cursor-pointer text-3xl font-bold underline"
-                                onClick={() => {
-                                    handleNavigate(item.path);
-                                }}
+                                onClick={(event) => handleClick(event, item.path)}
                             >
                                 {item.title}
                             </a>

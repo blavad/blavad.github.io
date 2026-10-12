@@ -1,7 +1,8 @@
 import { forwardRef, useState } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { motion } from 'framer-motion';
-import { cn } from '~/lib/utils';
+import useNavigate from '~/hooks/useNavigate';
+import { cn, isExternalLink, isPlainLeftClick, scrollToSection } from '~/lib/utils';
 
 const buttonVariants = cva(
     'relative overflow-hidden inline-flex items-center justify-center whitespace-nowrap rounded-3xl text-sm font-bold transition-colors outline-offset-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
@@ -34,16 +35,56 @@ export interface ButtonProps
     extends React.ButtonHTMLAttributes<HTMLButtonElement>,
         VariantProps<typeof buttonVariants> {
     asChild?: boolean;
+    /** Transforme le bouton en lien : route ('/x'), ancre de section ('#x') ou URL externe */
+    href?: string;
+    target?: string;
+    rel?: string;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, variant = 'default', size, asChild = false, color, children, ...props }, ref) => {
+    (
+        {
+            className,
+            variant = 'default',
+            size,
+            asChild = false,
+            color,
+            children,
+            href,
+            target,
+            rel,
+            onClick,
+            ...props
+        },
+        ref
+    ) => {
         const [isHovered, setIsHovered] = useState(false);
+        const navigate = useNavigate();
+        const Comp = (href ? motion.a : motion.button) as typeof motion.button;
+        const isExternal = !!href && isExternalLink(href);
+
+        const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+            onClick?.(event);
+            // Liens externes et ouvertures dans un nouvel onglet : géré par le navigateur
+            if (!href || isExternal || event.defaultPrevented || !isPlainLeftClick(event)) return;
+            event.preventDefault();
+            if (href.startsWith('#')) {
+                scrollToSection(href.slice(1));
+            } else {
+                navigate(href);
+            }
+        };
 
         return (
             // @ts-ignore
-            <motion.button
+            <Comp
                 ref={ref}
+                {...(href && {
+                    href,
+                    target: target ?? (isExternal ? '_blank' : undefined),
+                    rel: rel ?? (isExternal ? 'noopener noreferrer' : undefined),
+                })}
+                onClick={handleClick}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 whileTap={{ scale: 0.95 }}
@@ -84,7 +125,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                 ) : (
                     children
                 )}
-            </motion.button>
+            </Comp>
         );
     }
 );
