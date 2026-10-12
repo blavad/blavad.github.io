@@ -73,7 +73,16 @@
             "art": "Otra consulta"
         },
         "success": "¡Mensaje enviado!",
-        "error": "Error, inténtalo de nuevo."
+        "error": "Error, inténtalo de nuevo.",
+        "errors": {
+            "nameRequired": "Indica tu nombre.",
+            "emailRequired": "Indica tu correo electrónico.",
+            "emailInvalid": "Este correo electrónico no parece válido.",
+            "subjectRequired": "Elige un asunto.",
+            "messageRequired": "Escribe tu mensaje.",
+            "summary_one": "1 campo por completar o corregir.",
+            "summary_other": "{{count}} campos por completar o corregir."
+        }
     },
     "tech": {
         "heroCard": {

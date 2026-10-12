@@ -73,7 +73,16 @@
             "art": "Other request"
         },
         "success": "Message sent!",
-        "error": "Something went wrong, please try again."
+        "error": "Something went wrong, please try again.",
+        "errors": {
+            "nameRequired": "Please enter your name.",
+            "emailRequired": "Please enter your email address.",
+            "emailInvalid": "This email address doesn't look valid.",
+            "subjectRequired": "Please choose a subject.",
+            "messageRequired": "Please write your message.",
+            "summary_one": "1 field to fill in or fix.",
+            "summary_other": "{{count}} fields to fill in or fix."
+        }
     },
     "tech": {
         "heroCard": {

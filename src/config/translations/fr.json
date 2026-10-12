@@ -73,7 +73,16 @@
             "art": "Autre demande"
         },
         "success": "Message envoyé !",
-        "error": "Erreur, merci de réessayer."
+        "error": "Erreur, merci de réessayer.",
+        "errors": {
+            "nameRequired": "Indique ton nom.",
+            "emailRequired": "Indique ton adresse e-mail.",
+            "emailInvalid": "Cette adresse e-mail ne semble pas valide.",
+            "subjectRequired": "Choisis un sujet.",
+            "messageRequired": "Écris ton message.",
+            "summary_one": "1 champ à compléter ou corriger.",
+            "summary_other": "{{count}} champs à compléter ou corriger."
+        }
     },
     "tech": {
         "heroCard": {

@@ -73,7 +73,15 @@
             "art": "其他咨询"
         },
         "success": "消息已发送！",
-        "error": "出错了，请重试。"
+        "error": "出错了，请重试。",
+        "errors": {
+            "nameRequired": "请填写你的姓名。",
+            "emailRequired": "请填写你的电子邮箱。",
+            "emailInvalid": "该电子邮箱地址似乎无效。",
+            "subjectRequired": "请选择一个主题。",
+            "messageRequired": "请填写留言内容。",
+            "summary_other": "还有 {{count}} 个字段需要填写或修改。"
+        }
     },
     "tech": {
         "heroCard": {
