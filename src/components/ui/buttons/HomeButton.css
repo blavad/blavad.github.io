@@ -64,7 +64,7 @@
     border-radius: 20px;
     font-size: var(--font-small);
     text-align: center;
-    background-color: var(--color-white);
+    background-color: var(--color-surface);
     margin-top: 0.1rem;
     text-transform: uppercase;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);

@@ -5,7 +5,8 @@
         "contact": "Contact",
         "home": "Accueil",
         "unboared": "Unboared",
-        "menu": "Menu"
+        "menu": "Menu",
+        "darkMode": "Mode obscure"
     },
     "hero": {
         "scrollHint": "+ Fais défiler pour en savoir plus +",

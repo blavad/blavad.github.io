@@ -149,13 +149,13 @@ export function HomeContent({
                         transition={{ duration: 0.25, ease: 'easeOut' }}
                     >
                         <button
-                            className="absolute top-3 right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white shadow-md"
+                            className="absolute top-3 right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-surface shadow-md"
                             onClick={onClose}
                             aria-label={t('hero.closeCard')}
                         >
                             <X size={18} />
                         </button>
-                        <div className="h-full w-full rounded-3xl bg-white/95 px-7 py-4 text-left">
+                        <div className="h-full w-full rounded-3xl bg-surface/95 px-7 py-4 text-left">
                             <h2 className={styles.title}>{t(`topics.${topicID}.title`)}</h2>
                             <p
                                 className={cn(styles.subtitle, 'bg-clip-text')}

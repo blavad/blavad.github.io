@@ -68,7 +68,7 @@ function Tech() {
                                 <img
                                     src={school.logo}
                                     alt={`${school.name} logo`}
-                                    className="cursor-pointer object-contain opacity-60 grayscale filter transition duration-300 hover:opacity-100 hover:grayscale-0"
+                                    className="cursor-pointer object-contain opacity-60 grayscale filter transition duration-300 hover:opacity-100 hover:grayscale-0 dark:opacity-80 dark:brightness-50 dark:invert dark:hover:opacity-100"
                                 />
                                 <div className="bg-black2/75 bg-opacity-60 absolute -bottom-20 left-1/2 flex w-60 -translate-x-1/2 items-center justify-center rounded-xl p-2 text-sm text-white opacity-0 backdrop-blur-sm transition-opacity duration-500 group-hover:opacity-100">
                                     ‍{getLocalizedField(school, 'description', i18n.language)}

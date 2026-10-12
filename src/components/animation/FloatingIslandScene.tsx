@@ -18,6 +18,8 @@ type SceneContextValue = {
     mouseX: MotionValue<number>;
     mouseY: MotionValue<number>;
     phase: SkyPhase;
+    // Vrai : le changement de phase s'applique sans fondu
+    instantPhase: boolean;
 };
 
 const SceneContext = createContext<SceneContextValue | null>(null);
@@ -28,9 +30,15 @@ type LayerContextValue = {
     // Classes de lumière du moment de la journée, à appliquer aux éléments animés du calque
     filter: string;
     phase: SkyPhase;
+    instantPhase: boolean;
 };
 
-const LayerContext = createContext<LayerContextValue>({ active: true, filter: '', phase: 'day' });
+const LayerContext = createContext<LayerContextValue>({
+    active: true,
+    filter: '',
+    phase: 'day',
+    instantPhase: false,
+});
 
 /** État du calque courant, pour les effets passés dans `effects` */
 export const useLayer = () => useContext(LayerContext);
@@ -50,6 +58,10 @@ export function loop(active: boolean, keyframes: Keyframes, transition: Transiti
 }
 
 const PHASE_TRANSITION = { duration: 2, ease: 'easeInOut' } as const;
+
+/** Fondu entre deux moments de la journée, ou changement immédiat */
+export const phaseTransition = (instant: boolean): Transition =>
+    instant ? { duration: 0 } : PHASE_TRANSITION;
 
 /** Dégradé posé sur l'image du ciel pour chaque moment de la journée */
 const SKY_TINTS: Record<SkyPhase, { gradient: string; opacity: number }> = {
@@ -106,6 +118,7 @@ export function FloatingIslandScene({
     skySrc,
     skyWebpSrc,
     phase = 'day',
+    instantPhase = false,
     fullscreen = false,
     header,
     overlay,
@@ -115,6 +128,7 @@ export function FloatingIslandScene({
     skySrc: string;
     skyWebpSrc?: string;
     phase?: SkyPhase;
+    instantPhase?: boolean;
     fullscreen: boolean;
     header?: ReactNode;
     overlay?: ReactNode;
@@ -166,7 +180,8 @@ export function FloatingIslandScene({
             {/* Ciel : légèrement agrandi pour que le parallaxe ne découvre jamais les bords */}
             <motion.div
                 className={cn(
-                    'absolute -inset-[4%] transition-[filter] duration-1000',
+                    'absolute -inset-[4%]',
+                    !instantPhase && 'transition-[filter] duration-1000',
                     // Bleu un peu plus soutenu que l'image d'origine (sous les teintes d'aube et de crépuscule)
                     !night && 'brightness-[0.94] saturate-[1.2]'
                 )}
@@ -190,7 +205,7 @@ export function FloatingIslandScene({
                         style={{ background: SKY_TINTS[tint].gradient }}
                         initial={false}
                         animate={{ opacity: phase === tint ? SKY_TINTS[tint].opacity : 0 }}
-                        transition={PHASE_TRANSITION}
+                        transition={phaseTransition(instantPhase)}
                     />
                 ))}
 
@@ -199,7 +214,7 @@ export function FloatingIslandScene({
                     className="absolute inset-0"
                     initial={false}
                     animate={{ opacity: night ? 1 : 0 }}
-                    transition={PHASE_TRANSITION}
+                    transition={phaseTransition(instantPhase)}
                 >
                     {night &&
                         STARS.map((star, i) => (
@@ -223,7 +238,7 @@ export function FloatingIslandScene({
 
             {header}
 
-            <SceneContext.Provider value={{ mouseX, mouseY, phase }}>
+            <SceneContext.Provider value={{ mouseX, mouseY, phase, instantPhase }}>
                 {children}
             </SceneContext.Provider>
 
@@ -281,7 +296,7 @@ export function SceneLayer({
 
     // Lumière selon le moment de la journée, partagée par l'image et ses effets
     const phaseFilter = cn(
-        'transition-[filter] duration-1000',
+        !scene.instantPhase && 'transition-[filter] duration-1000',
         // Nuit : plus sombres, avec une teinte légèrement refroidie
         scene.phase === 'night' && 'brightness-[0.7] hue-rotate-[10deg] saturate-[0.75]',
         // Aube et crépuscule : lumière rasante, légèrement dorée
@@ -319,7 +334,12 @@ export function SceneLayer({
                     filtrer le conteneur forcerait à le redessiner entièrement à chaque image. */}
                 {effects && (
                     <LayerContext.Provider
-                        value={{ active, filter: phaseFilter, phase: scene.phase }}
+                        value={{
+                            active,
+                            filter: phaseFilter,
+                            phase: scene.phase,
+                            instantPhase: scene.instantPhase,
+                        }}
                     >
                         <div className="pointer-events-none absolute inset-0">{effects}</div>
                     </LayerContext.Provider>

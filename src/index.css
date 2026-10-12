@@ -2,6 +2,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* `dark:` cible le mode obscure (classe `dark` sur <html>), et non la préférence du système */
+@custom-variant dark (&:where(.dark, .dark *));
+
 
 @theme {
     --spacing: 0.25rem;
@@ -74,6 +77,8 @@
     --color-info: var(--color-blue);
     --color-bg: var(--color-white);
     --color-text: var(--color-black2);
+    /* Fond des cartes, boutons et champs (sombre en mode obscure, contrairement à --color-white) */
+    --color-surface: var(--color-white);
 
     --color-gradient-black: linear-gradient(-40deg, var(--color-black), var(--color-white));
     --color-gradient-white: linear-gradient(-40deg, var(--color-white), var(--color-black));
@@ -110,6 +115,28 @@
     --border-l: 20px;
     --border-xl: 40px;
     --border-xxl: 64px;
+}
+
+/* Mode obscure : classe posée sur <html> (voir useThemeConfig et le script de index.html).
+   `--color-white` reste blanc : il sert aussi au texte et aux éléments posés sur le ciel. */
+html.dark {
+    color-scheme: dark;
+    --color-bg: #2e3d6b;
+    --color-text: #f3f1f8;
+    --color-surface: #3c4d82;
+
+    /* Teintes pâles (fond de la section contact) : 25 % de la couleur sur le fond, comme les dégradés `-rev` */
+    --color-red-100: color-mix(in srgb, var(--color-red) 25%, var(--color-bg));
+    --color-blue-100: color-mix(in srgb, var(--color-blue) 25%, var(--color-bg));
+    --color-green-100: color-mix(in srgb, var(--color-green) 25%, var(--color-bg));
+    --color-purple-100: color-mix(in srgb, var(--color-purple) 25%, var(--color-bg));
+    --color-pink-100: color-mix(in srgb, var(--color-pink) 25%, var(--color-bg));
+}
+
+html.dark {
+    --color-bg: #2b2a33;
+    --color-surface: #42414d;
+    --color-text: #f0eef5;
 }
 
 html {
@@ -228,7 +255,7 @@ body {
     input,
     textarea,
     select {
-        @apply text-base rounded-2xl border-3 border-text/50 bg-white/75 min-h-10 px-4;
+        @apply text-base rounded-2xl border-3 border-text/50 bg-surface/75 min-h-10 px-4;
         font-family: var(--font-sans);
 
         &:hover {
@@ -341,7 +368,7 @@ body {
 
 
 .bg-gradient-pink {
-    background: linear-gradient(var(--color-pink-t25), var(--color-white));
+    background: linear-gradient(var(--color-pink-t25), var(--color-bg));
 }
 
 .text-gradient-pink {
@@ -359,6 +386,7 @@ body {
 
 /* Scintillement des étoiles du ciel de nuit (FloatingIslandScene) */
 @keyframes star-twinkle {
+
     0%,
     100% {
         opacity: 0.9;

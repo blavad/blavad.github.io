@@ -62,7 +62,7 @@ function MenuPage() {
                                     target: '_blank',
                                     rel: 'noopener noreferrer',
                                 })}
-                                className="hover:text-text/50 decoration-black2 decoration-1.5 cursor-pointer text-3xl font-bold underline"
+                                className="hover:text-text/50 decoration-text decoration-1.5 cursor-pointer text-3xl font-bold underline"
                                 onClick={(event) => handleClick(event, item.path)}
                             >
                                 {item.title}

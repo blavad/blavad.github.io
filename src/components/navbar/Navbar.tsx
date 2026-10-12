@@ -2,6 +2,7 @@ import { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import useNavigate from '~/hooks/useNavigate';
 import RotatingIconButton from '../ui/buttons/RotatingIconButton';
+import DarkModeButton from '../ui/buttons/DarkModeButton';
 import { useMenu } from '~/stores/useMenu';
 import { getNavHref, isPlainLeftClick, scrollToSection } from '~/lib/utils';
 
@@ -47,7 +48,7 @@ function Navbar({ children }: PropsWithChildren<{}>) {
                                 <a
                                     key={item.path}
                                     href={getNavHref(item.path)}
-                                    className="hover:text-black2/50 cursor-pointer pr-6 font-bold"
+                                    className="hover:text-text/50 cursor-pointer pr-6 font-bold"
                                     onClick={(event) => handleClick(event, item.path)}
                                 >
                                     {item.title}
@@ -56,6 +57,7 @@ function Navbar({ children }: PropsWithChildren<{}>) {
                             {/* <LanguageSwitcher className="pr-6" /> */}
                         </div>
                     )}
+                    <DarkModeButton className="mr-3" />
                     <RotatingIconButton
                         open={isOpen}
                         onClick={isOpen ? () => close() : () => open()}
