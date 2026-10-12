@@ -117,7 +117,7 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
             {errors[field] && (
                 <motion.p
                     id={`${field}-error`}
-                    className="text-error mt-1 text-sm font-bold"
+                    className="text-error mt-1 text-center text-sm font-bold"
                     initial={{ opacity: 0, y: -4 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
@@ -132,40 +132,40 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
         <form
             ref={form}
             onSubmit={sendEmail}
-            // Colonne centrée de largeur fixe : libellés, champs et erreurs alignés à gauche
-            className={cn('mx-auto flex w-full max-w-lg flex-col py-6 text-left', className)}
+            // Libellés, champs et erreurs centrés ; les champs gardent leur largeur naturelle
+            className={cn('flex flex-col p-6', className)}
             noValidate
         >
-            <label className="mb-4 flex flex-col gap-1">
+            <label className="mb-4 flex flex-col items-center gap-1">
                 <span className="font-bold">{t('contactForm.name')}</span>
                 <input
                     type="text"
                     autoComplete="name"
                     {...fieldProps('user_name')}
-                    className={cn('w-full', invalidClass('user_name'))}
+                    className={cn(invalidClass('user_name'))}
                     onChange={() => onFieldChange('user_name')}
                 />
                 {fieldError('user_name')}
             </label>
 
-            <label className="mb-4 flex flex-col gap-1">
+            <label className="mb-4 flex flex-col items-center gap-1">
                 <span className="font-bold">{t('contactForm.email')}</span>
                 <input
                     type="email"
                     autoComplete="email"
                     {...fieldProps('user_email')}
-                    className={cn('w-full', invalidClass('user_email'))}
+                    className={cn(invalidClass('user_email'))}
                     onChange={() => onFieldChange('user_email')}
                 />
                 {fieldError('user_email')}
             </label>
 
-            <label className="mb-4 flex flex-col gap-1">
+            <label className="mb-4 flex flex-col items-center gap-1">
                 <span className="font-bold">{t('contactForm.subject')}</span>
                 <select
                     defaultValue={defaultTopic ?? ''}
                     {...fieldProps('subject')}
-                    className={cn('w-full', invalidClass('subject'))}
+                    className={cn(invalidClass('subject'))}
                     onChange={(e) => {
                         onTopicChange(e.target.value);
                         onFieldChange('subject');
@@ -184,11 +184,11 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
                 {fieldError('subject')}
             </label>
 
-            <label className="mb-4 flex flex-col gap-1">
+            <label className="mb-4 flex flex-col items-center gap-1">
                 <span className="font-bold">{t('contactForm.message')}</span>
                 <textarea
                     {...fieldProps('message')}
-                    className={cn('h-32 w-full resize-y', invalidClass('message'))}
+                    className={cn('h-24 w-full md:w-1/2', invalidClass('message'))}
                     onChange={() => onFieldChange('message')}
                 ></textarea>
                 {fieldError('message')}
