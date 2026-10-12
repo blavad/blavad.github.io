@@ -8,7 +8,8 @@
         "menu": "Menu"
     },
     "hero": {
-        "scrollHint": "+ Fais défiler pour en savoir plus +"
+        "scrollHint": "+ Fais défiler pour en savoir plus +",
+        "closeCard": "Fermer la carte"
     },
     "home": {
         "helpTitle": "Comment puis-je t'aider à développer ton activité ?",
@@ -72,7 +73,16 @@
             "art": "Autre demande"
         },
         "success": "Message envoyé !",
-        "error": "Erreur, merci de réessayer."
+        "error": "Erreur, merci de réessayer.",
+        "errors": {
+            "nameRequired": "Indique ton nom.",
+            "emailRequired": "Indique ton adresse e-mail.",
+            "emailInvalid": "Cette adresse e-mail ne semble pas valide.",
+            "subjectRequired": "Choisis un sujet.",
+            "messageRequired": "Écris ton message.",
+            "summary_one": "1 champ à compléter ou corriger.",
+            "summary_other": "{{count}} champs à compléter ou corriger."
+        }
     },
     "tech": {
         "heroCard": {
@@ -176,66 +186,52 @@
         "default": {
             "title": "David ALBERT",
             "subtitle": "Survole les icônes pour découvrir",
-            "description": []
+            "description": ""
         },
         "tech": {
             "title": "Technologie",
             "subtitle": "Consultant tech senior",
             "linkLabel": "Découvrir mes offres",
-            "description": [
-                "J'accompagne les entreprises dans la mise en place",
-                "d'un MVP solide en quelques jours.",
-                "→ Application web et mobile, produit innovant."
-            ]
+            "description": "J'accompagne les entreprises dans la mise en place d'un MVP solide en quelques jours : application web et mobile, produit innovant."
         },
         "games": {
             "title": "Jeux",
             "subtitle": "Co-fondateur d'Unboared",
             "linkLabel": "Découvrir Unboared",
-            "description": [
-                "Unboared est une solution d'animation pour les",
-                "lieux à forte affluence : bars, salles de concert,",
-                "aéroports, parcs de jeux et d'activités."
-            ]
+            "description": "Unboared est une solution d'animation pour les lieux à forte affluence : bars, salles de concert, aéroports, parcs de jeux et d'activités."
         },
         "teaching": {
             "title": "Enseignement",
             "subtitle": "Formateur / Enseignant",
             "linkLabel": "Voir les formations",
-            "description": [
-                "J'aime partager mes connaissances en informatique",
-                "en mathématiques et en IA."
-            ]
+            "description": "J'aime partager mes connaissances en informatique, en mathématiques et en IA."
         },
         "sports": {
             "title": "Sports",
             "subtitle": "J'aime le sport",
             "linkLabel": "Découvrir mes sports",
-            "description": [
-                "Après 10 ans de compétition, je le pratique",
-                "aujourd'hui pour le simple plaisir."
-            ]
+            "description": "Après 10 ans de compétition, je le pratique aujourd'hui pour le simple plaisir."
         },
         "art": {
             "title": "Créativité",
             "subtitle": "Art, design et créativité",
-            "description": []
+            "description": ""
         },
         "music": {
             "title": "Musique",
             "subtitle": "Clique pour découvrir ma playlist",
-            "description": [],
+            "description": "",
             "closePlayer": "Fermer le lecteur"
         },
         "ecology": {
             "title": "Écologie",
             "subtitle": "Engagé pour le vivant",
-            "description": []
+            "description": ""
         },
         "psychology": {
             "title": "Psychologie",
             "subtitle": "Étudiant en psychologie",
-            "description": ["En 2026, je reprends des études de psychologie."]
+            "description": "En 2026, je reprends des études de psychologie."
         }
     }
 }

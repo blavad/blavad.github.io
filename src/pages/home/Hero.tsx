@@ -35,10 +35,13 @@ import {
 } from '~/components/animation/FloatingIslandScene';
 import useActionOnScroll from '~/hooks/useActionOnScroll';
 
-import { HomeContent } from './HomeContent';
+import { CardDirection, HomeContent } from './HomeContent';
+import { HeroTitle, SkyHint } from './HeroTitle';
 import { useMenu } from '~/stores/useMenu';
+import { markHeroReady } from '~/stores/useLoading';
 
-type HeroButton = { variant: Topics; className: string };
+// `card` : côtés vers lesquels s'ouvre la carte du sujet (sinon : au-dessus s'il y a la place, centrée)
+type HeroButton = { variant: Topics; className: string; card?: CardDirection };
 
 type Island = {
     src: string;
@@ -52,6 +55,8 @@ type Island = {
     priority?: boolean;
     // Position de chaque bouton sur son lieu, en % de l'image de l'île
     buttons: HeroButton[];
+    // Point fixe (en % de l'image) où s'ouvrent, centrées, toutes les cartes de l'île ; sinon près de chaque bouton
+    cardAnchor?: string;
     // Animations accrochées à l'image (positionnées en % de l'image)
     effects?: ReactNode;
 };
@@ -69,7 +74,9 @@ const ISLANDS: Island[] = [
         depth: 0.4,
         float: { amplitude: 8, duration: 7, delay: 1 },
         className: 'max-lg:hidden',
-        buttons: [{ variant: 'psychology', className: 'top-[23%] left-[21%]' }],
+        buttons: [
+            { variant: 'psychology', className: 'top-[23%] left-[21%]', card: { y: 'below' } },
+        ],
     },
     {
         src: forestIsletImg,
@@ -126,6 +133,8 @@ const ISLANDS: Island[] = [
             { variant: 'ecology', className: 'top-[70%] left-[33%]' },
             { variant: 'tech', className: 'top-[40%] left-[2%]' },
         ],
+        // Au centre de l'île, sur l'arbre
+        cardAnchor: 'top-[38%] left-[51%]',
         effects: (
             <>
                 <Waterfall left={59} top={75} width={7.3} height={23} />
@@ -144,9 +153,9 @@ const BUTTON_ORDER = ISLANDS.flatMap((island) => island.buttons.map((button) => 
 
 // Heures locales (début inclus, fin exclue) pendant lesquelles il fait jour
 const DAY_START_HOUR = 7;
-const DAY_END_HOUR = 20;
+const DAY_END_HOUR = 21;
 // Durée (en h) de l'aube au début du jour et du crépuscule à la fin
-const TWILIGHT_HOURS = 3;
+const TWILIGHT_HOURS = 4;
 
 const getSkyPhase = (): SkyPhase => {
     const hour = new Date().getHours();
@@ -165,29 +174,30 @@ function Hero() {
     const { isOpen, open, variant, close } = useMenu();
     const { t } = useTranslation();
 
-    const openTopic = (topicID: string) => {
-        setCurrentTopicID(topicID);
-    };
+    const closeTopic = useCallback(() => setCurrentTopicID('default'), []);
 
-    const closeTopic = () => {
-        if (fullscreen) return;
-        setCurrentTopicID('default');
-    };
+    // Vrai si l'une de ces îles porte la carte ou le lecteur ouvert
+    const hasOpenPanel = (buttons: HeroButton[]) =>
+        buttons.some(
+            ({ variant }) => variant === currentTopicID || (variant === 'music' && musicOpen)
+        );
 
     const clickTopic = (topicID: string) => {
         if (topicID === 'music') {
+            // La musique n'a pas de carte : le bouton ouvre seulement le lecteur (et ferme la carte ouverte)
             setMusicOpen((prev) => !prev);
+            closeTopic();
+        } else {
+            // Recliquer sur le bouton du sujet ouvert referme sa carte
+            setCurrentTopicID((prev) => (prev === topicID ? 'default' : topicID));
         }
         if (!isOpen) {
             open('hero');
             setFullscreen(true);
-            openTopic(topicID);
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth',
             });
-        } else {
-            openTopic(topicID);
         }
     };
 
@@ -203,6 +213,21 @@ function Hero() {
     useActionOnScroll(closeFullscreen);
 
     // Fait évoluer le ciel si la page reste ouverte au passage de l'heure
+    // Signale à l'écran de chargement que le premier écran peut s'afficher (images préchargées depuis index.html)
+    useEffect(() => {
+        Promise.all(
+            [skyImgWebp, islandImg].map((src) => {
+                const img = new Image();
+                img.src = src;
+                return img.decode();
+            })
+        )
+            .catch(() => {
+                // Image en erreur : inutile de faire attendre davantage
+            })
+            .finally(markHeroReady);
+    }, []);
+
     useEffect(() => {
         const interval = setInterval(() => setSkyPhase(getSkyPhase()), 60_000);
         return () => clearInterval(interval);
@@ -233,16 +258,19 @@ function Hero() {
                 skyWebpSrc={skyImgWebp}
                 phase={skyPhase}
                 fullscreen={fullscreen}
-                header={<HomeContent topicID={currentTopicID} fullscreen={fullscreen} />}
+                header={
+                    <HeroTitle
+                        hintVisible={currentTopicID === 'default' && !musicOpen}
+                        fullscreen={fullscreen}
+                    />
+                }
                 overlay={
-                    <p
-                        className={cn(
-                            'absolute bottom-[2%] left-[50%] w-full -translate-x-1/2 text-base transition-colors duration-1000',
-                            skyPhase === 'night' && 'text-white'
-                        )}
+                    <SkyHint
+                        className="absolute bottom-[2%] left-1/2 w-full -translate-x-1/2 px-4"
+                        delay={1.2}
                     >
                         {t('hero.scrollHint')}
-                    </p>
+                    </SkyHint>
                 }
             >
                 {/* Nuages lointains : dérivent lentement derrière les îles */}
@@ -288,25 +316,32 @@ function Hero() {
                     imgClassName="opacity-75 saturate-[0.7] blur-[0.5px]"
                 />
 
-                {ISLANDS.map(({ buttons, effects, ...island }) => (
+                {ISLANDS.map(({ buttons, cardAnchor, effects, ...island }) => (
                     <SceneLayer
                         key={island.src}
                         {...island}
                         effects={effects}
-                        // Passe l'île au premier plan pour que le lecteur ouvert ne soit pas masqué
-                        className={cn(
-                            island.className,
-                            musicOpen && buttons.some((b) => b.variant === 'music') && 'z-20'
-                        )}
+                        // Immobilise l'île dont la carte ou le lecteur est ouvert : un texte qui flotte tremble (arrondi au pixel)
+                        still={hasOpenPanel(buttons)}
+                        // Passe l'île au premier plan pour que le lecteur ou la carte ouverts ne soient pas masqués
+                        className={cn(island.className, hasOpenPanel(buttons) && 'z-20')}
                     >
-                        {buttons.map(({ variant, className }) => (
+                        {buttons.map(({ variant, className, card }) => (
                             <Fragment key={variant}>
-                                {variant === 'music' && (
+                                {variant === 'music' ? (
                                     <MusicPlayer
                                         open={musicOpen}
                                         onClose={closeMusic}
                                         // Au-dessus du rond du bouton, avec une petite marge
                                         className={cn(className, '-mt-8')}
+                                    />
+                                ) : (
+                                    <HomeContent
+                                        topicID={variant}
+                                        open={currentTopicID === variant}
+                                        onClose={closeTopic}
+                                        direction={cardAnchor ? { y: 'center' } : card}
+                                        className={cardAnchor ?? className}
                                     />
                                 )}
                                 <HomeButton
@@ -322,8 +357,6 @@ function Hero() {
                                             '--pulse-delay': `${BUTTON_ORDER.indexOf(variant) * PULSE_INTERVAL}s`,
                                         } as CSSProperties
                                     }
-                                    onHoverStart={openTopic}
-                                    onHoverEnd={closeTopic}
                                     onClick={clickTopic}
                                 >
                                     {t(`topics.${topics[variant].id}.title`)}

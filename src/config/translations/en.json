@@ -8,7 +8,8 @@
         "menu": "Menu"
     },
     "hero": {
-        "scrollHint": "+ Scroll down to learn more +"
+        "scrollHint": "+ Scroll down to learn more +",
+        "closeCard": "Close the card"
     },
     "home": {
         "helpTitle": "How can I help you grow your business?",
@@ -72,7 +73,16 @@
             "art": "Other request"
         },
         "success": "Message sent!",
-        "error": "Something went wrong, please try again."
+        "error": "Something went wrong, please try again.",
+        "errors": {
+            "nameRequired": "Please enter your name.",
+            "emailRequired": "Please enter your email address.",
+            "emailInvalid": "This email address doesn't look valid.",
+            "subjectRequired": "Please choose a subject.",
+            "messageRequired": "Please write your message.",
+            "summary_one": "1 field to fill in or fix.",
+            "summary_other": "{{count}} fields to fill in or fix."
+        }
     },
     "tech": {
         "heroCard": {
@@ -176,66 +186,52 @@
         "default": {
             "title": "David ALBERT",
             "subtitle": "Hover over the icons to explore",
-            "description": []
+            "description": ""
         },
         "tech": {
             "title": "Technology",
             "subtitle": "Senior tech consultant",
             "linkLabel": "Discover my services",
-            "description": [
-                "I help companies set up a solid MVP",
-                "in just a few days.",
-                "→ Web and mobile apps, innovative products."
-            ]
+            "description": "I help companies set up a solid MVP in just a few days: web and mobile apps, innovative products."
         },
         "games": {
             "title": "Games",
             "subtitle": "Co-founder of Unboared",
             "linkLabel": "Discover Unboared",
-            "description": [
-                "Unboared is an entertainment solution for",
-                "busy venues: bars, concert halls,",
-                "airports, playgrounds and activity parks."
-            ]
+            "description": "Unboared is an entertainment solution for busy venues: bars, concert halls, airports, playgrounds and activity parks."
         },
         "teaching": {
             "title": "Teaching",
             "subtitle": "Trainer / Teacher",
             "linkLabel": "See the courses",
-            "description": [
-                "I love sharing my knowledge of computer",
-                "science, mathematics and AI."
-            ]
+            "description": "I love sharing my knowledge of computer science, mathematics and AI."
         },
         "sports": {
             "title": "Sports",
             "subtitle": "I love sports",
             "linkLabel": "Discover my sports",
-            "description": [
-                "After 10 years of competition, I now play",
-                "sports simply for the fun of it."
-            ]
+            "description": "After 10 years of competition, I now play sports simply for the fun of it."
         },
         "art": {
             "title": "Creativity",
             "subtitle": "Art, design and creativity",
-            "description": []
+            "description": ""
         },
         "music": {
             "title": "Music",
             "subtitle": "Click to discover my playlist",
-            "description": [],
+            "description": "",
             "closePlayer": "Close the player"
         },
         "ecology": {
             "title": "Ecology",
             "subtitle": "Committed to the living world",
-            "description": []
+            "description": ""
         },
         "psychology": {
             "title": "Psychology",
             "subtitle": "Psychology student",
-            "description": ["In 2026, I'm going back to study psychology."]
+            "description": "In 2026, I'm going back to study psychology."
         }
     }
 }

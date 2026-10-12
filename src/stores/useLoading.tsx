@@ -23,3 +23,10 @@ export const useLoading = create<LoadingState>((set) => ({
         await new Promise((resolve) => setTimeout(resolve, MENU_ANIMATION_DURATION));
     },
 }));
+
+let resolveHeroReady: () => void;
+
+/** Résolue quand les images du premier écran de l'accueil (ciel, île principale) sont prêtes à s'afficher */
+export const heroReady = new Promise<void>((resolve) => (resolveHeroReady = resolve));
+
+export const markHeroReady = () => resolveHeroReady();

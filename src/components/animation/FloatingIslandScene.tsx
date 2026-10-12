@@ -51,8 +51,13 @@ export function loop(active: boolean, keyframes: Keyframes, transition: Transiti
 
 const PHASE_TRANSITION = { duration: 2, ease: 'easeInOut' } as const;
 
-/** Dégradé posé sur l'image du ciel pour chaque moment de la journée (le jour garde le ciel d'origine) */
-const SKY_TINTS: Record<Exclude<SkyPhase, 'day'>, { gradient: string; opacity: number }> = {
+/** Dégradé posé sur l'image du ciel pour chaque moment de la journée */
+const SKY_TINTS: Record<SkyPhase, { gradient: string; opacity: number }> = {
+    // Jour : léger bleu soutenu, plus marqué en haut (derrière le titre) et en bas, pour faire ressortir le texte blanc
+    day: {
+        gradient: 'linear-gradient(to bottom, #1f4f94, #3f80cc 35%, #6fa6de 70%, #4f87c8)',
+        opacity: 0.15,
+    },
     // Aube : bleu doux en haut, rose puis pêche à l'horizon
     dawn: {
         gradient: 'linear-gradient(to bottom, #7d97c9, #e6a7b0 65%, #f7c99a)',
@@ -140,7 +145,9 @@ export function FloatingIslandScene({
     return (
         <motion.div
             ref={sceneRef}
-            // `perspective` fait de la scène le bloc de référence des éléments `fixed` (ex. HomeContent)
+            // Repère des cartes de sujet (HomeContent), qui restent dans les limites de la scène
+            data-scene
+            // `perspective` fait de la scène le bloc de référence des éléments `fixed` et isole ses z-index
             className={cn('relative overflow-hidden rounded-3xl perspective-[1000px]', className)}
             // Permet de dimensionner les calques en unités cqw/cqh (relatives à la scène)
             style={{ containerType: 'size' }}
@@ -229,6 +236,7 @@ export function FloatingIslandScene({
  * Calque détouré de la scène, centré sur (`left`, `top`) en % de la scène.
  * - `depth` : intensité du parallaxe (0 = immobile, 1 = premier plan)
  * - `float` : oscillation continue (amplitude en px, durée et délai en s, axe)
+ * - `still` : suspend l'oscillation (ex. pour garder lisible un texte accroché au calque)
  * - `effects` : animations dessinées sur l'image ; elles lisent `useLayer()` pour s'éclairer comme elle
  *   et se suspendre quand le calque n'est pas visible
  * Les `children` sont positionnés en % de l'image : ils restent accrochés à ses éléments.
@@ -241,6 +249,7 @@ export function SceneLayer({
     depth,
     float,
     priority = false,
+    still = false,
     effects,
     className,
     imgClassName,
@@ -253,6 +262,7 @@ export function SceneLayer({
     depth: number;
     float?: { amplitude: number; duration: number; delay?: number; axis?: 'x' | 'y' };
     priority?: boolean;
+    still?: boolean;
     effects?: ReactNode;
     className?: string;
     imgClassName?: string;
@@ -290,7 +300,7 @@ export function SceneLayer({
                 className="relative"
                 {...(float &&
                     loop(
-                        active,
+                        active && !still,
                         { [axis]: [0, -float.amplitude, 0] },
                         { duration: float.duration, delay: float.delay ?? 0, ease: 'easeInOut' }
                     ))}
@@ -301,6 +311,8 @@ export function SceneLayer({
                     alt=""
                     draggable={false}
                     fetchPriority={priority ? 'high' : 'auto'}
+                    // Les calques masqués (ex. îlots sur mobile) ne sont alors jamais téléchargés
+                    loading={priority ? 'eager' : 'lazy'}
                 />
                 {/* Animations accrochées à l'image, positionnées en % de celle-ci, sous les `children`.
                     Le filtre de lumière est appliqué par chaque effet sur ses éléments animés plutôt qu'ici :
