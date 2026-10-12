@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import { cn, isExternalLink } from '~/lib/utils';
@@ -9,12 +9,28 @@ import { useMenu } from '~/stores/useMenu';
 
 import styles from './HomeContent.module.css';
 
-const LINE_HEIGHT = 16;
-const LINE_APPEAR_TIME = 0.1;
-const LINK_HEIGHT = 28; // Hauteur ajoutée à la carte quand le sujet a un lien
-const MOBILE_QUERY = '(max-width: 32rem)'; // matches the `xs` breakpoint
+const SCENE_MARGIN = 16; // Marge minimale entre la carte et les bords de la scène
+const GAP_ABOVE = 56; // Distance entre le point d'ancrage et la carte placée au-dessus (bouton soulevé au survol)
+const GAP_BELOW = 50; // Distance entre le point d'ancrage et la carte placée en dessous (sous l'étiquette du bouton)
 
-export function HomeContent({ topicID, fullscreen }: { topicID: string; fullscreen: boolean }) {
+type Placement = { left: number; top: number; above: boolean };
+
+/**
+ * Carte d'un sujet qui apparaît à côté du bouton qui l'ouvre, fermée par un clic à l'extérieur ou Échap.
+ * Le parent doit être positionné : le point d'ancrage (centre du bouton) est donné par `className`.
+ * La carte se place au-dessus du bouton s'il y a la place, sinon en dessous, et reste dans la scène.
+ */
+export function HomeContent({
+    topicID,
+    open,
+    onClose,
+    className,
+}: {
+    topicID: string;
+    open: boolean;
+    onClose: () => void;
+    className?: string;
+}) {
     const { t } = useTranslation();
     const currentTopic = (topics as any)[topicID] || topics.default;
     const description = t(`topics.${topicID}.description`, { returnObjects: true }) as string[];
@@ -23,82 +39,146 @@ export function HomeContent({ topicID, fullscreen }: { topicID: string; fullscre
     const link: string | undefined = currentTopic.link;
     const navigate = useNavigate();
     const closeMenu = useMenu((state) => state.close);
-    const [isMobile, setIsMobile] = useState(() => window.matchMedia(MOBILE_QUERY).matches);
+
+    const anchorRef = useRef<HTMLDivElement>(null);
+    const cardRef = useRef<HTMLDivElement>(null);
+    const [placement, setPlacement] = useState<Placement>({ left: 0, top: 0, above: true });
 
     useEffect(() => {
-        const mediaQuery = window.matchMedia(MOBILE_QUERY);
-        const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
-        mediaQuery.addEventListener('change', onChange);
-        return () => mediaQuery.removeEventListener('change', onChange);
-    }, []);
+        if (!open) return;
+        const handlePointerDown = (e: PointerEvent) => {
+            const target = e.target as Element;
+            // Les boutons gèrent eux-mêmes le changement de sujet (ou la fermeture en recliquant)
+            if (cardRef.current?.contains(target) || target.closest('.home-btn')) return;
+            onClose();
+        };
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onClose();
+        };
+        document.addEventListener('pointerdown', handlePointerDown);
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            document.removeEventListener('pointerdown', handlePointerDown);
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, [open, onClose]);
+
+    // Recalcule la position quand la scène (passage en plein écran) ou la carte (description) changent de taille
+    useLayoutEffect(() => {
+        const anchor = anchorRef.current;
+        const card = cardRef.current;
+        const scene = anchor?.closest('[data-scene]');
+        if (!open || !anchor || !card || !scene) return;
+
+        const place = () => {
+            const a = anchor.getBoundingClientRect();
+            const s = scene.getBoundingClientRect();
+            // Dimensions hors transformations (l'animation d'apparition joue sur l'échelle)
+            const width = card.offsetWidth;
+            const height = card.offsetHeight;
+
+            const spaceAbove = a.top - s.top - SCENE_MARGIN - GAP_ABOVE;
+            const spaceBelow = s.bottom - a.top - SCENE_MARGIN - GAP_BELOW;
+            const above = spaceAbove >= height || spaceAbove >= spaceBelow;
+
+            const clamp = (value: number, min: number, max: number) =>
+                Math.max(min, Math.min(value, max));
+            setPlacement({
+                above,
+                left: clamp(
+                    -width / 2,
+                    s.left + SCENE_MARGIN - a.left,
+                    s.right - SCENE_MARGIN - width - a.left
+                ),
+                top: clamp(
+                    above ? -GAP_ABOVE - height : GAP_BELOW,
+                    s.top + SCENE_MARGIN - a.top,
+                    s.bottom - SCENE_MARGIN - height - a.top
+                ),
+            });
+        };
+
+        place();
+        const observer = new ResizeObserver(place);
+        observer.observe(scene);
+        observer.observe(card);
+        return () => observer.disconnect();
+    }, [open]);
 
     return (
-        <motion.div
-            className={cn(
-                'align-end xs:w-sm fixed top-8 left-[50%] z-10 w-[90%] -translate-x-[50%] rounded-3xl shadow-xl'
-            )}
-            style={{
-                background: `var(--color-gradient-${currentTopic.color})`,
-            }}
-            animate={{
-                y: fullscreen ? (isMobile ? 50 : 10) : 0,
-                height: fullscreen
-                    ? 100 + descriptionArray.length * LINE_HEIGHT + (link ? LINK_HEIGHT : 0)
-                    : 'auto',
-                transition: {
-                    height: { duration: descriptionArray.length * LINE_APPEAR_TIME },
-                },
-                padding: fullscreen ? '4px' : '3px',
-            }}
+        <div
+            ref={anchorRef}
+            // Au-dessus des boutons de l'île (`.home-btn` est en z-index 1000)
+            className={cn('absolute z-1001 h-0 w-0', className)}
         >
-            <motion.div
-                className={cn(
-                    'h-full w-full max-w-sm rounded-3xl bg-white/95 px-7 text-left',
-                    fullscreen ? 'py-4' : 'py-2'
-                )}
-            >
-                <h1 className={styles.title}>David ALBERT</h1>
-                <motion.p
-                    className={styles.subtitle}
-                    animate={{
-                        background: `var(--color-gradient-${currentTopic.color})`,
-                        backgroundClip: 'text',
-                        color: 'transparent',
-                        transition: {
-                            duration: 0,
-                        },
-                    }}
-                >
-                    {t(`topics.${topicID}.subtitle`)}
-                </motion.p>
-                {fullscreen &&
-                    descriptionArray.map((desc: string) => (
-                        <motion.p key={desc} className={styles.description}>
-                            {desc}
-                        </motion.p>
-                    ))}
-                {fullscreen && link && (
-                    <a
-                        className={styles.link}
-                        href={link}
-                        // Lien externe : nouvel onglet ; lien interne : navigation du site (avec écran de chargement)
-                        {...(isExternalLink(link)
-                            ? { target: '_blank', rel: 'noopener noreferrer' }
-                            : {
-                                  onClick: (e) => {
-                                      e.preventDefault();
-                                      // Le plein écran du Hero ouvre le menu en mode « hero » : on le referme,
-                                      // sinon la page suivante garde la navbar masquée et la croix du menu
-                                      closeMenu();
-                                      navigate(link);
-                                  },
-                              })}
-                        style={{ backgroundImage: `var(--color-gradient-${currentTopic.color})` }}
+            <AnimatePresence>
+                {open && (
+                    <motion.div
+                        ref={cardRef}
+                        className="absolute w-[min(22rem,calc(100cqw-2rem))] rounded-3xl p-1 shadow-xl"
+                        style={{
+                            left: placement.left,
+                            top: placement.top,
+                            // L'animation part du bouton
+                            transformOrigin: `${-placement.left}px ${placement.above ? '100%' : '0%'}`,
+                            background: `var(--color-gradient-${currentTopic.color})`,
+                        }}
+                        initial={{ opacity: 0, scale: 0.6 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.6 }}
+                        transition={{ duration: 0.25, ease: 'easeOut' }}
                     >
-                        {t(`topics.${topicID}.linkLabel`)} →
-                    </a>
+                        <div className="h-full w-full rounded-3xl bg-white/95 px-7 py-4 text-left">
+                            <h2 className={styles.title}>{t(`topics.${topicID}.title`)}</h2>
+                            <p
+                                className={cn(styles.subtitle, 'bg-clip-text')}
+                                style={{
+                                    backgroundImage: `var(--color-gradient-${currentTopic.color})`,
+                                    // En style plutôt qu'en classe : la couleur de `.subtitle` l'emporterait
+                                    // et se dessinerait par-dessus le dégradé
+                                    color: 'transparent',
+                                }}
+                            >
+                                {t(`topics.${topicID}.subtitle`)}
+                            </p>
+                            {descriptionArray.map((desc: string, i) => (
+                                <motion.p
+                                    key={desc}
+                                    className={styles.description}
+                                    initial={{ opacity: 0, y: 4 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.05 * i }}
+                                >
+                                    {desc}
+                                </motion.p>
+                            ))}
+                            {link && (
+                                <a
+                                    className={styles.link}
+                                    href={link}
+                                    // Lien externe : nouvel onglet ; lien interne : navigation du site (avec écran de chargement)
+                                    {...(isExternalLink(link)
+                                        ? { target: '_blank', rel: 'noopener noreferrer' }
+                                        : {
+                                              onClick: (e) => {
+                                                  e.preventDefault();
+                                                  // Le plein écran du Hero ouvre le menu en mode « hero » : on le referme,
+                                                  // sinon la page suivante garde la navbar masquée et la croix du menu
+                                                  closeMenu();
+                                                  navigate(link);
+                                              },
+                                          })}
+                                    style={{
+                                        backgroundImage: `var(--color-gradient-${currentTopic.color})`,
+                                    }}
+                                >
+                                    {t(`topics.${topicID}.linkLabel`)} →
+                                </a>
+                            )}
+                        </div>
+                    </motion.div>
                 )}
-            </motion.div>
-        </motion.div>
+            </AnimatePresence>
+        </div>
     );
 }

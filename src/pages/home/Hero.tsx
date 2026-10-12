@@ -165,29 +165,21 @@ function Hero() {
     const { isOpen, open, variant, close } = useMenu();
     const { t } = useTranslation();
 
-    const openTopic = (topicID: string) => {
-        setCurrentTopicID(topicID);
-    };
-
-    const closeTopic = () => {
-        if (fullscreen) return;
-        setCurrentTopicID('default');
-    };
+    const closeTopic = useCallback(() => setCurrentTopicID('default'), []);
 
     const clickTopic = (topicID: string) => {
         if (topicID === 'music') {
             setMusicOpen((prev) => !prev);
         }
+        // Recliquer sur le bouton du sujet ouvert referme sa carte
+        setCurrentTopicID((prev) => (prev === topicID ? 'default' : topicID));
         if (!isOpen) {
             open('hero');
             setFullscreen(true);
-            openTopic(topicID);
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth',
             });
-        } else {
-            openTopic(topicID);
         }
     };
 
@@ -233,7 +225,17 @@ function Hero() {
                 skyWebpSrc={skyImgWebp}
                 phase={skyPhase}
                 fullscreen={fullscreen}
-                header={<HomeContent topicID={currentTopicID} fullscreen={fullscreen} />}
+                header={
+                    <div
+                        className={cn(
+                            'pointer-events-none absolute top-[3%] left-1/2 w-full -translate-x-1/2 text-base transition-colors duration-1000',
+                            skyPhase === 'night' && 'text-white'
+                        )}
+                    >
+                        <p className="font-semibold">David Albert</p>
+                        <p>{t('topics.default.subtitle')}</p>
+                    </div>
+                }
                 overlay={
                     <p
                         className={cn(
@@ -293,10 +295,16 @@ function Hero() {
                         key={island.src}
                         {...island}
                         effects={effects}
-                        // Passe l'île au premier plan pour que le lecteur ouvert ne soit pas masqué
+                        // Immobilise l'île dont la carte est ouverte : un texte qui flotte tremble (arrondi au pixel)
+                        still={buttons.some((b) => b.variant === currentTopicID)}
+                        // Passe l'île au premier plan pour que le lecteur ou la carte ouverts ne soient pas masqués
                         className={cn(
                             island.className,
-                            musicOpen && buttons.some((b) => b.variant === 'music') && 'z-20'
+                            buttons.some(
+                                (b) =>
+                                    b.variant === currentTopicID ||
+                                    (musicOpen && b.variant === 'music')
+                            ) && 'z-20'
                         )}
                     >
                         {buttons.map(({ variant, className }) => (
@@ -309,6 +317,16 @@ function Hero() {
                                         className={cn(className, '-mt-8')}
                                     />
                                 )}
+                                <HomeContent
+                                    topicID={variant}
+                                    // Le lecteur de musique ouvert remplace la carte
+                                    open={
+                                        currentTopicID === variant &&
+                                        !(variant === 'music' && musicOpen)
+                                    }
+                                    onClose={closeTopic}
+                                    className={className}
+                                />
                                 <HomeButton
                                     variant={variant}
                                     className={cn(
@@ -322,8 +340,6 @@ function Hero() {
                                             '--pulse-delay': `${BUTTON_ORDER.indexOf(variant) * PULSE_INTERVAL}s`,
                                         } as CSSProperties
                                     }
-                                    onHoverStart={openTopic}
-                                    onHoverEnd={closeTopic}
                                     onClick={clickTopic}
                                 >
                                     {t(`topics.${topics[variant].id}.title`)}

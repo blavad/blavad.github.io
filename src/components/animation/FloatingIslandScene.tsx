@@ -140,7 +140,9 @@ export function FloatingIslandScene({
     return (
         <motion.div
             ref={sceneRef}
-            // `perspective` fait de la scène le bloc de référence des éléments `fixed` (ex. HomeContent)
+            // Repère des cartes de sujet (HomeContent), qui restent dans les limites de la scène
+            data-scene
+            // `perspective` fait de la scène le bloc de référence des éléments `fixed` et isole ses z-index
             className={cn('relative overflow-hidden rounded-3xl perspective-[1000px]', className)}
             // Permet de dimensionner les calques en unités cqw/cqh (relatives à la scène)
             style={{ containerType: 'size' }}
@@ -229,6 +231,7 @@ export function FloatingIslandScene({
  * Calque détouré de la scène, centré sur (`left`, `top`) en % de la scène.
  * - `depth` : intensité du parallaxe (0 = immobile, 1 = premier plan)
  * - `float` : oscillation continue (amplitude en px, durée et délai en s, axe)
+ * - `still` : suspend l'oscillation (ex. pour garder lisible un texte accroché au calque)
  * - `effects` : animations dessinées sur l'image ; elles lisent `useLayer()` pour s'éclairer comme elle
  *   et se suspendre quand le calque n'est pas visible
  * Les `children` sont positionnés en % de l'image : ils restent accrochés à ses éléments.
@@ -241,6 +244,7 @@ export function SceneLayer({
     depth,
     float,
     priority = false,
+    still = false,
     effects,
     className,
     imgClassName,
@@ -253,6 +257,7 @@ export function SceneLayer({
     depth: number;
     float?: { amplitude: number; duration: number; delay?: number; axis?: 'x' | 'y' };
     priority?: boolean;
+    still?: boolean;
     effects?: ReactNode;
     className?: string;
     imgClassName?: string;
@@ -290,7 +295,7 @@ export function SceneLayer({
                 className="relative"
                 {...(float &&
                     loop(
-                        active,
+                        active && !still,
                         { [axis]: [0, -float.amplitude, 0] },
                         { duration: float.duration, delay: float.delay ?? 0, ease: 'easeInOut' }
                     ))}
