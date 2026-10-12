@@ -9,7 +9,7 @@
         "darkMode": "Mode obscure"
     },
     "hero": {
-        "scrollHint": "+ Fais défiler pour en savoir plus +",
+        "scrollHint": "+ Scroll pour en savoir plus +",
         "closeCard": "Fermer la carte"
     },
     "home": {
