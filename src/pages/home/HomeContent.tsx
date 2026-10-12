@@ -14,6 +14,10 @@ const SCENE_MARGIN = 16; // Marge minimale entre la carte et les bords de la sc�
 const GAP_ABOVE = 56; // Distance entre le point d'ancrage et la carte placée au-dessus (bouton soulevé au survol)
 const GAP_BELOW = 50; // Distance entre le point d'ancrage et la carte placée en dessous (sous l'étiquette du bouton)
 const CORNER_INSET = 40; // Distance entre le point d'ancrage et le bord de la carte qui s'étend d'un côté
+// Sur mobile (même seuil que les boutons de l'île), une carte centrée l'est sur la scène plutôt que sur son ancrage
+const MOBILE_QUERY = '(max-width: 639px)';
+// Hauteur (fraction de la scène) du centre de la carte sur mobile : un peu au-dessus du milieu, qui paraît trop bas
+const MOBILE_CARD_CENTER = 0.35;
 
 /**
  * Côtés vers lesquels la carte s'ouvre depuis son point d'ancrage (par défaut : au-dessus s'il y a la place,
@@ -103,6 +107,9 @@ export function HomeContent({
 
             const clamp = (value: number, min: number, max: number) =>
                 Math.max(min, Math.min(value, max));
+            const centerTop = window.matchMedia(MOBILE_QUERY).matches
+                ? s.top + s.height * MOBILE_CARD_CENTER - height / 2 - a.top
+                : -height / 2;
             setPlacement({
                 // L'animation d'apparition part du point d'ancrage
                 originY: { above: '100%', below: '0%', center: '50%' }[y],
@@ -112,7 +119,7 @@ export function HomeContent({
                     s.right - SCENE_MARGIN - width - a.left
                 ),
                 top: clamp(
-                    { above: -GAP_ABOVE - height, below: GAP_BELOW, center: -height / 2 }[y],
+                    { above: -GAP_ABOVE - height, below: GAP_BELOW, center: centerTop }[y],
                     s.top + SCENE_MARGIN - a.top,
                     s.bottom - SCENE_MARGIN - height - a.top
                 ),
@@ -149,13 +156,13 @@ export function HomeContent({
                         transition={{ duration: 0.25, ease: 'easeOut' }}
                     >
                         <button
-                            className="absolute top-3 right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-surface shadow-md"
+                            className="bg-surface absolute top-3 right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full shadow-md"
                             onClick={onClose}
                             aria-label={t('hero.closeCard')}
                         >
                             <X size={18} />
                         </button>
-                        <div className="h-full w-full rounded-3xl bg-surface/95 px-7 py-4 text-left">
+                        <div className="bg-surface/95 h-full w-full rounded-3xl px-7 py-4 text-left">
                             <h2 className={styles.title}>{t(`topics.${topicID}.title`)}</h2>
                             <p
                                 className={cn(styles.subtitle, 'bg-clip-text')}

@@ -150,7 +150,9 @@ html {
 
 body {
     display: flex;
-    height: 100dvh;
+    /* svh plutôt que dvh : sur mobile, la page (dont le Hero, qui en prend toute la hauteur) ne bouge pas
+       quand la barre d'adresse se masque ou réapparaît au scroll */
+    height: 100svh;
     width: 100vw;
     max-width: 100vw;
     background-color: var(--color-bg);

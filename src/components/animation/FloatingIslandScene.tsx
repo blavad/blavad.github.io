@@ -10,7 +10,9 @@ import { createContext, PropsWithChildren, ReactNode, useContext, useEffect, use
 import { cn } from '~/lib/utils';
 
 const BG_WIDTH = 95; // Largeur de la scène (vw)
-const BG_HEIGHT = 82; // Hauteur de la scène (dvh)
+// Hauteur de la scène (svh : hauteur d'écran avec la barre d'adresse affichée). Contrairement à dvh,
+// elle ne change pas quand la barre se masque au scroll sur mobile, ce qui redimensionnerait les îles (cqh)
+const BG_HEIGHT = 84;
 
 export type SkyPhase = 'dawn' | 'day' | 'dusk' | 'night';
 
@@ -167,12 +169,12 @@ export function FloatingIslandScene({
             style={{ containerType: 'size' }}
             initial={{
                 width: `${BG_WIDTH}vw`,
-                height: `${BG_HEIGHT}dvh`,
+                height: `${BG_HEIGHT}svh`,
                 borderRadius: '1.5rem',
             }}
             animate={{
                 width: fullscreen ? '100vw' : `${BG_WIDTH}vw`,
-                height: fullscreen ? '100dvh' : `${BG_HEIGHT}dvh`,
+                height: fullscreen ? '100svh' : `${BG_HEIGHT}svh`,
                 borderRadius: fullscreen ? '0' : '1.5rem',
             }}
             transition={{ duration: 0.4, ease: 'easeInOut' }}
