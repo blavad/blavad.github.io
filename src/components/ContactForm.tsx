@@ -218,7 +218,7 @@ function ContactForm({ className, color, defaultTopic, onTopicChange }: ContactF
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
                     className={cn(
-                        'fixed bottom-5 left-[50%] mt-4 -translate-x-[50%] rounded-3xl border-2 bg-white/75 px-4 py-2 backdrop-blur-sm',
+                        'fixed bottom-5 left-[50%] mt-4 -translate-x-[50%] rounded-3xl border-2 bg-surface/75 px-4 py-2 backdrop-blur-sm',
                         status === 'success' ? 'text-success' : 'text-error'
                     )}
                 >

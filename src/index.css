@@ -74,6 +74,8 @@
     --color-info: var(--color-blue);
     --color-bg: var(--color-white);
     --color-text: var(--color-black2);
+    /* Fond des cartes, boutons et champs (sombre en mode obscure, contrairement à --color-white) */
+    --color-surface: var(--color-white);
 
     --color-gradient-black: linear-gradient(-40deg, var(--color-black), var(--color-white));
     --color-gradient-white: linear-gradient(-40deg, var(--color-white), var(--color-black));
@@ -110,6 +112,15 @@
     --border-l: 20px;
     --border-xl: 40px;
     --border-xxl: 64px;
+}
+
+/* Mode obscure : classe posée sur <html> (voir useThemeConfig et le script de index.html).
+   `--color-white` reste blanc : il sert aussi au texte et aux éléments posés sur le ciel. */
+html.dark {
+    color-scheme: dark;
+    --color-bg: #110d26;
+    --color-text: #e6e3ef;
+    --color-surface: #1e1938;
 }
 
 html {
@@ -228,7 +239,7 @@ body {
     input,
     textarea,
     select {
-        @apply text-base rounded-2xl border-3 border-text/50 bg-white/75 min-h-10 px-4;
+        @apply text-base rounded-2xl border-3 border-text/50 bg-surface/75 min-h-10 px-4;
         font-family: var(--font-sans);
 
         &:hover {
@@ -341,7 +352,7 @@ body {
 
 
 .bg-gradient-pink {
-    background: linear-gradient(var(--color-pink-t25), var(--color-white));
+    background: linear-gradient(var(--color-pink-t25), var(--color-bg));
 }
 
 .text-gradient-pink {

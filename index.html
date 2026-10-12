@@ -62,6 +62,12 @@
   <link rel="preload" href="/src/assets/img/village-low-poly-v2.webp" as="image" type="image/webp" fetchpriority="high" />
 
   <title>David Albert</title>
+  <!-- Mode obscure enregistré : appliqué avant le premier rendu pour éviter un flash clair (voir useThemeConfig) -->
+  <script>
+    try {
+      if (localStorage.getItem('configs/dark') === 'true') document.documentElement.classList.add('dark');
+    } catch (e) { }
+  </script>
 </head>
 
 <body>

@@ -96,7 +96,7 @@ export function MusicPlayer({
                         style={{ background: LOW_POLY_BACKGROUND }}
                     >
                         <button
-                            className="absolute -top-3 -right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white shadow-md"
+                            className="absolute -top-3 -right-3 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-surface shadow-md"
                             onClick={onClose}
                             aria-label={t('topics.music.closePlayer')}
                         >

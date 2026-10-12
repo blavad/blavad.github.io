@@ -12,7 +12,7 @@ const buttonVariants = cva(
                 default: 'text-white shadow-sm shadow-black2/20 cursor-pointer',
                 colored: 'text-white shadow-sm shadow-black2/20 cursor-pointer',
                 outline:
-                    'border rounded-3xl border-input border-3 border-black2 bg-white/75 backdrop-blur-sm shadow-sm shadow-black/5 hover:bg-white/25 cursor-pointer',
+                    'border rounded-3xl border-input border-3 border-text bg-surface/75 backdrop-blur-sm shadow-sm shadow-black/5 hover:bg-surface/25 cursor-pointer',
                 secondary:
                     'bg-secondary text-secondary-foreground shadow-sm shadow-black/5 hover:bg-secondary/80',
                 link: 'text-primary underline-offset-4 hover:underline',

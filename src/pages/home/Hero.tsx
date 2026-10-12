@@ -38,6 +38,7 @@ import useActionOnScroll from '~/hooks/useActionOnScroll';
 import { CardDirection, HomeContent } from './HomeContent';
 import { HeroTitle, SkyHint } from './HeroTitle';
 import { useMenu } from '~/stores/useMenu';
+import { useThemeConfig } from '~/stores/useThemeConfig';
 import { markHeroReady } from '~/stores/useLoading';
 
 // `card` : côtés vers lesquels s'ouvre la carte du sujet (sinon : au-dessus s'il y a la place, centrée)
@@ -157,8 +158,17 @@ const DAY_END_HOUR = 21;
 // Durée (en h) de l'aube au début du jour et du crépuscule à la fin
 const TWILIGHT_HOURS = 4;
 
-const getSkyPhase = (): SkyPhase => {
+// Mode obscure : pas de plein jour, les 24h sont découpées en 3x8h (matin, soir, nuit)
+const DARK_MORNING_START_HOUR = 6;
+const DARK_PHASE_HOURS = 12;
+const DARK_PHASES: SkyPhase[] = ['dusk', 'night']; // matin, soir, nuit
+
+const getSkyPhase = (dark: boolean): SkyPhase => {
     const hour = new Date().getHours();
+    if (dark) {
+        const elapsed = (hour - DARK_MORNING_START_HOUR + 24) % 24;
+        return DARK_PHASES[Math.floor(elapsed / DARK_PHASE_HOURS)];
+    }
     if (hour < DAY_START_HOUR || hour >= DAY_END_HOUR) return 'night';
     if (hour < DAY_START_HOUR + TWILIGHT_HOURS) return 'dawn';
     if (hour >= DAY_END_HOUR - TWILIGHT_HOURS) return 'dusk';
@@ -168,7 +178,8 @@ const getSkyPhase = (): SkyPhase => {
 function Hero() {
     const [currentTopicID, setCurrentTopicID] = useState('default');
     const [fullscreen, setFullscreen] = useState(false);
-    const [skyPhase, setSkyPhase] = useState(getSkyPhase);
+    const dark = useThemeConfig((state) => state.dark);
+    const [skyPhase, setSkyPhase] = useState(() => getSkyPhase(dark));
     const [musicOpen, setMusicOpen] = useState(false);
     const closeMusic = useCallback(() => setMusicOpen(false), []);
     const { isOpen, open, variant, close } = useMenu();
@@ -212,7 +223,6 @@ function Hero() {
 
     useActionOnScroll(closeFullscreen);
 
-    // Fait évoluer le ciel si la page reste ouverte au passage de l'heure
     // Signale à l'écran de chargement que le premier écran peut s'afficher (images préchargées depuis index.html)
     useEffect(() => {
         Promise.all(
@@ -228,10 +238,12 @@ function Hero() {
             .finally(markHeroReady);
     }, []);
 
+    // Fait évoluer le ciel au passage de l'heure, et aussitôt à l'activation du mode obscure
     useEffect(() => {
-        const interval = setInterval(() => setSkyPhase(getSkyPhase()), 60_000);
+        setSkyPhase(getSkyPhase(dark));
+        const interval = setInterval(() => setSkyPhase(getSkyPhase(dark)), 60_000);
         return () => clearInterval(interval);
-    }, []);
+    }, [dark]);
 
     useEffect(() => {
         if (isOpen && variant === 'hero' && !fullscreen) {

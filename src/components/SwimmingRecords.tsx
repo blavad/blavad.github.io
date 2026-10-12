@@ -124,7 +124,7 @@ function SwimmingRecords() {
                                 </thead>
                                 <tbody>
                                     {records.map((record) => (
-                                        <tr key={record.event} className="border-t border-black/5">
+                                        <tr key={record.event} className="border-t border-text/10">
                                             <td className="py-2 pr-4">{eventName(record.event)}</td>
                                             <td className="py-2 pr-4 font-bold">
                                                 {record.resultsUrl ? (

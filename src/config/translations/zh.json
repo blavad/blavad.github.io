@@ -5,7 +5,8 @@
         "contact": "联系",
         "home": "首页",
         "unboared": "Unboared",
-        "menu": "菜单"
+        "menu": "菜单",
+        "darkMode": "暗色模式"
     },
     "hero": {
         "scrollHint": "+ 向下滚动了解更多 +",
