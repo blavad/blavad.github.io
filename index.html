@@ -55,6 +55,11 @@
     crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Police du texte : seules les graisses qui existent (300, 400, 700) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap" />
+  <!-- Images du Hero (ciel et île principale) : connues dès le HTML plutôt qu'après le chargement du JS -->
+  <link rel="preload" href="/src/assets/img/ciel_background.webp" as="image" type="image/webp" fetchpriority="high" />
+  <link rel="preload" href="/src/assets/img/village-low-poly-v2.webp" as="image" type="image/webp" fetchpriority="high" />
 
   <title>David Albert</title>
 </head>

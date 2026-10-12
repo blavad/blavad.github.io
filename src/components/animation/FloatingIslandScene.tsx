@@ -311,6 +311,8 @@ export function SceneLayer({
                     alt=""
                     draggable={false}
                     fetchPriority={priority ? 'high' : 'auto'}
+                    // Les calques masqués (ex. îlots sur mobile) ne sont alors jamais téléchargés
+                    loading={priority ? 'eager' : 'lazy'}
                 />
                 {/* Animations accrochées à l'image, positionnées en % de celle-ci, sous les `children`.
                     Le filtre de lumière est appliqué par chaque effet sur ses éléments animés plutôt qu'ici :

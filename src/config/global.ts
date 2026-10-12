@@ -1,4 +1,5 @@
-export const INITIAL_LOADING_DURATION = 1200; // Duration for menu animations in milliseconds
+// Au premier chargement de l'accueil, l'écran de chargement attend les images du Hero, sans dépasser cette durée (ms)
+export const INITIAL_LOADING_MAX_DURATION = 4000;
 export const LOADING_DURATION = 600; // Duration for menu animations in milliseconds
 export const MENU_ANIMATION_DURATION = 300; // Duration for menu animations in milliseconds
 

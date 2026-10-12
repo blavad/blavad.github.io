@@ -38,6 +38,7 @@ import useActionOnScroll from '~/hooks/useActionOnScroll';
 import { CardDirection, HomeContent } from './HomeContent';
 import { HeroTitle, SkyHint } from './HeroTitle';
 import { useMenu } from '~/stores/useMenu';
+import { markHeroReady } from '~/stores/useLoading';
 
 // `card` : côtés vers lesquels s'ouvre la carte du sujet (sinon : au-dessus s'il y a la place, centrée)
 type HeroButton = { variant: Topics; className: string; card?: CardDirection };
@@ -212,6 +213,21 @@ function Hero() {
     useActionOnScroll(closeFullscreen);
 
     // Fait évoluer le ciel si la page reste ouverte au passage de l'heure
+    // Signale à l'écran de chargement que le premier écran peut s'afficher (images préchargées depuis index.html)
+    useEffect(() => {
+        Promise.all(
+            [skyImgWebp, islandImg].map((src) => {
+                const img = new Image();
+                img.src = src;
+                return img.decode();
+            })
+        )
+            .catch(() => {
+                // Image en erreur : inutile de faire attendre davantage
+            })
+            .finally(markHeroReady);
+    }, []);
+
     useEffect(() => {
         const interval = setInterval(() => setSkyPhase(getSkyPhase()), 60_000);
         return () => clearInterval(interval);
