@@ -224,6 +224,17 @@ function Hero() {
 
     useActionOnScroll(closeFullscreen);
 
+    // Échap quitte le plein écran, une fois la carte ou le lecteur refermés (ils gèrent eux-mêmes Échap)
+    const panelOpen = currentTopicID !== 'default' || musicOpen;
+    useEffect(() => {
+        if (!fullscreen || panelOpen) return;
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') closeFullscreen();
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [fullscreen, panelOpen]);
+
     // Signale à l'écran de chargement que le premier écran peut s'afficher (images préchargées depuis index.html)
     useEffect(() => {
         Promise.all(
