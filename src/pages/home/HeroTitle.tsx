@@ -32,7 +32,7 @@ export function HeroTitle({
             )}
         >
             <motion.h1
-                className="text-3xl leading-none font-bold tracking-tight sm:text-4xl"
+                className="text-2xl leading-none font-bold sm:text-3xl"
                 style={{ textShadow: SKY_TEXT_SHADOW }}
                 initial={{ opacity: 0, y: -12 }}
                 animate={{ opacity: 1, y: 0 }}
